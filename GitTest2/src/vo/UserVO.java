@@ -7,7 +7,7 @@ public class UserVO {
 	private String user_id;
 	private String user_pw;
 	private String user_name;
-	private int user_age;
+	private Date user_birth;
 	private Date user_joindate;
 	private String admin_yesno;
 	
@@ -29,11 +29,11 @@ public class UserVO {
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-	public int getUser_age() {
-		return user_age;
+	public Date getUser_birth() {
+		return user_birth;
 	}
-	public void setUser_age(int user_age) {
-		this.user_age = user_age;
+	public void setUser_age(Date user_birth) {
+		this.user_birth = user_birth;
 	}
 	public Date getUser_joindate() {
 		return user_joindate;
