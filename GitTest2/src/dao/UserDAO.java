@@ -35,7 +35,6 @@ public class UserDAO {
 			}else {
 				System.out.println("db연결 실패");
 			}
-			
 		} catch (ClassNotFoundException e) {
 			System.out.println("클래스파일 로딩실패");
 			e.printStackTrace();
@@ -44,7 +43,6 @@ public class UserDAO {
 		}		
 		
 	}
-	
 	public void close() {
 		try {
 			if(rs != null) {
@@ -60,7 +58,6 @@ public class UserDAO {
 			// TODO: handle exception
 		}
 	}
-	
 	public UserVO login(String id, String pw) {
 		connect();
 		
@@ -96,17 +93,29 @@ public class UserDAO {
 		connect();
 		
 		try {
-			String sql="insert to into tbl_users values(?,?,?,?,?,?,?,?,?)";
-			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, user.getUser_id());
-			psmt.setString(2, user.getUser_pw());
-			psmt.setString(3, user.getUser_nick());
-			psmt.setString(4, user.getUser_name());
-			psmt.setString(5, user.getUser_birth());
-			psmt.setString(6, user.getUser_sex());
-			psmt.setString(7, user.getUser_phone());
 			
-			cnt =psmt.executeUpdate();
+			String sql="select * from tbl_user_nicknamegen where user_id = null";
+				psmt=conn.prepareStatement(sql);
+			String nickName = rs.getNString(2);
+			
+			sql="insert to into tbl_users values(?,?,?,?,?,?,?,?,?)";
+			
+				psmt=conn.prepareStatement(sql);
+			
+				psmt.setString(1, user.getUser_id());
+				psmt.setString(2, user.getUser_pw());
+			if(user.getUser_nick()==null) {
+				psmt.setNString(3, nickName);
+			}else {
+				psmt.setString(3, user.getUser_nick());
+			};
+				psmt.setString(4, user.getUser_name());
+				psmt.setString(5, user.getUser_birth());
+				psmt.setString(6, user.getUser_sex());
+				psmt.setString(7, user.getUser_phone());
+			
+			cnt=psmt.executeUpdate();
+			
 			if(cnt>0) {
 				System.out.println("가입성공");				
 			}
@@ -127,9 +136,13 @@ public class UserDAO {
 		connect();
 		
 		try {
-			String sql="update tbl_users set user_pw=?, user_nickname=?"
-					+ "user_name=?, user_birth=?,user_sex=?,"
-					+ "user_phone=? where user_id=?";
+			String sql="update tbl_users set user_pw=?, "
+					+ "user_nickname=?"
+					+ "user_name=?, "
+					+ "user_birth=?,"
+					+ "user_sex=?,"
+					+ "user_phone=? "
+					+ "where user_id=?";
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, user.getUser_pw());
 			psmt.setString(2, user.getUser_nick());

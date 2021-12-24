@@ -89,7 +89,7 @@ body > main > section > form > div.btn-login > button{
 }
 
     </style>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="asset/js/jquery-3.6.0.min.js"></script>
     <title>회원가입</title>
 </head>
 <body>

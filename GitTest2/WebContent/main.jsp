@@ -29,7 +29,7 @@
         }
        
         #banner{
-            background-image: url('/project2/WebContent/asset/banner01.jpg');
+            background-image: url('asset/banner01.jpg');
             height: 400px;
             -webkit-background-size: cover;
             -moz-background-size: cover;
@@ -116,7 +116,7 @@
     
     <%@include file="footer.jsp" %>
     <!-- ------------------------------------------------------------------------ -->
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="asset/js/jquery-3.6.0.min.js"></script>
     <script>
         
         let option ={  //이미지 주소 딕셔너리

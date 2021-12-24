@@ -103,7 +103,7 @@ body > main > section > div.forgot>a{
 }
     </style>
     <title>로그인</title>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="asset/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <main>

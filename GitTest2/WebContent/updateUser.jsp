@@ -97,7 +97,7 @@ body > main > section > form > div.btn-login > button{
 
     </style>
     <title>회원정보수정</title>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="asset/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <main>
