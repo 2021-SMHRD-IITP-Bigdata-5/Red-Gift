@@ -6,7 +6,9 @@ public class NutriClassesVo {
 	private int pos;
 	private int neg;
 	
-	
+	public NutriClassesVo() {
+		
+	}
 	public NutriClassesVo(String nclass, int sat, int pos, int neg) {
 		super();
 		this.nclass = nclass;

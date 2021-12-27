@@ -103,36 +103,38 @@ body > main > section > form > div.btn-login > button{
     <main>
         <section class="Login-from">
             <th><h1><label for="pw-input-text">회원정보수정</label></h1></th>
-            <form action="UpdateCon.do" method="post">
+            <form action="Update.do" method="post">
                 <table>
                 <div class="infor">
                     <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->
                     <br>
                     <tr>
-                        <td><label for="pw-input-text"></label></td>
+                        <td><label for="pw"></label></td>
                     </tr>
                     <tr>
-                        <td><input type="password" id="pw-input-text" name="pw" placeholder="비밀번호수정"></td>
+                        <td><input type="password" id="" name="pw" placeholder="비밀번호수정"></td>
                     </tr>
                     <tr>
-                        <td><input type="text" id="pw-input-text" name="nick" placeholder="닉네임수정"></td>
+                        <td><input type="text" id="" name="nick" placeholder="닉네임수정"></td>
                     </tr>
                     <tr>
-                        <td><input type="text" id="pw-input-text" name="name" placeholder="이름수정"></td>
+                        <td><input type="text" id="" name="name" placeholder="이름수정"></td>
                     </tr>
                     <tr align="center">
                         <td style="height: 30px;"><a id="a1"  style="width : 55%; height: 15px;">생일<input type="date"></a></td>
                     </tr>
                     <tr align="center">
-                        <td><a id="a2">남<input type="radio" name="gender"  style="width : 10%; height: 15px;"></a>
-                        <a id="a2" >여<input type="radio" name="gender" style="width : 10%; height: 15px;"></a></td>
+                        <td>
+                        <a id="a2">남<input type="radio" name="gender"  style="width : 10%; height: 15px;"></a>
+                        <a id="a2" >여<input type="radio" name="gender" style="width : 10%; height: 15px;"></a>
+                        </td>
                     </tr>
                     <tr>
                         
                         <!-- <input type="text" id="pw-input-text" name="user_sex" placeholder="성별"> -->
                     </tr>
                     <tr>
-                        <td><input type="text" id="pw-input-text" name="phone" placeholder="폰번호수정"></td>
+                        <td><input type="text" id="" name="phone" placeholder="폰번호수정"></td>
                     </tr>
                 </table>
 

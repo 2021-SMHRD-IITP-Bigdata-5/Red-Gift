@@ -1,9 +1,9 @@
 package service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,23 +11,19 @@ import javax.servlet.http.HttpSession;
 import dao.UserDAO;
 import inter.command;
 
-@WebServlet("/LoginService")
-public class LoginService extends HttpServlet implements command {
-	private static final long serialVersionUID = 1L;
-
+public class CheckUserIdService implements command{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String id = request.getParameter("inputEmail");
 		UserDAO dao = new UserDAO();
-		HttpSession session = request.getSession();
-		session.setAttribute("uservo", dao.login(id, pw));
-		
-		
-		return "main.jsp";
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();	
+		out.print(dao.CheckUserId(id));
+		System.out.println(dao.CheckUserId(id));
+		return null;
 	}
 
 }

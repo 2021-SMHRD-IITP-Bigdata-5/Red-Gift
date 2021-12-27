@@ -8,6 +8,12 @@
 <title>Insert title here</title>
 </head>
 <style>
+@font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
+@font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
+@font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
+@font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
+
+
 body {
 	padding-top: 70px;
 }
@@ -16,10 +22,13 @@ header {
 	background: #e6e6e6;
 	height: 70px;
 	position: fixed;
-	/*opacity: 0.9;*/ top : 0;
+	opacity: 0.8;
+	top : 0;
 	transition: top 0.3s ease-in-out;
 	width: 100%;
 	top: 0;
+	font-family:'NanumSquareBold';
+	font-size: 18px;
 }
 
 .nav-up {
@@ -40,19 +49,23 @@ nav {
 	padding: 5px 5px 5px 5px;
 }
 
-.menu>li>a {
+.menu>li>a, .logo>h1>a{
 	text-decoration: none;
-	font-family: 'Open Sans', arial, sans-serif;
-	color: rgba(41, 41, 41, 0.65);
+	color: rgba(41, 41, 41, 0.8);
 	font-weight: 700;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
 }
 
-.menu>li>a:hover {
-	font-size: 18px;
-	color: rgba(41, 41, 41, 1.65);
+.menu>li>a:hover{
+	font-size: 20px;
+	color: crimson;
+    opacity:0.7;;
+}
+.logo>h1>a:hover {
+	color: crimson;
+	opacity:0.7;
 }
 </style>
 <body>
@@ -62,15 +75,17 @@ nav {
 	<header class="nav-down">
         <nav id="gnb">
             <div class="logo">
-                <h1 href="navber_red_logo">스레기</h1><!--클릭시 메인 바로가기-->
+                <h1><a href="main.jsp">빨간약기프티콘</a></h1>
             </div>
             <div class="menu">
-                <li><a href="#" onClick="">추천</a></li>
-                <li><a href="#" onClick="">게시판</a></li>
-                <li><a href="myPage.jsp" onClick="">마이페이지</a></li>
+                <li><a href="main.jsp" onClick="">선물고르기</a></li>
+                <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
                 
                 <%if(uservo==null){ %>
                 <li><a href="login.jsp" onClick="">로그인</a></li>
+                <%}else{ %>
+                <li><a href="myPage.jsp" onClick="">마이페이지</a></li>
+                <li><a href="LogOut.do" onClick="">로그아웃</a></li>
                 <%} %>
             </div>
         </nav>

@@ -11,12 +11,21 @@ footer{
 width: 100%;
 height:50px;
 background-color:#e6e6e6;
+opacity:0.9;
 }
+footer>div{
+float:right;
+}
+
 </style>
 <body>
 <footer>
 	<div>
-	<p>푸터영역</p>
+                <a href="kakao1"><img src="asset/img/icon-kakao-talk.png" width="30" height="30"></a>
+                <a href="kakao2"><img src="asset/img/free-icon-instagram.png" width="30" height="30"></a>
+                <a href="kakao3"><img src="asset/img/icon-google.png" width="30" height="30"></a>
+                <a href="kakao4"><img src="asset/img/free-icon-youtube.png" width="30" height="30"></a>
+
 	</div>
 </footer>
 

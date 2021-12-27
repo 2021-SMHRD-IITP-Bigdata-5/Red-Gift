@@ -13,9 +13,6 @@ import inter.command;
 
 @WebServlet("/LogoutService")
 public class LogoutService extends HttpServlet implements command{
-	private static final long serialVersionUID = 1L;
-
-
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)

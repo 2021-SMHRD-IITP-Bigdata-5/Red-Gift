@@ -11,6 +11,11 @@
         header{
             padding-left: 5%;
         }
+        body{
+            display: block;
+            align-items: center;
+            overflow-x: hidden;
+        }
         section{
             padding-left: 5%;
             padding-bottom: 5%;
@@ -39,20 +44,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navber">
-            <div class="navber_logo">
-                <h1 href="navber_red_logo">스레기</h1><!--클릭시 메인 바로가기-->
-            </div>
-            <!--1_1.헤더메뉴-->
-            <div class="menu">
-                <li><a href="pick">추천</a></li>
-                <li><a href="FAQ">게시판</a></li>
-                <li><a href="mypage">마이페이지</a></li>
-                <li><a href="login">로그인</a></li>
-            </div>
-        </nav>
-    </header>
+    <%@include file="gnb.jsp" %>
 <section>
     <table>
         <thead>
@@ -97,6 +89,6 @@
 </section>   
 
 
-
+	<%@include file="footer.jsp" %>
 </body>
 </html>

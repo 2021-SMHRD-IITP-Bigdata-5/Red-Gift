@@ -1,3 +1,4 @@
+<%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,37 +8,48 @@
 <title>Insert title here</title>
 </head>
 <style>
-/*test view*/
-
-/*
-로그인 세션을 확인하고 이페이지를 로딩
-
-*/
-body{
-display: block;
-align-items: center;
-}
-section{
-display: flex;
-justify-content: center;
-
-background-color: gray;
-height:500px;
-width:500px;
-}
-
-<</style>
+</style>
 <body>
-	<%@include file="gnb.jsp" %>
-	result2 page
-	<section name="classView">
+
+<%
+	UserVO user = (UserVO)session.getAttribute("uservo");
+	String choice=null;
+	Cookie[] cookie = request.getCookies();	
+	for(Cookie c : cookie){
+		if(c.getName().equals("choice")){
+			choice=c.getValue();
+		}
+	}
+	System.out.print("선택타입은:"+choice);
+%>
+
+	<section class="message">
 	
+		<p>
+		<%=user.getUser_nick()%>님을 위한 BEST제안은 ?
+		</p>
 	
 	</section>
-	<section name="itemsView">
-	
-	
+	<section class="classView">
+		<div>
+			<div>
+			<%=choice%>
+			제안3영역
+			<img src="asset/img/cv.png" />
+			</div>
+		</div>
 	</section>
-	<%@include file="footer.jsp" %>
+	<section class="itemsView">
+		<div>
+			<div>
+			<%=choice%>
+			아이템비교 영역
+			<img src="asset/img/iv.png" />
+			</div>	
+		</div>
+	</section>
 </body>
+<script src="asset/js/jquery-3.6.0.min.js"></script>
+
+
 </html>

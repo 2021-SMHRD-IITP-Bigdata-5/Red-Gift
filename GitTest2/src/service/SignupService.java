@@ -23,27 +23,25 @@ public class SignupService extends HttpServlet implements command {
 		request.setCharacterEncoding("UTF-8");
 		
 		String id= request.getParameter("id");
-		String pw=request.getParameter("pw");
-		String nick=request.getParameter("nickname");
-		String name=request.getParameter("name");
-		String birth=request.getParameter("brith");
-		String gender= request.getParameter("gender");
-		String phone =request.getParameter("phone");
+		String pw= request.getParameter("pw");
+		String nick= request.getParameter("nickname");
+		String name= request.getParameter("name");
+		String birth= request.getParameter("brith");
+		String sex= request.getParameter("gender");
+		String phone= request.getParameter("phone");
 		
-		UserVO uservo = new UserVO(id, pw, nick, name, birth, gender, phone);
+		UserVO uservo = new UserVO(id, pw, nick, name, birth, sex, phone);
 		UserDAO dao = new UserDAO();
-		dao.signup(uservo);
+		dao.signUp(uservo);
 		
 		String nextpage="";
 		
-		if (dao.signup(uservo)>0) {
+		if (dao.signUp(uservo)>0) {
 			nextpage = "main.jsp";
 		}
 		else {
 			
 		}
-		
-		
 		return nextpage;
 	}
 

@@ -109,7 +109,8 @@ body > main > section > div.forgot>a{
     <main>
         <section class="Login-from">
             <h1><label for="id-input-text">로그인</label></h1>
-            <form action="loginCon" method="post">
+            
+            <form action="LogInGnb.do" method="post">
                 <div class="infor">
                     <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->
                     <input type="text" id="id-input-text" name="id" placeholder="red-gif@email.com">
@@ -118,7 +119,7 @@ body > main > section > div.forgot>a{
                     <input type="password" id="pw-input-text" name="pw" placeholder="비밀번호">
                 </div>
                 <div class="btn-login">
-                    <button type="submit" onClick="LoginCon.do">로그인</button>
+                    <button type="submit">로그인</button>
                 </div>
             </form>
             <div class="forgot">
