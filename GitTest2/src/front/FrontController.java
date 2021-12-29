@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import inter.command;
 import service.CheckUserIdService;
+import service.DeleteService;
 import service.LoginService;
 import service.LogoutService;
 import service.SignupService;
@@ -57,6 +58,10 @@ public class FrontController extends HttpServlet {
 	
 		if(command.equals("Update.do")) {
 			com= new UpdateService();
+			nextpage=com.execute(request, response);
+		}
+		if(command.equals("Delete.do")) {
+			com=new DeleteService();
 			nextpage=com.execute(request, response);
 		}
 		

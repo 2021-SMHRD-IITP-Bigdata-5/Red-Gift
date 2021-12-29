@@ -264,6 +264,25 @@ public class UserDAO {
 		return arr;
 	}
 	//---------------------------------------------------------------
+
+	public int Delete(String id) {
+		connect();
+		try {
+			String sql="Delete from tbl_user where id=?";
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			cnt=psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
+		
+	}
+
+	//---------------------------------------------------------------
 //	public void insertMyPage() {
 //		connect();
 //		

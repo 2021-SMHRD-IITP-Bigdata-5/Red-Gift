@@ -8,7 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
    <%
@@ -31,12 +34,19 @@
             <div>
             	타입<%=choice %>
 				제안1영역
-				<img src="asset/img/rv1.png" />
+				
+				<div>
+				<canvas  id="myChartOne" width="300" height="300"></canvas>
+				</div>
+				
             </div>
             <div>
             	타입<%=choice %>
 				제안2영역
-				<img src="asset/img/rv2.png" />
+            <div>
+				<canvas  id="myChartOne2" width="300" height="300"></canvas>
+            </div>
+           
             </div>
         </div>
     </section>
@@ -197,10 +207,90 @@
     })
     
  
-    
+        let myChartOne = document.getElementById('myChartOne').getContext('2d');
+        //차트 오브젝트 생성
+        let barChert = new Chart(myChartOne, {
+            //차트에 들어갈 타입쓰기
+            type : 'doughnut', //bar바, pie파이, line라인, doughnut도넛, polarArea
+            data: {
+        labels: ['긍정', '부정'],
+        datasets: [{
+            label: '# of Votes',
+            data: [50, 50],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.4)',
+                'rgba(54, 162, 235, 0.4)',
+                // 'rgba(255, 206, 86, 0.4)',
+                // 'rgba(75, 192, 192, 0.4)',
+                // 'rgba(153, 102, 255, 0.4)',
+                // 'rgba(255, 159, 64, 0.4)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                // 'rgba(255, 206, 86, 1)',
+                // 'rgba(75, 192, 192, 1)',
+                // 'rgba(153, 102, 255, 1)',
+                // 'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth:1
+            
+          
+        }]
+    },
+    options: {
+    	responsive : false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+       
+     
         
-        
-        
+        let myChartOne2 = document.getElementById('myChartOne2').getContext('2d');
+        //차트 오브젝트 생성
+        let barChert2 = new Chart(myChartOne2, {
+            //차트에 들어갈 타입쓰기
+            type : 'doughnut', //bar바, pie파이, line라인, doughnut도넛, polarArea
+            data: {
+        labels: ['긍정', '부정'],
+        datasets: [{
+            label: '# of Votes',
+            data: [50, 50],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.4)',
+                'rgba(54, 162, 235, 0.4)',
+                // 'rgba(255, 206, 86, 0.4)',
+                // 'rgba(75, 192, 192, 0.4)',
+                // 'rgba(153, 102, 255, 0.4)',
+                // 'rgba(255, 159, 64, 0.4)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                // 'rgba(255, 206, 86, 1)',
+                // 'rgba(75, 192, 192, 1)',
+                // 'rgba(153, 102, 255, 1)',
+                // 'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth:1
+            
+          
+        }]
+    },
+    options: {
+    	responsive : false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+        myChartOne2.destroy();
         
     </script>
 
