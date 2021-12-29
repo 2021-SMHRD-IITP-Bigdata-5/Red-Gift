@@ -6,8 +6,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+    <title>마이페이지</title>
+    <style> background-image: url('img/배경/이미지a-3.jpg');
+    *{
+    margin: 0; padding: 0px; box-sizing: border-box;
+    }
+	
+    
+    /**/
         header{
             padding-left: 5%;
         }
@@ -15,6 +21,7 @@
             display: block;
             align-items: center;
             overflow-x: hidden;
+            
         }
         section{
             padding-left: 5%;
@@ -37,10 +44,23 @@
             text-decoration:none;
             color:black;
         }
-        table{ border: 1px solid; border-collapse: collapse; width: 500px; height: 400px; margin-bottom:10px;}
+        table{ border: 10px solid; border-collapse: collapse; width: 500px; height: 400px; margin-bottom:10px;
+        justify-content: space-between;/*(정렬).set1중심축기준_space-between간격*/
+    align-items: center;/*(정렬).set2_교차축의 중앙에 정렬 수직*/
+    margin: 0 auto;/*중앙정렬*/
+    /* font-size: 16px; */
+    /*박스색*/
+    background:mistyrose;
+    color: darkslategray;
+    padding: 50px;
+    border: 10px solid white;/*테두리 적용*/
+        
+        }
         table td{ border: 1px solid;}
         #nutricard{width:250px; height: 250px;}
         #memo{height: fit-content;}
+        
+        
     </style>
 </head>
 <body>
@@ -60,7 +80,7 @@
         </thead>
         <tbody>
             <tr>
-                <td id=nutricard> 영양제군 이미지 </td><td> 당시 만족도 정보</td>
+                <td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png" width="80" height="80"> <!--영양제군 이미지--></td><td> 당시 만족도 정보</td>
 
             </tr>
             <tr>

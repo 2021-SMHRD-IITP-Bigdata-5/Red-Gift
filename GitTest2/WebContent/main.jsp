@@ -19,21 +19,32 @@
             display: block;
             align-items: center;
             overflow-x: hidden;
+            background-color: #F7F7F7;
         }
         #banner{
-            background-image: url('asset/banner01.jpg');
+            
+            background-image: url('asset/img/배경/배경이미-01.jpg');
             height: 400px;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            padding: 100px 20px 5px 20px;
+            padding: 100px 200px 100px 20px;
+            background-size: contain;
+            background-repeat: no-repeat;/*이미지 반복방지*/
             
-            color: #d4d4d4;
+            background-color: white;
+            /*color: #d4d4d4;*/
             font-family:'NanumSquareLight';
             font-size: 20px;
             font-weight: bold;
             margin-top: 0;
+            
+            color: rgb(125, 14, 14);
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 0;
+            text-align:right;
         }
         section{
             padding: 5% 0% 0% 0%;
@@ -113,10 +124,32 @@
         	background-color: gray;
         	opacity:0.6;
     	}
+    /*직장인,수험생,부모님 이미지위에 글자쓰기*/
+    .choice {
+    position:relative;
+    }
+    .text1{
+    position:absolute;
+    left : 65px;
+    margin-left:auto;
+    bottom: 5px;
+    font-size : 25px;
+    }
 
+    .text2 {
+    position:absolute;
+    left : 110px;
+    bottom: 5px;
+    font-size : 25px;
+    }
 
 
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
 <body> 
 
@@ -138,16 +171,16 @@
     <section id="choiceSection">
         <div id="choiceArea">
             <div class="choice" onclick="change('1')">
-                <img id="op1" src="#" alt="1">
-                <p>선택1</p>
+                <img id="op1" src="asset/img/visit_img/직장인 (1).jpg" alt="1" width="300px" height="400px">
+                <p class="text2">직장인</p>
             </div>
             <div class="choice" onclick="change('2')">
-                <img id="op2" src="#" alt="2">
-                <p>선택1</p>
+                <img id="op2" src="asset/img/visit_img/수험생 (1).jpg" alt="2" width="300px" height="400px">
+                <p class="text1">수험생/고시생</p>
             </div>
             <div class="choice" onclick="change('3')">
-                <img id="op3" src="#" alt="3">
-                <p>선택1</p>
+                <img id="op3" src="asset/img/visit_img/부모님 (12).jpg" alt="3" width="300px" height="400px">
+                <p class="text2">부모님</p>
             </div>
         </div>
     </section>
@@ -158,46 +191,47 @@
     <script>
         
         let option ={  //이미지 주소 딕셔너리
-            '1':'#',
-            '2':'#',
-            '3':'#',
-            '11':'#',
-            '12':'',
-            '13':'',
-            '21':'',
-            '22':'',
-            '23':'',
-            '31':'',
-            '32':'',
-            '33':'',
-            '111':'',
-            '112':'',
-            '113':'',
-            '121':'',
-            '122':'',
-            '123':'',
-            '131':'',
-            '132':'',
-            '133':'',
-            '211':'',
-            '212':'',
-            '213':'',
-            '221':'',
-            '222':'',
-            '223':'',
-            '231':'',
-            '232':'',
-            '233':'',
-            '311':'',
-            '312':'',
-            '313':'',
-            '321':'',
-            '322':'',
-            '323':'',
-            '331':'',
-            '332':'',
-            '333':'',
-        }
+        		'1':'asset/img/visit_img/직장인 (1).jpg',
+                '2':'asset/img/visit_img/수험생 (1).jpg',
+                '3':'asset/img/visit_img/부모님 (12).jpg',
+                '11':'asset/img/visit_img/직장인 (2).jpg',
+                '12':'asset/img/visit_img/수험생 (2).jpg',
+                '13':'asset/img/visit_img/부모님 (2).jpg',
+                '21':'asset/img/visit_img/직장인 (3).jpg',
+                '22':'asset/img/visit_img/수험생 (3).jpg',
+                '23':'asset/img/visit_img/부모님 (3).jpg',
+                '31':'asset/img/visit_img/직장인 (4).jpg',
+                '32':'asset/img/visit_img/수험생 (4).jpg',
+                '33':'asset/img/visit_img/부모님 (4).jpg',
+                '111':'asset/img/visit_img/직장인 (5).jpg',
+                '112':'asset/img/visit_img/수험생 (5).jpg',
+                '113':'asset/img/visit_img/부모님 (5).jpg',
+                '121':'asset/img/visit_img/직장인 (6).jpg',
+                '122':'asset/img/visit_img/수험생 (6).jpg',
+                '123':'asset/img/visit_img/부모님 (6).jpg',
+                '131':'asset/img/visit_img/직장인 (7).jpg',
+                '132':'asset/img/visit_img/수험생 (10).jpg',
+                '133':'asset/img/visit_img/부모님 (7).jpg',
+                '211':'asset/img/visit_img/직장인 (8).jpg',
+                '212':'asset/img/visit_img/수험생 (8).jpg',
+                '213':'asset/img/visit_img/부모님 (1).jpg',
+                '221':'asset/img/visit_img/직장인 (9).jpg',
+                '222':'asset/img/visit_img/수험생 (9).jpg',
+                '223':'asset/img/visit_img/부모님 (9).jpg',
+                '231':'asset/img/visit_img/직장인 (10).jpg',
+                '232':'asset/img/visit_img/수험생 (7).jpg',
+                '233':'asset/img/visit_img/부모님 (10).jpg',
+                '311':'asset/img/visit_img/직장인 (11).jpg',
+                '312':'asset/img/visit_img/수험생 (11).jpg',
+                '313':'asset/img/visit_img/부모님 (11).jpg',
+                '321':'asset/img/visit_img/직장인 (12).jpg',
+                '322':'asset/img/visit_img/수험생 (12).jpg',
+                '323':'asset/img/visit_img/부모님 (8).jpg',
+                '331':'asset/img/visit_img/직장인 (13).jpg',
+                '332':'asset/img/visit_img/수험생 (13).jpg',
+                '333':'asset/img/visit_img/부모님 (13).jpg',
+            
+            }
         var cnt=0;
         var a='';
         function change(n){
@@ -208,7 +242,7 @@
                 a='';
                 cnt=3;
             }else if(cnt<2){
-            $('#op1').attr('src', option[a]).attr('alt',a+'1')
+            $('#op1').attr('src', option[a+'1']).attr('alt',a+'1')
             $('#op2').attr('src', option[a+'2']).attr('alt',a+'2')
             $('#op3').attr('src', option[a+'3']).attr('alt',a+'3')
             cnt++;
