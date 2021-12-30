@@ -26,7 +26,7 @@ public class SignupService extends HttpServlet implements command {
 		String pw= request.getParameter("pw");
 		String nick= request.getParameter("nickname");
 		String name= request.getParameter("name");
-		String birth= request.getParameter("brith");
+		String birth= request.getParameter("birth");
 		String sex= request.getParameter("gender");
 		String phone= request.getParameter("phone");
 		
@@ -40,7 +40,7 @@ public class SignupService extends HttpServlet implements command {
 			nextpage = "main.jsp";
 		}
 		else {
-			
+			System.out.println("회원가입실패");
 		}
 		return nextpage;
 	}

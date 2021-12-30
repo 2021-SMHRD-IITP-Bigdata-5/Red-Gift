@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import inter.command;
+import page.GetMypage;
+import page.SetNutriChoice;
+import product.SetNutritions;
 import service.CheckUserIdService;
 import service.DeleteService;
 import service.LoginService;
@@ -64,6 +67,26 @@ public class FrontController extends HttpServlet {
 			com=new DeleteService();
 			nextpage=com.execute(request, response);
 		}
+		
+//------------------------마이페이지프론트--------------------------
+		
+		if(command.equals("SetRecommend.do")) {
+			com=new SetNutriChoice();
+		}
+		
+		if(command.equals("GetMypage.do")) {
+			com=new GetMypage();
+			nextpage=com.execute(request, response);
+		}
+		
+		if(command.equals("Nutritions.do")) {
+			com= new SetNutritions();
+			
+		}
+		
+		
+		
+		
 		
 		
 		if(nextpage!=null) response.sendRedirect(nextpage);

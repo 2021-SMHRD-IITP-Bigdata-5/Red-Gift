@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.catalina.User;
 
@@ -89,14 +90,14 @@ public class UserDAO {
 		connect();
 		
 		try {
-			String sql="insert into TBL_USERS("
-					+ "USER_ID,"
-					+ "USER_PW,"
-					+ "USER_NICKNAME,"
-					+ "USER_NAME,"
-					+ "USER_BIRTH,"
-					+ "USER_SEX,"
-					+ "USER_PHONE"
+			String sql="insert into tbl_users("
+					+ "user_id,"
+					+ "user_pw,"
+					+ "user_nickname,"
+					+ "user_name,"
+					+ "user_birth,"
+					+ "user_sex,"
+					+ "user_phone"
 					+ ") values(?, ?, ?, ?, ?, ?, ?)";
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, user.getUser_id());
