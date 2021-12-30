@@ -2,9 +2,9 @@ package vo;
 
 public class NutriChoicesVo {
 	private int choice;
-	private String nutri_class1;
-	private String nutri_class2;
-	private String nutri_class3;
+	private String nutri_class1; // 1¹ø
+	private String nutri_class2; // 2“¬
+	private String nutri_class3; // 3¹ø
 	
 	public NutriChoicesVo(String nutri_class1, String nutri_class2, String nutri_class3) {
 		

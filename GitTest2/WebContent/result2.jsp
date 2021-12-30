@@ -1,3 +1,4 @@
+<%@page import="vo.NutriChoicesVo"%>
 <%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -48,6 +49,8 @@
 			</div>	
 		</div>
 	</section>
+	<% %>
+	
 </body>
 <script src="asset/js/jquery-3.6.0.min.js"></script>
 
