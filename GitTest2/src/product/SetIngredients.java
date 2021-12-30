@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Connect;
 import dao.NutritionsDAO;
 import inter.command;
 import vo.NutriIngreVo;
@@ -31,11 +32,8 @@ public class SetIngredients extends HttpServlet implements command {
 		int cnt=0;
 		cnt =dao.SetIngredients(niv);
 		
-		if(cnt>0) {
-			System.out.println("데이터 추가 성공");
-		}else {
-			System.out.println("실패");
-		}
+		Connect con= new Connect();
+		con.check(cnt);
 		
 		
 		return null;

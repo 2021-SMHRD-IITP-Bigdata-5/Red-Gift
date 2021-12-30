@@ -7,12 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Connect {
-	
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
 	
 	public void connect() {
-		Connection conn = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 //			System.out.println("클래스파일로딩완료");
@@ -22,7 +21,7 @@ public class Connect {
 			String db_pw = "smhrd4";
 			conn= DriverManager.getConnection(url, db_id, db_pw);
 			if(conn!=null) {
-//				System.out.println("db연결 성공");
+				System.out.println("db연결 성공");
 			}else {
 				System.out.println("db연결 실패");
 			}
@@ -48,6 +47,16 @@ public class Connect {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+	}
+	
+	public void check(int cnt) {
+		if(cnt>0) {
+			System.out.println("데이터 추가 성공");
+		}else {
+			System.out.println("실패");
+		}
+		
+		
 	}
 	
 }

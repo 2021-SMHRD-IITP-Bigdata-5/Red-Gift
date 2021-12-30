@@ -28,6 +28,9 @@ public class MyPageVO {
 		this.user_id = user_id;
 		this.page_memo = page_memo;
 	}
+	
+	
+	
 	public int getPage_seq() {
 		return page_seq;
 	}

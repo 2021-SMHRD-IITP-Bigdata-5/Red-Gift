@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.catalina.User;
-
-import vo.NutriChoicesVo;
 import vo.NutriClassesVo;
 import vo.UserVO;
 
@@ -176,6 +174,7 @@ public class UserDAO {
 			
 			if(rs.next()&&pw.equals(rs.getString(2))) {
 				String getid=rs.getString(1); 
+				System.out.println(getid);//----------------
 				String getnick=rs.getString(3); 
 				String getname=rs.getString(4); 
 				String getbrith=rs.getString(5); 

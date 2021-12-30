@@ -24,10 +24,22 @@ public class SetNutriClass extends HttpServlet implements command {
     	int nutri_sat = Integer.parseInt(request.getParameter("nutri_sat"));
     	int nutri_pos = Integer.parseInt(request.getParameter("nutri_pos"));
     	int nutri_neg = Integer.parseInt(request.getParameter("nutri_neg"));
+    	String class_photo = request.getParameter("class_photo");
+    	String choice = (request.getParameter("choice"));
+    	int rank = Integer.parseInt(request.getParameter("rank"));
+    	
     	
     	MypageDAO dao = new MypageDAO();
-    	NutriClassesVo ncv = new NutriClassesVo(nutri_class, nutri_sat, nutri_pos, nutri_neg);
+    	NutriClassesVo ncv = new NutriClassesVo(nutri_class, nutri_sat, nutri_pos, nutri_neg, class_photo, choice, rank);
     	
+    	int cnt=0;
+    	cnt=dao.SetNutriClass(ncv);
+    	
+    	if(cnt>0) {
+    		System.out.println("데이터 추가 성공");
+    	}else {
+    		System.out.println("실패");
+    	}
     	
     	
     	
