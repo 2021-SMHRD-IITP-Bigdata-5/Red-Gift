@@ -24,11 +24,12 @@ header {
 	position: fixed;
 	opacity: 0.8;
 	top : 0;
-	transition: top 0.3s ease-in-out;
 	width: 100%;
-	top: 0;
 	font-family:'NanumSquareBold';
 	font-size: 18px;
+	transition: top 0.3s ease-in-out;
+	z-index:999;
+
 }
 
 .nav-up {
@@ -51,7 +52,6 @@ nav {
 
 .menu>li>a, .logo>h1>a{
 	text-decoration: none;
-	color: rgba(41, 41, 41, 0.8);
 	font-weight: 700;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-font-smoothing: antialiased;
@@ -63,11 +63,22 @@ nav {
 	color: crimson;
     opacity:0.7;;
 }
-.logo>h1>a:hover {
+.menu>li>a{
+color: rgba(41, 41, 41, 0.8);
+}
+/*로고 색*/
+.logo>h1>a {
+	font-size: 35px;
 	color: crimson;
 	opacity:0.7;
 }
+/*로고 위치*/
+.logo > h1 > a > img{
+	margin: 5px 0 0 0;
+	
+}
 </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <body>
 <%
 	UserVO uservo = (UserVO)session.getAttribute("uservo");
@@ -75,7 +86,8 @@ nav {
 	<header class="nav-down">
         <nav id="gnb">
             <div class="logo">
-                <h1><a href="main.jsp">빨간약기프티콘</a></h1>
+                <h1><a href="main.jsp"><img src="asset/img/icon_img/빨간약기프티콘.png"
+						width="60" height="60">빨간약기프티콘</a></h1>
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>

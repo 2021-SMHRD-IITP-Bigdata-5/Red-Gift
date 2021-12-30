@@ -7,19 +7,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>스레기</title>
+    <title>빨간약기프티콘</title>
     <style>
 @font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
 @font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
 @font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
 @font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
-        header{
-        }
+
         body{
             display: block;
             align-items: center;
             overflow-x: hidden;
-            background-color: #F7F7F7;
+            background-color: white;
         }
         #banner{
             
@@ -64,11 +63,12 @@
             width: 300px;
             height: 400px;
         }
+        /*차트바탕색*/
         .resultView>div>div{
             display: inline-block;
             width: 450px;
             height: 600px;
-            background-color: gray;
+            background-color: #f7f1e3;
         }
         .classView>div>div{
         	display: inline-block;
@@ -142,7 +142,6 @@
     bottom: 5px;
     font-size : 25px;
     }
-
 
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
