@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import org.apache.catalina.User;
 
+import vo.MyPageVO;
 import vo.NutriChoicesVo;
 import vo.NutriClassesVo;
 import vo.UserVO;
@@ -249,10 +250,10 @@ public class UserDAO {
 				psmt.setString(3,classC);
 			rs =psmt.executeQuery();
 		while(rs.next()) {
-			nutriClass.setNclass(rs.getNString(1));
-			nutriClass.setSat(Integer.parseInt(rs.getNString(1)));
-			nutriClass.setPos(Integer.parseInt(rs.getNString(2)));
-			nutriClass.setNeg(Integer.parseInt(rs.getNString(3)));
+				nutriClass.setNclass(rs.getNString(1));
+				nutriClass.setSat(Integer.parseInt(rs.getNString(1)));
+				nutriClass.setPos(Integer.parseInt(rs.getNString(2)));
+				nutriClass.setNeg(Integer.parseInt(rs.getNString(3)));
 			arr.add(nutriClass);
 		}
 		
@@ -263,20 +264,96 @@ public class UserDAO {
 		}
 		return arr;
 	}
+	public ArrayList<MyPageVO> getMypage(String id) {
+		connect();
+		MyPageVO mpvo = new MyPageVO();
+		ArrayList<MyPageVO> arr = new ArrayList<>();
+		try {
+			String sql="select * from TBL_MYPAGES where USER_ID=?";
+				psmt=conn.prepareStatement(sql);
+				psmt.setString(1, id);
+			rs =psmt.executeQuery();
+			
+			while(rs.next()) {
+				mpvo.setPage_seq(Integer.parseInt(rs.getNString(1)));
+				mpvo.setNutri_seq(Integer.parseInt(rs.getNString(2)));
+				mpvo.setNutri_class(rs.getNString(4));
+				mpvo.setClass_sat(rs.getNString(5));
+				mpvo.setPage_memo(rs.getNString(6));
+				arr.add(mpvo);
+			}
+	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return arr;
+	}
 	//---------------------------------------------------------------
+	public void getMyclass(String choice) {
+		connect();
+		try {
+			String sql="select * from TBL_NUTRI_CLASSES where CHOICE=? "
+					+ "order by RANK";
+				psmt=conn.prepareStatement(sql);
+				psmt.setNString(1, choice);
+			rs =psmt.executeQuery();
+				
+			rs.next();
+			String class1=rs.getString(1);
+			String class2=rs.getString(2);
+			String class3=rs.getString(3);
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+
+	}
+	/*
+	String sql="select b.CLASS_SAT, b.CLASS_POS, b.CLASS_NEG, b.CLASS_PHOTO "
+			+ "from TBL_NUTRI_CHOICES a"
+			+ "innner join TBL_NUTRI_CLASSES b"
+			+ "on a.NUTRI_CLASS1=b.NUTRI_CLASS"
+			+ "where a.CHOICE=?";
+	
+	String sql="select b.CLASS_SAT, b.CLASS_POS, b.CLASS_NEG, b.CLASS_PHOTO "
+			+ "from TBL_NUTRI_CHOICES a"
+			+ "innner join TBL_NUTRI_CLASSES b"
+			+ "on a.NUTRI_CLASS2=b.NUTRI_CLASS"
+			+ "where a.CHOICE=?";
+	
+	String sql="select b.CLASS_SAT, b.CLASS_POS, b.CLASS_NEG, b.CLASS_PHOTO "
+			+ "from TBL_NUTRI_CHOICES a"
+			+ "innner join TBL_NUTRI_CLASSES b"
+			+ "on a.NUTRI_CLASS3=b.NUTRI_CLASS"
+			+ "where a.CHOICE=?";
+	*/
+	
+	
+	
 //	public void insertMyPage() {
 //		connect();
 //		
 //		try {
 //			String sql="insert into TBL_MYPAGES("
-//					+ ""
-//					+ ""
-//					+ ""
-//					+ ""
-//					+ ") values()";
+//					+ "nutri_seq,"
+//					+ "nutri_class,"
+//					+ "my_class_sat,"
+//					+ "user_id"
+//					+ ") values("
+//					+ "?,"
+//					+ "?,"
+//					+ "?,"
+//					+ "?"
+//					+ ")";
 //				psmt=conn.prepareStatement(sql);
 //				psmt.setString(1,);
-//
+//				psmt.setString(2,);
+//				psmt.setString(3,);
+//				psmt.setString(4,);
 //			cnt=psmt.executeUpdate();
 //			
 //		} catch (SQLException e) {
@@ -284,7 +361,7 @@ public class UserDAO {
 //		}finally {
 //			close();
 //		}
-		
+//		
 		
 		
 		

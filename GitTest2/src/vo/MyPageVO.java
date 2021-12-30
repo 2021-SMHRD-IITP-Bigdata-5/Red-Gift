@@ -9,7 +9,22 @@ public class MyPageVO {
 	private Date reg_date;
 	private String user_id;
 	private String page_memo;
+	private String nutri_class;
+	private String class_sat;
 	
+	
+	public String getNutri_class() {
+		return nutri_class;
+	}
+	public void setNutri_class(String nutri_class) {
+		this.nutri_class = nutri_class;
+	}
+	public String getClass_sat() {
+		return class_sat;
+	}
+	public void setClass_sat(String class_sat) {
+		this.class_sat = class_sat;
+	}
 	public int getPage_seq() {
 		return page_seq;
 	}

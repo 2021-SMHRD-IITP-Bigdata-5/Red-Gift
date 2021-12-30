@@ -19,6 +19,7 @@ body {
 }
 
 header {
+	z-index:999;
 	background: #e6e6e6;
 	height: 70px;
 	position: fixed;
@@ -49,9 +50,18 @@ nav {
 	padding: 5px 5px 5px 5px;
 }
 
-.menu>li>a, .logo>h1>a{
+.menu>li>a {
 	text-decoration: none;
 	color: rgba(41, 41, 41, 0.8);
+	font-weight: 700;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+.logo>h1>a {
+	text-decoration: none;
+	color: crimson;
+	opacity:0.7;
 	font-weight: 700;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-font-smoothing: antialiased;
@@ -60,12 +70,18 @@ nav {
 
 .menu>li>a:hover{
 	font-size: 20px;
-	color: crimson;
-    opacity:0.7;;
+
 }
 .logo>h1>a:hover {
 	color: crimson;
 	opacity:0.7;
+}
+.logo {
+	display:flex;
+}
+.logo>div{
+	float:left;
+	padding:17px 0px 0px 5px;
 }
 </style>
 <body>
@@ -76,10 +92,12 @@ nav {
         <nav id="gnb">
             <div class="logo">
                 <h1><a href="main.jsp">빨간약기프티콘</a></h1>
+				<div><img src="asset/img/logosizetest.png"></div>
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
                 <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
+                
                 
                 <%if(uservo==null){ %>
                 <li><a href="login.jsp" onClick="">로그인</a></li>

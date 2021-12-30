@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스레기</title>
+    
     <style>
 @font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
 @font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
@@ -19,9 +20,10 @@
             display: block;
             align-items: center;
             overflow-x: hidden;
+            display: grid;
         }
         #banner{
-            background-image: url('asset/banner01.jpg');
+            background-image: url('asset/img/doyouwannathis.jpg');
             height: 400px;
             -webkit-background-size: cover;
             -moz-background-size: cover;
@@ -53,33 +55,124 @@
             width: 300px;
             height: 400px;
         }
-        .resultView>div>div{
+		#op1,#op2,#op3{
+			width:300px;
+			height:400px;
+		}
+		#op1:hover,#op2:hover,#op2:hover{
+		}
+		
+		
+		
+		
+        .resultView>div>div {
             display: inline-block;
             width: 450px;
             height: 600px;
-            background-color: gray;
+            /*background-color: gray;*/
         }
-        .classView>div>div{
+        .classView>div>div, .itemsView>div>div{
         	display: inline-block;
             width: 600px;
-            height: 400px;
-            background-color: gray;
+            height: 600px;
         }
-        .itemsView>div>div{
-        	display: inline-block;
-            width: 600px;
-            height: 400px;
-            background-color: gray;
-        }
+        .resultView>div>div,.classView>div>div,.itemsView>div>div {
+        	
+		  box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
+		  /*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
+		  background: hsl(0 0% 100%);
+		  color: hsl(200 50% 20%);
+		  line-height: 1.5;
+		  /*display: flex;*/
+		  place-items: center;
+		  text-align: center;
+		  /*padding: 2ch;*/
+		  margin: 0 10px 0 0;
+		  border-radius: 2ch;
+		  border: 0px solid hsl(0 0% 85%);
+		}
+		/*.nutriClass{
+			box-sizing: boarder-box;
+			background-color:gray;
+			color:black;
+			padding: 0rem;
+		}  
+		
+		.nutriClass>h2{
+			background-color:gray;
+			color:black;
+			margin: 0;
+			box-sizing:boarder-box;
+			height:20%;
+		}
+    	.nutriClass>div{
+    		height:40%;
+    	}
+    	*/
+    	.nutriCard:hover{
+    	}
+    	.nutriCard{
+    		overflow:hidden;
+    		position:relative;
+    	}
+    	.cardHead{
+    		width:100%;
+    		height:500px;
+    		border-radius:2ch 2ch 0 0;
+    		background-image: url('asset/img/testimg3.jpg');
+    		background-size:150%;
+    		box-sizing:boarder-box;
+    		-webkit-transition: .3s ease-in-out;
+    	}
+    	/* 헤드가 아니라 바디가 올라오게 바꿔야함.*/
+    	.cardHead_up{
+    		width:100%;
+    		height:100px;
+    		border-radius:2ch 2ch 0 0;
+    		background-image: url('asset/img/testimg3.jpg');
+    		background-size:150%;
+    		box-sizing:boarder-box;
+    		-webkit-transition: .3s ease-in-out;
+    	}
+    	
+    	
+   		.cardBody{
+   			width:100%;
+    		height:100px;
+    		line-height:1;
+    	
+    	}
+    	/*
+    	.cardBody:hover{
+    		overflow:scroll;
+    		line-height:1;    	
+    	}*/
+    	.cardBody::-webkit-scrollbar {
+    		display: none;
+    	}
+    	.cardTail{
+    		position:absolute;
+    		bottom:0;
+    		
+    		width:100%;
+    		height:50px;
+    		
+    		background-color:gray;
+    		opacity:0.4;
+    		border-radius:0 0 2ch 2ch;
+    	}
+    	
+    	
+    	
+    	
+    	
 
         input{
 	        width:300px;
 	        height:40px;
 	        background-color: transparent;
 	        border: none;
-	        border-bottom: 1px sold rgb(0, 0, 0);
 	        font-size:18px;
-	        font-family: 'NanumSquare';
         }
         #sign{
 			height:200px;        
@@ -94,7 +187,6 @@
 	        border: 0px;
 	        border-radius: 25px;
 	        width:300px; 
-	        
 	        font-family: 'NanumSquare';
 	        font-size: 18px;
 	        font-weight: bold;
@@ -115,17 +207,16 @@
     	}
 
 
-
     </style>
 </head>
 <body> 
-
-	<%@include file="gnb.jsp" %>
+	
+	<%@include file="gnb.jsp"%>
     
         <div id="banner">
             <br>
-            <h2 class="heading">우리 몸에 필요한 <br>영양성분 궁금하세요?</h2>
-            <p class="intro">나만을 위한 맞춤영양제를 찾아보세요!<br>이미 000,000명이 추천받았습니다.</p>
+            <h2 class="heading">딱히 쓸말이 없어서 아무말이나 </h2>
+            <p class="intro">써보는 중 커피 땡긴다 유자에스프레소</p>
         </div>
     
     <section class="message">
@@ -138,15 +229,15 @@
     <section id="choiceSection">
         <div id="choiceArea">
             <div class="choice" onclick="change('1')">
-                <img id="op1" src="#" alt="1">
+                <img id="op1" src="asset/img/visit_img/직장인 (1).jpg" alt="1">
                 <p>선택1</p>
             </div>
             <div class="choice" onclick="change('2')">
-                <img id="op2" src="#" alt="2">
+                <img id="op2" src="asset/img/visit_img/수험생 (1).jpg" alt="2">
                 <p>선택1</p>
             </div>
             <div class="choice" onclick="change('3')">
-                <img id="op3" src="#" alt="3">
+                <img id="op3" src="asset/img/visit_img/부모님 (1).jpg" alt="3">
                 <p>선택1</p>
             </div>
         </div>
@@ -158,45 +249,48 @@
     <script>
         
         let option ={  //이미지 주소 딕셔너리
-            '1':'#',
-            '2':'#',
-            '3':'#',
-            '11':'#',
-            '12':'',
-            '13':'',
-            '21':'',
-            '22':'',
-            '23':'',
-            '31':'',
-            '32':'',
-            '33':'',
-            '111':'',
-            '112':'',
-            '113':'',
-            '121':'',
-            '122':'',
-            '123':'',
-            '131':'',
-            '132':'',
-            '133':'',
-            '211':'',
-            '212':'',
-            '213':'',
-            '221':'',
-            '222':'',
-            '223':'',
-            '231':'',
-            '232':'',
-            '233':'',
-            '311':'',
-            '312':'',
-            '313':'',
-            '321':'',
-            '322':'',
-            '323':'',
-            '331':'',
-            '332':'',
-            '333':'',
+        		
+                '1':'asset/img/visit_img/직장인 (1).jpg',
+                '2':'asset/img/visit_img/수험생 (1).jpg',
+                '3':'asset/img/visit_img/부모님 (1).jpg',
+                '11':'asset/img/visit_img/직장인 (2).jpg',
+                '12':'asset/img/visit_img/직장인 (3).jpg',
+                '13':'asset/img/visit_img/직장인 (4).jpg',
+                '21':'asset/img/visit_img/수험생 (2).jpg',
+                '22':'asset/img/visit_img/수험생 (3).jpg',
+                '23':'asset/img/visit_img/수험생 (4).jpg',
+                '31':'asset/img/visit_img/부모님 (2).jpg',
+                '32':'asset/img/visit_img/부모님 (3).jpg',
+                '33':'asset/img/visit_img/부모님 (4).jpg',
+                '111':'asset/img/visit_img/직장인 (5).jpg',
+                '112':'asset/img/visit_img/수험생 (5).jpg',
+                '113':'asset/img/visit_img/부모님 (5).jpg',
+                '121':'asset/img/visit_img/직장인 (6).jpg',
+                '122':'asset/img/visit_img/수험생 (6).jpg',
+                '123':'asset/img/visit_img/부모님 (6).jpg',
+                '131':'asset/img/visit_img/직장인 (7).jpg',
+                '132':'asset/img/visit_img/수험생 (10).jpg',
+                '133':'asset/img/visit_img/부모님 (7).jpg',
+                '211':'asset/img/visit_img/직장인 (8).jpg',
+                '212':'asset/img/visit_img/수험생 (8).jpg',
+                '213':'asset/img/visit_img/부모님 (1).jpg',
+                '221':'asset/img/visit_img/직장인 (9).jpg',
+                '222':'asset/img/visit_img/수험생 (9).jpg',
+                '223':'asset/img/visit_img/부모님 (9).jpg',
+                '231':'asset/img/visit_img/직장인 (10).jpg',
+                '232':'asset/img/visit_img/수험생 (7).jpg',
+                '233':'asset/img/visit_img/부모님 (10).jpg',
+                '311':'asset/img/visit_img/직장인 (11).jpg',
+                '312':'asset/img/visit_img/수험생 (11).jpg',
+                '313':'asset/img/visit_img/부모님 (11).jpg',
+                '321':'asset/img/visit_img/직장인 (12).jpg',
+                '322':'asset/img/visit_img/수험생 (12).jpg',
+                '323':'asset/img/visit_img/부모님 (8).jpg',
+                '331':'asset/img/visit_img/직장인 (13).jpg',
+                '332':'asset/img/visit_img/수험생 (13).jpg',
+                '333':'asset/img/visit_img/부모님 (13).jpg'
+
+
         }
         var cnt=0;
         var a='';
@@ -208,7 +302,7 @@
                 a='';
                 cnt=3;
             }else if(cnt<2){
-            $('#op1').attr('src', option[a]).attr('alt',a+'1')
+            $('#op1').attr('src', option[a+'1']).attr('alt',a+'1')
             $('#op2').attr('src', option[a+'2']).attr('alt',a+'2')
             $('#op3').attr('src', option[a+'3']).attr('alt',a+'3')
             cnt++;
@@ -221,8 +315,8 @@
                 data: {
                 	"choice" : a
                 },
-                success: function(data){  
-                    $('#choiceSection').after(data)
+                success: function(res){  
+                    $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
                     window.scrollTo({top:'900',behavior:"smooth"})
                 },

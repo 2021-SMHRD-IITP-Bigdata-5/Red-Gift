@@ -14,6 +14,7 @@ import inter.command;
 import service.CheckUserIdService;
 import service.LoginService;
 import service.LogoutService;
+import service.MypageService;
 import service.SignupService;
 import service.UpdateService;
 
@@ -39,7 +40,6 @@ public class FrontController extends HttpServlet {
 		if(command.equals("CheckUserId.do")) {
 			com = new CheckUserIdService();
 			com.execute(request, response);
-			
 		}
 		if(command.equals("LogIn.do")) {
 			com = new LoginService();
@@ -59,7 +59,10 @@ public class FrontController extends HttpServlet {
 			com= new UpdateService();
 			nextpage=com.execute(request, response);
 		}
-		
+		if(command.equals("Mypage.do")) {
+			com= new MypageService();
+			nextpage=com.execute(request, response);
+		}
 		
 		if(nextpage!=null) response.sendRedirect(nextpage);
 	}

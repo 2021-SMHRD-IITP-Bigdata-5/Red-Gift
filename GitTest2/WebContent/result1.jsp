@@ -7,11 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
 </head>
 <body>
-   <%
+   <%//test
 	UserVO user = (UserVO)session.getAttribute("uservo");
 	String choice=request.getParameter("choice");
    	System.out.println(choice);
@@ -28,15 +26,43 @@
 	</section>
     <section class="resultView">
         <div>
-            <div>
-            	타입<%=choice %>
-				제안1영역
-				<img src="asset/img/rv1.png" />
+            <div class="nutriCard" onclick="cardUp('#class1')">
+            	<div class="cardHead" id="class1">
+            	
+            	제안1 헤드
+            	
+            	</div>
+				<div class="cardBody">
+				
+					<h2>
+					<%=choice %>
+					</h2>
+					<p>
+						
+					</p>
+				</div>
+				<div class="cardTail">
+				
+				</div>
             </div>
-            <div>
-            	타입<%=choice %>
-				제안2영역
-				<img src="asset/img/rv2.png" />
+       <!--                                -->
+            <div class="nutriCard" onclick="cardUp('#class2')">
+            	<div class="cardHead" id="class2">
+            	
+            	제안2 헤드
+            	
+            	</div>
+				<div class="cardBody">
+					<h2>
+					<%=choice %>
+					</h2>
+					<p>
+						
+					</p>
+				</div>
+				<div class="cardTail">
+				
+				</div>
             </div>
         </div>
     </section>
@@ -164,6 +190,7 @@
         		$('#suggest').hide();
         		pageLoad1('result2.jsp')
         		<% user = (UserVO)session.getAttribute("uservo"); %>
+        		test1();
         	},
         	error:function(){
         		alert('로그인요청실패')	
@@ -171,7 +198,25 @@
     	})
     	return false;
     })
- 
+    function test1(){
+    	$.ajax({
+            url: "gnb.jsp",  
+            type: "post",
+            data:{
+            	"test11" : "test111"
+            },
+            success: function(res){
+            	alert("성공")
+            },
+            error:function(){
+                alert("실패")
+            }
+        })
+    }
+    
+    
+    
+    
     function pageLoad1(page){
             $.ajax({
                 url: page,  
@@ -185,6 +230,9 @@
                 }
             })
         }
+   
+    
+    
     
     $(window).on('scroll.resultView',function(){
 		if(user!=null){
@@ -193,10 +241,17 @@
    				$(window).off('scroll.resultView');
     		}
     	}
-    	
     })
     
- 
+ 	function cardUp(a){
+    	if( $(a).attr('class')=='cardHead'){
+    		$(a).attr('class','cardHead_up');	
+    	}else{
+    		$(a).attr('class','cardHead');
+    	}
+    	
+    	
+    }
     
         
         

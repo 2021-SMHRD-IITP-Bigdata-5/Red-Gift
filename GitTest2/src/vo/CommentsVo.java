@@ -7,9 +7,7 @@ public class CommentsVo {
 	private String user_id;
 	private int article_seq;
 	
-	
-	
-	
+
 	public CommentsVo(int commnet_seq, String comment_contents, String comment_subject, String reg_date, String user_id,
 			int article_seq) {
 		super();

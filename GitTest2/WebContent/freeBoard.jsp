@@ -9,6 +9,9 @@
     <title>Document</title>
     <style>
     	#tbl{
+    		display:flex;
+    		align-items: center;
+            flex-direction:column;
     		height:600px;
     	}
     	#footer{
@@ -28,6 +31,8 @@
 </head>
 <body>
 	 <%@include file="gnb.jsp" %>
+	 
+	 
 <section id="tbl">
     <table>
         <thead>

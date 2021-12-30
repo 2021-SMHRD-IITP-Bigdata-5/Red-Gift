@@ -12,10 +12,13 @@ width: 100%;
 height:50px;
 background-color:#e6e6e6;
 opacity:0.9;
+
+bottom: 0;
 }
 footer>div{
 float:right;
 }
+
 
 </style>
 <body>
