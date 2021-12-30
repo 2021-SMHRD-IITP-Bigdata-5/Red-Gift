@@ -59,7 +59,7 @@
 		</p>
 	
 	</section>
-    <section id="sign">
+    <section id="sign" style="margin-bottom: 50px;">
         <div id="signUp">
             <form action="SignUp.do" method="post" id=signUpForm>
                 <input type="text"     name="id" placeholder=" 이메일로 간편가입하기" id="id">            

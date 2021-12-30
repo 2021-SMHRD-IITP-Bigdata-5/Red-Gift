@@ -93,18 +93,14 @@ body > main > section > form > div.btn-login > button{
     font-size: 16px;
     font-weight: bold;
 }
-/*비밀번호를 잊으셨나요?*/
+/*비밀번호를 잊으셨나요?
 body > main > section > div.forgot{
     padding: 0px;
     font-size: 14px;
     margin: 10px 0px 0px 0px;
-    /*border: 1.5px solid rgb(199, 17, 17);테두리 확인용*/
-    /*border: 1.5px solid rgb(199, 17, 17);테두리 확인용*/
 }
-/*비밀번호를 잊으셨나요? 색상*/
+/*회원가입 색상*/
 body > main > section > div.forgot>a{
-    /* color: #fff; */
-    /*color: rgba(255, 255, 255, 0.65);*/
     color: darkslategray;
 }
     </style>
@@ -129,7 +125,6 @@ body > main > section > div.forgot>a{
                 </div>
             </form>
             <div class="forgot">
-                <a href="#">비밀번호를 잊으셨나요?</a><br>
                 <a href="signUp.jsp">회원가입</a>
             </div>
             
