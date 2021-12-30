@@ -74,7 +74,7 @@ color: rgba(41, 41, 41, 0.8);
 }
 /*로고 위치*/
 .logo > h1 > a > img{
-	margin: 3px 0 0 0;
+	margin: 5px 0 0 0;
 	
 }
 </style>

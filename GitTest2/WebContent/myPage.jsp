@@ -17,7 +17,6 @@ html,body{
 body > section > table{
 padding-bottom: 50px;
 }
-background-image: url( 'img /배경 /이미지a-3.jpg ') ;
     	* {
 	margin: 0;
 	padding: 0px;
@@ -34,7 +33,7 @@ body {
 	/*justify-content: space-between; (정렬).set1중심축기준_space-between간격*/
 	/*align-items: center; (정렬).set2_교차축의 중앙에 정렬 수직*/
 	/*margin: 0 auto; 중앙정렬*/
-	background-image: url('asset/img/배경/이미지a-3.jpg');
+	background-image: url('asset/img/배경/이미지b-1.png');
 	background-size: cover;
 	
 	
@@ -70,7 +69,6 @@ table {
 table td {
 	border: 5px solid;
 	/*테이블 테두리 글자크기*/
-	
 	border-color: #AFE9D5;
 	background: white;
 	align-items: center; /*(정렬).set2_교차축의 중앙에 정렬 수직*/
