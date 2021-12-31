@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.MypageDAO;
 import inter.command;
-import vo.NutriChoicesVo;
 import vo.UserVO;
 
 
