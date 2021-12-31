@@ -39,19 +39,19 @@
             	제안1 헤드
             	
             	</div>
+            	
 				<div class="cardBody">
 					<h2>
-					<%=choice %>
+						<%=choice %>
 					</h2>
 					<div>
-					<canvas  id="myChartOne" width="150" height="150"></canvas>
-					<p>
-					</p>
+						<canvas  id="myChartOne" width="150" height="150"></canvas>
 					</div>
+				</div>
 				<div class="cardTail">
 				
 				</div>
-
+				
             </div>
        <!--                                -->
             <div class="nutriCard" onclick="cardUp('#class2')">
@@ -62,19 +62,16 @@
             	</div>
 				<div class="cardBody">
 					<h2>
-					<%=choice %>
+						<%=choice %>
 					</h2>
 					<div>
-					<canvas  id="myChartOne2" width="150" height="150"></canvas>
+						<canvas  id="myChartOne2" width="150" height="150"></canvas>
             		</div>
-					<p>
-					</p>
-				
+            		
             	</div>
            		<div class="cardTail">
             	</div>
-
-
+			</div>
         </div>
     </section>
 

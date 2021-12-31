@@ -178,102 +178,12 @@ footer {
 	<%
 		System.out.println(pageList.size());
 	%>
-	
 	<section>
-		<table>
-			<thead>
-				<tr>
-					<td></td>
-					<td>2022/01/01 <%=uservo.getUser_id() %>
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
-						width="80" height="80"> <!--영양제군 이미지--></td>
-					<td>당시 만족도 정보</td>
-					
-	<section align="center">
-		<table>
-			<thead>
-				<tr>
-					<td>1</td>
-					<td>2022/01/01
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-			</thead>
-			<tbody >
-				<tr>
-					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
-						width="80" height="80"> <!--영양제군 이미지--></td>
-					<td>당시 만족도 정보</td>
-				</tr>
-				<tr>
-					<td id="memo" colspan="2">메모사항</td>
-				</tr>
-			</tbody>
-		</table>
-		<table>
-			<thead>
-				<tr>
-					<td>2</td>
-					<td>2022/01/01
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
-						width="80" height="80"></td>
-					<td>당시 만족도 정보</td>
-				</tr>
-				<tr>
-					<td id="memo" colspan="2">메모사항</td>
-				</tr>
-			</tbody>
-		</table>
-		<!--  -->
-		<table>
-			<thead>
-				<tr>
-					<td>3</td>
-					<td>2022/01/01
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
-						width="80" height="80"></td>
-					<td>당시 만족도 정보</td>
-				</tr>
-				<tr>
-					<td id="memo" colspan="2">메모사항</td>
-				</tr>
-			</tbody>
-		</table>
-
-				</tr>
-				<tr>
-					<td id="memo" colspan="2">메모사항</td>
-				</tr>
-			</tbody>
-		</table>
-	</section>
 
 		<%
 			for (int i = 0; i < pageList.size(); i++) {
 						mpvo=pageList.get(i);
-			}
+			
 		%><table>
 			<thead>
 				<tr>
@@ -303,7 +213,7 @@ footer {
 				</tr>
 			</tbody>
 		</table>
-
+	<% } %>
 	</section>
 
 	

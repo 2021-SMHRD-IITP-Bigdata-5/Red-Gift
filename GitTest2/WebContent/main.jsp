@@ -128,7 +128,7 @@
     		width:100%;
     		height:500px;
     		border-radius:2ch 2ch 0 0;
-    		background-image: url('asset/img/testimg2.png');
+    		background-image: url('asset/img/');
     		background-size:150%;
     		box-sizing:boarder-box;
     		-webkit-transition: .3s ease-in-out;
@@ -138,7 +138,7 @@
     		width:100%;
     		height:100px;
     		border-radius:2ch 2ch 0 0;
-    		background-image: url('asset/img/testimg2.png');
+    		background-image: url('asset/img/');
     		background-size:150%;
     		box-sizing:boarder-box;
     		-webkit-transition: .3s ease-in-out;
@@ -277,7 +277,7 @@
             <div class="choice" onclick="change('3')">
                 <img id="op3" src="asset/img/1231_메인클릭이미지/메인선택이미지-03_부부.jpg" alt="3" width="300px" height="400px">
                 <p class="text2"><!-- 부모님 --></p>
-
+             
             </div>
         </div>
     </section>
