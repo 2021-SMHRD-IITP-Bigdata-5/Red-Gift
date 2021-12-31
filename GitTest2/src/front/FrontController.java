@@ -72,7 +72,7 @@ public class FrontController extends HttpServlet {
 
 		if(command.equals("Mypage.do")) {
 			com= new MypageService();
-			nextpage=com.execute(request, response);
+			com.execute(request, response);
 		}
 		
 		if(command.equals("Delete.do")) {

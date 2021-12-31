@@ -164,69 +164,68 @@ footer {
 <body>
 
 		<%@include file="gnb.jsp"%>
+
 	<%
-		MypageDAO dao = new MypageDAO();
+		//ArrayList<MyPageVO> pageList = (ArrayList<MyPageVO>)session.getAttribute("pageList");
+ 		MyPageVO pagevo = new MyPageVO();
 	%>
-	<%
-		String user_id = "1";
-	%>
-	<%
-		ArrayList<MyPageVO> pageList = dao.GetMypage(user_id);
-									
-	
-	%>
-	<%
-		System.out.println(pageList.size());
-	%>
-	<section>
-
-		<%
-			for (int i = 0; i < pageList.size(); i++) {
-						mpvo=pageList.get(i);
-			
-		%><table>
-			<thead>
-				<tr>
-					<td colspan="2"><%=pageList.get(i).getPage_seq()%>,<%=pageList.get(i).getReg_date()%>
-					    <button onclick="deleteMyPage('<%=pageList.get(i).getPage_seq() %>')">삭제</button>
-						<button id = "change" onclick="change('<%=pageList.get(i).getPage_memo()%>')">수정</button>
-						
-						
-						
-
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td   >
-						<%=pageList.get(i).getNutri_class()%>
-					</td>
-
-
-
-					<td class=><%=pageList.get(i).getMy_class_sat()%></td>
-
-				</tr>
-				<tr>
-					<td class="myupdate" id="memo" colspan="2"><%=pageList.get(i).getPage_memo()%></td>
-				</tr>
-			</tbody>
+	<section id="tableArea">
+		<table id="tbody">
+		
+		
+		
+		
+		
 		</table>
-	<% } %>
+	
+
 	</section>
 
-	
-<<<<<<< HEAD
 	<script src="asset/js/jquery-3.6.0.min.js"></script>
-	<script>
 
-	</script>
-	
-=======
-	<%@include file="footer.jsp"%>
 	<script src="./asset/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
+	
+	$(document).ready (function() {
+	
+		$.ajax({
+			url : "Mypage.do",
+			type : "get",
+			//data : {	
+			//	"id" : 'id'
+			//}, 
+			dataType : 'json',
+			success : function(res){
+				console.log(res)
+				
+				$('#tbody').html('');
+				
+				for(var i=0;i<res.length;i++){	
+					let table ='';
+					table+='<tr>'
+					table+='<td>'+res[i].page_seq+'</td>'
+					table+='<td>'+res[i].nutri_seq+'</td>'
+					table+='<td>'+res[i].nutri_class+'</td>'
+					table+='<td>'+res[i].my_class_sat+'</td>'
+					table+='<td>'+res[i].reg_date+'</td>'
+					table+='<td>'+res[i].user_id+'</td>'
+					table+='<td>'+res[i].page_memo+'</td>'
+					table+='</tr>'
+					$('#tbody').append(table)
+				}
+			},
+			error : function(){
+				alert("요청실패")
+			}	
+		});
+		
+	})
+	
+	
+	
+	
+	
+	
 	function deleteMyPage(pageCnt){
 		
 		location.href="DeleteMypage.do?page_seq="+pageCnt;
@@ -249,6 +248,6 @@ footer {
 	
 	</script>
 
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
+
 </body>
 </html>
