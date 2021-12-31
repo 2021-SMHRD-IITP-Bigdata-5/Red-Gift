@@ -152,6 +152,7 @@
 </head>
 <body> 
 
+
 	<%@include file="gnb.jsp" %>
     
         <div id="banner">

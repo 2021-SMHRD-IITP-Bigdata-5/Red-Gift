@@ -92,7 +92,7 @@ color: rgba(41, 41, 41, 0.8);
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
                 <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
-                
+                <li><a href="updateUser.jsp" onClick="">회원정보수정</a></li>
                 <%if(uservo==null){ %>
                 <li><a href="login.jsp" onClick="">로그인</a></li>
                 <%}else{ %>

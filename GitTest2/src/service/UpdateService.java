@@ -23,8 +23,8 @@ public class UpdateService extends HttpServlet implements command {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		UserVO uservo = (UserVO)session.getAttribute("uservo");
-		
-		String id = request.getParameter(uservo.getUser_id());
+		System.out.println(uservo);
+		String id = uservo.getUser_id();
 		String pw = request.getParameter("pw");
 		String nick = request.getParameter("nick");
 		String name= request.getParameter("name");
@@ -32,12 +32,14 @@ public class UpdateService extends HttpServlet implements command {
 		String gender= request.getParameter("gender");
 		String phone = request.getParameter("phone");
 		String nextpage="";
-		
+		System.out.println("업데이트서블릿진입");
+		System.out.println(id);
 		UserVO upuservo = new UserVO(id, pw, nick, name, birth, gender, phone);
 		UserDAO dao = new UserDAO();
 		int cnt=dao.Update(upuservo);
 		
 		if(cnt>0) {
+			System.out.println("업데이트성공");
 		UserVO new_uservo= new UserVO(id, nick, name, birth, gender, phone);
 		session.setAttribute("uservo", new_uservo);
 		nextpage="main.jsp";

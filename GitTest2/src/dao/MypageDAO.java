@@ -86,14 +86,14 @@ public class MypageDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 
 		return cnt;
 		
 	}
 
-	
-	
 	public ArrayList<MyPageVO> GetMypage(String id) {
 		
 		connect();
@@ -132,6 +132,50 @@ public class MypageDAO {
 
 	}
 
+	public int DeleteMypage(int page_seq) {
+		connect();
+		try {
+			String sql="Delete from tbl_mypages where page_seq = ?";
+			psmt=conn.prepareStatement(sql);
+			psmt.setInt(1, page_seq);
+			cnt=psmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	
+		return cnt;
+		
+	}
+	
+	public int UpdateMypage(int page_seq,String page_memo) {
+		connect();
+		try {
+			String sql="Update tbl_mypages set page_memo=? where page_seq=?";
+			psmt=conn.prepareStatement(sql);
+			psmt.setInt(1, page_seq);
+			psmt.setString(2, page_memo);
+			cnt=psmt.executeUpdate();
+			
+			if(cnt>0) {
+				System.out.println("성공");
+			}else {
+				System.out.println("실패");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
+		
+	}
+	
 	public int SetNutriClass(NutriClassesVo ncv) {
 		con.connect();
 		try {
