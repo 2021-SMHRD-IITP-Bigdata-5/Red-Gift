@@ -172,15 +172,15 @@
     <section id="choiceSection">
         <div id="choiceArea">
             <div class="choice" onclick="change('1')">
-                <img id="op1" src="asset/img/visit_img/3대-이미지-01.jpg" alt="1" width="300px" height="400px">
+                <img id="op1" src="asset/img/1231_메인클릭이미지/메인선택이미지-01_직장인.jpg" alt="1" width="300px" height="400px">
                 <p class="text2"><!-- 직장인 --></p>
             </div>
             <div class="choice" onclick="change('2')">
-                <img id="op2" src="asset/img/visit_img/3대-이미지-02.jpg" alt="2" width="300px" height="400px">
+                <img id="op2" src="asset/img/1231_메인클릭이미지/메인선택이미지-02_가족.jpg" alt="2" width="300px" height="400px">
                 <p class="text1"><!-- 수험생/고시생 --></p>
             </div>
             <div class="choice" onclick="change('3')">
-                <img id="op3" src="asset/img/visit_img/3대-이미지-03.jpg" alt="3" width="300px" height="400px">
+                <img id="op3" src="asset/img/1231_메인클릭이미지/메인선택이미지-03_부부.jpg" alt="3" width="300px" height="400px">
                 <p class="text2"><!-- 부모님 --></p>
             </div>
         </div>
@@ -192,46 +192,46 @@
     <script>
         
         let option ={  //이미지 주소 딕셔너리
-        		'1':'asset/img/visit_img/3대-이미지-01.jpg',
-                '2':'asset/img/visit_img/3대-이미지-02.jpg',
-                '3':'asset/img/visit_img/3대-이미지-03.jpg',
-                '11':'asset/img/visit_img/직장인 (2).jpg',
-                '12':'asset/img/visit_img/수험생 (2).jpg',
-                '13':'asset/img/visit_img/부모님 (2).jpg',
-                '21':'asset/img/visit_img/직장인 (3).jpg',
-                '22':'asset/img/visit_img/수험생 (3).jpg',
-                '23':'asset/img/visit_img/부모님 (3).jpg',
-                '31':'asset/img/visit_img/직장인 (4).jpg',
-                '32':'asset/img/visit_img/수험생 (4).jpg',
-                '33':'asset/img/visit_img/부모님 (4).jpg',
-                '111':'asset/img/visit_img/직장인 (5).jpg',
-                '112':'asset/img/visit_img/수험생 (5).jpg',
-                '113':'asset/img/visit_img/부모님 (5).jpg',
-                '121':'asset/img/visit_img/직장인 (6).jpg',
-                '122':'asset/img/visit_img/수험생 (6).jpg',
-                '123':'asset/img/visit_img/부모님 (6).jpg',
-                '131':'asset/img/visit_img/직장인 (7).jpg',
-                '132':'asset/img/visit_img/수험생 (10).jpg',
-                '133':'asset/img/visit_img/부모님 (7).jpg',
-                '211':'asset/img/visit_img/직장인 (8).jpg',
-                '212':'asset/img/visit_img/수험생 (8).jpg',
-                '213':'asset/img/visit_img/부모님 (1).jpg',
-                '221':'asset/img/visit_img/직장인 (9).jpg',
-                '222':'asset/img/visit_img/수험생 (9).jpg',
-                '223':'asset/img/visit_img/부모님 (9).jpg',
-                '231':'asset/img/visit_img/직장인 (10).jpg',
-                '232':'asset/img/visit_img/수험생 (7).jpg',
-                '233':'asset/img/visit_img/부모님 (10).jpg',
-                '311':'asset/img/visit_img/직장인 (11).jpg',
-                '312':'asset/img/visit_img/수험생 (11).jpg',
-                '313':'asset/img/visit_img/부모님 (11).jpg',
-                '321':'asset/img/visit_img/직장인 (12).jpg',
-                '322':'asset/img/visit_img/수험생 (12).jpg',
-                '323':'asset/img/visit_img/부모님 (8).jpg',
-                '331':'asset/img/visit_img/직장인 (13).jpg',
-                '332':'asset/img/visit_img/수험생 (13).jpg',
-                '333':'asset/img/visit_img/부모님 (13).jpg',
-            
+        		'1':'asset/img/1231_메인클릭이미지/메인선택이미지-01_직장인.jpg',
+                '2':'asset/img/1231_메인클릭이미지/메인선택이미지-02_가족.jpg',
+                '3':'asset/img/1231_메인클릭이미지/메인선택이미지-03_부부.jpg',
+                '11':'asset/img/1231_메인클릭이미지/메인선택이미지-04_사회초년생.jpg',
+                '12':'asset/img/1231_메인클릭이미지/메인선택이미지-05_과장.jpg',
+                '13':'asset/img/1231_메인클릭이미지/메인선택이미지-06_부장.jpg',
+                '21':'asset/img/1231_메인클릭이미지/메인선택이미지-07_학생.jpg',
+                '22':'asset/img/1231_메인클릭이미지/메인선택이미지-08_부모님.jpg',
+                '23':'asset/img/1231_메인클릭이미지/메인선택이미지-09_할머니.jpg',
+                '31':'asset/img/1231_메인클릭이미지/메인선택이미지-10_남편.jpg',
+                '32':'asset/img/1231_메인클릭이미지/메인선택이미지-11_와이프.jpg',
+                '33':'asset/img/1231_메인클릭이미지/메인선택이미지-12_임산부.jpg',
+                '111':'asset/img/1231_메인/1231_00-피로.jpg',
+                '112':'asset/img/1231_메인/1231_00-눈.jpg',
+                '113':'asset/img/1231_메인/1231_00-숙취.jpg',
+                '121':'asset/img/1231_메인/1231_00-숙취.jpg',
+                '122':'asset/img/1231_메인/1231_00-피로.jpg',
+                '123':'asset/img/1231_메인/1231_00-눈.jpg',
+                '131':'asset/img/1231_메인/1231_00-전립선.jpg',
+                '132':'asset/img/1231_메인/1231_00-피로.jpg',
+                '133':'asset/img/1231_메인/1231_00-탈모.jpg',
+                '211':'asset/img/1231_메인/1231_00-뇌.jpg',
+                '212':'asset/img/1231_메인/1231_00-키즈.jpg',
+                '213':'asset/img/1231_메인/1231_00-어린이.jpg',
+                '221':'asset/img/1231_메인/1231_00-엄마.jpg',
+                '222':'asset/img/1231_메인/1231_00-아빠.jpg',
+                '223':'asset/img/1231_메인/1231_00-친척.jpg',
+                '231':'asset/img/1231_메인/1231_00-관절.jpg',
+                '232':'asset/img/1231_메인/1231_00-눈.jpg',
+                '233':'asset/img/1231_메인/1231_00-탈모.jpg',
+                
+                '311':'asset/img/1231_메인/1231_00-관절.jpg',
+                '312':'asset/img/1231_메인/1231_00-피로.jpg',
+                '313':'asset/img/1231_메인/1231_00-탈모.jpg',
+                '321':'asset/img/1231_메인/1231_00-엄마.jpg',
+                '322':'asset/img/1231_메인/1231_00-탈모.jpg',
+                '323':'asset/img/1231_메인/1231_00-피로.jpg',
+                '331':'asset/img/1231_메인/1231_00-엄마.jpg',
+                '332':'asset/img/1231_메인/1231_00-피로.jpg',
+                '333':'asset/img/1231_메인/1231_00-탈모.jpg',
             }
         var cnt=0;
         var a='';
