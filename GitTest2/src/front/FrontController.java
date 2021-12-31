@@ -11,7 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import inter.command;
+import page.GetMypage;
+import page.GetNutriClass;
+import page.SetMypage;
+import page.SetNutriClass;
+import product.GetIngredients;
+import product.GetNutritions;
+import product.SetIngredients;
+import product.SetNutritions;
 import service.CheckUserIdService;
+import service.DeleteService;
 import service.LoginService;
 import service.LogoutService;
 import service.MypageService;
@@ -41,7 +50,7 @@ public class FrontController extends HttpServlet {
 			com = new CheckUserIdService();
 			com.execute(request, response);
 		}
-		if(command.equals("LogIn.do")) {
+		if(command.equals("Login.do")) {
 			com = new LoginService();
 			com.execute(request, response);
 		}
@@ -59,12 +68,52 @@ public class FrontController extends HttpServlet {
 			com= new UpdateService();
 			nextpage=com.execute(request, response);
 		}
+
 		if(command.equals("Mypage.do")) {
 			com= new MypageService();
 			nextpage=com.execute(request, response);
 		}
 		
+		if(command.equals("Delete.do")) {
+			com=new DeleteService();
+			nextpage=com.execute(request, response);
+		}
+		
+//------------------------마이페이지프론트--------------------------
+		
+		if(command.equals("GetMypage.do")) {
+			com=new GetMypage();
+			
+		}
+		if(command.equals("SetMypage.do")) {
+			com=new SetMypage();
+		}
+		
+		if(command.equals("SetNutriClass.do")) {
+			com= new SetNutriClass();
+		}
+		if(command.equals("GetNutriClass.do")) {
+			com= new GetNutriClass();
+		}
+		
+//------------------------영양제 프론트------------------------------		
+		if(command.equals("SetNutritions.do")) {
+			com= new SetNutritions();	
+		}
+		if(command.equals("GetNutritions.do")) {
+			com = new GetNutritions();
+		}
+		if(command.equals("SetIngredients.do")) {
+			com = new SetIngredients();
+		}
+		if(command.equals("GetIngredients.do")) {
+			com = new GetIngredients();
+		}
+		
+		
+		
 		if(nextpage!=null) response.sendRedirect(nextpage);
 	}
 
+	
 }

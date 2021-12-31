@@ -8,6 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+    body{
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* width: 400px; */
+
+    justify-content: space-between;/*(정렬).set1중심축기준_space-between간격*/
+    align-items: center;/*(정렬).set2_교차축의 중앙에 정렬 수직*/
+    margin: 0 auto;/*중앙정렬*/
+    background-image: url('asset/img/배경/이미지a-1.png');
+    background-size: cover;
+}
     	#tbl{
     		display:flex;
     		align-items: center;

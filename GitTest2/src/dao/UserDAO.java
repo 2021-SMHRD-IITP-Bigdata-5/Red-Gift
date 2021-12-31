@@ -6,11 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.catalina.User;
+<<<<<<< HEAD
 
 import vo.MyPageVO;
 import vo.NutriChoicesVo;
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 import vo.NutriClassesVo;
 import vo.UserVO;
 
@@ -90,14 +94,14 @@ public class UserDAO {
 		connect();
 		
 		try {
-			String sql="insert into TBL_USERS("
-					+ "USER_ID,"
-					+ "USER_PW,"
-					+ "USER_NICKNAME,"
-					+ "USER_NAME,"
-					+ "USER_BIRTH,"
-					+ "USER_SEX,"
-					+ "USER_PHONE"
+			String sql="insert into tbl_users("
+					+ "user_id,"
+					+ "user_pw,"
+					+ "user_nickname,"
+					+ "user_name,"
+					+ "user_birth,"
+					+ "user_sex,"
+					+ "user_phone"
 					+ ") values(?, ?, ?, ?, ?, ?, ?)";
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, user.getUser_id());
@@ -176,6 +180,7 @@ public class UserDAO {
 			
 			if(rs.next()&&pw.equals(rs.getString(2))) {
 				String getid=rs.getString(1); 
+				System.out.println(getid);//----------------
 				String getnick=rs.getString(3); 
 				String getname=rs.getString(4); 
 				String getbrith=rs.getString(5); 
@@ -266,7 +271,7 @@ public class UserDAO {
 	}
 	public ArrayList<MyPageVO> getMypage(String id) {
 		connect();
-		MyPageVO mpvo = new MyPageVO();
+		MyPageVO mpvo =new MyPageVO();
 		ArrayList<MyPageVO> arr = new ArrayList<>();
 		try {
 			String sql="select * from TBL_MYPAGES where USER_ID=?";
@@ -275,11 +280,13 @@ public class UserDAO {
 			rs =psmt.executeQuery();
 			
 			while(rs.next()) {
-				mpvo.setPage_seq(Integer.parseInt(rs.getNString(1)));
-				mpvo.setNutri_seq(Integer.parseInt(rs.getNString(2)));
-				mpvo.setNutri_class(rs.getNString(4));
-				mpvo.setClass_sat(rs.getNString(5));
-				mpvo.setPage_memo(rs.getNString(6));
+				mpvo.setPage_seq(rs.getInt(1));
+				mpvo.setNutri_seq(rs.getInt(2));
+				mpvo.setNutri_class(rs.getNString(3));
+				mpvo.setMy_class_sat(rs.getNString(4));
+				mpvo.setReg_date(rs.getNString(5));
+				mpvo.setUser_id(rs.getNString(6));
+				mpvo.setPage_memo(rs.getNString(7));
 				arr.add(mpvo);
 			}
 	
@@ -292,6 +299,7 @@ public class UserDAO {
 		return arr;
 	}
 	//---------------------------------------------------------------
+
 	public void getMyclass(String choice) {
 		connect();
 		try {
@@ -334,6 +342,27 @@ public class UserDAO {
 	
 	
 	
+
+
+	public int Delete(String id) {
+		connect();
+		try {
+			String sql="Delete from tbl_user where id=?";
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			cnt=psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
+		
+	}
+
+	//---------------------------------------------------------------
+
 //	public void insertMyPage() {
 //		connect();
 //		

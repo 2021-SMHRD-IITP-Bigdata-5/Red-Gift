@@ -6,24 +6,24 @@ public class MyPageVO {
 	
 	private int page_seq;
 	private int nutri_seq;
-	private Date reg_date;
+	private String nutri_class;
+	private String my_class_sat;
+	private String reg_date;
 	private String user_id;
 	private String page_memo;
-	private String nutri_class;
-	private String class_sat;
 	
 	
-	public String getNutri_class() {
-		return nutri_class;
-	}
-	public void setNutri_class(String nutri_class) {
+	
+	public MyPageVO(int page_seq, int nutri_seq, String nutri_class, String my_class_sat, String reg_date,
+			String user_id, String page_memo) {
+		super();
+		this.page_seq = page_seq;
+		this.nutri_seq = nutri_seq;
 		this.nutri_class = nutri_class;
-	}
-	public String getClass_sat() {
-		return class_sat;
-	}
-	public void setClass_sat(String class_sat) {
-		this.class_sat = class_sat;
+		this.my_class_sat = my_class_sat;
+		this.reg_date = reg_date;
+		this.user_id = user_id;
+		this.page_memo = page_memo;
 	}
 	public int getPage_seq() {
 		return page_seq;
@@ -37,10 +37,22 @@ public class MyPageVO {
 	public void setNutri_seq(int nutri_seq) {
 		this.nutri_seq = nutri_seq;
 	}
-	public Date getReg_date() {
+	public String getNutri_class() {
+		return nutri_class;
+	}
+	public void setNutri_class(String nutri_class) {
+		this.nutri_class = nutri_class;
+	}
+	public String getMy_class_sat() {
+		return my_class_sat;
+	}
+	public void setMy_class_sat(String my_class_sat) {
+		this.my_class_sat = my_class_sat;
+	}
+	public String getReg_date() {
 		return reg_date;
 	}
-	public void setReg_date(Date reg_date) {
+	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
 	public String getUser_id() {
@@ -57,7 +69,7 @@ public class MyPageVO {
 	}
 	
 	
-	
+
 	
 
 }

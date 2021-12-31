@@ -24,10 +24,11 @@ float:right;
 <body>
 <footer>
 	<div>
-                <a href="kakao1"><img src="asset/img/icon-kakao-talk.png" width="30" height="30"></a>
-                <a href="kakao2"><img src="asset/img/free-icon-instagram.png" width="30" height="30"></a>
-                <a href="kakao3"><img src="asset/img/icon-google.png" width="30" height="30"></a>
-                <a href="kakao4"><img src="asset/img/free-icon-youtube.png" width="30" height="30"></a>
+                <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><img src="asset/img/icon-kakao-talk.png" width="30" height="30"></a>
+                <a href="http://www.naver.com"><img src="asset/img/naver.png" width="30" height="30"></a>
+                <a href="https://www.instagram.com/"><img src="asset/img/free-icon-instagram.png" width="30" height="30"></a>
+                <a href="https://www.google.co.kr"><img src="asset/img/icon-google.png" width="30" height="30"></a>
+                <a href="https://www.youtube.com/"><img src="asset/img/free-icon-youtube.png" width="30" height="30"></a>
 
 	</div>
 </footer>

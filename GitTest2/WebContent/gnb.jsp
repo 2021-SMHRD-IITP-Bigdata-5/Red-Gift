@@ -25,11 +25,12 @@ header {
 	position: fixed;
 	opacity: 0.8;
 	top : 0;
-	transition: top 0.3s ease-in-out;
 	width: 100%;
-	top: 0;
 	font-family:'NanumSquareBold';
 	font-size: 18px;
+	transition: top 0.3s ease-in-out;
+	z-index:999;
+
 }
 
 .nav-up {
@@ -52,7 +53,6 @@ nav {
 
 .menu>li>a {
 	text-decoration: none;
-	color: rgba(41, 41, 41, 0.8);
 	font-weight: 700;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-font-smoothing: antialiased;
@@ -72,18 +72,31 @@ nav {
 	font-size: 20px;
 
 }
-.logo>h1>a:hover {
+.menu>li>a{
+color: rgba(41, 41, 41, 0.8);
+}
+/*로고 색*/
+.logo>h1>a {
+	font-size: 35px;
 	color: crimson;
 	opacity:0.7;
 }
+<<<<<<< HEAD
 .logo {
 	display:flex;
 }
 .logo>div{
 	float:left;
 	padding:17px 0px 0px 5px;
+=======
+/*로고 위치*/
+.logo > h1 > a > img{
+	margin: 5px 0 0 0;
+	
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 }
 </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <body>
 <%
 	UserVO uservo = (UserVO)session.getAttribute("uservo");
@@ -91,8 +104,13 @@ nav {
 	<header class="nav-down">
         <nav id="gnb">
             <div class="logo">
+<<<<<<< HEAD
                 <h1><a href="main.jsp">빨간약기프티콘</a></h1>
 				<div><img src="asset/img/logosizetest.png"></div>
+=======
+                <h1><a href="main.jsp"><img src="asset/img/icon_img/빨간약기프티콘.png"
+						width="60" height="60">빨간약기프티콘</a></h1>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>

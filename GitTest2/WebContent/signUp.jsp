@@ -26,33 +26,35 @@ body{
     justify-content: space-between;/*(정렬).set1중심축기준_space-between간격*/
     align-items: center;/*(정렬).set2_교차축의 중앙에 정렬 수직*/
     margin: 0 auto;/*중앙정렬*/
-    background-image: url('../project0000/img/배경1.jpg');
+    background-image: url('asset/img/배경/이미지a-3.jpg');
     background-size: cover;
 }
-body::before{
+/*배경어둡게*/
+/*body::before{
     content: "";
-    position: absolute; z-index: 1;
+    position: absolute; z-index: 2;
     top: 0; right: 0; bottom: 0; left: 0;
-    background-color: hsla(0, 0%, 0%, 0.7);
-}
-/*입력하는 곳*/
+    background-color: hsla(0, 0%, 0%, 0.0);
+}*/
+/*입력하는 곳 글자 흰색 검정색*/
 input{
     width:100%;
     height:40px;
-    background-color: transparent;
+    /*background-color: transparent;*/
     /* border: none; */
     border-bottom: 1px sold #999;
-    font-size: 16px; color: #fff;
+    font-size: 16px; /*color: #fff;*/
+    color: darkslategray;
     padding: 10px;
     /* outline: none; */
 }
 main>section.Login-from{
     position: relative; z-index: 2;
 }
-/*로그인 헤더*/
+/*회원가입 색상외*/
 main>section>h1{
     position: relative; z-index: 2;
-    font-size: 20px; color: #fff;
+    font-size: 20px; /*color: #fff;*/color: darkslategray;
     text-align: center;
     /*border: 1.5px solid black;테두리 확인용*/
 }
@@ -60,8 +62,9 @@ body>main{
     justify-content: space-between;/*(정렬).set1중심축기준_space-between간격*/
     align-items: center;/*(정렬).set2_교차축의 중앙에 정렬 수직*/
     margin: 0 auto;/*중앙정렬*/
-    background:hsla(240, 100%, 80%, 0.6);
-    color: #fff;
+    /*박스색 분홍색*/
+    background:mistyrose;
+    color: darkslategray;
     padding: 50px;
     border: 10px solid white;/*테두리 적용*/
 }
@@ -78,8 +81,10 @@ body > main > section > form > div.btn-login{
 /*버튼*/
 body > main > section > form > div.btn-login > button{
     padding: 10px;
+    /*color: white;black*/
     color: white;
-    background-color: crimson;
+    /*background-color: crimson;*/
+    background-color: lightcoral;
     border: 0px;/*경계선*/
     border-radius: 25px;/*모서리둥글게*/
     width:100%; left: 10px;
@@ -133,7 +138,7 @@ body > main > section > form > div.btn-login > button{
                     </tr>
                 </table>
 
-                </div>S
+                </div>
                 <div class="btn-login">
                     <button onClick="">회원가입</button>
                 </div>
