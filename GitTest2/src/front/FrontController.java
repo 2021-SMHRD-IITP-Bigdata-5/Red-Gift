@@ -50,7 +50,7 @@ public class FrontController extends HttpServlet {
 			com = new CheckUserIdService();
 			com.execute(request, response);
 		}
-		if(command.equals("Login.do")) {
+		if(command.equals("LogIn.do")) {
 			com = new LoginService();
 			com.execute(request, response);
 		}

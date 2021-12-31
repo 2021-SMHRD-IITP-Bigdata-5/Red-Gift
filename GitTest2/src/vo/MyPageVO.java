@@ -13,6 +13,9 @@ public class MyPageVO {
 	private String page_memo;
 	
 	
+	public MyPageVO() {
+		
+	}
 	
 	public MyPageVO(int page_seq, int nutri_seq, String nutri_class, String my_class_sat, String reg_date,
 			String user_id, String page_memo) {

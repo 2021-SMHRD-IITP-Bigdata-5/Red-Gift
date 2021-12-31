@@ -7,12 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>스레기</title>
-    
-=======
     <title>빨간약기프티콘</title>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
     <style>
 @font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
 @font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
@@ -23,19 +18,10 @@
             display: block;
             align-items: center;
             overflow-x: hidden;
-<<<<<<< HEAD
-            display: grid;
-=======
-            background-color: white;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
+			/*display: grid;*/
         }
         #banner{
-<<<<<<< HEAD
-            background-image: url('asset/img/doyouwannathis.jpg');
-=======
-            
             background-image: url('asset/img/배경/배경이미-01.jpg');
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
             height: 400px;
             -webkit-background-size: cover;
             -moz-background-size: cover;
@@ -76,30 +62,18 @@
             width: 300px;
             height: 400px;
         }
-<<<<<<< HEAD
+
 		#op1,#op2,#op3{
 			width:300px;
 			height:400px;
 		}
 		#op1:hover,#op2:hover,#op2:hover{
 		}
-		
-		
-		
-		
         .resultView>div>div {
-=======
-        /*차트바탕색*/
-        .resultView>div>div{
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
             display: inline-block;
             width: 450px;
             height: 600px;
-<<<<<<< HEAD
             /*background-color: gray;*/
-=======
-            background-color: #f7f1e3;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
         }
         .classView>div>div, .itemsView>div>div{
         	display: inline-block;
@@ -120,6 +94,9 @@
 		  margin: 0 10px 0 0;
 		  border-radius: 2ch;
 		  border: 0px solid hsl(0 0% 85%);
+		}
+		.itemsView{
+			margin-bottom: 50px;
 		}
 		/*.nutriClass{
 			box-sizing: boarder-box;
@@ -149,7 +126,7 @@
     		width:100%;
     		height:500px;
     		border-radius:2ch 2ch 0 0;
-    		background-image: url('asset/img/testimg3.jpg');
+    		background-image: url('asset/img/testimg2.png');
     		background-size:150%;
     		box-sizing:boarder-box;
     		-webkit-transition: .3s ease-in-out;
@@ -159,7 +136,7 @@
     		width:100%;
     		height:100px;
     		border-radius:2ch 2ch 0 0;
-    		background-image: url('asset/img/testimg3.jpg');
+    		background-image: url('asset/img/testimg2.png');
     		background-size:150%;
     		box-sizing:boarder-box;
     		-webkit-transition: .3s ease-in-out;
@@ -205,7 +182,8 @@
 	        font-size:18px;
         }
         #sign{
-			height:200px;        
+			height:200px;
+			margin-bottom: 50px;        
         }
         #sign>div>form>div{
         	display:flex;
@@ -246,16 +224,12 @@
     bottom: 5px;
     font-size : 25px;
     }
-
-<<<<<<< HEAD
-=======
     .text2 {
     position:absolute;
     left : 110px;
     bottom: 5px;
     font-size : 25px;
     }
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -284,31 +258,16 @@
     <section id="choiceSection">
         <div id="choiceArea">
             <div class="choice" onclick="change('1')">
-<<<<<<< HEAD
-                <img id="op1" src="asset/img/visit_img/직장인 (1).jpg" alt="1">
-                <p>선택1</p>
-=======
                 <img id="op1" src="asset/img/visit_img/직장인 (1).jpg" alt="1" width="300px" height="400px">
                 <p class="text2">직장인</p>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
             </div>
             <div class="choice" onclick="change('2')">
-<<<<<<< HEAD
-                <img id="op2" src="asset/img/visit_img/수험생 (1).jpg" alt="2">
-                <p>선택1</p>
-=======
                 <img id="op2" src="asset/img/visit_img/수험생 (1).jpg" alt="2" width="300px" height="400px">
                 <p class="text1">수험생/고시생</p>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
             </div>
             <div class="choice" onclick="change('3')">
-<<<<<<< HEAD
-                <img id="op3" src="asset/img/visit_img/부모님 (1).jpg" alt="3">
-                <p>선택1</p>
-=======
                 <img id="op3" src="asset/img/visit_img/부모님 (12).jpg" alt="3" width="300px" height="400px">
                 <p class="text2">부모님</p>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
             </div>
         </div>
     </section>
@@ -319,93 +278,49 @@
     <script>
         
         let option ={  //이미지 주소 딕셔너리
-<<<<<<< HEAD
-        		
-                '1':'asset/img/visit_img/직장인 (1).jpg',
-                '2':'asset/img/visit_img/수험생 (1).jpg',
-                '3':'asset/img/visit_img/부모님 (1).jpg',
-                '11':'asset/img/visit_img/직장인 (2).jpg',
-                '12':'asset/img/visit_img/직장인 (3).jpg',
-                '13':'asset/img/visit_img/직장인 (4).jpg',
-                '21':'asset/img/visit_img/수험생 (2).jpg',
-                '22':'asset/img/visit_img/수험생 (3).jpg',
-                '23':'asset/img/visit_img/수험생 (4).jpg',
-                '31':'asset/img/visit_img/부모님 (2).jpg',
-                '32':'asset/img/visit_img/부모님 (3).jpg',
-                '33':'asset/img/visit_img/부모님 (4).jpg',
-                '111':'asset/img/visit_img/직장인 (5).jpg',
-                '112':'asset/img/visit_img/수험생 (5).jpg',
-                '113':'asset/img/visit_img/부모님 (5).jpg',
-                '121':'asset/img/visit_img/직장인 (6).jpg',
-                '122':'asset/img/visit_img/수험생 (6).jpg',
-                '123':'asset/img/visit_img/부모님 (6).jpg',
-                '131':'asset/img/visit_img/직장인 (7).jpg',
-                '132':'asset/img/visit_img/수험생 (10).jpg',
-                '133':'asset/img/visit_img/부모님 (7).jpg',
-                '211':'asset/img/visit_img/직장인 (8).jpg',
-                '212':'asset/img/visit_img/수험생 (8).jpg',
-                '213':'asset/img/visit_img/부모님 (1).jpg',
-                '221':'asset/img/visit_img/직장인 (9).jpg',
-                '222':'asset/img/visit_img/수험생 (9).jpg',
-                '223':'asset/img/visit_img/부모님 (9).jpg',
-                '231':'asset/img/visit_img/직장인 (10).jpg',
-                '232':'asset/img/visit_img/수험생 (7).jpg',
-                '233':'asset/img/visit_img/부모님 (10).jpg',
-                '311':'asset/img/visit_img/직장인 (11).jpg',
-                '312':'asset/img/visit_img/수험생 (11).jpg',
-                '313':'asset/img/visit_img/부모님 (11).jpg',
-                '321':'asset/img/visit_img/직장인 (12).jpg',
-                '322':'asset/img/visit_img/수험생 (12).jpg',
-                '323':'asset/img/visit_img/부모님 (8).jpg',
-                '331':'asset/img/visit_img/직장인 (13).jpg',
-                '332':'asset/img/visit_img/수험생 (13).jpg',
-                '333':'asset/img/visit_img/부모님 (13).jpg'
 
-
-        }
-=======
-        		'1':'asset/img/visit_img/직장인 (1).jpg',
-                '2':'asset/img/visit_img/수험생 (1).jpg',
-                '3':'asset/img/visit_img/부모님 (12).jpg',
-                '11':'asset/img/visit_img/직장인 (2).jpg',
-                '12':'asset/img/visit_img/수험생 (2).jpg',
-                '13':'asset/img/visit_img/부모님 (2).jpg',
-                '21':'asset/img/visit_img/직장인 (3).jpg',
-                '22':'asset/img/visit_img/수험생 (3).jpg',
-                '23':'asset/img/visit_img/부모님 (3).jpg',
-                '31':'asset/img/visit_img/직장인 (4).jpg',
-                '32':'asset/img/visit_img/수험생 (4).jpg',
-                '33':'asset/img/visit_img/부모님 (4).jpg',
-                '111':'asset/img/visit_img/직장인 (5).jpg',
-                '112':'asset/img/visit_img/수험생 (5).jpg',
-                '113':'asset/img/visit_img/부모님 (5).jpg',
-                '121':'asset/img/visit_img/직장인 (6).jpg',
-                '122':'asset/img/visit_img/수험생 (6).jpg',
-                '123':'asset/img/visit_img/부모님 (6).jpg',
-                '131':'asset/img/visit_img/직장인 (7).jpg',
-                '132':'asset/img/visit_img/수험생 (10).jpg',
-                '133':'asset/img/visit_img/부모님 (7).jpg',
-                '211':'asset/img/visit_img/직장인 (8).jpg',
-                '212':'asset/img/visit_img/수험생 (8).jpg',
-                '213':'asset/img/visit_img/부모님 (1).jpg',
-                '221':'asset/img/visit_img/직장인 (9).jpg',
-                '222':'asset/img/visit_img/수험생 (9).jpg',
-                '223':'asset/img/visit_img/부모님 (9).jpg',
-                '231':'asset/img/visit_img/직장인 (10).jpg',
-                '232':'asset/img/visit_img/수험생 (7).jpg',
-                '233':'asset/img/visit_img/부모님 (10).jpg',
-                '311':'asset/img/visit_img/직장인 (11).jpg',
-                '312':'asset/img/visit_img/수험생 (11).jpg',
-                '313':'asset/img/visit_img/부모님 (11).jpg',
-                '321':'asset/img/visit_img/직장인 (12).jpg',
-                '322':'asset/img/visit_img/수험생 (12).jpg',
-                '323':'asset/img/visit_img/부모님 (8).jpg',
-                '331':'asset/img/visit_img/직장인 (13).jpg',
-                '332':'asset/img/visit_img/수험생 (13).jpg',
-                '333':'asset/img/visit_img/부모님 (13).jpg',
+        		'1':'asset/img/',
+                '2':'asset/img/',
+                '3':'asset/img/',
+                '11':'asset/img/',
+                '12':'asset/img/',
+                '13':'asset/img/',
+                '21':'asset/img/',
+                '22':'asset/img/',
+                '23':'asset/img/',
+                '31':'asset/img/',
+                '32':'asset/img/',
+                '33':'asset/img/',
+                '111':'asset/img/',
+                '112':'asset/img/',
+                '113':'asset/img/',
+                '121':'asset/img/',
+                '122':'asset/img/',
+                '123':'asset/img/',
+                '131':'asset/img/',
+                '132':'asset/img/',
+                '133':'asset/img/',
+                '211':'asset/img/',
+                '212':'asset/img/',
+                '213':'asset/img/',
+                '221':'asset/img/',
+                '222':'asset/img/',
+                '223':'asset/img/',
+                '231':'asset/img/',
+                '232':'asset/img/',
+                '233':'asset/img/',
+                '311':'asset/img/',
+                '312':'asset/img/',
+                '313':'asset/img/',
+                '321':'asset/img/',
+                '322':'asset/img/',
+                '323':'asset/img/',
+                '331':'asset/img/',
+                '332':'asset/img/',
+                '333':'asset/img/',
             
             }
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
+
         var cnt=0;
         var a='';
         function change(n){

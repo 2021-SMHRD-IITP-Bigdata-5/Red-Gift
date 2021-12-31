@@ -9,12 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.catalina.User;
-<<<<<<< HEAD
 
 import vo.MyPageVO;
-import vo.NutriChoicesVo;
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 import vo.NutriClassesVo;
 import vo.UserVO;
 
@@ -170,6 +166,9 @@ public class UserDAO {
 		return nick;
 	}
 	//---------------------------------------------------------------
+	//	 
+	//	2 PW 
+	//---------------------------------------------------------------
 	public UserVO login(String id, String pw) {
 		connect();
 		try {
@@ -180,14 +179,13 @@ public class UserDAO {
 			
 			if(rs.next()&&pw.equals(rs.getString(2))) {
 				String getid=rs.getString(1); 
-				System.out.println(getid);//----------------
 				String getnick=rs.getString(3); 
 				String getname=rs.getString(4); 
 				String getbrith=rs.getString(5); 
 				String getsex=rs.getString(6); 
 				String getphone=rs.getString(7);
 				String getjoin_date=rs.getString(8); 
-				String getadminyn=rs.getString(8); 
+				String getadminyn=rs.getString(9); 
 				uservo = new UserVO(getid, getnick, getname, getbrith, getsex, getphone, getjoin_date, getadminyn);
 			}
 			
@@ -232,35 +230,27 @@ public class UserDAO {
 	}
 	
 	//---------------------------------------------------------------
-	public ArrayList<NutriClassesVo> nutriChoice(String choice) {
+	public ArrayList<NutriClassesVo> getNutriClasses(String choice) {
 		NutriClassesVo nutriClass = new NutriClassesVo();
 		ArrayList<NutriClassesVo> arr = new ArrayList<>();
 		
 		connect();
-		try {
-			String sql="select * from TBL_NUTRI_CHOICES where CHOICE=?";
+		try {		
+			String sql="select * from TBL_NUTRI_CLASSES where CHOICE=? order by RANK";
 				psmt=conn.prepareStatement(sql);
 				psmt.setString(1,choice);
 			rs =psmt.executeQuery();
-		rs.next();
-		String classA=rs.getNString(2);
-		String classB=rs.getNString(3);
-		String classC=rs.getNString(4);
-		
-		
-			sql="select * from TBL_NUTRI_CLASSES where NUTRI_CLASS=? or NUTRI_CLASS=? or NUTRI_CLASS=?";
-				psmt=conn.prepareStatement(sql);
-				psmt.setString(1,classA);
-				psmt.setString(2,classB);
-				psmt.setString(3,classC);
-			rs =psmt.executeQuery();
 		while(rs.next()) {
-				nutriClass.setNclass(rs.getNString(1));
-				nutriClass.setSat(Integer.parseInt(rs.getNString(1)));
-				nutriClass.setPos(Integer.parseInt(rs.getNString(2)));
-				nutriClass.setNeg(Integer.parseInt(rs.getNString(3)));
-			arr.add(nutriClass);
-		}
+					nutriClass.setNclass(rs.getNString(1));
+					nutriClass.setSat(rs.getInt(2));
+					nutriClass.setPos(rs.getInt(3));
+					nutriClass.setNeg(rs.getInt(4));
+					nutriClass.setClass_photo(rs.getString(5));
+					nutriClass.setChoice(rs.getString(6));
+					nutriClass.setRank(rs.getInt(7));
+				
+				arr.add(nutriClass);
+			}
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -269,6 +259,7 @@ public class UserDAO {
 		}
 		return arr;
 	}
+	//---------------------------------------------------------------
 	public ArrayList<MyPageVO> getMypage(String id) {
 		connect();
 		MyPageVO mpvo =new MyPageVO();
@@ -300,50 +291,27 @@ public class UserDAO {
 	}
 	//---------------------------------------------------------------
 
-	public void getMyclass(String choice) {
-		connect();
-		try {
-			String sql="select * from TBL_NUTRI_CLASSES where CHOICE=? "
-					+ "order by RANK";
-				psmt=conn.prepareStatement(sql);
-				psmt.setNString(1, choice);
-			rs =psmt.executeQuery();
-				
-			rs.next();
-			String class1=rs.getString(1);
-			String class2=rs.getString(2);
-			String class3=rs.getString(3);
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-
-	}
-	/*
-	String sql="select b.CLASS_SAT, b.CLASS_POS, b.CLASS_NEG, b.CLASS_PHOTO "
-			+ "from TBL_NUTRI_CHOICES a"
-			+ "innner join TBL_NUTRI_CLASSES b"
-			+ "on a.NUTRI_CLASS1=b.NUTRI_CLASS"
-			+ "where a.CHOICE=?";
-	
-	String sql="select b.CLASS_SAT, b.CLASS_POS, b.CLASS_NEG, b.CLASS_PHOTO "
-			+ "from TBL_NUTRI_CHOICES a"
-			+ "innner join TBL_NUTRI_CLASSES b"
-			+ "on a.NUTRI_CLASS2=b.NUTRI_CLASS"
-			+ "where a.CHOICE=?";
-	
-	String sql="select b.CLASS_SAT, b.CLASS_POS, b.CLASS_NEG, b.CLASS_PHOTO "
-			+ "from TBL_NUTRI_CHOICES a"
-			+ "innner join TBL_NUTRI_CLASSES b"
-			+ "on a.NUTRI_CLASS3=b.NUTRI_CLASS"
-			+ "where a.CHOICE=?";
-	*/
-	
-	
-	
-
-
+//	public void getMyclass(String choice) {
+//		connect();
+//		try {
+//			String sql="select * from TBL_NUTRI_CLASSES where CHOICE=? "
+//					+ "order by RANK";
+//				psmt=conn.prepareStatement(sql);
+//				psmt.setNString(1, choice);
+//			rs =psmt.executeQuery();
+//				
+//			rs.next();
+//			String class1=rs.getString(1);
+//			String class2=rs.getString(2);
+//			String class3=rs.getString(3);
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close();
+//		}
+//
+//	}
+	//---------------------------------------------------------------
 	public int Delete(String id) {
 		connect();
 		try {

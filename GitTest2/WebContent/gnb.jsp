@@ -75,60 +75,59 @@ nav {
 .menu>li>a{
 color: rgba(41, 41, 41, 0.8);
 }
-/*로고 색*/
 .logo>h1>a {
 	font-size: 35px;
 	color: crimson;
 	opacity:0.7;
 }
-<<<<<<< HEAD
-.logo {
-	display:flex;
-}
-.logo>div{
-	float:left;
-	padding:17px 0px 0px 5px;
-=======
-/*로고 위치*/
 .logo > h1 > a > img{
 	margin: 5px 0 0 0;
 	
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 }
 </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <body>
 <%
 	UserVO uservo = (UserVO)session.getAttribute("uservo");
+	String userNick =null;
+	if(uservo!=null){
+		userNick = uservo.getUser_nick();
+	}
+	//gnb 로그인 하이드 조건을 만들기 위해서 널값 확인 용도
 %>
 	<header class="nav-down">
         <nav id="gnb">
             <div class="logo">
-<<<<<<< HEAD
-                <h1><a href="main.jsp">빨간약기프티콘</a></h1>
-				<div><img src="asset/img/logosizetest.png"></div>
-=======
-                <h1><a href="main.jsp"><img src="asset/img/icon_img/빨간약기프티콘.png"
-						width="60" height="60">빨간약기프티콘</a></h1>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
+                <h1><a href="main.jsp"><img src="asset/img/icon_img/빨간약기프티콘_로고03.png"
+						height="60"></a></h1>
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
                 <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
-                
-                
-                <%if(uservo==null){ %>
-                <li><a href="login.jsp" onClick="">로그인</a></li>
-                <%}else{ %>
-                <li><a href="myPage.jsp" onClick="">마이페이지</a></li>
-                <li><a href="LogOut.do" onClick="">로그아웃</a></li>
-                <%} %>
+
+                <li class="logout"><a href="login.jsp" onClick="">로그인</a></li>
+                <li class="logon"><a href="myPage.jsp" onClick="">마이페이지</a></li>
+                <li class="logon"><a href="LogOut.do" onClick="">로그아웃</a></li>
             </div>
         </nav>
  	</header>
  <script src="asset/js/jquery-3.6.0.min.js"></script>
  <script>
+ let usernick='<%=userNick%>'
+	 if (usernick != 'null'){
+		 logon();
+	 }else{
+		 logout();
+	 }
  
+function logon(){
+	 $('.logon').show();
+	 $('.logout').hide();
+}
+function logout(){
+ 	$('.logon').hide();
+ 	$('.logout').show();
+}
  var didScroll;
  var lastScrollTop = 0;
  var delta = 5;
