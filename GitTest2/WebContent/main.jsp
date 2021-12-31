@@ -241,14 +241,10 @@
     
 </head>
 <body> 
-<<<<<<< HEAD
+
 	
 	<%@include file="gnb.jsp"%>
-=======
 
-
-	<%@include file="gnb.jsp" %>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
     
         <div id="banner">
             <br>

@@ -163,8 +163,8 @@ footer {
 </head>
 <body>
 
-	<%
 		<%@include file="gnb.jsp"%>
+	<%
 		MypageDAO dao = new MypageDAO();
 	%>
 	<%
