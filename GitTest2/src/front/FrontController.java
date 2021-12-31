@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import inter.command;
+import page.DeleteMypage;
 import page.GetMypage;
 import page.GetNutriClass;
 import page.SetMypage;
@@ -41,7 +42,7 @@ public class FrontController extends HttpServlet {
 		command com = null;
 		String nextpage= null;
 	
-		if(command.equals("SignUp.do")) {
+		if(command.equals("Signup.do")) {
 			com= new SignupService();
 			nextpage=com.execute(request, response);
 		}
@@ -85,9 +86,17 @@ public class FrontController extends HttpServlet {
 		
 		if(command.equals("SetNutriClass.do")) {
 			com= new SetNutriClass();
-
+		}
 		if(command.equals("GetNutriClass.do")) {
 			com= new GetNutriClass();
+		}
+		if(command.equals("DeleteMypage.do")) {
+			//int page_seq = Integer.parseInt(request.getParameter("page_seq"));
+			com=new DeleteMypage();
+			nextpage=com.execute(request, response);
+		}
+		if(command.equals("UpdateMypage.do")) {
+			
 		}
 		
 //------------------------영양제 프론트------------------------------		
@@ -110,7 +119,7 @@ public class FrontController extends HttpServlet {
 		
 		
 		if(nextpage!=null) response.sendRedirect(nextpage);
-	}
-
-	}
-}
+	
+	
+	}//서비스끝
+}//컨트롤러끝

@@ -1,3 +1,4 @@
+<%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -66,7 +67,7 @@ body>main{
     padding: 50px;
     border: 10px solid white;/*테두리 적용*/
 }
-body > section > form > div.btn-login>button{
+body > section > form > div.btn-login > button{
    
     display: flex;/*(정렬)한줄로 만듬*/
     justify-content: space-between;/*(정렬)같은 중심축_space-between간격*/
@@ -103,6 +104,10 @@ body > main > section > form > div.btn-login > button{
     <script src="asset/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<%
+	UserVO uservo = (UserVO)session.getAttribute("uservo");
+%>
+
     <main>
         <section class="Login-from">
             <th><h1><label for="pw-input-text">회원정보수정</label></h1></th>
@@ -124,7 +129,7 @@ body > main > section > form > div.btn-login > button{
                         <td><input type="text" id="" name="name" placeholder="이름수정"></td>
                     </tr>
                     <tr align="center">
-                        <td style="height: 30px;"><a id="a1"  style="width : 55%; height: 15px;">생일<input type="date"></a></td>
+                        <td style="height: 30px;"><a id="a1"  style="width : 55%; height: 15px;">생일<input type="date" name="birth"></a></td>
                     </tr>
                     <tr align="center">
                         <td>
@@ -144,7 +149,7 @@ body > main > section > form > div.btn-login > button{
                 </div>
                 <div class="btn-login">
                     <button type="submit" onClick="">회원정보수정</button>
-                    <a href="" id="a3">회원 탈퇴</a>
+                    <a href="Delete.do?id=<%=uservo.getUser_id() %>" id="a3">회원 탈퇴</a>
                 </div>
             </form>
 

@@ -102,7 +102,7 @@ body > main > section > form > div.btn-login > button{
     <main>
         <section class="Login-from">
             <th><h1><label for="id-input-text">회원가입</label></h1></th>
-            <form action="SignupCon.do" method="post">
+            <form action="Signup.do" method="post">
                 <table>
                 <div class="infor">
                     <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->

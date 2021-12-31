@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>마이페이지</title>
 <style>
-<<<<<<< HEAD
+
 background-image: url( 'img /배경 /이미지a-3.jpg ') ;
     * {
 	margin: 0;
@@ -84,7 +84,6 @@ table td {
 #memo {
 	height: fit-content;
 }
-=======
 html,body{
 	/*width: 100%;*/
 	height: 100%;
@@ -187,7 +186,6 @@ footer {
 </head>
 <body>
 	<%@include file="gnb.jsp"%>
-<<<<<<< HEAD
 	<%
 		MypageDAO dao = new MypageDAO();
 	%>
@@ -196,6 +194,8 @@ footer {
 	%>
 	<%
 		ArrayList<MyPageVO> pageList = dao.GetMypage(user_id);
+									
+	
 	%>
 	<%
 		System.out.println(pageList.size());
@@ -217,7 +217,7 @@ footer {
 					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
 						width="80" height="80"> <!--영양제군 이미지--></td>
 					<td>당시 만족도 정보</td>
-=======
+					
 	<section align="center">
 		<table>
 			<thead>
@@ -299,20 +299,27 @@ footer {
 			<thead>
 				<tr>
 					<td colspan="2"><%=pageList.get(i).getPage_seq()%>,<%=pageList.get(i).getReg_date()%>
+					    <button onclick="deleteMyPage('<%=pageList.get(i).getPage_seq() %>')">삭제</button>
+						<button id = "change" onclick="change('<%=pageList.get(i).getPage_memo()%>')">수정</button>
+						
+						
+						
 					</td>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td id=nutricard><%=pageList.get(i).getNutri_class()%></td>
+					<td   >
+						<%=pageList.get(i).getNutri_class()%>
+					</td>
 
 
 
-					<td><%=pageList.get(i).getMy_class_sat()%></td>
+					<td class=><%=pageList.get(i).getMy_class_sat()%></td>
 
 				</tr>
 				<tr>
-					<td id="memo" colspan="2"><%=pageList.get(i).getPage_memo()%></td>
+					<td class="myupdate" id="memo" colspan="2"><%=pageList.get(i).getPage_memo()%></td>
 				</tr>
 			</tbody>
 		</table>
@@ -326,8 +333,31 @@ footer {
 
 	</section>
 
-
+	
 	<%@include file="footer.jsp"%>
+	<script src="./asset/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+	function deleteMyPage(pageCnt){
+		
+		location.href="DeleteMypage.do?page_seq="+pageCnt;
+		
+	}
+	
+	function change(data,page_seq){
+		$(".myupdate").html("<textarea class='myupdate' rows='' cols=''>"+data+"</textarea>"); // <--- 이렇게 태그 만들때 따옴표 주의, 이상입니다. 
+		
+		
+		$("#change").html("<button type='submit' id='change2' onClick='updateMypage(\""+data+"\")'>수정완료</button>")
+	}
+	function updateMypage(page_memo){
+		$("#change2").html("<button id ='change' onClick='change(\""+page_memo+"\")'>수정</button>")
+		$(".myupdate").html("<td class='myupdate' id='memo' colspan='2'>"+page_memo+"</td>")
+		location.href="UpdateMypage.do?page_memo=" +page_memo+
+				"&page_seq="+page_seq; // <-- 이거 정의안된거 처리하시고
+		
+	}
+	
+	</script>
 
 </body>
 </html>
