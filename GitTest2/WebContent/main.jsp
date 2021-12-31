@@ -50,10 +50,12 @@
             display: flex;
             justify-content: center;
         }
+        /*누구에게 선물하실건가요?*/
         .message{
         	margin: 0 0 0 0; 
-        	font-size: 30px;
-        	font-family: 'NanumSquareBold'; 
+        	/*font-size: 30px;*/
+        	font-family: 'NanumSquareBold';
+        	font-size: 50px;
         	     	
         }
         .choice{
@@ -125,7 +127,7 @@
         	opacity:0.6;
     	}
     /*직장인,수험생,부모님 이미지위에 글자쓰기*/
-    .choice {
+    /*.choice {
     position:relative;
     }
     .text1{
@@ -141,7 +143,7 @@
     left : 110px;
     bottom: 5px;
     font-size : 25px;
-    }
+    }*/
 
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -171,16 +173,16 @@
     <section id="choiceSection">
         <div id="choiceArea">
             <div class="choice" onclick="change('1')">
-                <img id="op1" src="asset/img/visit_img/직장인 (1).jpg" alt="1" width="300px" height="400px">
-                <p class="text2">직장인</p>
+                <img id="op1" src="asset/img/visit_img/3대-이미지-01.jpg" alt="1" width="300px" height="400px">
+                <p class="text2"><!-- 직장인 --></p>
             </div>
             <div class="choice" onclick="change('2')">
-                <img id="op2" src="asset/img/visit_img/수험생 (1).jpg" alt="2" width="300px" height="400px">
-                <p class="text1">수험생/고시생</p>
+                <img id="op2" src="asset/img/visit_img/3대-이미지-02.jpg" alt="2" width="300px" height="400px">
+                <p class="text1"><!-- 수험생/고시생 --></p>
             </div>
             <div class="choice" onclick="change('3')">
-                <img id="op3" src="asset/img/visit_img/부모님 (12).jpg" alt="3" width="300px" height="400px">
-                <p class="text2">부모님</p>
+                <img id="op3" src="asset/img/visit_img/3대-이미지-03.jpg" alt="3" width="300px" height="400px">
+                <p class="text2"><!-- 부모님 --></p>
             </div>
         </div>
     </section>
@@ -191,9 +193,9 @@
     <script>
         
         let option ={  //이미지 주소 딕셔너리
-        		'1':'asset/img/visit_img/직장인 (1).jpg',
-                '2':'asset/img/visit_img/수험생 (1).jpg',
-                '3':'asset/img/visit_img/부모님 (12).jpg',
+        		'1':'asset/img/visit_img/3대-이미지-01.jpg',
+                '2':'asset/img/visit_img/3대-이미지-02.jpg',
+                '3':'asset/img/visit_img/3대-이미지-03.jpg',
                 '11':'asset/img/visit_img/직장인 (2).jpg',
                 '12':'asset/img/visit_img/수험생 (2).jpg',
                 '13':'asset/img/visit_img/부모님 (2).jpg',
