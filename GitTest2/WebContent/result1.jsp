@@ -36,7 +36,7 @@
 				제안1영역
 				
 				<div>
-				<canvas  id="myChartOne" width="300" height="300"></canvas>
+				<canvas  id="myChartOne" width="150" height="150"></canvas>
 				</div>
 				
             </div>
@@ -44,7 +44,7 @@
             	타입<%=choice %>
 				제안2영역
             <div>
-				<canvas  id="myChartOne2" width="300" height="300"></canvas>
+				<canvas  id="myChartOne2" width="150" height="150"></canvas>
             </div>
            
             </div>
