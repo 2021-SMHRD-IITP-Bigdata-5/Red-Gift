@@ -29,7 +29,7 @@ public class SignupService extends HttpServlet implements command {
 		String birth= request.getParameter("birth");
 		String sex= request.getParameter("gender");
 		String phone= request.getParameter("phone");
-		
+		System.out.println("회원서블릿성공");
 		UserVO uservo = new UserVO(id, pw, nick, name, birth, sex, phone);
 		UserDAO dao = new UserDAO();
 		dao.signUp(uservo);
@@ -38,6 +38,7 @@ public class SignupService extends HttpServlet implements command {
 		
 		if (dao.signUp(uservo)>0) {
 			nextpage = "main.jsp";
+			System.out.println("회원가입성공");
 		}
 		else {
 			System.out.println("회원가입실패");

@@ -103,6 +103,7 @@ body > main > section > form > div.btn-login > button{
         <section class="Login-from">
             <th><h1><label for="id-input-text">회원가입</label></h1></th>
             <form action="SignUp.do" method="post">
+
                 <table>
                 <div class="infor">
                     <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->

@@ -23,7 +23,7 @@ public class GetMypage extends HttpServlet implements command{
 		HttpSession session = request.getSession();
 		UserVO uservo = (UserVO)session.getAttribute("uservo");
 		
-		String id = request.getParameter(uservo.getUser_id());
+		String id = uservo.getUser_id();
 		
 		MypageDAO dao = new MypageDAO();
 		

@@ -97,9 +97,11 @@ color: rgba(41, 41, 41, 0.8);
 %>
 	<header class="nav-down">
         <nav id="gnb">
+
             <div class="logo">
                 <h1><a href="main.jsp"><img src="asset/img/icon_img/빨간약기프티콘_로고03.png"
 						height="60"></a></h1>
+
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
@@ -108,6 +110,7 @@ color: rgba(41, 41, 41, 0.8);
                 <li class="logout"><a href="login.jsp" onClick="">로그인</a></li>
                 <li class="logon"><a href="myPage.jsp" onClick="">마이페이지</a></li>
                 <li class="logon"><a href="LogOut.do" onClick="">로그아웃</a></li>
+
             </div>
         </nav>
  	</header>

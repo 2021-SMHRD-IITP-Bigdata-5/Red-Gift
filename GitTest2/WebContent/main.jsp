@@ -49,10 +49,12 @@
             display: flex;
             justify-content: center;
         }
+        /*누구에게 선물하실건가요?*/
         .message{
         	margin: 0 0 0 0; 
-        	font-size: 30px;
-        	font-family: 'NanumSquareBold'; 
+        	/*font-size: 30px;*/
+        	font-family: 'NanumSquareBold';
+        	font-size: 50px;
         	     	
         }
         .choice{
@@ -214,7 +216,7 @@
         	opacity:0.6;
     	}
     /*직장인,수험생,부모님 이미지위에 글자쓰기*/
-    .choice {
+    /*.choice {
     position:relative;
     }
     .text1{
@@ -229,7 +231,7 @@
     left : 110px;
     bottom: 5px;
     font-size : 25px;
-    }
+    }*/
 
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -239,8 +241,14 @@
     
 </head>
 <body> 
+<<<<<<< HEAD
 	
 	<%@include file="gnb.jsp"%>
+=======
+
+
+	<%@include file="gnb.jsp" %>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
     
         <div id="banner">
             <br>
@@ -257,17 +265,23 @@
 	</section>
     <section id="choiceSection">
         <div id="choiceArea">
+
             <div class="choice" onclick="change('1')">
-                <img id="op1" src="asset/img/visit_img/직장인 (1).jpg" alt="1" width="300px" height="400px">
-                <p class="text2">직장인</p>
+                <img id="op1" src="asset/img/1231_메인클릭이미지/메인선택이미지-01_직장인.jpg" alt="1" width="300px" height="400px">
+                <p class="text2"><!-- 직장인 --></p>
+
             </div>
+
             <div class="choice" onclick="change('2')">
-                <img id="op2" src="asset/img/visit_img/수험생 (1).jpg" alt="2" width="300px" height="400px">
-                <p class="text1">수험생/고시생</p>
+                <img id="op2" src="asset/img/1231_메인클릭이미지/메인선택이미지-02_가족.jpg" alt="2" width="300px" height="400px">
+                <p class="text1"><!-- 수험생/고시생 --></p>
+
             </div>
+
             <div class="choice" onclick="change('3')">
-                <img id="op3" src="asset/img/visit_img/부모님 (12).jpg" alt="3" width="300px" height="400px">
-                <p class="text2">부모님</p>
+                <img id="op3" src="asset/img/1231_메인클릭이미지/메인선택이미지-03_부부.jpg" alt="3" width="300px" height="400px">
+                <p class="text2"><!-- 부모님 --></p>
+
             </div>
         </div>
     </section>
@@ -279,46 +293,46 @@
         
         let option ={  //이미지 주소 딕셔너리
 
-        		'1':'asset/img/',
-                '2':'asset/img/',
-                '3':'asset/img/',
-                '11':'asset/img/',
-                '12':'asset/img/',
-                '13':'asset/img/',
-                '21':'asset/img/',
-                '22':'asset/img/',
-                '23':'asset/img/',
-                '31':'asset/img/',
-                '32':'asset/img/',
-                '33':'asset/img/',
-                '111':'asset/img/',
-                '112':'asset/img/',
-                '113':'asset/img/',
-                '121':'asset/img/',
-                '122':'asset/img/',
-                '123':'asset/img/',
-                '131':'asset/img/',
-                '132':'asset/img/',
-                '133':'asset/img/',
-                '211':'asset/img/',
-                '212':'asset/img/',
-                '213':'asset/img/',
-                '221':'asset/img/',
-                '222':'asset/img/',
-                '223':'asset/img/',
-                '231':'asset/img/',
-                '232':'asset/img/',
-                '233':'asset/img/',
-                '311':'asset/img/',
-                '312':'asset/img/',
-                '313':'asset/img/',
-                '321':'asset/img/',
-                '322':'asset/img/',
-                '323':'asset/img/',
-                '331':'asset/img/',
-                '332':'asset/img/',
-                '333':'asset/img/',
-            
+        		'1':'asset/img/1231_메인클릭이미지/메인선택이미지-01_직장인.jpg',
+                '2':'asset/img/1231_메인클릭이미지/메인선택이미지-02_가족.jpg',
+                '3':'asset/img/1231_메인클릭이미지/메인선택이미지-03_부부.jpg',
+                '11':'asset/img/1231_메인클릭이미지/메인선택이미지-04_사회초년생.jpg',
+                '12':'asset/img/1231_메인클릭이미지/메인선택이미지-05_과장.jpg',
+                '13':'asset/img/1231_메인클릭이미지/메인선택이미지-06_부장.jpg',
+                '21':'asset/img/1231_메인클릭이미지/메인선택이미지-07_학생.jpg',
+                '22':'asset/img/1231_메인클릭이미지/메인선택이미지-08_부모님.jpg',
+                '23':'asset/img/1231_메인클릭이미지/메인선택이미지-09_할머니.jpg',
+                '31':'asset/img/1231_메인클릭이미지/메인선택이미지-10_남편.jpg',
+                '32':'asset/img/1231_메인클릭이미지/메인선택이미지-11_와이프.jpg',
+                '33':'asset/img/1231_메인클릭이미지/메인선택이미지-12_임산부.jpg',
+                '111':'asset/img/1231_메인/1231_00-피로.jpg',
+                '112':'asset/img/1231_메인/1231_00-눈.jpg',
+                '113':'asset/img/1231_메인/1231_00-숙취.jpg',
+                '121':'asset/img/1231_메인/1231_00-숙취.jpg',
+                '122':'asset/img/1231_메인/1231_00-피로.jpg',
+                '123':'asset/img/1231_메인/1231_00-눈.jpg',
+                '131':'asset/img/1231_메인/1231_00-전립선.jpg',
+                '132':'asset/img/1231_메인/1231_00-피로.jpg',
+                '133':'asset/img/1231_메인/1231_00-탈모.jpg',
+                '211':'asset/img/1231_메인/1231_00-뇌.jpg',
+                '212':'asset/img/1231_메인/1231_00-키즈.jpg',
+                '213':'asset/img/1231_메인/1231_00-어린이.jpg',
+                '221':'asset/img/1231_메인/1231_00-엄마.jpg',
+                '222':'asset/img/1231_메인/1231_00-아빠.jpg',
+                '223':'asset/img/1231_메인/1231_00-친척.jpg',
+                '231':'asset/img/1231_메인/1231_00-관절.jpg',
+                '232':'asset/img/1231_메인/1231_00-눈.jpg',
+                '233':'asset/img/1231_메인/1231_00-탈모.jpg',
+                '311':'asset/img/1231_메인/1231_00-관절.jpg',
+                '312':'asset/img/1231_메인/1231_00-피로.jpg',
+                '313':'asset/img/1231_메인/1231_00-탈모.jpg',
+                '321':'asset/img/1231_메인/1231_00-엄마.jpg',
+                '322':'asset/img/1231_메인/1231_00-탈모.jpg',
+                '323':'asset/img/1231_메인/1231_00-피로.jpg',
+                '331':'asset/img/1231_메인/1231_00-엄마.jpg',
+                '332':'asset/img/1231_메인/1231_00-피로.jpg',
+                '333':'asset/img/1231_메인/1231_00-탈모.jpg',
+
             }
 
         var cnt=0;

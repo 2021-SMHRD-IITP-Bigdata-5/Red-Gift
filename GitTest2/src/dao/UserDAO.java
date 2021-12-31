@@ -200,15 +200,9 @@ public class UserDAO {
 	//---------------------------------------------------------------
 	public int Update(UserVO user) {
 		connect();
-		
+		System.out.println("dao진입성공");
 		try {
-			String sql="update tbl_users set user_pw=?, "
-					+ "user_nickname=?"
-					+ "user_name=?, "
-					+ "user_birth=?,"
-					+ "user_sex=?,"
-					+ "user_phone=? "
-					+ "where user_id=?";
+			String sql="update tbl_users set user_pw=?, user_nickname=?,user_name=?,user_birth=?,user_sex=?,user_phone=? where user_id=?";
 				psmt=conn.prepareStatement(sql);
 				psmt.setString(1, user.getUser_pw());
 				psmt.setString(2, user.getUser_nick());
@@ -218,6 +212,12 @@ public class UserDAO {
 				psmt.setString(6, user.getUser_phone());
 				psmt.setString(7, user.getUser_id());	
 			cnt=psmt.executeUpdate();
+			
+			if(cnt>0) {
+				System.out.println("쿼리문성공");
+			}else {
+				System.out.println("쿼리문실패");
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -315,7 +315,7 @@ public class UserDAO {
 	public int Delete(String id) {
 		connect();
 		try {
-			String sql="Delete from tbl_user where id=?";
+			String sql="Delete from tbl_users where user_id=?";
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			cnt=psmt.executeUpdate();

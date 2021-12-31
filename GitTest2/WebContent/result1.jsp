@@ -40,17 +40,14 @@
             	
             	</div>
 				<div class="cardBody">
-				
 					<h2>
 					<%=choice %>
 					</h2>
 					<div>
 					<canvas  id="myChartOne" width="150" height="150"></canvas>
-					</div>
 					<p>
-						
 					</p>
-				</div>
+					</div>
 				<div class="cardTail">
 				
 				</div>
@@ -76,6 +73,8 @@
             	</div>
            		<div class="cardTail">
             	</div>
+
+
         </div>
     </section>
 
