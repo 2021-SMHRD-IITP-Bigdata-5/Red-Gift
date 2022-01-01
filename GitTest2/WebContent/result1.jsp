@@ -7,14 +7,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-   <%
+   <%//test
 	UserVO user = (UserVO)session.getAttribute("uservo");
 	String choice=request.getParameter("choice");
    	System.out.println(choice);
@@ -31,23 +33,45 @@
 	</section>
     <section class="resultView">
         <div>
-            <div>
-            	타입<%=choice %>
-				제안1영역
+            <div class="nutriCard" onclick="cardUp('#class1')">
+            	<div class="cardHead" id="class1">
+            	
+            	제안1 헤드
+            	
+            	</div>
+            	
+				<div class="cardBody">
+					<h2>
+						<%=choice %>
+					</h2>
+					<div>
+						<canvas  id="myChartOne" width="150" height="150"></canvas>
+					</div>
+				</div>
+				<div class="cardTail">
 				
-				<div>
-				<canvas  id="myChartOne" width="150" height="150"></canvas>
 				</div>
 				
             </div>
-            <div>
-            	타입<%=choice %>
-				제안2영역
-            <div>
-				<canvas  id="myChartOne2" width="150" height="150"></canvas>
-            </div>
-           
-            </div>
+       <!--                                -->
+            <div class="nutriCard" onclick="cardUp('#class2')">
+            	<div class="cardHead" id="class2">
+            	
+            	제안2 헤드
+            	
+            	</div>
+				<div class="cardBody">
+					<h2>
+						<%=choice %>
+					</h2>
+					<div>
+						<canvas  id="myChartOne2" width="150" height="150"></canvas>
+            		</div>
+            		
+            	</div>
+           		<div class="cardTail">
+            	</div>
+			</div>
         </div>
     </section>
 
@@ -59,7 +83,7 @@
 		</p>
 	
 	</section>
-    <section id="sign" style="margin-bottom: 50px;">
+    <section id="sign">
         <div id="signUp">
             <form action="SignUp.do" method="post" id=signUpForm>
                 <input type="text"     name="id" placeholder=" 이메일로 간편가입하기" id="id">            
@@ -174,6 +198,7 @@
         		$('#suggest').hide();
         		pageLoad1('result2.jsp')
         		<% user = (UserVO)session.getAttribute("uservo"); %>
+        		logon();
         	},
         	error:function(){
         		alert('로그인요청실패')	
@@ -181,7 +206,7 @@
     	})
     	return false;
     })
- 
+    
     function pageLoad1(page){
             $.ajax({
                 url: page,  
@@ -195,6 +220,9 @@
                 }
             })
         }
+   
+    
+    
     
     $(window).on('scroll.resultView',function(){
 		if(user!=null){
@@ -203,10 +231,18 @@
    				$(window).off('scroll.resultView');
     		}
     	}
-    	
     })
     
- 
+ 	function cardUp(a){
+    	if( $(a).attr('class')=='cardHead'){
+    		$(a).attr('class','cardHead_up');	
+    	}else{
+    		$(a).attr('class','cardHead');
+    	}
+    	
+    	
+    }
+  		//-------------------------------------------------------------------------
         let myChartOne = document.getElementById('myChartOne').getContext('2d');
         //차트 오브젝트 생성
         let barChert = new Chart(myChartOne, {
@@ -233,9 +269,7 @@
                 // 'rgba(153, 102, 255, 1)',
                 // 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth:1
-            
-          
+            borderWidth:1     
         }]
     },
     options: {
@@ -247,9 +281,7 @@
         }
     }
 });
-       
-     
-        
+        //-------------------------------------------------------------------------
         let myChartOne2 = document.getElementById('myChartOne2').getContext('2d');
         //차트 오브젝트 생성
         let barChert2 = new Chart(myChartOne2, {
@@ -276,9 +308,7 @@
                 // 'rgba(153, 102, 255, 1)',
                 // 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth:1
-            
-          
+            borderWidth:1     
         }]
     },
     options: {

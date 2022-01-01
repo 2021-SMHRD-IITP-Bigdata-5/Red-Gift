@@ -226,4 +226,4 @@ public class MypageDAO {
 		return class_list;
 	}
 
-}
+}//클래스끝

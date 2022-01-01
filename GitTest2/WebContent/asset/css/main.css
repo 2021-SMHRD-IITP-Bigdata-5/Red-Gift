@@ -1,0 +1,192 @@
+@font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
+@font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
+@font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
+@font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
+        header{
+        }
+        body{
+            display: block;
+            align-items: center;
+            overflow-x: hidden;
+            display: grid;
+        }
+        #banner{
+            background-image: url('asset/img/doyouwannathis.jpg');
+            height: 400px;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            padding: 100px 20px 5px 20px;
+            
+            color: #d4d4d4;
+            font-family:'NanumSquareLight';
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 0;
+        }
+        section{
+            padding: 5% 0% 0% 0%;
+            display: flex;
+            justify-content: center;
+        }
+        .message{
+        	margin: 0 0 0 0; 
+        	font-size: 30px;
+        	font-family: 'NanumSquareBold'; 
+        	     	
+        }
+        .choice{
+            display:inline-block;
+            border-style: solid 1px;
+            background-color: gray;
+            width: 300px;
+            height: 400px;
+        }
+		#op1,#op2,#op3{
+			width:300px;
+			height:400px;
+		}
+        .resultView>div>div {
+            display: inline-block;
+            width: 450px;
+            height: 600px;
+            /*background-color: gray;*/
+        }
+        .classView>div>div .itemsView>div>div{
+        	display: inline-block;
+            width: 600px;
+            height: 500px;
+        }
+        .resultView>div>div,.classView>div>div,.itemsView>div>div {
+        	
+		  box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
+		  /*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
+		  background: hsl(0 0% 100%);
+		  color: hsl(200 50% 20%);
+		  line-height: 1.5;
+		  /*display: flex;*/
+		  place-items: center;
+		  text-align: center;
+		  /*padding: 2ch;*/
+		  margin: 0 10px 0 0;
+		  border-radius: 2ch;
+		  border: 0px solid hsl(0 0% 85%);
+		}
+		/*.nutriClass{
+			box-sizing: boarder-box;
+			background-color:gray;
+			color:black;
+			padding: 0rem;
+		}  
+		
+		.nutriClass>h2{
+			background-color:gray;
+			color:black;
+			margin: 0;
+			box-sizing:boarder-box;
+			height:20%;
+		}
+    	.nutriClass>div{
+    		height:40%;
+    	}
+    	*/
+    	.nutriCard:hover{
+    	}
+    	.nutriCard{
+    		overflow:hidden;
+    		position:relative;
+    	}
+    	.cardHead{
+    		width:100%;
+    		height:500px;
+    		border-radius:2ch 2ch 0 0;
+    		background-image: url('asset/img/testimg1.jpg');
+    		background-size:180%;
+    		box-sizing:boarder-box;
+    		-webkit-transition: .3s ease-in-out;
+    	}
+    	/*onclick c()  홀짝 */
+    	.cardHead_up{
+    		width:100%;
+    		height:100px;
+    		border-radius:2ch 2ch 0 0;
+    		background-image: url('asset/img/testimg1.jpg');
+    		background-size:180%;
+    		box-sizing:boarder-box;
+    		-webkit-transition: .3s ease-in-out;
+    	}
+    	
+    	
+   		.cardBody{
+   			width:100%;
+    		height:100px;
+    		line-height:1;
+    	
+    	}
+    	/*
+    	.cardBody:hover{
+    		overflow:scroll;
+    		line-height:1;    	
+    	}*/
+    	.cardBody::-webkit-scrollbar {
+    		display: none;
+    	}
+    	.cardTail{
+    		position:absolute;
+    		bottom:0;
+    		
+    		width:100%;
+    		height:50px;
+    		
+    		background-color:gray;
+    		opacity:0.3;
+    		border-radius:0 0 2ch 2ch;
+    	}
+    	
+    	
+    	
+    	
+    	
+
+        input{
+	        width:300px;
+	        height:40px;
+	        background-color: transparent;
+	        border: none;
+	        border-bottom: 1px sold rgb(0, 0, 0);
+	        font-size:18px;
+	        font-family: 'NanumSquare';
+        }
+        #sign{
+			height:200px;        
+        }
+        #sign>div>form>div{
+        	display:flex;
+        	justify-content: center;
+	        align-items: center; 
+        }
+		#sign button{
+	        color: white;
+	        border: 0px;
+	        border-radius: 25px;
+	        width:300px; 
+	        
+	        font-family: 'NanumSquare';
+	        font-size: 18px;
+	        font-weight: bold;
+	        margin: 10px 5px 5px 5px;
+	        padding: 10px;
+	        
+	        display: flex;
+	        justify-content: center;
+	        align-items: center; 
+    	} 
+    	#sign .b1{
+        	background-color: crimson;
+        	opacity:0.7;
+    	}
+    	#sign .b2{
+        	background-color: gray;
+        	opacity:0.6;
+    	}

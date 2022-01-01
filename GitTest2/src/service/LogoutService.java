@@ -19,7 +19,7 @@ public class LogoutService extends HttpServlet implements command{
 			throws IOException, ServletException {
 		HttpSession session = request.getSession();
 		session.removeAttribute("uservo");
-		
+		System.out.println("·Î±×¾Æ¿ô");
 		return "main.jsp";
 	}
 

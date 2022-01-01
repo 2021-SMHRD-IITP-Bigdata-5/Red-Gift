@@ -23,10 +23,11 @@
             display: block;
             align-items: center;
             overflow-x: hidden;
-            background-color: white;
+			/*display: grid;*/
         }
         #banner{
             background-image: url('asset/img/배경/대체-3.jpg');
+            height: 400px;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -68,37 +69,128 @@
             width: 300px;
             height: 400px;
         }
-        /*차트바탕색*/
-        .resultView>div>div{
+
+		#op1,#op2,#op3{
+			width:300px;
+			height:400px;
+		}
+		#op1:hover,#op2:hover,#op2:hover{
+		}
+        .resultView>div>div {
             display: inline-block;
             width: 450px;
             height: 600px;
-            background-color: #f7f1e3;
+            /*background-color: gray;*/
         }
-        .classView>div>div{
+        .classView>div>div, .itemsView>div>div{
         	display: inline-block;
             width: 600px;
-            height: 400px;
-            background-color: gray;
+            height: 600px;
         }
-        .itemsView>div>div{
-        	display: inline-block;
-            width: 600px;
-            height: 400px;
-            background-color: gray;
-        }
+        .resultView>div>div,.classView>div>div,.itemsView>div>div {
+        	
+		  box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
+		  /*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
+		  background: hsl(0 0% 100%);
+		  color: hsl(200 50% 20%);
+		  line-height: 1.5;
+		  /*display: flex;*/
+		  place-items: center;
+		  text-align: center;
+		  /*padding: 2ch;*/
+		  margin: 0 10px 0 0;
+		  border-radius: 2ch;
+		  border: 0px solid hsl(0 0% 85%);
+		}
+		.itemsView{
+			margin-bottom: 50px;
+		}
+		/*.nutriClass{
+			box-sizing: boarder-box;
+			background-color:gray;
+			color:black;
+			padding: 0rem;
+		}  
+		
+		.nutriClass>h2{
+			background-color:gray;
+			color:black;
+			margin: 0;
+			box-sizing:boarder-box;
+			height:20%;
+		}
+    	.nutriClass>div{
+    		height:40%;
+    	}
+    	*/
+    	.nutriCard:hover{
+    	}
+    	.nutriCard{
+    		overflow:hidden;
+    		position:relative;
+    	}
+    	.cardHead{
+    		width:100%;
+    		height:500px;
+    		border-radius:2ch 2ch 0 0;
+    		background-image: url('asset/img/');
+    		background-size:150%;
+    		box-sizing:boarder-box;
+    		-webkit-transition: .3s ease-in-out;
+    	}
+    	/* 헤드가 아니라 바디가 올라오게 바꿔야함.*/
+    	.cardHead_up{
+    		width:100%;
+    		height:100px;
+    		border-radius:2ch 2ch 0 0;
+    		background-image: url('asset/img/');
+    		background-size:150%;
+    		box-sizing:boarder-box;
+    		-webkit-transition: .3s ease-in-out;
+    	}
+    	
+    	
+   		.cardBody{
+   			width:100%;
+    		height:100px;
+    		line-height:1;
+    	
+    	}
+    	/*
+    	.cardBody:hover{
+    		overflow:scroll;
+    		line-height:1;    	
+    	}*/
+    	.cardBody::-webkit-scrollbar {
+    		display: none;
+    	}
+    	.cardTail{
+    		position:absolute;
+    		bottom:0;
+    		
+    		width:100%;
+    		height:50px;
+    		
+    		background-color:gray;
+    		opacity:0.4;
+    		border-radius:0 0 2ch 2ch;
+    	}
+    	
+    	
+    	
+    	
+    	
 
         input{
 	        width:300px;
 	        height:40px;
 	        background-color: transparent;
 	        border: none;
-	        border-bottom: 1px sold rgb(0, 0, 0);
 	        font-size:18px;
-	        font-family: 'NanumSquare';
         }
         #sign{
-			height:200px;        
+			height:200px;
+			margin-bottom: 50px;        
         }
         #sign>div>form>div{
         	display:flex;
@@ -110,7 +202,6 @@
 	        border: 0px;
 	        border-radius: 25px;
 	        width:300px; 
-	        
 	        font-family: 'NanumSquare';
 	        font-size: 18px;
 	        font-weight: bold;
@@ -140,7 +231,6 @@
     bottom: 5px;
     font-size : 25px;
     }
-
     .text2 {
     position:absolute;
     left : 110px;
@@ -157,8 +247,9 @@
 </head>
 <body> 
 
+	
+	<%@include file="gnb.jsp"%>
 
-	<%@include file="gnb.jsp" %>
     
         <div id="banner">
             <br>
@@ -175,17 +266,23 @@
 	</section>
     <section id="choiceSection">
         <div id="choiceArea">
+
             <div class="choice" onclick="change('1')">
                 <img id="op1" src="asset/img/1231_메인2/1231_메인클릭이미지_가족.jpg" alt="1" width="300px" height="400px">
                 <p class="text2"><!-- 직장인 --></p>
+
             </div>
+
             <div class="choice" onclick="change('2')">
                 <img id="op2" src="asset/img/1231_메인2/1231_메인클릭이미지_회사.jpg" alt="2" width="300px" height="400px">
                 <p class="text1"><!-- 수험생/고시생 --></p>
+
             </div>
+
             <div class="choice" onclick="change('3')">
                 <img id="op3" src="asset/img/1231_메인2/1231_메인클릭이미지_학생.jpg" alt="3" width="300px" height="400px">
                 <p class="text2"><!-- 부모님 --></p>
+             
             </div>
         </div>
     </section>
@@ -246,6 +343,7 @@
         		'332':'',
         		'333':'',
         		}
+        
         var cnt=0;
         var a='';
         function change(n){
@@ -269,8 +367,8 @@
                 data: {
                 	"choice" : a
                 },
-                success: function(data){  
-                    $('#choiceSection').after(data)
+                success: function(res){  
+                    $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
                     window.scrollTo({top:'900',behavior:"smooth"})
                 },

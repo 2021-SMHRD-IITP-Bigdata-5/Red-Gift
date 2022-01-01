@@ -24,6 +24,7 @@ import service.CheckUserIdService;
 import service.DeleteService;
 import service.LoginService;
 import service.LogoutService;
+import service.MypageService;
 import service.SignupService;
 import service.UpdateService;
 
@@ -49,9 +50,8 @@ public class FrontController extends HttpServlet {
 		if(command.equals("CheckUserId.do")) {
 			com = new CheckUserIdService();
 			com.execute(request, response);
-			
 		}
-		if(command.equals("Login.do")) {
+		if(command.equals("LogIn.do")) {
 			com = new LoginService();
 			com.execute(request, response);
 		}
@@ -69,6 +69,12 @@ public class FrontController extends HttpServlet {
 			com= new UpdateService();
 			nextpage=com.execute(request, response);
 		}
+
+		if(command.equals("Mypage.do")) {
+			com= new MypageService();
+			com.execute(request, response);
+		}
+		
 		if(command.equals("Delete.do")) {
 			com=new DeleteService();
 			nextpage=com.execute(request, response);
@@ -115,11 +121,9 @@ public class FrontController extends HttpServlet {
 		
 		
 		
-		
-		
-		
 		if(nextpage!=null) response.sendRedirect(nextpage);
-	
+
 	
 	}//서비스끝
 }//컨트롤러끝
+

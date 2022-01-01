@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vo.MyPageVO"%>
 <%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -19,6 +21,7 @@ body {
 }
 
 header {
+	z-index:999;
 	background: #e6e6e6;
 	height: 70px;
 	position: fixed;
@@ -50,8 +53,17 @@ nav {
 	padding: 5px 5px 5px 5px;
 }
 
-.menu>li>a, .logo>h1>a{
+.menu>li>a {
 	text-decoration: none;
+	font-weight: 700;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+.logo>h1>a {
+	text-decoration: none;
+	color: crimson;
+	opacity:0.7;
 	font-weight: 700;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-font-smoothing: antialiased;
@@ -60,19 +72,16 @@ nav {
 
 .menu>li>a:hover{
 	font-size: 20px;
-	color: crimson;
-    opacity:0.7;;
+
 }
 .menu>li>a{
 color: rgba(41, 41, 41, 0.8);
 }
-/*로고 색*/
 .logo>h1>a {
 	font-size: 35px;
 	color: crimson;
 	opacity:0.7;
 }
-/*로고 위치*/
 .logo > h1 > a > img{
 	margin: 5px 0 0 0;
 	
@@ -82,17 +91,24 @@ color: rgba(41, 41, 41, 0.8);
 <body>
 <%
 	UserVO uservo = (UserVO)session.getAttribute("uservo");
+	String userNick =null;
+	if(uservo!=null){
+		userNick = uservo.getUser_nick();
+	}
+	//gnb 로그인 하이드 조건을 만들기 위해서 널값 확인 용도
 %>
 	<header class="nav-down">
         <nav id="gnb">
+
             <div class="logo">
                 <h1><a href="main.jsp"><img src="asset/img/icon_img/빨간약기프티콘_로고03.png"
 						height="60"></a></h1>
+
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
                 <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
-
+                
                 <%if(uservo==null){ %>
                 <li><a href="login.jsp" onClick="">로그인</a></li>
                 <%}else{ %>
@@ -100,12 +116,27 @@ color: rgba(41, 41, 41, 0.8);
                 <li><a href="myPage.jsp" onClick="">마이페이지</a></li>
                 <li><a href="LogOut.do" onClick="">로그아웃</a></li>
                 <%} %>
+
             </div>
         </nav>
  	</header>
  <script src="asset/js/jquery-3.6.0.min.js"></script>
  <script>
+ let usernick='<%=userNick%>'
+	 if (usernick != 'null'){
+		 logon();
+	 }else{
+		 logout();
+	 }
  
+function logon(){
+	 $('.logon').show();
+	 $('.logout').hide();
+}
+function logout(){
+ 	$('.logon').hide();
+ 	$('.logout').show();
+}
  var didScroll;
  var lastScrollTop = 0;
  var delta = 5;

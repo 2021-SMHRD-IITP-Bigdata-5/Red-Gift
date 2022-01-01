@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.catalina.User;
+
+import vo.MyPageVO;
 import vo.NutriClassesVo;
 import vo.UserVO;
 
@@ -164,6 +166,9 @@ public class UserDAO {
 		return nick;
 	}
 	//---------------------------------------------------------------
+	//	 
+	//	2 PW 
+	//---------------------------------------------------------------
 	public UserVO login(String id, String pw) {
 		connect();
 		try {
@@ -174,14 +179,13 @@ public class UserDAO {
 			
 			if(rs.next()&&pw.equals(rs.getString(2))) {
 				String getid=rs.getString(1); 
-				System.out.println(getid);//----------------
 				String getnick=rs.getString(3); 
 				String getname=rs.getString(4); 
 				String getbrith=rs.getString(5); 
 				String getsex=rs.getString(6); 
 				String getphone=rs.getString(7);
 				String getjoin_date=rs.getString(8); 
-				String getadminyn=rs.getString(8); 
+				String getadminyn=rs.getString(9); 
 				uservo = new UserVO(getid, getnick, getname, getbrith, getsex, getphone, getjoin_date, getadminyn);
 			}
 			
@@ -226,35 +230,27 @@ public class UserDAO {
 	}
 	
 	//---------------------------------------------------------------
-	public ArrayList<NutriClassesVo> nutriChoice(String choice) {
+	public ArrayList<NutriClassesVo> getNutriClasses(String choice) {
 		NutriClassesVo nutriClass = new NutriClassesVo();
 		ArrayList<NutriClassesVo> arr = new ArrayList<>();
 		
 		connect();
-		try {
-			String sql="select * from TBL_NUTRI_CHOICES where CHOICE=?";
+		try {		
+			String sql="select * from TBL_NUTRI_CLASSES where CHOICE=? order by RANK";
 				psmt=conn.prepareStatement(sql);
 				psmt.setString(1,choice);
 			rs =psmt.executeQuery();
-		rs.next();
-		String classA=rs.getNString(2);
-		String classB=rs.getNString(3);
-		String classC=rs.getNString(4);
-		
-		
-			sql="select * from TBL_NUTRI_CLASSES where NUTRI_CLASS=? or NUTRI_CLASS=? or NUTRI_CLASS=?";
-				psmt=conn.prepareStatement(sql);
-				psmt.setString(1,classA);
-				psmt.setString(2,classB);
-				psmt.setString(3,classC);
-			rs =psmt.executeQuery();
 		while(rs.next()) {
-			nutriClass.setNclass(rs.getNString(1));
-			nutriClass.setSat(Integer.parseInt(rs.getNString(1)));
-			nutriClass.setPos(Integer.parseInt(rs.getNString(2)));
-			nutriClass.setNeg(Integer.parseInt(rs.getNString(3)));
-			arr.add(nutriClass);
-		}
+					nutriClass.setNclass(rs.getNString(1));
+					nutriClass.setSat(rs.getInt(2));
+					nutriClass.setPos(rs.getInt(3));
+					nutriClass.setNeg(rs.getInt(4));
+					nutriClass.setClass_photo(rs.getString(5));
+					nutriClass.setChoice(rs.getString(6));
+					nutriClass.setRank(rs.getInt(7));
+				
+				arr.add(nutriClass);
+			}
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -264,7 +260,58 @@ public class UserDAO {
 		return arr;
 	}
 	//---------------------------------------------------------------
+	public ArrayList<MyPageVO> getMypage(String id) {
+		connect();
+		MyPageVO mpvo =new MyPageVO();
+		ArrayList<MyPageVO> arr = new ArrayList<>();
+		try {
+			String sql="select * from TBL_MYPAGES where USER_ID=?";
+				psmt=conn.prepareStatement(sql);
+				psmt.setString(1, id);
+			rs =psmt.executeQuery();
+			
+			while(rs.next()) {
+				mpvo.setPage_seq(rs.getInt(1));
+				mpvo.setNutri_seq(rs.getInt(2));
+				mpvo.setNutri_class(rs.getNString(3));
+				mpvo.setMy_class_sat(rs.getNString(4));
+				mpvo.setReg_date(rs.getNString(5));
+				mpvo.setUser_id(rs.getNString(6));
+				mpvo.setPage_memo(rs.getNString(7));
+				arr.add(mpvo);
+			}
+	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return arr;
+	}
+	//---------------------------------------------------------------
 
+//	public void getMyclass(String choice) {
+//		connect();
+//		try {
+//			String sql="select * from TBL_NUTRI_CLASSES where CHOICE=? "
+//					+ "order by RANK";
+//				psmt=conn.prepareStatement(sql);
+//				psmt.setNString(1, choice);
+//			rs =psmt.executeQuery();
+//				
+//			rs.next();
+//			String class1=rs.getString(1);
+//			String class2=rs.getString(2);
+//			String class3=rs.getString(3);
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close();
+//		}
+//
+//	}
+	//---------------------------------------------------------------
 	public int Delete(String id) {
 		connect();
 		try {
@@ -283,19 +330,27 @@ public class UserDAO {
 	}
 
 	//---------------------------------------------------------------
+
 //	public void insertMyPage() {
 //		connect();
 //		
 //		try {
 //			String sql="insert into TBL_MYPAGES("
-//					+ ""
-//					+ ""
-//					+ ""
-//					+ ""
-//					+ ") values()";
+//					+ "nutri_seq,"
+//					+ "nutri_class,"
+//					+ "my_class_sat,"
+//					+ "user_id"
+//					+ ") values("
+//					+ "?,"
+//					+ "?,"
+//					+ "?,"
+//					+ "?"
+//					+ ")";
 //				psmt=conn.prepareStatement(sql);
 //				psmt.setString(1,);
-//
+//				psmt.setString(2,);
+//				psmt.setString(3,);
+//				psmt.setString(4,);
 //			cnt=psmt.executeUpdate();
 //			
 //		} catch (SQLException e) {
@@ -303,7 +358,7 @@ public class UserDAO {
 //		}finally {
 //			close();
 //		}
-		
+//		
 		
 		
 		

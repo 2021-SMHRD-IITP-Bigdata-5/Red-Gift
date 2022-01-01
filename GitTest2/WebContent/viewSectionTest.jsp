@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <style>
-.card {
-  box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
-  
+.resultView {
+  /*box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);*/
+  box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);
   background: hsl(0 0% 100%);
   color: hsl(200 50% 20%);
   line-height: 1.5;
@@ -27,7 +27,7 @@
   border: 1px solid hsl(0 0% 83%);
 }
  
-.better {
+.resultView {
   box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);
 }
 
@@ -60,6 +60,20 @@ body {
 */
 </style>
 <body>
+<section class="resultView">
+        <div>
+            <div>
+            	
+				제안1영역
+				
+            </div>
+            <div>
+            	
+				제안2영역
+				
+            </div>
+        </div>
+</section>
 <div class="card">(old) Desaturated shadow, no negative spread</div>
 <div class="card better">(new) Saturated shadow, with negative spread</div>
 </body>
