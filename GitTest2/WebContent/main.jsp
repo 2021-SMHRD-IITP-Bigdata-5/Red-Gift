@@ -14,6 +14,11 @@
 @font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
 @font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
 
+			
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
         body{
             display: block;
             align-items: center;
@@ -21,24 +26,22 @@
             background-color: white;
         }
         #banner{
-            
-            background-image: url('asset/img/배경/배경이미-01.jpg');
-            height: 400px;
+            background-image: url('asset/img/배경/대체-3.jpg');
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            padding: 100px 200px 100px 20px;
             background-size: contain;
+            padding: 100px 200px 100px 20px;
+            width: 100%;
+            height: 1100px;
             background-repeat: no-repeat;/*이미지 반복방지*/
-            
-            background-color: white;
+            align:center;
+            /*background-color: white;
             /*color: #d4d4d4;*/
             font-family:'NanumSquareLight';
             font-size: 20px;
             font-weight: bold;
-            margin-top: 0;
-            
             color: rgb(125, 14, 14);
             font-size: 30px;
             font-weight: bold;
@@ -159,29 +162,29 @@
     
         <div id="banner">
             <br>
-            <h2 class="heading">우리 몸에 필요한 <br>영양성분 궁금하세요?</h2>
-            <p class="intro">나만을 위한 맞춤영양제를 찾아보세요!<br>이미 000,000명이 추천받았습니다.</p>
+            <h2 class="heading">00000000000000000<br>111111111111</h2>
+            <p class="intro">3333333333<br>4444444444</p>
         </div>
     
     <section class="message">
 	
 		<p>
-		누구에게 선물하실 건가요?
+		(문구들어가는자리)
 		</p>
 	
 	</section>
     <section id="choiceSection">
         <div id="choiceArea">
             <div class="choice" onclick="change('1')">
-                <img id="op1" src="asset/img/1231_메인클릭이미지/메인선택이미지-01_직장인.jpg" alt="1" width="300px" height="400px">
+                <img id="op1" src="asset/img/1231_메인2/1231_메인클릭이미지_가족.jpg" alt="1" width="300px" height="400px">
                 <p class="text2"><!-- 직장인 --></p>
             </div>
             <div class="choice" onclick="change('2')">
-                <img id="op2" src="asset/img/1231_메인클릭이미지/메인선택이미지-02_가족.jpg" alt="2" width="300px" height="400px">
+                <img id="op2" src="asset/img/1231_메인2/1231_메인클릭이미지_회사.jpg" alt="2" width="300px" height="400px">
                 <p class="text1"><!-- 수험생/고시생 --></p>
             </div>
             <div class="choice" onclick="change('3')">
-                <img id="op3" src="asset/img/1231_메인클릭이미지/메인선택이미지-03_부부.jpg" alt="3" width="300px" height="400px">
+                <img id="op3" src="asset/img/1231_메인2/1231_메인클릭이미지_학생.jpg" alt="3" width="300px" height="400px">
                 <p class="text2"><!-- 부모님 --></p>
             </div>
         </div>
@@ -193,46 +196,56 @@
     <script>
         
         let option ={  //이미지 주소 딕셔너리
-        		'1':'asset/img/1231_메인클릭이미지/메인선택이미지-01_직장인.jpg',
-                '2':'asset/img/1231_메인클릭이미지/메인선택이미지-02_가족.jpg',
-                '3':'asset/img/1231_메인클릭이미지/메인선택이미지-03_부부.jpg',
-                '11':'asset/img/1231_메인클릭이미지/메인선택이미지-04_사회초년생.jpg',
-                '12':'asset/img/1231_메인클릭이미지/메인선택이미지-05_과장.jpg',
-                '13':'asset/img/1231_메인클릭이미지/메인선택이미지-06_부장.jpg',
-                '21':'asset/img/1231_메인클릭이미지/메인선택이미지-07_학생.jpg',
-                '22':'asset/img/1231_메인클릭이미지/메인선택이미지-08_부모님.jpg',
-                '23':'asset/img/1231_메인클릭이미지/메인선택이미지-09_할머니.jpg',
-                '31':'asset/img/1231_메인클릭이미지/메인선택이미지-10_남편.jpg',
-                '32':'asset/img/1231_메인클릭이미지/메인선택이미지-11_와이프.jpg',
-                '33':'asset/img/1231_메인클릭이미지/메인선택이미지-12_임산부.jpg',
-                '111':'asset/img/1231_메인/1231_00-피로.jpg',
-                '112':'asset/img/1231_메인/1231_00-눈.jpg',
-                '113':'asset/img/1231_메인/1231_00-숙취.jpg',
-                '121':'asset/img/1231_메인/1231_00-숙취.jpg',
-                '122':'asset/img/1231_메인/1231_00-피로.jpg',
-                '123':'asset/img/1231_메인/1231_00-눈.jpg',
-                '131':'asset/img/1231_메인/1231_00-전립선.jpg',
-                '132':'asset/img/1231_메인/1231_00-피로.jpg',
-                '133':'asset/img/1231_메인/1231_00-탈모.jpg',
-                '211':'asset/img/1231_메인/1231_00-뇌.jpg',
-                '212':'asset/img/1231_메인/1231_00-키즈.jpg',
-                '213':'asset/img/1231_메인/1231_00-어린이.jpg',
-                '221':'asset/img/1231_메인/1231_00-엄마.jpg',
-                '222':'asset/img/1231_메인/1231_00-아빠.jpg',
-                '223':'asset/img/1231_메인/1231_00-친척.jpg',
-                '231':'asset/img/1231_메인/1231_00-관절.jpg',
-                '232':'asset/img/1231_메인/1231_00-눈.jpg',
-                '233':'asset/img/1231_메인/1231_00-탈모.jpg',
-                '311':'asset/img/1231_메인/1231_00-관절.jpg',
-                '312':'asset/img/1231_메인/1231_00-피로.jpg',
-                '313':'asset/img/1231_메인/1231_00-탈모.jpg',
-                '321':'asset/img/1231_메인/1231_00-엄마.jpg',
-                '322':'asset/img/1231_메인/1231_00-탈모.jpg',
-                '323':'asset/img/1231_메인/1231_00-피로.jpg',
-                '331':'asset/img/1231_메인/1231_00-엄마.jpg',
-                '332':'asset/img/1231_메인/1231_00-피로.jpg',
-                '333':'asset/img/1231_메인/1231_00-탈모.jpg',
-            }
+        		'1':'asset/img/1231_메인2/1231_메인클릭이미지_가족.jpg',
+        		'2':'asset/img/1231_메인2/1231_메인클릭이미지_회사.jpg',
+        		'3':'asset/img/1231_메인2/1231_메인클릭이미지_학생.jpg',
+        		'11':'asset/img/1231_메인2/1231_메인클릭이미지_엄마.jpg',
+        		'12':'asset/img/1231_메인2/1231_메인클릭이미지_아빠.jpg',
+        		'13':'asset/img/1231_메인2/1231_메인클릭이미지_할머니.jpg',
+        		
+        		'21':'asset/img/1231_메인2/1231_메인클릭이미지_야근.jpg',
+        		'22':'asset/img/1231_메인2/1231_메인클릭이미지_회식.jpg',
+        		'23':'asset/img/1231_메인2/1231_메인클릭이미지_어지럼증.jpg',
+        		
+        		'31':'asset/img/0101-메인이미지/0101-아연.jpg',
+        		'32':'asset/img/0101-메인이미지/0101-알로에.jpg',
+        		'33':'asset/img/0101-메인이미지/0101-비타민B.jpg',
+        		
+        		'111':'asset/img/0101-메인이미지/0101-감미놀렌산.jpg',
+        		'112':'asset/img/0101-메인이미지/0101-클로렐라.jpg',
+        		'113':'asset/img/0101-메인이미지/0101-스피루리나.jpg',
+        		
+        		'121':'asset/img/0101-메인이미지/0101-쏘팔메토.jpg',
+        		'122':'asset/img/0101-메인이미지/0101-홍삼.jpg',
+        		'123':'asset/img/0101-메인이미지/0101-보스웰리아.jpg',
+        		
+        		'131':'asset/img/0101-메인이미지/0101-글루코사민.jpg',
+        		'132':'asset/img/0101-메인이미지/0101-보스웰리아.jpg',
+        		'133':'asset/img/0101-메인이미지/0101-칼슘.jpg',
+        		/*홍삼,비타민B,프로폴리스 추가해야됨*/
+        		
+        		'211':'asset/img/0101-메인이미지/0101-밀크씨슬.jpg',
+        		'212':'asset/img/0101-메인이미지/0101-비타민B.jpg',
+        		'213':'asset/img/0101-메인이미지/0101-비타민C.jpg',
+        		
+        		'221':'asset/img/0101-메인이미지/0101-밀크씨슬.jpg',
+        		'222':'asset/img/0101-메인이미지/0101-비타민C.jpg',
+        		'223':'asset/img/0101-메인이미지/0101-로얄젤리.jpg',
+        		
+        		'231':'asset/img/0101-메인이미지/0101-셀레늄.jpg',
+        		'232':'asset/img/0101-메인이미지/0101-철분.jpg',
+        		'233':'asset/img/0101-메인이미지/0101-감마리놀렌산.jpg',
+        		
+        		'311':'',
+        		'312':'',
+        		'313':'',
+        		'321':'',
+        		'322':'',
+        		'323':'',
+        		'331':'',
+        		'332':'',
+        		'333':'',
+        		}
         var cnt=0;
         var a='';
         function change(n){

@@ -12,7 +12,6 @@
 <title>마이페이지</title>
 <style>
 
-background-image: url( 'img /배경 /이미지a-3.jpg ') ;
     * {
 	margin: 0;
 	padding: 0px;
@@ -180,8 +179,6 @@ footer {
 	/*background:grey; 
   	color: white; */
 }
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 </style>
 </head>
 <body>
