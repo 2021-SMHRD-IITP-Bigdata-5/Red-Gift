@@ -11,7 +11,7 @@ import java.util.Date;
 import org.apache.catalina.User;
 
 import vo.MyPageVO;
-import vo.NutriClassesVo;
+import vo.NutriClassesVO;
 import vo.UserVO;
 
 public class UserDAO {
@@ -228,67 +228,85 @@ public class UserDAO {
 		return cnt;
 		
 	}
-	
 	//---------------------------------------------------------------
-	public ArrayList<NutriClassesVo> getNutriClasses(String choice) {
-		NutriClassesVo nutriClass = new NutriClassesVo();
-		ArrayList<NutriClassesVo> arr = new ArrayList<>();
-		
+	public int Delete(String id) {
 		connect();
-		try {		
-			String sql="select * from TBL_NUTRI_CLASSES where CHOICE=? order by RANK";
-				psmt=conn.prepareStatement(sql);
-				psmt.setString(1,choice);
-			rs =psmt.executeQuery();
-		while(rs.next()) {
-					nutriClass.setNclass(rs.getNString(1));
-					nutriClass.setSat(rs.getInt(2));
-					nutriClass.setPos(rs.getInt(3));
-					nutriClass.setNeg(rs.getInt(4));
-					nutriClass.setClass_photo(rs.getString(5));
-					nutriClass.setChoice(rs.getString(6));
-					nutriClass.setRank(rs.getInt(7));
-				
-				arr.add(nutriClass);
-			}
-		
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-		return arr;
-	}
-	//---------------------------------------------------------------
-	public ArrayList<MyPageVO> getMypage(String id) {
-		connect();
-		MyPageVO mpvo =new MyPageVO();
-		ArrayList<MyPageVO> arr = new ArrayList<>();
 		try {
-			String sql="select * from TBL_MYPAGES where USER_ID=?";
-				psmt=conn.prepareStatement(sql);
-				psmt.setString(1, id);
-			rs =psmt.executeQuery();
-			
-			while(rs.next()) {
-				mpvo.setPage_seq(rs.getInt(1));
-				mpvo.setNutri_seq(rs.getInt(2));
-				mpvo.setNutri_class(rs.getNString(3));
-				mpvo.setMy_class_sat(rs.getNString(4));
-				mpvo.setReg_date(rs.getNString(5));
-				mpvo.setUser_id(rs.getNString(6));
-				mpvo.setPage_memo(rs.getNString(7));
-				arr.add(mpvo);
-			}
-	
+			String sql="Delete from tbl_users where user_id=?";
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			cnt=psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
 		
-		return arr;
+		return cnt;
+		
 	}
+	
+	//이하 전부 MYPAGE DAO 로 수정 통합됨 삭제
+	//---------------------------------------------------------------
+//	public ArrayList<NutriClassesVO> getNutriClasses(String choice) {
+//		NutriClassesVO nutriClass = new NutriClassesVO();
+//		ArrayList<NutriClassesVO> arr = new ArrayList<>();
+//		
+//		connect();
+//		try {		
+//			String sql="select * from TBL_NUTRI_CLASSES where CHOICE=? order by RANK";
+//				psmt=conn.prepareStatement(sql);
+//				psmt.setString(1,choice);
+//			rs =psmt.executeQuery();
+//		while(rs.next()) {
+//					nutriClass.setNclass(rs.getNString(1));
+//					nutriClass.setSat(rs.getInt(2));
+//					nutriClass.setPos(rs.getInt(3));
+//					nutriClass.setNeg(rs.getInt(4));
+//					nutriClass.setPhoto(rs.getString(5));
+//					nutriClass.setChoice(rs.getString(6));
+//					nutriClass.setRank(rs.getInt(7));
+//				
+//				arr.add(nutriClass);
+//			}
+//		
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close();
+//		}
+//		return arr;
+//	}
+	//---------------------------------------------------------------
+//	public ArrayList<MyPageVO> getMypage(String id) {
+//		connect();
+//		MyPageVO mpvo =new MyPageVO();
+//		ArrayList<MyPageVO> arr = new ArrayList<>();
+//		try {
+//			String sql="select * from TBL_MYPAGES where USER_ID=?";
+//				psmt=conn.prepareStatement(sql);
+//				psmt.setString(1, id);
+//			rs =psmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				mpvo.setPage_seq(rs.getInt(1));
+//				mpvo.setNutri_seq(rs.getInt(2));
+//				mpvo.setNutri_class(rs.getNString(3));
+//				mpvo.setMy_class_sat(rs.getNString(4));
+//				mpvo.setReg_date(rs.getNString(5));
+//				mpvo.setUser_id(rs.getNString(6));
+//				mpvo.setPage_memo(rs.getNString(7));
+//				arr.add(mpvo);
+//			}
+//	
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close();
+//		}
+//		
+//		return arr;
+//	}
 	//---------------------------------------------------------------
 
 //	public void getMyclass(String choice) {
@@ -311,23 +329,6 @@ public class UserDAO {
 //		}
 //
 //	}
-	//---------------------------------------------------------------
-	public int Delete(String id) {
-		connect();
-		try {
-			String sql="Delete from tbl_users where user_id=?";
-			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			cnt=psmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-		
-		return cnt;
-		
-	}
 
 	//---------------------------------------------------------------
 

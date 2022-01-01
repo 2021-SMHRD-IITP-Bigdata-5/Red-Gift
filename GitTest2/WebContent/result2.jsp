@@ -22,7 +22,10 @@
 			choice=c.getValue();
 		}
 	}
-	System.out.print("선택타입은:"+choice);
+	System.out.println("result2.jsp 선택카드 :"+choice);
+	System.out.println("result2.jsp 유저아이디 :"+user.getUser_id()+"\n-----------------");
+	
+	
 %>
 
 	<section class="message">
@@ -73,6 +76,28 @@
 	
 </body>
 <script src="asset/js/jquery-3.6.0.min.js"></script>
+<script>
+	$.ajax({
+	    url: 'SetMypage.do',  
+	    type: "get",
+	    data: {
+	    	"id" : '<%=user.getUser_id()%>',
+	    	"choice" : '<%=choice%>'
+	    },
+	    success: function(res){  
+	        console.log(res)
+	    },
+	    error:function(){
+	        alert("실패")
+	    }
+	})
+
+
+
+
+
+</script>
+
 
 
 </html>

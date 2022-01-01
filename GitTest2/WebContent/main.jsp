@@ -10,15 +10,17 @@
     <title>빨간약기프티콘</title>
     <style>
 @font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
-@font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
+@font-face{font-family: 'NanumSquareR'; src:url('asset/font/NanumSquareR.otf')}
 @font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
 @font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
 
+
+		/*부트스트랩 선택자랑 겹친다*/
         body{
             display: block;
             align-items: center;
             overflow-x: hidden;
-			/*display: grid;*/
+			display: grid;
         }
         #banner{
             background-image: url('asset/img/배경/배경이미-01.jpg');
@@ -45,16 +47,15 @@
             text-align:right;
         }
         section{
-            padding: 5% 0% 0% 0%;
+            /*padding: 5% 0% 0%% 0%;*/
             display: flex;
             justify-content: center;
         }
-        /*누구에게 선물하실건가요?*/
-        .message{
-        	margin: 0 0 0 0; 
-        	/*font-size: 30px;*/
+
+        .message{ 
+        	margin: 8% 0 8% 0;
         	font-family: 'NanumSquareBold';
-        	font-size: 50px;
+        	font-size: 40px;
         	     	
         }
         .choice{
@@ -65,113 +66,131 @@
             height: 400px;
         }
 
-		#op1,#op2,#op3{
-			width:300px;
-			height:400px;
-		}
-		#op1:hover,#op2:hover,#op2:hover{
-		}
         .resultView>div>div {
             display: inline-block;
             width: 450px;
             height: 600px;
-            /*background-color: gray;*/
         }
         .classView>div>div, .itemsView>div>div{
         	display: inline-block;
-            width: 600px;
+            width: 1000px;
             height: 600px;
         }
         .resultView>div>div,.classView>div>div,.itemsView>div>div {
         	
-		  box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
-		  /*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
-		  background: hsl(0 0% 100%);
-		  color: hsl(200 50% 20%);
-		  line-height: 1.5;
-		  /*display: flex;*/
-		  place-items: center;
-		  text-align: center;
-		  /*padding: 2ch;*/
-		  margin: 0 10px 0 0;
-		  border-radius: 2ch;
-		  border: 0px solid hsl(0 0% 85%);
+			margin: 0 20px 0 20px;
+			border-radius: 2ch;
+			border: 0px solid hsl(0 0% 85%);
+			box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
+			/*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
+			background-color:#f7f7f7;
+			/*background: hsl(0 0% 100%);*/
+			place-items: center;
+			text-align: center;
+			line-height: 1.5;
+			color: hsl(200 50% 20%);
 		}
 		.itemsView{
 			margin-bottom: 50px;
 		}
-		/*.nutriClass{
-			box-sizing: boarder-box;
-			background-color:gray;
-			color:black;
-			padding: 0rem;
-		}  
-		
-		.nutriClass>h2{
-			background-color:gray;
-			color:black;
-			margin: 0;
-			box-sizing:boarder-box;
-			height:20%;
-		}
-    	.nutriClass>div{
-    		height:40%;
-    	}
-    	*/
-    	.nutriCard:hover{
-    	}
+
     	.nutriCard{
     		overflow:hidden;
     		position:relative;
+    	}
+    	.nutriCard:hover{
+    		box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
     	}
     	.cardHead{
     		width:100%;
     		height:500px;
     		border-radius:2ch 2ch 0 0;
-    		background-image: url('asset/img/');
-    		background-size:150%;
     		box-sizing:boarder-box;
-    		-webkit-transition: .3s ease-in-out;
+    		-webkit-transition: .2s ease-in-out;
+    		/*background-image: url('asset/img/');*/
+    		/*background-size:150%;*/
+    		background-color:transparent;
     	}
     	/* 헤드가 아니라 바디가 올라오게 바꿔야함.*/
     	.cardHead_up{
     		width:100%;
-    		height:100px;
+    		height:50px;
     		border-radius:2ch 2ch 0 0;
     		background-image: url('asset/img/');
     		background-size:150%;
     		box-sizing:boarder-box;
-    		-webkit-transition: .3s ease-in-out;
+    		-webkit-transition: .2s ease-in-out;
     	}
-    	
-    	
    		.cardBody{
    			width:100%;
     		height:100px;
     		line-height:1;
+    		
+    		background-color:transparent;
     	
     	}
-    	/*
-    	.cardBody:hover{
-    		overflow:scroll;
-    		line-height:1;    	
-    	}*/
+
     	.cardBody::-webkit-scrollbar {
     		display: none;
     	}
     	.cardTail{
-    		position:absolute;
-    		bottom:0;
-    		
-    		width:100%;
-    		height:50px;
-    		
-    		background-color:gray;
-    		opacity:0.4;
-    		border-radius:0 0 2ch 2ch;
-    	}
+			position:absolute;
+			bottom:0;	
+			
+			width:100%;
+			height:40px;
+			background-color:transparent;
+			border-radius:0 0 2ch 2ch;
+			
+			font-family: 'NanumSquareBold';
+			font-size:20px;
+		}
+		.cardTail:hover{
+			font-size:25px;
+		}
     	
     	
+    	#choiceSection{
+		}    	
+		.choiceCard_wrapper{
+			overflow-x:scroll;
+			white-space:nowrap;
+			width: 90vw;
+			height:500px;
+			-webkit-overflow-scrolling: touch;
+			user-select:none;
+			-webkit-user-select:none;
+		}
+		.choiceCard_wrapper::-webkit-scrollbar {
+		    display: none;
+		  }
+		.choiceCard{
+			user-select:none;
+			-webkit-user-select:none;
+			display:inline-block;
+			margin-left:50px;
+			width:300px;
+			height:450px;
+			background-color:#f7f7f7;
+			
+			box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
+			/*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
+			color: hsl(200 50% 20%);
+			line-height: 1.5;
+			/*display: flex;*/
+			place-items: center;
+			text-align: center;
+			/*padding: 2ch;*/
+			margin: 0 30px 0 0;
+			border-radius: 2ch;
+			border: 0px solid hsl(0 0% 85%);
+			-webkit-transition: .2s ease-in-out;
+			position:relative;
+			
+		}
+		.choiceCard:hover{
+			box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
+		}
     	
     	
     	
@@ -197,7 +216,7 @@
 	        border: 0px;
 	        border-radius: 25px;
 	        width:300px; 
-	        font-family: 'NanumSquare';
+	        font-family: 'NanumSquareR';
 	        font-size: 18px;
 	        font-weight: bold;
 	        margin: 10px 5px 5px 5px;
@@ -215,23 +234,6 @@
         	background-color: gray;
         	opacity:0.6;
     	}
-    /*직장인,수험생,부모님 이미지위에 글자쓰기*/
-    /*.choice {
-    position:relative;
-    }
-    .text1{
-    position:absolute;
-    left : 65px;
-    margin-left:auto;
-    bottom: 5px;
-    font-size : 25px;
-    }
-    .text2 {
-    position:absolute;
-    left : 110px;
-    bottom: 5px;
-    font-size : 25px;
-    }*/
 
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -259,29 +261,35 @@
 		</p>
 	
 	</section>
-    <section id="choiceSection">
-        <div id="choiceArea">
-
-            <div class="choice" onclick="change('1')">
-                <img id="op1" src="asset/img/1231_메인클릭이미지/메인선택이미지-01_직장인.jpg" alt="1" width="300px" height="400px">
-                <p class="text2"><!-- 직장인 --></p>
-
-            </div>
-
-            <div class="choice" onclick="change('2')">
-                <img id="op2" src="asset/img/1231_메인클릭이미지/메인선택이미지-02_가족.jpg" alt="2" width="300px" height="400px">
-                <p class="text1"><!-- 수험생/고시생 --></p>
-
-            </div>
-
-            <div class="choice" onclick="change('3')">
-                <img id="op3" src="asset/img/1231_메인클릭이미지/메인선택이미지-03_부부.jpg" alt="3" width="300px" height="400px">
-                <p class="text2"><!-- 부모님 --></p>
-             
-            </div>
-        </div>
-    </section>
-    
+	
+	<section id="choiceSection">
+		<div class="choiceCard_wrapper">
+			<div class="choiceCard" id="card1">
+				<div class="cardTail" onclick="cardChoice('1')">CLICK</div>
+			</div>
+			<div class="choiceCard" id="card2">
+				<div class="cardTail" onclick="cardChoice('2')">CLICK</div>
+			</div>
+			<div class="choiceCard" id="card3">
+				<div class="cardTail" onclick="cardChoice('3')">CLICK</div>
+			</div>
+			<div class="choiceCard" id="card4">
+				<div class="cardTail" onclick="cardChoice('4')">CLICK</div>
+			</div>
+			<div class="choiceCard" id="card5">
+				<div class="cardTail" onclick="cardChoice('5')">CLICK</div>
+			</div>
+			<div class="choiceCard" id="card6">
+				<div class="cardTail" onclick="cardChoice('6')">CLICK</div>
+			</div>
+			<div class="choiceCard" id="card7">
+				<div class="cardTail" onclick="cardChoice('7')">CLICK</div>
+			</div>
+			<div class="choiceCard" id="card8">
+				<div class="cardTail" onclick="cardChoice('8')">CLICK</div>
+			</div>
+		</div>
+	</section>
     <%@include file="footer.jsp" %>
     <!-- ------------------------------------------------------------------------ -->
     <script src="asset/js/jquery-3.6.0.min.js"></script>
@@ -364,6 +372,72 @@
                 }
             })
         }
+        
+        var selected = false;
+		//카드 섹션 마우스 드래그 
+			$(document).ready( function(){
+				if( selected==false){
+    			var bMove = false;
+    			var startX = 0;
+    			var scrollLeft = 0;
+    			var slider = document.querySelector(".choiceCard_wrapper");
+				
+    			var wrapper = document.querySelector(".choiceCard_wrapper");
+				var wrapperPosition = wrapper.getBoundingClientRect();
+    			
+    			slider.addEventListener("mousedown", function(e){
+    				bMove = true;
+    				startX = e.pageX - slider.offsetLeft;
+    				scrollLeft = slider.scrollLeft;
+    			});
+
+    			slider.addEventListener("mouseleave", function(){
+    				bMove = false;
+    			});
+
+    			slider.addEventListener("mouseup", function(){
+    				bMove = false;
+    			});
+
+    			slider.addEventListener("mousemove", function(e){
+    				if( bMove )
+    				{
+    					const x = e.pageX - slider.offsetLeft;
+    					const walk = x - startX;
+    					slider.scrollLeft = scrollLeft - walk;
+    				}		
+    			});
+    			
+ 				slider.addEventListener("mousemove", function(e){
+ 					var cards=document.querySelectorAll(".choiceCard");
+ 	 				cards.forEach(function(i){
+ 	 					iPosition=i.getBoundingClientRect()
+ 	 					if( (iPosition.x +150) <  (wrapperPosition.x ) || ((iPosition.x +150) > (window.innerWidth-100)) ){
+ 	 						$('#'+i.id).css('opacity','0')
+ 	 					}else{
+ 	 						$('#'+i.id).css('opacity','1')
+ 	 					}
+ 	 					//카드중앙좌표 기준으로 인아웃 함수 통일 -150	
+ 	 				})
+ 				})
+				}	
+		} );
+
+		function cardChoice(s){
+			if(selected==false){
+				selected = true;
+	    		console.log(s);
+	    		//$('.message:nth-child(2)').remove();
+	    		//$('.resultView').remove();
+	            pageLoad('result1.jsp',s);
+	            $('#card'+s).css('opacity','0.5');
+			}else{
+				
+				location.reload()
+			}
+		}	
+        
+        
 
     </script>
 </body>

@@ -18,10 +18,15 @@
 <body>
    <%//test
 	UserVO user = (UserVO)session.getAttribute("uservo");
-	String choice=request.getParameter("choice");
-   	System.out.println(choice);
-   	Cookie cookie = new Cookie("choice", choice);
+	
+   	String choice=request.getParameter("choice");
+   	
+	Cookie cookie = new Cookie("choice", choice);
    	response.addCookie(cookie);   	
+    
+   	System.out.println("result1.jsp 선택카드"+choice);
+   	if(user!=null) System.out.println("result.jsp 유저아이디"+user.getUser_id());
+   	
 	%>
 	
 	<section class="message">
@@ -35,14 +40,12 @@
         <div>
             <div class="nutriCard" onclick="cardUp('#class1')">
             	<div class="cardHead" id="class1">
-            	
-            	제안1 헤드
-            	
+           			<%=choice%>
             	</div>
             	
 				<div class="cardBody">
 					<h2>
-						<%=choice %>
+						click
 					</h2>
 					<div>
 						<canvas  id="myChartOne" width="150" height="150"></canvas>
@@ -56,13 +59,11 @@
        <!--                                -->
             <div class="nutriCard" onclick="cardUp('#class2')">
             	<div class="cardHead" id="class2">
-            	
-            	제안2 헤드
-            	
+            		<%=choice%>            	
             	</div>
 				<div class="cardBody">
 					<h2>
-						<%=choice %>
+						click
 					</h2>
 					<div>
 						<canvas  id="myChartOne2" width="150" height="150"></canvas>
@@ -108,7 +109,8 @@
         </div>
     </section>	
 <%}%> 
-<% user = (UserVO)session.getAttribute("uservo"); %>
+<% //user = (UserVO)session.getAttribute("uservo");
+%>
 
 	
 
@@ -197,7 +199,9 @@
         		$('#sign').hide();
         		$('#suggest').hide();
         		pageLoad1('result2.jsp')
-        		<% user = (UserVO)session.getAttribute("uservo"); %>
+        		<% user = (UserVO)session.getAttribute("uservo"); 
+        		System.out.println("loginajax 성공");
+        		%>
         		logon();
         	},
         	error:function(){

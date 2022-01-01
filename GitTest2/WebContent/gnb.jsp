@@ -11,7 +11,7 @@
 </head>
 <style>
 @font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
-@font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
+@font-face{font-family: 'NanumSquareR'; src:url('asset/font/NanumSquareR.otf')}
 @font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
 @font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
 
@@ -22,16 +22,16 @@ body {
 
 header {
 	z-index:999;
-	background: #e6e6e6;
-	height: 70px;
 	position: fixed;
-	opacity: 0.8;
 	top : 0;
+	transition: top 0.3s ease-in-out;
+
+	opacity: 0.8;
+	height: 70px;
 	width: 100%;
+	
 	font-family:'NanumSquareBold';
 	font-size: 18px;
-	transition: top 0.3s ease-in-out;
-	z-index:999;
 
 }
 
@@ -116,6 +116,8 @@ color: rgba(41, 41, 41, 0.8);
             </div>
         </nav>
  	</header>
+ 	
+ <!--                                                 -->	
  <script src="asset/js/jquery-3.6.0.min.js"></script>
  <script>
  let usernick='<%=userNick%>'

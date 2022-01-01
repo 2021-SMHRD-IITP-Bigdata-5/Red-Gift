@@ -1,5 +1,5 @@
 @font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
-@font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
+@font-face{font-family: 'NanumSquareR'; src:url('asset/font/NanumSquareR.otf')}
 @font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
 @font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
         header{
@@ -106,7 +106,7 @@
     		box-sizing:boarder-box;
     		-webkit-transition: .3s ease-in-out;
     	}
-    	/*onclick c()  홀짝 */
+    	/*onclick c()  ��吏� */
     	.cardHead_up{
     		width:100%;
     		height:100px;
@@ -156,7 +156,7 @@
 	        border: none;
 	        border-bottom: 1px sold rgb(0, 0, 0);
 	        font-size:18px;
-	        font-family: 'NanumSquare';
+	        font-family: 'NanumSquareR';
         }
         #sign{
 			height:200px;        
@@ -172,7 +172,7 @@
 	        border-radius: 25px;
 	        width:300px; 
 	        
-	        font-family: 'NanumSquare';
+	        font-family: 'NanumSquareR';
 	        font-size: 18px;
 	        font-weight: bold;
 	        margin: 10px 5px 5px 5px;

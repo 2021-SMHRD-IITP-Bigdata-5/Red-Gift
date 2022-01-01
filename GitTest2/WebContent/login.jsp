@@ -109,7 +109,7 @@ body > main > section > div.forgot>a{
 </head>
 <body>
     <main>
-        <section class="Login-from">
+        <section class="Login-form">
             <h1><label for="id-input-text">로그인</label></h1>
             
             <form action="LogInGnb.do" method="post">
@@ -126,6 +126,7 @@ body > main > section > div.forgot>a{
             </form>
             <div class="forgot">
                 <a href="signUp.jsp">회원가입</a>
+                <a href="main.jsp">메인</a>
             </div>
             
             
