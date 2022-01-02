@@ -217,7 +217,7 @@
                 type: "post",
                 success: function(res){
                 	$('.resultView').after(res)
-                    window.scrollTo({top:'1500',behavior:"smooth"})
+                    window.scrollTo({top:'2300',behavior:"smooth"})
                 },
                 error:function(){
                     alert("실패")

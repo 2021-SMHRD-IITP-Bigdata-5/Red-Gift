@@ -52,6 +52,12 @@ nav {
 	list-style: none;
 	padding: 5px 5px 5px 5px;
 }
+.menu>li:nth-child(3){
+	padding-right:0px;
+}
+.menu>li:nth-child(4){
+	padding-left:0px;
+}
 
 .menu>li>a {
 	text-decoration: none;
@@ -75,14 +81,14 @@ nav {
 
 }
 .menu>li>a{
-color: rgba(41, 41, 41, 0.8);
+	color: rgba(41, 41, 41, 0.8);
 }
-.logo>h1>a {
+.logo>a {
 	font-size: 35px;
 	color: crimson;
 	opacity:0.7;
 }
-.logo > h1 > a > img{
+.logo > a > img{
 	margin: 5px 0 0 0;
 	
 }
@@ -101,18 +107,18 @@ color: rgba(41, 41, 41, 0.8);
         <nav id="gnb">
 
             <div class="logo">
-                <h1><a href="main.jsp"><img src="asset/img/icon_img/빨간약기프티콘_로고03.png"
-						height="60"></a></h1>
+                <a href="main.jsp">
+                <img src="asset/img/icon_img/빨간약기프티콘_로고03.png" height="60">
+                </a>
 
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
-                <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
-
-                <li class="logout"><a href="login.jsp" onClick="">로그인</a></li>
-                <li class="logon"><a href="myPage.jsp" onClick="">마이페이지</a></li>
-                <li class="logon"><a href="LogOut.do" onClick="">로그아웃</a></li>
-
+                <li><a href="articleBoard.jsp" onClick="">자유게시판</a></li>
+                <li><a href="login.jsp" class="logout" onClick="">로그인</a></li>
+                <li><a href="myPage.jsp" class="logon"  onClick="">마이페이지</a></li>
+                <li><a href="updateUser.jsp" class="logon" onClick="">회원정보수정</a></li>
+                <li><a href="LogOut.do" class="logon" onClick="">로그아웃</a></li>
             </div>
         </nav>
  	</header>
@@ -135,6 +141,8 @@ function logout(){
  	$('.logon').hide();
  	$('.logout').show();
 }
+
+
  var didScroll;
  var lastScrollTop = 0;
  var delta = 5;

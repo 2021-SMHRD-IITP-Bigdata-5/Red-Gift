@@ -23,6 +23,7 @@ import product.SetIngredients;
 import product.SetNutritions;
 import service.CheckUserIdService;
 import service.DeleteService;
+import service.GetBoard;
 import service.LoginService;
 import service.LogoutService;
 import service.MypageService;
@@ -97,13 +98,16 @@ public class FrontController extends HttpServlet {
 		
 		
 		
+//------------------------영양제 프론트------------------------------
 		if(command.equals("SetNutriClass.do")) {
 			com= new SetNutriClass();
 		}
 		if(command.equals("GetNutriClass.do")) {
 			com= new GetNutriClass();
 		}
-//------------------------영양제 프론트------------------------------		
+		
+		
+		
 		if(command.equals("SetNutritions.do")) {
 			com= new SetNutritions();	
 		}
@@ -116,6 +120,16 @@ public class FrontController extends HttpServlet {
 		if(command.equals("GetIngredients.do")) {
 			com = new GetIngredients();
 		}
+		
+//------------------------게시판------------------------------	
+		if(command.equals("getBoard.do")) {
+			com= new GetBoard();
+			nextpage=com.execute(request, response);
+		}
+		
+		
+		
+		
 		
 		
 	

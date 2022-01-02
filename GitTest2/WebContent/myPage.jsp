@@ -11,7 +11,6 @@
 <title>마이페이지</title>
 <style>
 
-background-image: url( 'img /배경 /이미지a-3.jpg ') ;
     * {
 	margin: 0;
 	padding: 0px;
@@ -67,13 +66,12 @@ table td {
 	height: 250px;
 }
 /*메모사항*/
-#memo {
+.memo {
 	height: fit-content;
 	height: 100px;
 }
 /*날짜 간격*/
 thead>tr>td {
-
 height: 60px;
 background:#81B29A;
 }
@@ -99,8 +97,6 @@ textarea{
 	width:100%; 
 	height:80%;
 }
-
-
 
 </style>
 </head>
@@ -176,7 +172,7 @@ textarea{
 					//table+='<td> user:'+res[i].user_id+'</td>'
 					table+='</tr>'
 					table+='<tr>'
-					table+='<td colspan="4" id="'+res[i].page_seq +'memo">'+res[i].page_memo+'</td>'
+					table+='<td colspan="4" class="memo" id="'+res[i].page_seq +'memo">'+res[i].page_memo+'</td>'
 					table+='</tr>'
 					table+='</tbody></table>'
 					$('#tableArea').append(table)
