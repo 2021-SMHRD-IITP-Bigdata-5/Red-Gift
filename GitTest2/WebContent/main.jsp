@@ -265,8 +265,8 @@
     
         <div id="banner">
             <br>
-            <h2 class="heading">00000000000000000<br>111111111111</h2>
-            <p class="intro">3333333333<br>4444444444</p>
+            <h2 class="heading"><br></h2>
+            <p class="intro"><br></p>
             <h1 id="bannerButton" onclick="push()">zi금 선물 고르기</h1>
         </div>
     
