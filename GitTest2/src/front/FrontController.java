@@ -16,12 +16,14 @@ import page.GetMypage;
 import page.GetNutriClass;
 import page.SetMypage;
 import page.SetNutriClass;
+import page.UpdateMypage;
 import product.GetIngredients;
 import product.GetNutritions;
 import product.SetIngredients;
 import product.SetNutritions;
 import service.CheckUserIdService;
 import service.DeleteService;
+import service.GetBoard;
 import service.LoginService;
 import service.LogoutService;
 import service.MypageService;
@@ -34,22 +36,23 @@ public class FrontController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
-		System.out.println(uri);
+//		System.out.println(uri);
 		String path = request.getContextPath();
-		System.out.println(path);
+//		System.out.println(path);
 		String command = uri.substring(path.length()+1);
-		System.out.println(command);
+		System.out.println("Front to "+command);
 		
 		command com = null;
 		String nextpage= null;
-	
-		if(command.equals("Signup.do")) {
-			com= new SignupService();
-			nextpage=com.execute(request, response);
-		}
+//--------------------------------------------------
+		
 		if(command.equals("CheckUserId.do")) {
 			com = new CheckUserIdService();
 			com.execute(request, response);
+		}
+		if(command.equals("SignUp.do")) {
+			com= new SignupService();
+			nextpage=com.execute(request, response);
 		}
 		if(command.equals("LogIn.do")) {
 			com = new LoginService();
@@ -59,22 +62,14 @@ public class FrontController extends HttpServlet {
 			com = new LoginService();
 			nextpage=com.execute(request, response);
 		}
-		
 		if(command.equals("LogOut.do")) {
 			com = new LogoutService();
 			nextpage = com.execute(request, response);
 		}
-	
 		if(command.equals("Update.do")) {
 			com= new UpdateService();
 			nextpage=com.execute(request, response);
 		}
-
-		if(command.equals("Mypage.do")) {
-			com= new MypageService();
-			com.execute(request, response);
-		}
-		
 		if(command.equals("Delete.do")) {
 			com=new DeleteService();
 			nextpage=com.execute(request, response);
@@ -82,30 +77,37 @@ public class FrontController extends HttpServlet {
 		
 //------------------------마이페이지프론트--------------------------
 		
-		if(command.equals("GetMypage.do")) {
-			com=new GetMypage();
-			
+		if(command.equals("Mypage.do")) {
+			com= new MypageService();
+			com.execute(request, response);
 		}
 		if(command.equals("SetMypage.do")) {
 			com=new SetMypage();
+			com.execute(request, response);
+		}
+		if(command.equals("UpdateMypage.do")) {
+			com= new UpdateMypage();
+			com.execute(request, response);
+		}
+		if(command.equals("DeleteMypage.do")) {
+			com=new DeleteMypage();
+			com.execute(request, response);
 		}
 		
+	//---------------------------------------------	
+		
+		
+		
+//------------------------영양제 프론트------------------------------
 		if(command.equals("SetNutriClass.do")) {
 			com= new SetNutriClass();
 		}
 		if(command.equals("GetNutriClass.do")) {
 			com= new GetNutriClass();
 		}
-		if(command.equals("DeleteMypage.do")) {
-			//int page_seq = Integer.parseInt(request.getParameter("page_seq"));
-			com=new DeleteMypage();
-			nextpage=com.execute(request, response);
-		}
-		if(command.equals("UpdateMypage.do")) {
-			
-		}
 		
-//------------------------영양제 프론트------------------------------		
+		
+		
 		if(command.equals("SetNutritions.do")) {
 			com= new SetNutritions();	
 		}
@@ -119,9 +121,19 @@ public class FrontController extends HttpServlet {
 			com = new GetIngredients();
 		}
 		
+//------------------------게시판------------------------------	
+		if(command.equals("getBoard.do")) {
+			com= new GetBoard();
+			nextpage=com.execute(request, response);
+		}
 		
 		
-		if(nextpage!=null) response.sendRedirect(nextpage);
+		
+		
+		
+		
+	
+	if(nextpage!=null) response.sendRedirect(nextpage);
 
 	
 	}//서비스끝

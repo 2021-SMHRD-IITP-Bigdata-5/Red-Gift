@@ -1,7 +1,7 @@
 package page;
 
 import inter.command;
-import vo.NutriClassesVo;
+import vo.NutriClassesVO;
 
 import java.io.IOException;
 
@@ -21,7 +21,7 @@ public class GetNutriClass extends HttpServlet implements command {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { 
     	HttpSession session = request.getSession();
-    	NutriClassesVo ncv = (NutriClassesVo) session.getAttribute("nutri_class");
+    	NutriClassesVO ncv = (NutriClassesVO) session.getAttribute("nutri_class");
     	
     	String nclass = request.getParameter(ncv.getNclass());
     	

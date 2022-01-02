@@ -17,19 +17,14 @@ public class DeleteMypage extends HttpServlet implements command {
 
 
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { 
+		request.setCharacterEncoding("UTF-8");
 		int page_seq = Integer.parseInt(request.getParameter("page_seq"));
 		System.out.println("testGetPage"+page_seq);
 		
     	MypageDAO dao = new MypageDAO();
     	int cnt=dao.DeleteMypage(page_seq);
-    	String nextpage="";
+    	String nextpage=null;
     	
-    	if(cnt>0) {
-    		nextpage="main.jsp";
-    	}else {
-    		nextpage="myPage.jsp";
-    	}
-    	System.out.println(nextpage);
     	return nextpage;
     }
 

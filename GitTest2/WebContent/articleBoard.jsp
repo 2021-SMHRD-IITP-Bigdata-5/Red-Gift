@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="vo.CommunityVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -45,9 +47,24 @@
 </head>
 <body>
 	 <%@include file="gnb.jsp" %>
+	 <%
+	 int currentPageNo;
 	 
+	 CommunityVO vo = new CommunityVO();
+	 currentPageNo = (int)request.getAttribute("currentPageNo");
+	 int firstPageNo = (int)request.getAttribute("FirstPageNo");
+	 int lastPageNo = (int)request.getAttribute("LastPageNo");
+	 int pageSize = (int)request.getAttribute("PageSize");
+	 
+	 @SuppressWarnings({"unchecked"})
+	 List<CommunityVO> arr = new ArrayList<>((List<CommunityVO>) request.getAttribute("arr"));
+	 
+	 
+	 %>
 	 
 <section id="tbl">
+	
+	현재페이지번호<%=currentPageNo %>
     <table>
         <thead>
             <tr>
@@ -58,47 +75,36 @@
             </tr>
         </thead>
         <tbody>
+        <% for (CommunityVO i : arr){  %>
             <tr>
                 <td>
-                    <a href="#">article_seq</a>
+                    <a href="#"><%=i.getArticle_seq()%></a>
                 </td>
                 <td>
-                    <a href="#">article_subjec</a>
+                    <a href="#"><%=i.getArticle_subject()%></a>
                 </td>
                 <td>
-                    <a href="#">user_id</a>
+                    <a href="#"><%=i.getUser_id()%></a>
                 </td>
                 <td>
-                    <a href="#">regdate</a>
+                    <a href="#"><%=i.getReg_date()%></a>
                 </td>
 
                 </tr>
             <tr>
-                <td>article_seq</td>
-                <td>article_subject</td>
-                <td>user_id</td>
-                <td>regdate</td>
-            </tr>
-            <tr>
-                <td>article_seq</td>
-                <td>article_subject</td>
-                <td>user_id</td>
-                <td>regdate</td>
-            </tr>
-            <tr>
-                <td>article_seq</td>
-                <td>article_subject</td>
-                <td>user_id</td>
-                <td>regdate</td>
-            </tr>
-            <tr>
-                <td>article_seq</td>
-                <td>article_subject</td>
-                <td>user_id</td>
-                <td>regdate</td>
-            </tr>
+        <%} %>    
+  
         </tbody>
     </table>
+    
+    <ul>
+    <li><%=firstPageNo %></li>
+    <li><%=(firstPageNo+1)%></li>
+    <li><%=lastPageNo %></li>
+    </ul>
+    
+    
+    
 </section>
 <section id="footer">
 

@@ -11,7 +11,7 @@
 </head>
 <style>
 @font-face{font-family: 'NanumSquareLight'; src:url('asset/font/NanumSquareL.otf')}
-@font-face{font-family: 'NanumSquare'; src:url('asset/font/NanumSquare.otf')}
+@font-face{font-family: 'NanumSquareR'; src:url('asset/font/NanumSquareR.otf')}
 @font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
 @font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
 
@@ -22,16 +22,16 @@ body {
 
 header {
 	z-index:999;
-	background: #e6e6e6;
-	height: 70px;
 	position: fixed;
-	opacity: 0.8;
 	top : 0;
+	transition: top 0.3s ease-in-out;
+
+	opacity: 0.8;
+	height: 70px;
 	width: 100%;
+	
 	font-family:'NanumSquareBold';
 	font-size: 18px;
-	transition: top 0.3s ease-in-out;
-	z-index:999;
 
 }
 
@@ -51,6 +51,12 @@ nav {
 	background-color: transparent;
 	list-style: none;
 	padding: 5px 5px 5px 5px;
+}
+.menu>li:nth-child(3){
+	padding-right:0px;
+}
+.menu>li:nth-child(4){
+	padding-left:0px;
 }
 
 .menu>li>a {
@@ -75,14 +81,14 @@ nav {
 
 }
 .menu>li>a{
-color: rgba(41, 41, 41, 0.8);
+	color: rgba(41, 41, 41, 0.8);
 }
-.logo>h1>a {
+.logo>a {
 	font-size: 35px;
 	color: crimson;
 	opacity:0.7;
 }
-.logo > h1 > a > img{
+.logo > a > img{
 	margin: 5px 0 0 0;
 	
 }
@@ -101,12 +107,14 @@ color: rgba(41, 41, 41, 0.8);
         <nav id="gnb">
 
             <div class="logo">
-                <h1><a href="main.jsp"><img src="asset/img/icon_img/빨간약기프티콘_로고03.png"
-						height="60"></a></h1>
+                <a href="main.jsp">
+                <img src="asset/img/icon_img/빨간약기프티콘_로고03.png" height="60">
+                </a>
 
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
+<<<<<<< HEAD
                 <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
                 
                 <%if(uservo==null){ %>
@@ -117,9 +125,18 @@ color: rgba(41, 41, 41, 0.8);
                 <li class="logon"><a href="updateUser.jsp" onClick="">회원정보수정</a></li>
                 <%} %>
 
+=======
+                <li><a href="articleBoard.jsp" onClick="">자유게시판</a></li>
+                <li><a href="login.jsp" class="logout" onClick="">로그인</a></li>
+                <li><a href="myPage.jsp" class="logon"  onClick="">마이페이지</a></li>
+                <li><a href="updateUser.jsp" class="logon" onClick="">회원정보수정</a></li>
+                <li><a href="LogOut.do" class="logon" onClick="">로그아웃</a></li>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
             </div>
         </nav>
  	</header>
+ 	
+ <!--                                                 -->	
  <script src="asset/js/jquery-3.6.0.min.js"></script>
  <script>
  let usernick='<%=userNick%>'
@@ -137,6 +154,8 @@ function logout(){
  	$('.logon').hide();
  	$('.logout').show();
 }
+
+
  var didScroll;
  var lastScrollTop = 0;
  var delta = 5;

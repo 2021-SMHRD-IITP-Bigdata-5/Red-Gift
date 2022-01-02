@@ -1,6 +1,6 @@
 package vo;
 
-public class CommunityVo {
+public class CommunityVO {
 
 	private int article_seq;
 	private String article_subject;
@@ -10,11 +10,19 @@ public class CommunityVo {
 	private String article_file1;
 	private String article_file2;
 	private String article_file3;
+
+	public CommunityVO() {
+		
+	}
 	
-	
-	
-	
-	public CommunityVo(int article_seq, String article_subject, String article_content, String reg_date, String user_id,
+	public CommunityVO(int article_seq, String article_subject, String reg_date, String user_id) {
+		super();
+		this.article_seq = article_seq;
+		this.article_subject = article_subject;
+		this.reg_date = reg_date;
+		this.user_id = user_id;
+	}
+	public CommunityVO(int article_seq, String article_subject, String article_content, String reg_date, String user_id,
 			String article_file1, String article_file2, String article_file3) {
 		super();
 		this.article_seq = article_seq;

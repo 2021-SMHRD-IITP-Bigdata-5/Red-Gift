@@ -1,6 +1,6 @@
 package vo;
 
-public class CommentsVo {
+public class CommentsVO {
 	private int commnet_seq;
 	private String comment_contents;
 	private String reg_date;
@@ -8,7 +8,7 @@ public class CommentsVo {
 	private int article_seq;
 	
 
-	public CommentsVo(int commnet_seq, String comment_contents, String comment_subject, String reg_date, String user_id,
+	public CommentsVO(int commnet_seq, String comment_contents, String comment_subject, String reg_date, String user_id,
 			int article_seq) {
 		super();
 		this.commnet_seq = commnet_seq;
