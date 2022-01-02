@@ -23,9 +23,9 @@ public class GetBoard implements command{
 		
 		request.setCharacterEncoding("UTF-8");
 		int no=1;
-		if(request.getParameter("currentPageNo")!=null) {
-		no = Integer.parseInt(request.getParameter("currentPageNo"));
-		}
+//		if(request.getParameter("currentPageNo")!=null) {
+//		no = Integer.parseInt(request.getParameter("currentPageNo"));
+//		}
 		pp.setCurrentPageNo(no);
 		
 		int total=dao.getTotalAticleCount();
@@ -42,7 +42,7 @@ public class GetBoard implements command{
 		request.setAttribute("LastPageNo", last );
 		request.setAttribute("PageSize",pageSize );
 		request.setAttribute("arr", arr );
-
+		
 		
 		
 		
