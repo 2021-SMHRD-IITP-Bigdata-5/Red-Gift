@@ -3,6 +3,7 @@ package service;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,10 +44,11 @@ public class GetBoard implements command{
 		request.setAttribute("PageSize",pageSize );
 		request.setAttribute("arr", arr );
 		
+		RequestDispatcher disp = request.getRequestDispatcher("articleBoard.jsp");
+		disp.forward(request, response);
 		
 		
-		
-		return "articleBoard.jsp";
+		return null;
 	}
 
 }

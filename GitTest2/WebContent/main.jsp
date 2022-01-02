@@ -430,7 +430,7 @@
         }
         
         function push(){
-        	window.scrollTo({top:'600',behavior:"smooth"})
+        	window.scrollTo({top:'900',behavior:"smooth"})
         }
         
         function pageLoad(page,a){
@@ -443,7 +443,7 @@
                 success: function(res){  
                     $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
-                    window.scrollTo({top:'1600',behavior:"smooth"})
+                    window.scrollTo({top:'1900',behavior:"smooth"})
                 },
                 error:function(){
                     alert("실패")

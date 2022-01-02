@@ -91,10 +91,10 @@
     <section id="sign">
         <div id="signUp">
             <form action="SignUp.do" method="post" id=signUpForm>
-                <input type="text"     name="id" placeholder=" 이메일로 간편가입하기" id="id">            
-                <input type="password" name="pw" placeholder=" 비밀번호"><br>
+                <input type="text"     name="id" placeholder=" 이메일로 간편가입하기" id="idinput">            
+                <input type="password" name="pw" placeholder=" 비밀번호" id="pwinput"><br>
                 <input disabled="disabled">
-                <input type="password" name="pw2" placeholder=" 비밀번호확인"><br>
+                <input type="password" name="pw2" placeholder=" 비밀번호확인" id=pw2input><br>
                 <div>
                 <button class="b2" type="button" onClick="loginform()">이미 계정이 있습니다</button>
                 <button class="b1" type="submit" disabled="disabled" >회원가입</button>
@@ -182,9 +182,11 @@
     		method:"post",
     		data:data,
     		success:function(res){
+    			$('#idinput').val("");
+    			$('#pwinput').val("");
+    			$('#pw2input').val("");
     			$('#signUp').hide();
     			$('#logIn').show();
-    			
     		},
     		error:function(){
     			alert('회원가입요청실패')	
@@ -221,7 +223,7 @@
                 type: "post",
                 success: function(res){
                 	$('.resultView').after(res)
-                    window.scrollTo({top:'2300',behavior:"smooth"})
+                    window.scrollTo({top:'2900',behavior:"smooth"})
                 },
                 error:function(){
                     alert("실패")
