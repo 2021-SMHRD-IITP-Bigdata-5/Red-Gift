@@ -110,11 +110,11 @@ color: rgba(41, 41, 41, 0.8);
                 <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
                 
                 <%if(uservo==null){ %>
-                <li><a href="login.jsp" onClick="">로그인</a></li>
+                <li class="logout"><a href="login.jsp" onClick="">로그인</a></li>
                 <%}else{ %>
-                <li><a href="updateUser.jsp" onClick="">회원정보수정</a></li>
-                <li><a href="myPage.jsp" onClick="">마이페이지</a></li>
-                <li><a href="LogOut.do" onClick="">로그아웃</a></li>
+                <li class="logon"><a href="myPage.jsp" onClick="">마이페이지</a></li>
+                <li class="logon"><a href="LogOut.do" onClick="">로그아웃</a></li>
+                <li class="logon"><a href="updateUser.jsp" onClick="">회원정보수정</a></li>
                 <%} %>
 
             </div>
