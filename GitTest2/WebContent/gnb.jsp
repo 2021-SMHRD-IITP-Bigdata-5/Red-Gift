@@ -114,24 +114,11 @@ nav {
             </div>
             <div class="menu">
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
-<<<<<<< HEAD
-                <li><a href="freeBoard.jsp" onClick="">자유게시판</a></li>
-                
-                <%if(uservo==null){ %>
-                <li class="logout"><a href="login.jsp" onClick="">로그인</a></li>
-                <%}else{ %>
-                <li class="logon"><a href="myPage.jsp" onClick="">마이페이지</a></li>
-                <li class="logon"><a href="LogOut.do" onClick="">로그아웃</a></li>
-                <li class="logon"><a href="updateUser.jsp" onClick="">회원정보수정</a></li>
-                <%} %>
-
-=======
                 <li><a href="articleBoard.jsp" onClick="">자유게시판</a></li>
                 <li><a href="login.jsp" class="logout" onClick="">로그인</a></li>
                 <li><a href="myPage.jsp" class="logon"  onClick="">마이페이지</a></li>
                 <li><a href="updateUser.jsp" class="logon" onClick="">회원정보수정</a></li>
                 <li><a href="LogOut.do" class="logon" onClick="">로그아웃</a></li>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
             </div>
         </nav>
  	</header>
