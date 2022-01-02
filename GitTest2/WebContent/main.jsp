@@ -92,7 +92,7 @@
         	margin: 8% 0 8% 0;
         	font-family: 'NanumSquareBold';
         	font-size: 40px;
-        	     	
+        	
         }
         
         .choice{
@@ -214,7 +214,7 @@
 		.choiceCard_wrapper::-webkit-scrollbar {
 		    display: none;
 		  }
-		  
+		  /*선택카드*/
 		.choiceCard{
 			user-select:none;
 			-webkit-user-select:none;
@@ -237,16 +237,13 @@
 			border: 0px solid hsl(0 0% 85%);
 			-webkit-transition: .2s ease-in-out;
 			position:relative;
+			
+			box-shadow: 1rem 1rem 1rem 1rem hsl(0 0% 0% / 15%);
 		}
 		
 		.choiceCard:hover{
-			box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
-		}*/
-    	
-    	/*카드 이미지 보더줘야*/
-    	#op1{
-    	box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
-    	}
+			box-shadow: 0.6rem 0.6rem 0.6rem hsl(0 0% 0% / 15%);
+		}
     	
         input{
 	        width:300px;
@@ -321,35 +318,29 @@
 	
 	<section id="choiceSection">
 		<div class="choiceCard_wrapper">
-			<div class="choiceCard" id="card1"><img id="op1" src="asset/img/1231_메인2/1231_메인클릭이미지_엄마.jpg" alt="1" width="300px" height="400px">
+			<div class="choiceCard" id="card1"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_엄마.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('1')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card2"><img id="op2" src="asset/img/1231_메인2/1231_메인클릭이미지_아빠.jpg" alt="1" width="300px" height="400px">
+			<div class="choiceCard" id="card2"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_아빠.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('2')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card3"><img id="op3" src="asset/img/1231_메인2/1231_메인클릭이미지_할머니.jpg" alt="1" width="300px" height="400px">
+			<div class="choiceCard" id="card3"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_할머니.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('3')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card4"><img id="op3" src="asset/img/1231_메인2/1231_메인클릭이미지_부부.jpg" alt="1" width="300px" height="400px">
+			<div class="choiceCard" id="card4"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_부부.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('4')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card5"><img id="op3" src="asset/img/1231_메인2/1231_메인클릭이미지_야근.jpg" alt="1" width="300px" height="400px">
+			<div class="choiceCard" id="card5"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_야근.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('5')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card6"><img id="op3" src="asset/img/1231_메인2/1231_메인클릭이미지_회식.jpg" alt="1" width="300px" height="400px">
+			<div class="choiceCard" id="card6"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_회식.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('6')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card7"><img id="op3" src="asset/img/1231_메인2/1231_메인클릭이미지_어지럼증.jpg" alt="1" width="300px" height="400px">
+			<div class="choiceCard" id="card7"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_어지럼증.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('7')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card8"><img id="op3" src="asset/img/0101-메인이미지/0101-아연.jpg" alt="1" width="300px" height="400px">
+			<div class="choiceCard" id="card8"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_학생.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('8')">CLICK</div>
-			</div>
-			<div class="choiceCard" id="card9"><img id="op3" src="asset/img/0101-메인이미지/0101-알로에.jpg" alt="1" width="300px" height="400px">
-				<div class="cardTail" onclick="cardChoice('9')">CLICK</div>
-			</div>
-			<div class="choiceCard" id="card10"><img id="op3" src="asset/img/0101-메인이미지/0101-비타민B.jpg" alt="1" width="300px" height="400px">
-				<div class="cardTail" onclick="cardChoice('10')">CLICK</div>
 			</div>
 		</div>
 	</section>
