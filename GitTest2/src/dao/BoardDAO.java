@@ -84,13 +84,21 @@ public class BoardDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			
+			close();
+			
 		}
+		
 		
 		return cnt;
 		
 	}
 //--------------------------------------------------------------------------------	
 	public ArrayList<CommunityVO> articleList(int topRow, int bottomRow ){
+		
+		connect();
+		
 		ArrayList<CommunityVO> arr = new ArrayList<>();
 		
 		try { 
@@ -117,21 +125,31 @@ public class BoardDAO {
 		} catch (Exception e){
 			
 			
+		} finally {
+			
+			close();
+			
 		}
 		return arr;
 	}
 //--------------------------------------------------------------------------------	
-	public int getTotalAticleCount() {
+	public int getTotalCount() {
+		connect();
 		int count=0;
 		try { 
-			String sql = "select(count(ARTICLE_SEQ) FROM TBL_COMMUNITY";
+			String sql = "select count(*) total FROM TBL_COMMUNITY";
 				psmt=conn.prepareStatement(sql);
 			rs =psmt.executeQuery();
-
-			rs.next();
-			count=rs.getInt(1);
-					
+			
+			while(rs.next()) {
+				count=rs.getInt("total");
+				System.out.println(count);
+			}
 		} catch (Exception e){
+			
+		} finally {
+			
+			close();
 			
 		}	
 		return count;

@@ -24,12 +24,10 @@ public class GetBoard implements command{
 		
 		request.setCharacterEncoding("UTF-8");
 		int no=1;
-//		if(request.getParameter("currentPageNo")!=null) {
-//		no = Integer.parseInt(request.getParameter("currentPageNo"));
-//		}
+		no = Integer.parseInt(request.getParameter("PageNo"));
 		pp.setCurrentPageNo(no);
 		
-		int total=dao.getTotalAticleCount();
+		int total=dao.getTotalCount();
 		pp.setTotalArticleCount(total);
 		
 		int f = pp.getFirstArticleIndex();
@@ -38,10 +36,12 @@ public class GetBoard implements command{
 		int first = pp.getFirstPageNo();
 		int last = pp.getLastPageNo();
 		int pageSize = pp.getPageSize();
+		int totalPage = pp.getTotalPageCount();
 		request.setAttribute("currentPageNo", no);
 		request.setAttribute("FirstPageNo", first);
 		request.setAttribute("LastPageNo", last );
 		request.setAttribute("PageSize",pageSize );
+		request.setAttribute("totalPage",totalPage);
 		request.setAttribute("arr", arr );
 		
 		RequestDispatcher disp = request.getRequestDispatcher("articleBoard.jsp");
