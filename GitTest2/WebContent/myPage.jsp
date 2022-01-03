@@ -300,7 +300,7 @@ footer {
 				<tr>
 					<td colspan="2"><%=pageList.get(i).getPage_seq()%>,<%=pageList.get(i).getReg_date()%>
 					    <button onclick="deleteMyPage('<%=pageList.get(i).getPage_seq() %>')">삭제</button>
-						<button id = "change" onclick="change('<%=pageList.get(i).getPage_memo()%>')">수정</button>
+						<button id = "change1" onClick="change('<%=pageList.get(i).getPage_memo()%>')">수정</button>
 						
 						
 						
@@ -343,18 +343,14 @@ footer {
 		
 	}
 	
-	function change(data,page_seq){
+	function change(data){
 		$(".myupdate").html("<textarea class='myupdate' rows='' cols=''>"+data+"</textarea>"); // <--- 이렇게 태그 만들때 따옴표 주의, 이상입니다. 
-		
-		
-		$("#change").html("<button type='submit' id='change2' onClick='updateMypage(\""+data+"\")'>수정완료</button>")
+		$("#change1").html("<button id='change1' onClick='update(\""+data+"\")'>수정완료</button>")
 	}
-	function updateMypage(page_memo){
-		$("#change2").html("<button id ='change' onClick='change(\""+page_memo+"\")'>수정</button>")
-		$(".myupdate").html("<td class='myupdate' id='memo' colspan='2'>"+page_memo+"</td>")
-		location.href="UpdateMypage.do?page_memo=" +page_memo+
-				"&page_seq="+page_seq; // <-- 이거 정의안된거 처리하시고
-		
+	function update(data){
+		$(".myupdate").html("<td class='myupdate' id='memo'colspan='2'>"+data+"</td>")
+		$("#change1").html("<button id ='change1' onClick='change(\""+data+"\")'>수정</button>")
+
 	}
 	
 	</script>
