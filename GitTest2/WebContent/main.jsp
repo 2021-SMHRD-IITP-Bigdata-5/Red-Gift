@@ -1,8 +1,11 @@
 <%@page import="vo.UserVO"%>
+<%@page import="vo.NutriVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<body lang="en">
+<html>
+<meta charset="UTF-8">
+<body>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,11 +20,10 @@
 
 
 		/*부트스트랩 선택자랑 겹친다*/
-
 			
 		html,body{
-			width: 100%;
-			height: 100%;
+			/*width: 100%;
+			height: 100%;*/
 		}
         body{
             display: block;
@@ -30,7 +32,7 @@
 			display: grid;
         }
         #banner{
-            background-image: url('asset/img/배경/대체-4.jpg');
+            background-image: url('asset/img/배경/배경1-메인.jpg');
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -87,7 +89,13 @@
             display: flex;
             justify-content: center;
         }
-
+        /*카드 하단길이*/
+		section#choiceSection {
+    		margin-bottom: 80px;
+		}
+		section.resultView > div{
+			padding-bottom: 10px;
+		}
         .message{ 
         	margin: 8% 0 8% 0;
         	font-family: 'NanumSquareBold';
@@ -282,7 +290,7 @@
         	background-color: gray;
         	opacity:0.6;
     	}
-
+    	
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -292,6 +300,8 @@
 </head>
 <body> 
 
+<a style="display:scroll;position:fixed;bottom:50px;right:10px;" href="#" title="up"><img src="asset/img/upimg.jpg"></a> 
+
 	
 	<%@include file="gnb.jsp"%>
 
@@ -300,7 +310,7 @@
             <br>
             <br>
             <br>
-            <h1 id="bannerButton" onclick="push()">선물할 영양제을<br>찾고 계신가요?</h1>
+            <h1 id="bannerButton" onclick="push()">선물할 영양제를<br>찾고 계신가요?</h1>
             <h2 id="bannerButton2" onclick="push()">시작해 보세요   <img src="asset/img/icon_img/메인-시작해보세요2.png" width="25" height="25"></h2>
             
         </div>
@@ -343,7 +353,7 @@
 		</div>
 	</section>
 
-    <%@include file="footer.jsp" %>
+    <!-- <%@include file="footer.jsp" %> -->
     <!-- ------------------------------------------------------------------------ -->
     <script src="asset/js/jquery-3.6.0.min.js"></script>
     <script>
@@ -432,12 +442,10 @@
                 success: function(res){  
                     $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
-                    window.scrollTo({top:'1900',behavior:"smooth"})
-                    
+                    window.scrollTo({top:'1950',behavior:"smooth"})
+
+ //----------------------------------------------------------------------------------------------------                   
                     let param = '';
-                    
-                    
-                    
                     
                     //flask로 넘기기 위한 약 8종류 데이터 
                     let selectItem = ['감미놀렌산','쏘팔메토','글루코사민','홍삼','밀크씨슬','밀크씨슬','셀레늄','아연'];
@@ -448,8 +456,7 @@
                     		break;
                     	}
                     }
-                                       
-                    
+  
                   	//로그인 시 Flask서버로 요청
             		$.ajax({
     					url:'http://localhost:9000/',
@@ -465,6 +472,8 @@
     						localStorage.setItem('data',result);
     					}
     				});
+                  	
+//----------------------------------------------------------------------------------------------------                	
                 },
                 error:function(){
                     alert("실패")
@@ -528,7 +537,23 @@
 	    		console.log(s);
 	    		//$('.message:nth-child(2)').remove();
 	    		//$('.resultView').remove();
-	            pageLoad('result1.jsp',s);
+	    		
+	    		 $.ajax({
+				      url: 'GetNutriClass.do',  
+				      type: "post",
+				      data: {
+				      	"choice" : s
+				      },
+				      success: function(res){
+				      
+				      },
+				      error:function(){
+				          alert("실패")
+				      }
+				  })
+	    		
+	    		
+	            pageLoad('result1.jsp',s)
 	            $('#card'+s).css('opacity','0.5');
 			}else{
 				

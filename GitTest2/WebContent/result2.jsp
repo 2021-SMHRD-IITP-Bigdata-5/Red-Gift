@@ -22,6 +22,7 @@
 			choice=c.getValue();
 		}
 	}
+	
 	System.out.println("result2.jsp 선택카드 :"+choice);
 	System.out.println("result2.jsp 유저아이디 :"+user.getUser_id()+"\n-----------------");
 	

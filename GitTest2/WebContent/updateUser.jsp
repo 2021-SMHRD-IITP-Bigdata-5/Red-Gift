@@ -2,7 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<meta charset="UTF-8">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +26,7 @@ body{
     justify-content: space-between;/*(정렬).set1중심축기준_space-between간격*/
     align-items: center;/*(정렬).set2_교차축의 중앙에 정렬 수직*/
     margin: 0 auto;/*중앙정렬*/
-    background-image: url('asset/img/배경/이미지a-3.jpg');
+    background-image: url('asset/img/배경/배경2-1.jpg');
     background-size: cover;
 }
 /*배경어둡게*/
@@ -104,6 +105,7 @@ body > main > section > form > div.btn-login > button{
     <script src="asset/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
 <%
 	UserVO uservo = (UserVO)session.getAttribute("uservo");
 %>
@@ -120,21 +122,29 @@ body > main > section > form > div.btn-login > button{
                         <td><label for="pw"></label></td>
                     </tr>
                     <tr>
-                        <td><input type="password" id="" name="pw" placeholder="비밀번호수정"></td>
+                        <td><input type="password" id="pw" name="pw" placeholder="비밀번호수정"></td><br>
                     </tr>
                     <tr>
-                        <td><input type="text" id="" name="nick" placeholder="닉네임수정"></td>
+                        <td><input type="password" id="pw2" name="pw2" placeholder="비밀번호확인"></td>
+                        
+                    
+                    </tr>
+                   </table>
+                	<button type="button" onClick="pwcheck()">비밀번호 확인</button>
+                   <table>
+                    <tr>
+                        <td><input type="text" id="" name="nick" placeholder=<%=uservo.getUser_nick() %>></td>
                     </tr>
                     <tr>
-                        <td><input type="text" id="" name="name" placeholder="이름수정"></td>
+                        <td><input type="text" id="" name="name" placeholder=<%=uservo.getUser_name() %>></td>
                     </tr>
                     <tr align="center">
                         <td style="height: 30px;"><a id="a1"  style="width : 55%; height: 15px;">생일<input type="date" name="birth"></a></td>
                     </tr>
                     <tr align="center">
                         <td>
-                        <a id="a2">남<input type="radio" name="gender"  style="width : 10%; height: 15px;"></a>
-                        <a id="a2" >여<input type="radio" name="gender" style="width : 10%; height: 15px;"></a>
+                        <a id="a2">남<input type="radio" name="gender" value="남자" style="width : 10%; height: 15px;"></a>
+                        <a id="a2" >여<input type="radio" name="gender" value="여자" style="width : 10%; height: 15px;"></a>
                         </td>
                     </tr>
                     <tr>
@@ -142,19 +152,37 @@ body > main > section > form > div.btn-login > button{
                         <!-- <input type="text" id="pw-input-text" name="user_sex" placeholder="성별"> -->
                     </tr>
                     <tr>
-                        <td><input type="text" id="" name="phone" placeholder="폰번호수정"></td>
+                        <td><input type="text" id="" name="phone" placeholder=<%=uservo.getUser_phone() %>></td>
                     </tr>
                 </table>
-
+					
                 </div>
                 <div class="btn-login">
                     <button type="submit" onClick="">회원정보수정</button>
+                    
                     <a href="Delete.do?id=<%=uservo.getUser_id() %>" id="a3">회원 탈퇴</a>
+                    <a href="main.jsp" id="a3">메인으로</a>
                 </div>
             </form>
 
         </section>
     </main>
+    <script src="asset/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+	function pwcheck() {
+  		var pw = document.getElementById('pw').value;
+  		var pw2= document.getElementById('pw2').value;
+		
+		
+        if(pw==pw2){
+            alert("비밀번호가 일치합니다");
+        }
+        else{
+            alert("비밀번호가 일치하지 않습니다.");
+            }
+    }
+	</script>
+    
 
     </body>
     </html>

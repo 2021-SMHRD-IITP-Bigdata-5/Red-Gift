@@ -99,15 +99,19 @@ public class FrontController extends HttpServlet {
 	//---------------------------------------------	
 		
 		
+		if(command.equals("GetNutriClass.do")) {
+			com= new GetNutriClass();
+			com.execute(request, response);
+		}
 		
 //------------------------영양제 프론트------------------------------
+		
+		
+		
+		
 		if(command.equals("SetNutriClass.do")) {
 			com= new SetNutriClass();
 		}
-		if(command.equals("GetNutriClass.do")) {
-			com= new GetNutriClass();
-		}
-		
 		
 		
 		if(command.equals("SetNutritions.do")) {

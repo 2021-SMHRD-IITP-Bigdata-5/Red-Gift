@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vo.NutriVO"%>
 <%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -18,7 +20,10 @@
 <body>
    <%//test
 	UserVO user = (UserVO)session.getAttribute("uservo");
-	
+    ArrayList<NutriVO> nutriarrr = (ArrayList<NutriVO>)session.getAttribute("nutriarr");
+    System.out.print("result 1 : "+nutriarrr.get(0).getNutri_name());
+   
+   
    	String choice=request.getParameter("choice");
    	
 	Cookie cookie = new Cookie("choice", choice);
@@ -39,12 +44,12 @@
     <section class="resultView">
         <div>
             <div class="nutriCard" onclick="cardUp('#class1')">
-            	<div class="cardHead" id="class1">
+            	<div class="cardHead" id="class1"><img id="" src="asset/img/0103-추천이미지/n03.jpg" alt="1" width="450px" height="600px" z-index="1";>
            			<%=choice%>
             	</div>
             	
-				<div class="cardBody">
-					<h2>
+				<div class="cardBody"  style="background-color: white; z-index:'2';">
+					<h2 style="color: white;">
 						click
 					</h2>
 					<br>
@@ -60,11 +65,11 @@
             </div>
        <!--                                -->
             <div class="nutriCard" onclick="cardUp('#class2')">
-            	<div class="cardHead" id="class2">
+            	<div class="cardHead" id="class2"><img id="" src="asset/img/0103-추천이미지/n31.jpg" alt="1" width="450px" height="600px" z-index="1";>
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
-					<h2>
+					<h2 style="color: white;">
 						click
 					</h2>
 					<br>
@@ -137,7 +142,6 @@
         $('#logIn').css('display','none')
         window.scrollTo(0,document.body.scrollHeight)
     }
-    
    	
     
     $('input[name=id]').on("blur", function (event) {
@@ -194,6 +198,7 @@
     	})
     	return false;
     })
+    
     $('#logInForm').on("submit",function(){
     	let data=$(this).serialize();
     	
@@ -209,7 +214,7 @@
         		System.out.println("loginajax 성공");
         		%>
         		logon();
-        		
+//-------------------------------------------------------------------------        		
         		//로그인 시 Flask서버로 요청
         		$.ajax({
 					url:'http://localhost:9000/',
@@ -222,6 +227,7 @@
 						localStorage.setItem('data',result);
 					}
 				});
+//-------------------------------------------------------------------------				
         	},
         	error:function(){
         		alert('로그인요청실패')	
@@ -236,7 +242,7 @@
                 type: "post",
                 success: function(res){
                 	$('.resultView').after(res)
-                    window.scrollTo({top:'2900',behavior:"smooth"})
+                    /*window.scrollTo({top:'2900',behavior:"smooth"})*/
                 },
                 error:function(){
                     alert("실패")
@@ -244,8 +250,6 @@
             })
         }
    
-    
-    
     
     $(window).on('scroll.resultView',function(){
 		if(user!=null){

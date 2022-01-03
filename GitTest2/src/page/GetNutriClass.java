@@ -2,8 +2,10 @@ package page;
 
 import inter.command;
 import vo.NutriClassesVO;
+import vo.NutriVO;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,22 +19,17 @@ import dao.MypageDAO;
 
 @WebServlet("/GetNutriClass")
 public class GetNutriClass extends HttpServlet implements command {
-	private static final long serialVersionUID = 1L;
 
+	
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { 
     	HttpSession session = request.getSession();
-    	NutriClassesVO ncv = (NutriClassesVO) session.getAttribute("nutri_class");
-    	
-    	String nclass = request.getParameter(ncv.getNclass());
-    	
+    	String choice = request.getParameter("choice");
     	MypageDAO dao = new MypageDAO();
-    	dao.GetNutriClasses(nclass);
-    	
-    	
-    	
-    	
-    	
-    	
+		ArrayList<NutriVO> arr = new ArrayList<NutriVO>();
+		arr=dao.GetNutri(choice);
+		System.out.println(arr.size());
+		session.setAttribute("nutriarr",arr);
+  
     	return null;
     }
 
