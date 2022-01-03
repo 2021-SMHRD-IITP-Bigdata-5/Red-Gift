@@ -453,7 +453,7 @@
                   	//로그인 시 Flask서버로 요청
             		$.ajax({
     					url:'http://localhost:9000/',
-    					dataType:'json',
+    					//dataType:'json',
     					data:'param='+param,
     					success:function(result){
     						console.log(result);
@@ -462,8 +462,6 @@
     						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
     						//$('section.message').html(result);
     						$('section.message').html("<a href='#'>"+result+"</a>");
-    						
-    						
     						localStorage.setItem('data',result);
     					}
     				});
