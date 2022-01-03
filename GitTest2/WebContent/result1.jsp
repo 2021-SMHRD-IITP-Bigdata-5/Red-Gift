@@ -47,6 +47,8 @@
 					<h2>
 						click
 					</h2>
+					<br>
+					<br>
 					<div>
 						<canvas  id="myChartOne" width="150" height="150"></canvas>
 					</div>
@@ -65,6 +67,8 @@
 					<h2>
 						click
 					</h2>
+					<br>
+					<br>
 					<div>
 						<canvas  id="myChartOne2" width="150" height="150"></canvas>
             		</div>

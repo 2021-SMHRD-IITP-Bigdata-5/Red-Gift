@@ -30,7 +30,7 @@
 			display: grid;
         }
         #banner{
-            background-image: url('asset/img/배경/대체-3.jpg');
+            background-image: url('asset/img/배경/대체-4.jpg');
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -40,13 +40,14 @@
             width: 100%;
             height: 90vh;
             
-            align:center;
+            /*align:center;*/
 			
             font-family:'NanumSquareLight';
             font-size: 30px;
             font-weight: bold;
             text-align:right;
         }
+        /*문구1*/
         #bannerButton{
         	position:absolute;
         	left:300px;
@@ -54,12 +55,32 @@
         	font-size:60px;
         	cursor:pointer;
         	-webkit-transition: .2s ease-in-out;
+        	text-align:left;
         }
         #bannerButton:hover{
-        	color:#dba295;
+        	text-shadow: 0rem 0 white, 0 0rem white, 1.5rem 0 white, 0 0rem white;
+        	border-radius: 100px;/*모서리둥글게*/
+        }
+        /*문구2*/
+        #bannerButton2{
+        	position:absolute;
+        	left:300px;
+        	top:450px;
+        	font-family: 'NanumSquareExtraBold';
+        	font-size:16px;
+        	cursor:pointer;
         	-webkit-transition: .2s ease-in-out;
+        	color:white;
+        	padding: 20px;
+        	margin:35px 0 0 0;
+            display:inline-block;
+            background-color: #FF5C35;
+            border-radius: 100px;/*모서리둥글게*/
         }
         
+		#bannerButton2:hover{
+			box-shadow: 0.5rem 0.5rem 0.5rem hsl(0 0% 0% / 10%);
+		}
         
         section{
             /*padding: 5% 0% 0%% 0%;*/
@@ -71,8 +92,9 @@
         	margin: 8% 0 8% 0;
         	font-family: 'NanumSquareBold';
         	font-size: 40px;
-        	     	
+        	
         }
+        
         .choice{
             display:inline-block;
             border-style: solid 1px;
@@ -86,11 +108,13 @@
             width: 450px;
             height: 600px;
         }
+        
         .classView>div>div, .itemsView>div>div{
         	display: inline-block;
             width: 1000px;
             height: 600px;
         }
+        
         .resultView>div>div,.classView>div>div,.itemsView>div>div {
         	
 			margin: 0 20px 0 20px;
@@ -105,6 +129,7 @@
 			line-height: 1.5;
 			color: hsl(200 50% 20%);
 		}
+		
 		.itemsView{
 			margin-bottom: 50px;
 		}
@@ -113,9 +138,11 @@
     		overflow:hidden;
     		position:relative;
     	}
+    	
     	.nutriCard:hover{
     		box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
     	}
+    	
     	.cardHead{
     		width:100%;
     		height:500px;
@@ -126,6 +153,7 @@
     		/*background-size:150%;*/
     		background-color:transparent;
     	}
+    	
     	/* 헤드가 아니라 바디가 올라오게 바꿔야함.*/
     	.cardHead_up{
     		width:100%;
@@ -136,37 +164,43 @@
     		box-sizing:boarder-box;
     		-webkit-transition: .2s ease-in-out;
     	}
+    	
    		.cardBody{
    			width:100%;
     		height:100px;
     		line-height:1;
     		
     		background-color:transparent;
-    	
     	}
 
     	.cardBody::-webkit-scrollbar {
     		display: none;
     	}
+    	
     	.cardTail{
 			position:absolute;
 			bottom:0;	
 			
 			width:100%;
 			height:40px;
-			background-color:transparent;
+			/*background-color:transparent;*/
+			background-color:purple;
+			color:white;
 			border-radius:0 0 2ch 2ch;
 			
 			font-family: 'NanumSquareBold';
 			font-size:20px;
 		}
+		
 		.cardTail:hover{
 			font-size:25px;
+			box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
 		}
-    	
-    	
+		
     	#choiceSection{
-		}    	
+    	
+		}   
+		 	
 		.choiceCard_wrapper{
 			overflow-x:scroll;
 			white-space:nowrap;
@@ -176,9 +210,11 @@
 			user-select:none;
 			-webkit-user-select:none;
 		}
+		
 		.choiceCard_wrapper::-webkit-scrollbar {
 		    display: none;
 		  }
+		  /*선택카드*/
 		.choiceCard{
 			user-select:none;
 			-webkit-user-select:none;
@@ -200,14 +236,13 @@
 			-webkit-transition: .2s ease-in-out;
 			position:relative;
 			
+			box-shadow: 1rem 1rem 1rem 1rem hsl(0 0% 0% / 15%);
 		}
+		
 		.choiceCard:hover{
-			box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
+			box-shadow: 0.6rem 0.6rem 0.6rem hsl(0 0% 0% / 15%);
 		}
     	
-    	
-    	
-
         input{
 	        width:300px;
 	        height:40px;
@@ -263,9 +298,11 @@
     
         <div id="banner">
             <br>
-            <h2 class="heading"><br></h2>
-            <p class="intro"><br></p>
-            <h1 id="bannerButton" onclick="push()">zi금 선물 고르기</h1>
+            <br>
+            <br>
+            <h1 id="bannerButton" onclick="push()">선물할 영양제을<br>찾고 계신가요?</h1>
+            <h2 id="bannerButton2" onclick="push()">시작해 보세요   <img src="asset/img/icon_img/메인-시작해보세요2.png" width="25" height="25"></h2>
+            
         </div>
     
     <section class="message">
@@ -279,28 +316,28 @@
 	
 	<section id="choiceSection">
 		<div class="choiceCard_wrapper">
-			<div class="choiceCard" id="card1">
+			<div class="choiceCard" id="card1"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_엄마.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('1')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card2">
+			<div class="choiceCard" id="card2"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_아빠.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('2')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card3">
+			<div class="choiceCard" id="card3"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_할머니.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('3')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card4">
+			<div class="choiceCard" id="card4"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_부부.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('4')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card5">
+			<div class="choiceCard" id="card5"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_야근.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('5')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card6">
+			<div class="choiceCard" id="card6"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_회식.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('6')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card7">
+			<div class="choiceCard" id="card7"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_어지럼증.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('7')">CLICK</div>
 			</div>
-			<div class="choiceCard" id="card8">
+			<div class="choiceCard" id="card8"><img id="" src="asset/img/1231_메인2/1231_메인클릭이미지_학생.jpg" alt="1" width="300px" height="400px">
 				<div class="cardTail" onclick="cardChoice('8')">CLICK</div>
 			</div>
 		</div>
