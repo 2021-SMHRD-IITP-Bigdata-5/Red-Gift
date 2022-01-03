@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import vo.ChoiceVO;
 import vo.MyPageVO;
 import vo.NutriClassesVO;
+import vo.NutriVO;
 
 
 public class MypageDAO {
@@ -66,35 +67,40 @@ public class MypageDAO {
 			// TODO: handle exception
 		}
 	}
-	// --------------------------------------------------------------- 
-	public ArrayList<NutriClassesVO> GetNutri(String choice) {  //통합   사용setMypage/result1/result2/
+	//----------------------------------------------------------------
+	
+	/*
+	  
+	쿼리수정 TBL_NUTRI_CLASSES -> TBL_NUTRI
+	 */
+	
+	public ArrayList<NutriVO> GetNutri(String choice) {  //통합   사용setMypage/result1/result2/
 		con.connect();
+		
+		ArrayList<NutriVO> arr = new ArrayList<NutriVO>();
+		
 		try {
-			String sql  ="SELECT "
-						+ "A.CHOICE, "
-						+ "B.NUTRI_CLASS, "
-						+ "B.class_sat, "
-						+ "B.class_pos, "
-						+ "B.class_neg, "
-						+ "B.class_photo" + 
-						"FROM TBL_NUTRI_CLASSES B" + 
-						"INNER JOIN (SELECT * FROM TBL_NUTRI_CHOICES WHERE CHOICE = ?) A" + 
-						"ON B.NUTRI_CLASS IN (A.CLASS1, A.CLASS2, A.CLASS3)";
+			
+			String sql="SELCT A.CHOICE, "
+				    + "B.N_NAME,"
+				    + "B.N_NPOS, "
+				    + "B.N_PHOTO "
+				    + "FROM TBL_NUTRI B "
+				    + "INNER JOIN (SELECT * FROM TBL_NUTRI_CHOICES WHERE CHOICE = ?) A "
+				    + "ON B.N_NAME IN (A.CLASS1, A.CLASS2, A.CLASS3)";
 				psmt=con.conn.prepareStatement(sql);
 				psmt.setString(1, choice);
 			rs =psmt.executeQuery();
 			
 			while(rs.next()) {
-				String choicename = rs.getString(1);
-				String nutri_class = rs.getString(2);
-				int class_sat = rs.getInt(3);
-				int class_pog = rs.getInt(4);
-				int class_neg = rs.getInt(5);
-				String class_photo = rs.getString(5);
+				String choice_name = rs.getString(1);
+				String nutri_name = rs.getString(2);
+				float class_pos = Float.parseFloat(rs.getString(3));
+				String class_photo = rs.getString(4);
 				
-				NutriClassesVO ncv = new NutriClassesVO(choicename, nutri_class, class_sat, class_pog, class_neg, class_photo);
+				NutriVO nv = new NutriVO(choice_name, nutri_name, class_pos, class_photo);
 			
-				class_list.add(ncv);
+				arr.add(nv);
 			}
 			
 		} catch (SQLException e) {
@@ -103,12 +109,55 @@ public class MypageDAO {
 			con.close(con.conn, psmt, rs);
 		}
 
-		return class_list;
+		return arr;
+	
+	
+	
 	}
+	
+	// --------------------------------------------------------------- 
+//	public ArrayList<NutriClassesVO> GetNutri(String choice) {  //통합   사용setMypage/result1/result2/
+//		con.connect();
+//		try {
+//			String sql  ="SELECT "
+//						+ "A.CHOICE, "
+//						+ "B.NUTRI_CLASS, "
+//						+ "B.class_sat, "
+//						+ "B.class_pos, "
+//						+ "B.class_neg, "
+//						+ "B.class_photo" + 
+//						"FROM TBL_NUTRI_CLASSES B" + 
+//						"INNER JOIN (SELECT * FROM TBL_NUTRI_CHOICES WHERE CHOICE = ?) A" + 
+//						"ON B.NUTRI_CLASS IN (A.CLASS1, A.CLASS2, A.CLASS3)";
+//				psmt=con.conn.prepareStatement(sql);
+//				psmt.setString(1, choice);
+//			rs =psmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				String choicename = rs.getString(1);
+//				String nutri_class = rs.getString(2);
+//				int class_sat = rs.getInt(3);
+//				int class_pog = rs.getInt(4);
+//				int class_neg = rs.getInt(5);
+//				String class_photo = rs.getString(5);
+//				
+//				NutriClassesVO ncv = new NutriClassesVO(choicename, nutri_class, class_sat, class_pog, class_neg, class_photo);
+//			
+//				class_list.add(ncv);
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			con.close(con.conn, psmt, rs);
+//		}
+//
+//		return class_list;
+//	}
 	// ---------------------------------------------------------------
 	public int SetMypage(String id, String choice) {
 		connect();
-		ArrayList<NutriClassesVO> arr=GetNutri(choice);
+		ArrayList<NutriVO> arr=GetNutri(choice);
 
 		try {
 			String sql="insert into TBL_MYPAGES ("
@@ -118,8 +167,8 @@ public class MypageDAO {
 					+ "values(?,?,?)";
 				psmt=conn.prepareStatement(sql);
 				
-				psmt.setNString(1,arr.get(1).getNclass());
-				psmt.setInt(2,arr.get(1).getSat());
+				psmt.setNString(1,arr.get(1).getNutri_name());
+				psmt.setFloat(2,arr.get(1).getNutri_pos());
 				psmt.setNString(3,id);		
 			cnt=psmt.executeUpdate();
 			
