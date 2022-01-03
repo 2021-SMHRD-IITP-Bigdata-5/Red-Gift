@@ -17,11 +17,10 @@
 
 
 		/*부트스트랩 선택자랑 겹친다*/
-
 			
 		html,body{
-			width: 100%;
-			height: 100%;
+			/*width: 100%;
+			height: 100%;*/
 		}
         body{
             display: block;
@@ -30,7 +29,7 @@
 			display: grid;
         }
         #banner{
-            background-image: url('asset/img/배경/대체-4.jpg');
+            background-image: url('asset/img/배경/배경1-메인.jpg');
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -87,7 +86,13 @@
             display: flex;
             justify-content: center;
         }
-
+        /*카드 하단길이*/
+		section#choiceSection {
+    		margin-bottom: 80px;
+		}
+		section.resultView > div{
+			padding-bottom: 10px;
+		}
         .message{ 
         	margin: 8% 0 8% 0;
         	font-family: 'NanumSquareBold';
@@ -282,7 +287,7 @@
         	background-color: gray;
         	opacity:0.6;
     	}
-
+    	
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -300,7 +305,7 @@
             <br>
             <br>
             <br>
-            <h1 id="bannerButton" onclick="push()">선물할 영양제을<br>찾고 계신가요?</h1>
+            <h1 id="bannerButton" onclick="push()">선물할 영양제를<br>찾고 계신가요?</h1>
             <h2 id="bannerButton2" onclick="push()">시작해 보세요   <img src="asset/img/icon_img/메인-시작해보세요2.png" width="25" height="25"></h2>
             
         </div>
@@ -343,7 +348,7 @@
 		</div>
 	</section>
 
-    <%@include file="footer.jsp" %>
+    <!-- <%@include file="footer.jsp" %> -->
     <!-- ------------------------------------------------------------------------ -->
     <script src="asset/js/jquery-3.6.0.min.js"></script>
     <script>
@@ -432,7 +437,7 @@
                 success: function(res){  
                     $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
-                    window.scrollTo({top:'1900',behavior:"smooth"})
+                    window.scrollTo({top:'1950',behavior:"smooth"})
                 },
                 error:function(){
                     alert("실패")

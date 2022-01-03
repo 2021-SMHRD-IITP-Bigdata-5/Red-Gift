@@ -26,7 +26,7 @@ body{
     justify-content: space-between;/*(정렬).set1중심축기준_space-between간격*/
     align-items: center;/*(정렬).set2_교차축의 중앙에 정렬 수직*/
     margin: 0 auto;/*중앙정렬*/
-    background-image: url('asset/img/배경/이미지a-3.jpg');
+    background-image: url('asset/img/배경/배경2-1.jpg');
     background-size: cover;
 }
 /*배경어둡게*/

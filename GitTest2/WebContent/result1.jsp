@@ -39,12 +39,12 @@
     <section class="resultView">
         <div>
             <div class="nutriCard" onclick="cardUp('#class1')">
-            	<div class="cardHead" id="class1">
+            	<div class="cardHead" id="class1"><img id="" src="asset/img/0103-추천이미지/n03.jpg" alt="1" width="450px" height="600px" z-index="1";>
            			<%=choice%>
             	</div>
             	
-				<div class="cardBody">
-					<h2>
+				<div class="cardBody"  style="background-color: white; z-index:'2';">
+					<h2 style="color: white;">
 						click
 					</h2>
 					<br>
@@ -60,11 +60,11 @@
             </div>
        <!--                                -->
             <div class="nutriCard" onclick="cardUp('#class2')">
-            	<div class="cardHead" id="class2">
+            	<div class="cardHead" id="class2"><img id="" src="asset/img/0103-추천이미지/n31.jpg" alt="1" width="450px" height="600px" z-index="1";>
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
-					<h2>
+					<h2 style="color: white;">
 						click
 					</h2>
 					<br>
@@ -223,7 +223,7 @@
                 type: "post",
                 success: function(res){
                 	$('.resultView').after(res)
-                    window.scrollTo({top:'2900',behavior:"smooth"})
+                    /*window.scrollTo({top:'2900',behavior:"smooth"})*/
                 },
                 error:function(){
                     alert("실패")
