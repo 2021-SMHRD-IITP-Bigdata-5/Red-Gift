@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<meta charset="UTF-8">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +25,7 @@ body{
     justify-content: space-between;/*(정렬).set1중심축기준_space-between간격*/
     align-items: center;/*(정렬).set2_교차축의 중앙에 정렬 수직*/
     margin: 0 auto;/*중앙정렬*/
-    background-image: url('asset/img/배경/이미지a-3.jpg');
+    background-image: url('asset/img/배경/배경2-1.jpg');
     background-size: cover;
 }
 /*배경어둡게*/
@@ -117,8 +118,9 @@ body > main > section > div.forgot>a{
                     <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->
                     <input type="text" id="id-input-text" name="id" placeholder="red-gif@email.com">
                     <br>
-                    <label for="pw-input-text"></label>
-                    <input type="password" id="pw-input-text" name="pw" placeholder="비밀번호">
+                    <label for="pw"></label>
+                    <input type="password" id="pw" name="pw" placeholder="비밀번호">
+                    
                 </div>
                 <div class="btn-login">
                     <button type="submit">로그인</button>
@@ -132,6 +134,10 @@ body > main > section > div.forgot>a{
             
         </section>
     </main>
+    
+
+    
+    </script>
 
 
     </body>

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<meta charset="UTF-8">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +27,7 @@ body{
     justify-content: space-between;/*(정렬).set1중심축기준_space-between간격*/
     align-items: center;/*(정렬).set2_교차축의 중앙에 정렬 수직*/
     margin: 0 auto;/*중앙정렬*/
-    background-image: url('asset/img/배경/이미지a-3.jpg');
+    background-image: url('asset/img/배경/배경2-1.jpg');
     background-size: cover;
 }
 /*배경어둡게*/
@@ -104,19 +105,26 @@ body > main > section > form > div.btn-login > button{
             <th><h1><label for="id-input-text">회원가입</label></h1></th>
             <form action="SignUp.do" method="post">
 
-                <table>
                 <div class="infor">
+                <table>
                     <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->
                     <tr>
                         <td><input type="text" id="id-input-text" name="id" placeholder="red-gif@email.com"></td>
                     </tr>
                     <br>
                     <tr>
-                        <td><input type="password" id="" name="pw" placeholder="비밀번호입력"></td>
+                        <td><input type="password" id="pw" name="pw" placeholder="비밀번호입력"></td>
                     </tr>
                     <tr>
-                        <td><input type="password" id="" name="pw2" placeholder="비밀번호확인"></td>
+                        <td><input type="password" id="pw2" name="pw2" placeholder="비밀번호확인"></td>
                     </tr>
+                    </table>
+                    <table>
+                   <tr>
+                   <td><font id=pwCheck size="10px"></font></td>
+                   </tr> 
+                    </table>
+                    <table>
                     <tr>
                         <td><input type="text" id="" name="nickname" placeholder="닉네임"></td>
                     </tr>
@@ -137,6 +145,7 @@ body > main > section > form > div.btn-login > button{
                     <tr>
                         <td><input type="text" id="pw-input-text" name="phone" placeholder="폰번호"></td>
                     </tr>
+                    
                 </table>
 
                 </div>
@@ -147,7 +156,25 @@ body > main > section > form > div.btn-login > button{
 
         </section>
     </main>
-    <!---->
-
+    <script src="asset/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+		$('#pw').keyup(function() {
+			$('#pwCheck').html('');
+		});
+		$('#pw2').keyup(function() {
+			if($('#pw').val() == $('#pw2').val()){
+				$('pwCheck').html('<tr><td>비밀번호가 일치합니다.</td></tr>');
+				$('pwCheck').attr('color','#58acfa');
+			}else{
+				$('pwCheck').html('<tr><td>비밀번호가 일치하지 않습니다.</td></tr>');
+				$('pw2').attr('color','#fa5858');
+			}
+		});	
+		
+		
+	});
+	
+	</script>
 </body>
 </html>

@@ -78,22 +78,29 @@
 </body>
 <script src="asset/js/jquery-3.6.0.min.js"></script>
 <script>
-	$.ajax({
-	    url: 'SetMypage.do',  
-	    type: "get",
-	    data: {
-	    	"id" : '<%=user.getUser_id()%>',
-	    	"choice" : '<%=choice%>'
-	    },
-	    success: function(res){  
-	        console.log(res)
-	    },
-	    error:function(){
-	        alert("실패")
-	    }
-	})
 
+	$(function(){
+		
+		let data = localStorage.getItem('data');
+		$('section.message').html("<a href='#'>"+data+"</a>");
+		
+		s
+		$.ajax({
+		    url: 'SetMypage.do',  
+		    type: "get",
+		    data: {
+		    	"id" : '<%=user.getUser_id()%>',
+		    	"choice" : '<%=choice%>'
+		    },
+		    success: function(res){  
+		        console.log(res)
+		    },
+		    error:function(){
+		        alert("실패")
+		    }
+		});
 
+	});
 
 
 

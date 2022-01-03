@@ -28,7 +28,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url('asset/img/배경/대체-3.jpg');
+	background-image: url('asset/img/배경/배경3.png');
 	-webkit-background-size: cover;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
@@ -116,10 +116,12 @@ button{
 
 
 
+
 <!--                                                    -->
 	<script src="asset/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 	
+
 	$(document).ready (tableLoad) 
 	
 	var modibutton=true;
@@ -138,7 +140,9 @@ button{
 				
 				$('#tableArea').html('');
 				
-				for(var i=0;i<res.length;i++){	
+				if(res.length>0){
+				for(var i=0;i<res.length;i++){
+		
 					let table ='';
 					table+='<div class="myCard">'
 					table+='<table id="'+res[i].page_seq +'">'
@@ -162,6 +166,31 @@ button{
 					table+='</tbody></table></div>'
 					$('#tableArea').append(table)
 				}
+				}
+				else{
+					let table ='';
+					table+='<div class="myCard">'
+					table+='<table>'
+					table+='<thead><tr>'
+					table+='<td>정보가 없습니다</td>'
+					table+='<td></td>'
+					table+='</tr></thead>'
+				
+					table+='<tbody><tr>'
+					table+='<td></td>'
+					table+='<td></td>'
+					table+='<td></td>'
+					
+					//table+='<td> user:'+res[i].user_id+'</td>'
+					table+='</tr>'
+					table+='<tr>'
+					table+='<td colspan="4" class="memo" ></td>'
+					table+='</tr>'
+					table+='</tbody></table></div>'
+					$('#tableArea').append(table) 
+					alert("영양제 정보가 없습니다.")
+				}
+			
 			},
 			error : function(){
 				alert("요청실패")
