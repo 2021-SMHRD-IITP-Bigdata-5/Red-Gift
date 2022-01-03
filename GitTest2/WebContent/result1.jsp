@@ -39,14 +39,15 @@
     <section class="resultView">
         <div>
             <div class="nutriCard" onclick="cardUp('#class1')">
-            	<div class="cardHead" id="class1"><img id="" src="asset/img/0103-추천이미지/n03.jpg" alt="1" width="450px" height="600px" z-index="1";>
+            	<div class="cardHead" id="class1"><img id="" src="asset/img/0103-추천이미지/n03.jpg" alt="1" height="600px">
            			<%=choice%>
             	</div>
             	
 				<div class="cardBody"  style="background-color: white; z-index:'2';">
 					<h2 style="color: white;">
-						click
+						<!-- click -->아연
 					</h2>
+					<br>
 					<br>
 					<br>
 					<div>
@@ -60,13 +61,14 @@
             </div>
        <!--                                -->
             <div class="nutriCard" onclick="cardUp('#class2')">
-            	<div class="cardHead" id="class2"><img id="" src="asset/img/0103-추천이미지/n31.jpg" alt="1" width="450px" height="600px" z-index="1";>
+            	<div class="cardHead" id="class2"><img id="" src="asset/img/0103-추천이미지/n31.jpg" alt="1" height="600px">
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
-					<h2 style="color: white;">
-						click
+					<h2 style="color: white; background-color: white;">
+						<!-- click -->알로에
 					</h2>
+					<br>
 					<br>
 					<br>
 					<div>

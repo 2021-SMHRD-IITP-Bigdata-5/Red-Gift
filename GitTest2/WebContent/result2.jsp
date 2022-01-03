@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 
+
 </head>
 
 <body>
@@ -37,7 +38,7 @@
 	</section>
 	<section class="classView">
 		<div>
-			<div class="nutriCard" onclick="cardUp('#class3')">
+			<div class="nutriCard" onclick="cardUp('#class3')"  style="background-image: url('asset/img/0103-추천이미지/n08.jpg'); background-position:center;">
             	<div class="cardHead" id="class3">
             	
             	제안3(최종) 헤드
