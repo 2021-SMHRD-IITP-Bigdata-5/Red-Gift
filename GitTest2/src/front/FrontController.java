@@ -55,15 +55,13 @@ public class FrontController extends HttpServlet {
 		if(command.equals("SignUp.do")) { 
 			com= new SignupService();
 			nextpage=com.execute(request, response);
-			
 		}
 		if(command.equals("LogIn.do")) {
 			com = new LoginService();
-			nextpage=com.execute(request, response);
+			com.execute(request, response);
 		}
 		if(command.equals("LogInGnb.do")) {
 			com = new LoginService();
-
 			nextpage=com.execute(request, response);
 		}
 		if(command.equals("LogOut.do")) {

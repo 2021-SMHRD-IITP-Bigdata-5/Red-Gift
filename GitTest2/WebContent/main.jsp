@@ -442,15 +442,10 @@
                 success: function(res){  
                     $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
-<<<<<<< HEAD
                     window.scrollTo({top:'1950',behavior:"smooth"})
-=======
-                    window.scrollTo({top:'1900',behavior:"smooth"})
-                    
+
+ //----------------------------------------------------------------------------------------------------                   
                     let param = '';
-                    
-                    
-                    
                     
                     //flask로 넘기기 위한 약 8종류 데이터 
                     let selectItem = ['감미놀렌산','쏘팔메토','글루코사민','홍삼','밀크씨슬','밀크씨슬','셀레늄','아연'];
@@ -461,8 +456,7 @@
                     		break;
                     	}
                     }
-                                       
-                    
+  
                   	//로그인 시 Flask서버로 요청
             		$.ajax({
     					url:'http://localhost:9000/',
@@ -475,12 +469,12 @@
     						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
     						//$('section.message').html(result);
     						$('section.message').html("<a href='#'>"+result+"</a>");
-    						
-    						
+	
     						localStorage.setItem('data',result);
     					}
     				});
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
+                  	
+//----------------------------------------------------------------------------------------------------                	
                 },
                 error:function(){
                     alert("실패")
