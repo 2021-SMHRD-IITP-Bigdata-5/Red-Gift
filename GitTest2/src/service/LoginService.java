@@ -39,7 +39,7 @@ public class LoginService extends HttpServlet implements command {
 		}else {
 			out.print("<script>");
 			out.print("alert('로그인실패');");
-			out.print("location.href='main.jsp';");
+			out.print("location.href='login.jsp';");
 			out.print("</script>");
 		}
 		return null;
