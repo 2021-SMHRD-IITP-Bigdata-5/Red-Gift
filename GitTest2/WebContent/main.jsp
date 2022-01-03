@@ -433,6 +433,40 @@
                     $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
                     window.scrollTo({top:'1900',behavior:"smooth"})
+                    
+                    let param = '';
+                    
+                    
+                    
+                    
+                    //flask로 넘기기 위한 약 8종류 데이터 
+                    let selectItem = ['감미놀렌산','쏘팔메토','글루코사민','홍삼','밀크씨슬','밀크씨슬','셀레늄','아연'];
+                    	
+                    for(let i=0; i<selectItem.length; i++){
+                    	if(parseInt(a) === i+1){
+                    		param = selectItem[i];
+                    		break;
+                    	}
+                    }
+                                       
+                    
+                  	//로그인 시 Flask서버로 요청
+            		$.ajax({
+    					url:'http://localhost:9000/',
+    					dataType:'json',
+    					data:'param='+param,
+    					success:function(result){
+    						console.log(result);
+    						
+    						//크롤링한 데이터는 result에 저장됨
+    						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
+    						//$('section.message').html(result);
+    						$('section.message').html("<a href='#'>"+result+"</a>");
+    						
+    						
+    						localStorage.setItem('data',result);
+    					}
+    				});
                 },
                 error:function(){
                     alert("실패")
@@ -492,7 +526,7 @@
 
 		function cardChoice(s){
 			if(selected==false){
-				selected = true;
+				selected = true;23
 	    		console.log(s);
 	    		//$('.message:nth-child(2)').remove();
 	    		//$('.resultView').remove();
@@ -503,6 +537,22 @@
 				location.reload()
 			}
 		}	
+		
+	<%-- 	//flask서버로 데이터 요청
+		$(function(){
+			let loginCheck = `<%=session.getAttribute("uservo") %>`;
+			
+			if(loginCheck!=='null'){
+				$.ajax({
+					url:'http://localhost:9000/',
+					success:function(result){
+						console.log(result);
+						
+						$('section.message').html(result);
+					}
+				});
+			}
+		}); --%>
         
         
 
