@@ -37,18 +37,23 @@ public class SignupService extends HttpServlet implements command {
 		dao.signUp(uservo);
 		
 		String nextpage="";
-		PrintWriter out = response.getWriter();
 		if (dao.signUp(uservo)>0) {
 			nextpage = "main.jsp";
 			System.out.println("회원가입성공");
-			out.print("alert('회원가입성공')");
 			
 		}
 		else {
 			System.out.println("회원가입실패");
-			out.print("alert('회원가입실패')");
 		}
-		return nextpage;
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<script>");
+		out.print("alert('회원가입 성공');");
+		out.print("location.href='main.jsp';");
+		out.print("</script>");
+		
+		return null;
 	}
 
 }

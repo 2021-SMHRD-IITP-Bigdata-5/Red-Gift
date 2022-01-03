@@ -110,29 +110,7 @@ button{
 	
 
 	</section>
-<<<<<<< HEAD
 
-		<%
-			for (int i = 0; i < pageList.size(); i++) {
-		%><table>
-			<thead>
-				<tr>
-					<td colspan="2"><%=pageList.get(i).getPage_seq()%>,<%=pageList.get(i).getReg_date()%>
-					    <button onclick="deleteMyPage('<%=pageList.get(i).getPage_seq() %>')">삭제</button>
-						<button id = "change1" onClick="change('<%=pageList.get(i).getPage_memo()%>')">수정</button>
-						
-						
-						
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td   >
-						<%=pageList.get(i).getNutri_class()%>
-					</td>
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 
 
 
@@ -143,19 +121,8 @@ button{
 	<script src="asset/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 	
-<<<<<<< HEAD
-	function change(data){
-		$(".myupdate").html("<textarea class='myupdate' rows='' cols=''>"+data+"</textarea>"); // <--- 이렇게 태그 만들때 따옴표 주의, 이상입니다. 
-		$("#change1").html("<button id='change1' onClick='update(\""+data+"\")'>수정완료</button>")
-	}
-	function update(data){
-		$(".myupdate").html("<td class='myupdate' id='memo'colspan='2'>"+data+"</td>")
-		$("#change1").html("<button id ='change1' onClick='change(\""+data+"\")'>수정</button>")
 
-	}
-=======
 	$(document).ready (tableLoad) 
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 	
 	var modibutton=true;
 	var memotxt;
@@ -173,7 +140,9 @@ button{
 				
 				$('#tableArea').html('');
 				
-				for(var i=0;i<res.length;i++){	
+				if(res.length>0){
+				for(var i=0;i<res.length;i++){
+		
 					let table ='';
 					table+='<div class="myCard">'
 					table+='<table id="'+res[i].page_seq +'">'
@@ -197,6 +166,31 @@ button{
 					table+='</tbody></table></div>'
 					$('#tableArea').append(table)
 				}
+				}
+				else{
+					let table ='';
+					table+='<div class="myCard">'
+					table+='<table>'
+					table+='<thead><tr>'
+					table+='<td>정보가 없습니다</td>'
+					table+='<td></td>'
+					table+='</tr></thead>'
+				
+					table+='<tbody><tr>'
+					table+='<td></td>'
+					table+='<td></td>'
+					table+='<td></td>'
+					
+					//table+='<td> user:'+res[i].user_id+'</td>'
+					table+='</tr>'
+					table+='<tr>'
+					table+='<td colspan="4" class="memo" ></td>'
+					table+='</tr>'
+					table+='</tbody></table></div>'
+					$('#tableArea').append(table) 
+					alert("영양제 정보가 없습니다.")
+				}
+			
 			},
 			error : function(){
 				alert("요청실패")

@@ -2,7 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<body lang="en">
+<html>
+<meta charset="UTF-8">
+<body>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -291,6 +293,8 @@
     
 </head>
 <body> 
+
+<a style="display:scroll;position:fixed;bottom:50px;right:10px;" href="#" title="up"><img src="asset/img/upimg.jpg"></a> 
 
 	
 	<%@include file="gnb.jsp"%>
