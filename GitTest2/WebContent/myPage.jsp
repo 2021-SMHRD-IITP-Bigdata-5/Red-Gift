@@ -28,7 +28,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url('asset/img/배경/대체-3.jpg');
+	background-image: url('asset/img/배경/배경3.png');
 	-webkit-background-size: cover;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
