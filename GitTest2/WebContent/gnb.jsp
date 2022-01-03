@@ -113,6 +113,7 @@ nav {
 
             </div>
             <div class="menu">
+
                 <li><a href="main.jsp" onClick="">선물고르기</a></li>
                 <li><a href="getBoard.do?PageNo=1" onClick="">자유게시판</a></li>
                 <li><a href="login.jsp" class="logout" onClick="">로그인</a></li>

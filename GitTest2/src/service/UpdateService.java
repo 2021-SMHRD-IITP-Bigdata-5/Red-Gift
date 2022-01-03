@@ -1,6 +1,8 @@
 package service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,9 +48,15 @@ public class UpdateService extends HttpServlet implements command {
 		
 		}
 		
+		response.setContentType("text/html; charset=UTF-8");
 		
+		PrintWriter out = response.getWriter();
+		out.print("<script>");
+		out.print("alert('업데이트성공');");
+		out.print("location.href='main.jsp';");
+		out.print("</script>");
 		
-		return nextpage;
+		return null;
 	}
 
 }

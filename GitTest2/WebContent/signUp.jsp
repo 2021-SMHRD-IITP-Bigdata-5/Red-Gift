@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<meta charset="UTF-8">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -147,7 +148,10 @@ body > main > section > form > div.btn-login > button{
 
         </section>
     </main>
-    <!---->
-
+    <script src="asset/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+	
+	
+	</script>
 </body>
 </html>
