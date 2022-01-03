@@ -11,93 +11,84 @@
 <title>마이페이지</title>
 <style>
 
-    * {
-	margin: 0;
-	padding: 0px;
-	box-sizing: border-box;
-}
-header {
-	padding-left: 5%;
-}
-
 section {
-	padding-left: 5%;
-	padding-bottom: 5%;
-	height: 100%;
+	display:flex;
+	align-items: center;
+    flex-direction:column;
 	
+	padding: 20vh 0 5% 5% ;
+	height:100%;
+
 }
 body {
+	height:100%;
 	display: block;
 	align-items: center;
 	overflow-x: hidden;
 	display: flex;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
-	background-image: url('asset/img/배경/이미지b-1.png');
-	background-size: cover;
+	background-image: url('asset/img/배경/대체-3.jpg');
+	-webkit-background-size: cover;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
-
+body>*{
+	font-family: 'NanumSquareR';
+}
 table {
+/*
 	border: 10px solid;
 	border-collapse: collapse;
 	width: 600px;
 	height: 400px;
-	/*박스색*/
-	color: darkslategray;/*글자색*/
+	color: darkslategray;
 	background: mistyrose;
-	border: 10px solid #081C15; /*테두리 적용*/
-	
-	/*박스색 간격*/
+	border: 10px solid #081C15; 
 	margin: 50px;
+	*/
+	width: 100%;
+	height: 100%;
 }
 table td {
+	/*
 	border: 5px solid;
-	/*테이블 테두리 글자크기*/
-	border-color: #AFE9D5;
+	border-color: #AFE9D5;*/
 	background: white;
-	align-items: center; /*(정렬).set2_교차축의 중앙에 정렬 수직*/
+	align-items: center; 
 	height: 100px;
 }
-/*이미지들어가는 곳*/
-#nutricard {
-	width: 250px;
-	height: 250px;
-}
-/*메모사항*/
-.memo {
-	height: fit-content;
-	height: 100px;
-}
-/*날짜 간격*/
+
 thead>tr>td {
-height: 60px;
-background:#81B29A;
-}
-
-/*하단고정*/
-footer {
-	position: fixed;
-	left: 0px;
-	bottom: 0px;
 	height: 60px;
-	width: 100%;
+	background:#f7f7f7;
 }
-
-body>*{
-	font-family: 'NanumSquareR';
-}
-
 button{
 	width:50%;
-	border: 0px solid;
+	border: none;
+	background:#f7f7f7;
 }
-textarea{
-	width:100%; 
-	height:80%;
+.myCard{
+	overflow:hidden;
+	position:relative;
+	display: inline-block;
+	align-items: center;
+	
+	width: 500px;
+	height: 500px;
+	box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
+	background: hsl(0 0% 100%);
+	color: hsl(200 50% 20%);
+	line-height: 1.5;
+	
+	place-items: center;
+	text-align: center;
+	margin: 20px 0px 20px 0;
+	/*border-radius: 2ch;*/
+	border: 0px solid hsl(0 0% 85%);
 }
-
 </style>
 </head>
 <body>
@@ -119,13 +110,6 @@ textarea{
 	
 
 	</section>
-
-
-
-
-
-
-
 
 
 
@@ -156,6 +140,7 @@ textarea{
 				
 				for(var i=0;i<res.length;i++){	
 					let table ='';
+					table+='<div class="myCard">'
 					table+='<table id="'+res[i].page_seq +'">'
 					table+='<thead><tr>'
 					table+='<td>'+res[i].page_seq+'</td>'
@@ -174,7 +159,7 @@ textarea{
 					table+='<tr>'
 					table+='<td colspan="4" class="memo" id="'+res[i].page_seq +'memo">'+res[i].page_memo+'</td>'
 					table+='</tr>'
-					table+='</tbody></table>'
+					table+='</tbody></table></div>'
 					$('#tableArea').append(table)
 				}
 			},

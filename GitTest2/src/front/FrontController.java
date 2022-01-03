@@ -24,9 +24,11 @@ import product.SetNutritions;
 import service.CheckUserIdService;
 import service.DeleteService;
 import service.GetBoard;
+import service.GetArticle;
 import service.LoginService;
 import service.LogoutService;
 import service.MypageService;
+import service.SetArticle;
 import service.SignupService;
 import service.UpdateService;
 
@@ -36,9 +38,9 @@ public class FrontController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
-//		System.out.println(uri);
+		System.out.println("uri:"+uri);
 		String path = request.getContextPath();
-//		System.out.println(path);
+		System.out.println("contextPath:"+path);
 		String command = uri.substring(path.length()+1);
 		System.out.println("Front to "+command);
 		
@@ -50,7 +52,7 @@ public class FrontController extends HttpServlet {
 			com = new CheckUserIdService();
 			com.execute(request, response);
 		}
-		if(command.equals("SignUp.do")) {
+		if(command.equals("SignUp.do")) { 
 			com= new SignupService();
 			nextpage=com.execute(request, response);
 		}
@@ -126,8 +128,19 @@ public class FrontController extends HttpServlet {
 			com= new GetBoard();
 			nextpage=com.execute(request, response);
 		}
-		
-		
+		if(command.equals("getArticle.do")) {
+			com= new GetArticle();
+			nextpage=com.execute(request, response);
+		}
+		if(command.equals("setArticle.do")) {
+			com= new SetArticle();
+			nextpage=com.execute(request, response);
+		}
+		//get page
+		//get article
+		//set article  create, record, detail ...
+		//update article
+		//delete article
 		
 		
 		

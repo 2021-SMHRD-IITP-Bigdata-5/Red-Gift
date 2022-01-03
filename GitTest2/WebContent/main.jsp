@@ -192,10 +192,8 @@
 			/*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
 			color: hsl(200 50% 20%);
 			line-height: 1.5;
-			/*display: flex;*/
 			place-items: center;
 			text-align: center;
-			/*padding: 2ch;*/
 			margin: 0 30px 0 0;
 			border-radius: 2ch;
 			border: 0px solid hsl(0 0% 85%);
