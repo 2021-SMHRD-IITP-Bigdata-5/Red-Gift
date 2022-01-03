@@ -1,4 +1,5 @@
 <%@page import="vo.UserVO"%>
+<%@page import="vo.NutriVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -446,13 +447,12 @@
                 success: function(res){  
                     $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
-                    
+
                     window.scrollTo({top:'1950',behavior:"smooth"})
-                    
+
+ //----------------------------------------------------------------------------------------------------                   
+
                     let param = '';
-                    
-                    
-                    
                     
                     //flask로 넘기기 위한 약 8종류 데이터 
                     let selectItem = ['감미놀렌산','쏘팔메토','글루코사민','홍삼','밀크씨슬','밀크씨슬','셀레늄','아연'];
@@ -463,12 +463,11 @@
                     		break;
                     	}
                     }
-                                       
-                    
+  
                   	//로그인 시 Flask서버로 요청
             		$.ajax({
     					url:'http://localhost:9000/',
-    					dataType:'json',
+    					//dataType:'json',
     					data:'param='+param,
     					success:function(result){
     						console.log(result);
@@ -477,11 +476,13 @@
     						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
     						//$('section.message').html(result);
     						$('section.message').html("<a href='#'>"+result+"</a>");
-    						
-    						
     						localStorage.setItem('data',result);
     					}
+
     				});
+                  	
+//----------------------------------------------------------------------------------------------------                	
+
                 },
                 error:function(){
                     alert("실패")
@@ -545,7 +546,23 @@
 	    		console.log(s);
 	    		//$('.message:nth-child(2)').remove();
 	    		//$('.resultView').remove();
-	            pageLoad('result1.jsp',s);
+	    		
+	    		 $.ajax({
+				      url: 'GetNutriClass.do',  
+				      type: "post",
+				      data: {
+				      	"choice" : s
+				      },
+				      success: function(res){
+				      
+				      },
+				      error:function(){
+				          alert("실패")
+				      }
+				  })
+	    		
+	    		
+	            pageLoad('result1.jsp',s)
 	            $('#card'+s).css('opacity','0.5');
 			}else{
 				

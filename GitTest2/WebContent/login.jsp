@@ -118,8 +118,9 @@ body > main > section > div.forgot>a{
                     <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->
                     <input type="text" id="id-input-text" name="id" placeholder="red-gif@email.com">
                     <br>
-                    <label for="pw-input-text"></label>
-                    <input type="password" id="pw-input-text" name="pw" placeholder="비밀번호">
+                    <label for="pw"></label>
+                    <input type="password" id="pw" name="pw" placeholder="비밀번호">
+                    
                 </div>
                 <div class="btn-login">
                     <button type="submit">로그인</button>
@@ -133,6 +134,10 @@ body > main > section > div.forgot>a{
             
         </section>
     </main>
+    
+
+    
+    </script>
 
 
     </body>

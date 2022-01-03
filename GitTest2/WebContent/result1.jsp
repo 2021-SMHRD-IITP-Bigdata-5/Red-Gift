@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vo.NutriVO"%>
 <%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -18,7 +20,10 @@
 <body>
    <%//test
 	UserVO user = (UserVO)session.getAttribute("uservo");
-	
+    ArrayList<NutriVO> nutriarrr = (ArrayList<NutriVO>)session.getAttribute("nutriarr");
+    System.out.print("result 1 : "+nutriarrr.get(0).getNutri_name());
+   
+   
    	String choice=request.getParameter("choice");
    	
 	Cookie cookie = new Cookie("choice", choice);
@@ -139,7 +144,6 @@
         $('#logIn').css('display','none')
         window.scrollTo(0,document.body.scrollHeight)
     }
-    
    	
     
     $('input[name=id]').on("blur", function (event) {
@@ -196,6 +200,7 @@
     	})
     	return false;
     })
+    
     $('#logInForm').on("submit",function(){
     	let data=$(this).serialize();
     	
@@ -211,7 +216,7 @@
         		System.out.println("loginajax 성공");
         		%>
         		logon();
-        		
+//-------------------------------------------------------------------------        		
         		//로그인 시 Flask서버로 요청
         		$.ajax({
 					url:'http://localhost:9000/',
@@ -224,6 +229,7 @@
 						localStorage.setItem('data',result);
 					}
 				});
+//-------------------------------------------------------------------------				
         	},
         	error:function(){
         		alert('로그인요청실패')	
@@ -246,8 +252,6 @@
             })
         }
    
-    
-    
     
     $(window).on('scroll.resultView',function(){
 		if(user!=null){

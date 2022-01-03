@@ -55,15 +55,13 @@ public class FrontController extends HttpServlet {
 		if(command.equals("SignUp.do")) { 
 			com= new SignupService();
 			nextpage=com.execute(request, response);
-			
 		}
 		if(command.equals("LogIn.do")) {
 			com = new LoginService();
-			nextpage=com.execute(request, response);
+			com.execute(request, response);
 		}
 		if(command.equals("LogInGnb.do")) {
 			com = new LoginService();
-
 			nextpage=com.execute(request, response);
 		}
 		if(command.equals("LogOut.do")) {
@@ -101,15 +99,19 @@ public class FrontController extends HttpServlet {
 	//---------------------------------------------	
 		
 		
+		if(command.equals("GetNutriClass.do")) {
+			com= new GetNutriClass();
+			com.execute(request, response);
+		}
 		
 //------------------------영양제 프론트------------------------------
+		
+		
+		
+		
 		if(command.equals("SetNutriClass.do")) {
 			com= new SetNutriClass();
 		}
-		if(command.equals("GetNutriClass.do")) {
-			com= new GetNutriClass();
-		}
-		
 		
 		
 		if(command.equals("SetNutritions.do")) {
