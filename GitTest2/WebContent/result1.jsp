@@ -209,6 +209,19 @@
         		System.out.println("loginajax 성공");
         		%>
         		logon();
+        		
+        		//로그인 시 Flask서버로 요청
+        		$.ajax({
+					url:'http://localhost:9000/',
+					dataType:'json',
+					success:function(result){
+						console.log(result);
+						
+						$('section.message').html("<a href='#'>"+result+"</a>");
+						
+						localStorage.setItem('data',result);
+					}
+				});
         	},
         	error:function(){
         		alert('로그인요청실패')	
@@ -331,6 +344,8 @@
     }
 });
         myChartOne2.destroy();
+        
+        
         
     </script>
 
