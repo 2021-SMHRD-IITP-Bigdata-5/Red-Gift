@@ -463,13 +463,14 @@
     					//dataType:'json',
     					data:'param='+param,
     					success:function(result){
-    						console.log(result);
+    						var res1 = result.replaceAll(",", "<br>");
+    						console.log(res1);
     						
     						//크롤링한 데이터는 result에 저장됨
     						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
     						//$('section.message').html(result);
-    						$('section.message').html("<a href='#'>"+result+"</a>");
-    						localStorage.setItem('data',result);
+    						$('section.message').html("<a href='#'>"+res1+"</a>");
+    						localStorage.setItem('data',res1);
     					}
     				});
                   	
