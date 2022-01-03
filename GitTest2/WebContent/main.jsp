@@ -22,13 +22,14 @@
 		/*부트스트랩 선택자랑 겹친다*/
 			
 		html,body{
-			/*width: 100%;
-			height: 100%;*/
+			width: 100%;
+			height: 100%;
+			-webkit-user-drag: none;
 		}
         body{
             display: block;
             align-items: center;
-            overflow-x: hidden;
+            /*overflow-x: hidden;*/
 			display: grid;
         }
         #banner{
@@ -145,6 +146,7 @@
     	.nutriCard{
     		overflow:hidden;
     		position:relative;
+
     	}
     	
     	.nutriCard:hover{
@@ -165,7 +167,7 @@
     	/* 헤드가 아니라 바디가 올라오게 바꿔야함.*/
     	.cardHead_up{
     		width:100%;
-    		height:50px;
+    		height:20px;
     		border-radius:2ch 2ch 0 0;
     		background-image: url('asset/img/');
     		background-size:150%;
@@ -177,14 +179,14 @@
    			width:100%;
     		height:100px;
     		line-height:1;
+    		/*background-color:transparent;투명한*/
     		
-    		background-color:transparent;
     	}
 
     	.cardBody::-webkit-scrollbar {
     		display: none;
     	}
-    	
+    	/*엄마카드*/
     	.cardTail{
 			position:absolute;
 			bottom:0;	
@@ -192,8 +194,9 @@
 			width:100%;
 			height:40px;
 			/*background-color:transparent;*/
-			background-color:purple;
-			color:white;
+			/*background-color:purple;*/
+			
+			/*color:white;*/
 			border-radius:0 0 2ch 2ch;
 			
 			font-family: 'NanumSquareBold';
@@ -217,6 +220,7 @@
 			-webkit-overflow-scrolling: touch;
 			user-select:none;
 			-webkit-user-select:none;
+			
 		}
 		
 		.choiceCard_wrapper::-webkit-scrollbar {
@@ -230,7 +234,7 @@
 			margin-left:50px;
 			width:300px;
 			height:450px;
-			background-color:#f7f7f7;
+			/*background-color:#f7f7f7;*/
 			
 			box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
 			/*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
@@ -245,7 +249,8 @@
 			position:relative;
 			
 			box-shadow: 1rem 1rem 1rem 1rem hsl(0 0% 0% / 15%);
-		}
+			
+			
 		
 		.choiceCard:hover{
 			box-shadow: 0.6rem 0.6rem 0.6rem hsl(0 0% 0% / 15%);
@@ -442,9 +447,11 @@
                 success: function(res){  
                     $('#choiceSection').after(res)
                     //window.scrollTo(0,document.body.scrollHeight)
+
                     window.scrollTo({top:'1950',behavior:"smooth"})
 
  //----------------------------------------------------------------------------------------------------                   
+
                     let param = '';
                     
                     //flask로 넘기기 위한 약 8종류 데이터 
@@ -472,9 +479,11 @@
     						$('section.message').html("<a href='#'>"+res1+"</a>");
     						localStorage.setItem('data',res1);
     					}
+
     				});
                   	
 //----------------------------------------------------------------------------------------------------                	
+
                 },
                 error:function(){
                     alert("실패")
