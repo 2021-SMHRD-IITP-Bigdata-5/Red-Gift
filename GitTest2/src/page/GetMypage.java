@@ -13,13 +13,8 @@ import inter.command;
 import vo.UserVO;
 
 
-@WebServlet("/GetRecommend")
+@WebServlet("/GetMyPage")
 public class GetMypage extends HttpServlet implements command{
-	private static final long serialVersionUID = 1L;
-
-
-
-
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -29,16 +24,10 @@ public class GetMypage extends HttpServlet implements command{
 		UserVO uservo = (UserVO)session.getAttribute("uservo");
 		
 		String id = uservo.getUser_id();
-		
+		System.out.println("겟마이페이지 id");
 		MypageDAO dao = new MypageDAO();
 		
-		dao.GetMypage(id);
-		
-		
-		
-		
-	
-
+		session.setAttribute("pageList",dao.GetMypage(id));
 		
 		return "myPage.jsp";
 	}

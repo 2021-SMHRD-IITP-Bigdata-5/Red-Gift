@@ -7,19 +7,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-   <%
+   <%//test
 	UserVO user = (UserVO)session.getAttribute("uservo");
-	String choice=request.getParameter("choice");
-   	System.out.println(choice);
-   	Cookie cookie = new Cookie("choice", choice);
+	
+   	String choice=request.getParameter("choice");
+   	
+	Cookie cookie = new Cookie("choice", choice);
    	response.addCookie(cookie);   	
+    
+   	System.out.println("result1.jsp 선택카드"+choice);
+   	if(user!=null) System.out.println("result.jsp 유저아이디"+user.getUser_id());
+   	
 	%>
 	
 	<section class="message">
@@ -31,23 +38,45 @@
 	</section>
     <section class="resultView">
         <div>
-            <div>
-            	타입<%=choice %>
-				제안1영역
+            <div class="nutriCard" onclick="cardUp('#class1')">
+            	<div class="cardHead" id="class1">
+           			<%=choice%>
+            	</div>
+            	
+				<div class="cardBody">
+					<h2>
+						click
+					</h2>
+					<br>
+					<br>
+					<div>
+						<canvas  id="myChartOne" width="150" height="150"></canvas>
+					</div>
+				</div>
+				<div class="cardTail">
 				
-				<div>
-				<canvas  id="myChartOne" width="150" height="150"></canvas>
 				</div>
 				
             </div>
-            <div>
-            	타입<%=choice %>
-				제안2영역
-            <div>
-				<canvas  id="myChartOne2" width="150" height="150"></canvas>
-            </div>
-           
-            </div>
+       <!--                                -->
+            <div class="nutriCard" onclick="cardUp('#class2')">
+            	<div class="cardHead" id="class2">
+            		<%=choice%>            	
+            	</div>
+				<div class="cardBody">
+					<h2>
+						click
+					</h2>
+					<br>
+					<br>
+					<div>
+						<canvas  id="myChartOne2" width="150" height="150"></canvas>
+            		</div>
+            		
+            	</div>
+           		<div class="cardTail">
+            	</div>
+			</div>
         </div>
     </section>
 
@@ -59,13 +88,13 @@
 		</p>
 	
 	</section>
-    <section id="sign" style="margin-bottom: 50px;">
+    <section id="sign">
         <div id="signUp">
             <form action="SignUp.do" method="post" id=signUpForm>
-                <input type="text"     name="id" placeholder=" 이메일로 간편가입하기" id="id">            
-                <input type="password" name="pw" placeholder=" 비밀번호"><br>
+                <input type="text"     name="id" placeholder=" 이메일로 간편가입하기" id="idinput">            
+                <input type="password" name="pw" placeholder=" 비밀번호" id="pwinput"><br>
                 <input disabled="disabled">
-                <input type="password" name="pw2" placeholder=" 비밀번호확인"><br>
+                <input type="password" name="pw2" placeholder=" 비밀번호확인" id=pw2input><br>
                 <div>
                 <button class="b2" type="button" onClick="loginform()">이미 계정이 있습니다</button>
                 <button class="b1" type="submit" disabled="disabled" >회원가입</button>
@@ -84,7 +113,8 @@
         </div>
     </section>	
 <%}%> 
-<% user = (UserVO)session.getAttribute("uservo"); %>
+<% //user = (UserVO)session.getAttribute("uservo");
+%>
 
 	
 
@@ -152,9 +182,11 @@
     		method:"post",
     		data:data,
     		success:function(res){
+    			$('#idinput').val("");
+    			$('#pwinput').val("");
+    			$('#pw2input').val("");
     			$('#signUp').hide();
     			$('#logIn').show();
-    			
     		},
     		error:function(){
     			alert('회원가입요청실패')	
@@ -173,7 +205,10 @@
         		$('#sign').hide();
         		$('#suggest').hide();
         		pageLoad1('result2.jsp')
-        		<% user = (UserVO)session.getAttribute("uservo"); %>
+        		<% user = (UserVO)session.getAttribute("uservo"); 
+        		System.out.println("loginajax 성공");
+        		%>
+        		logon();
         	},
         	error:function(){
         		alert('로그인요청실패')	
@@ -181,20 +216,23 @@
     	})
     	return false;
     })
- 
+    
     function pageLoad1(page){
             $.ajax({
                 url: page,  
                 type: "post",
                 success: function(res){
                 	$('.resultView').after(res)
-                    window.scrollTo({top:'1500',behavior:"smooth"})
+                    window.scrollTo({top:'2900',behavior:"smooth"})
                 },
                 error:function(){
                     alert("실패")
                 }
             })
         }
+   
+    
+    
     
     $(window).on('scroll.resultView',function(){
 		if(user!=null){
@@ -203,10 +241,18 @@
    				$(window).off('scroll.resultView');
     		}
     	}
-    	
     })
     
- 
+ 	function cardUp(a){
+    	if( $(a).attr('class')=='cardHead'){
+    		$(a).attr('class','cardHead_up');	
+    	}else{
+    		$(a).attr('class','cardHead');
+    	}
+    	
+    	
+    }
+  		//-------------------------------------------------------------------------
         let myChartOne = document.getElementById('myChartOne').getContext('2d');
         //차트 오브젝트 생성
         let barChert = new Chart(myChartOne, {
@@ -233,9 +279,7 @@
                 // 'rgba(153, 102, 255, 1)',
                 // 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth:1
-            
-          
+            borderWidth:1     
         }]
     },
     options: {
@@ -247,9 +291,7 @@
         }
     }
 });
-       
-     
-        
+        //-------------------------------------------------------------------------
         let myChartOne2 = document.getElementById('myChartOne2').getContext('2d');
         //차트 오브젝트 생성
         let barChert2 = new Chart(myChartOne2, {
@@ -276,9 +318,7 @@
                 // 'rgba(153, 102, 255, 1)',
                 // 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth:1
-            
-          
+            borderWidth:1     
         }]
     },
     options: {

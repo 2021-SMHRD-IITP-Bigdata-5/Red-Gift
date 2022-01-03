@@ -1,6 +1,8 @@
 package service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,13 +37,16 @@ public class SignupService extends HttpServlet implements command {
 		dao.signUp(uservo);
 		
 		String nextpage="";
-		
+		PrintWriter out = response.getWriter();
 		if (dao.signUp(uservo)>0) {
 			nextpage = "main.jsp";
 			System.out.println("회원가입성공");
+			out.print("alert('회원가입성공')");
+			
 		}
 		else {
 			System.out.println("회원가입실패");
+			out.print("alert('회원가입실패')");
 		}
 		return nextpage;
 	}

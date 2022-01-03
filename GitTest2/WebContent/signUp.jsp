@@ -102,7 +102,8 @@ body > main > section > form > div.btn-login > button{
     <main>
         <section class="Login-from">
             <th><h1><label for="id-input-text">회원가입</label></h1></th>
-            <form action="Signup.do" method="post">
+            <form action="SignUp.do" method="post">
+
                 <table>
                 <div class="infor">
                     <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->
@@ -114,7 +115,7 @@ body > main > section > form > div.btn-login > button{
                         <td><input type="password" id="" name="pw" placeholder="비밀번호입력"></td>
                     </tr>
                     <tr>
-                        <td><input type="password" id="" name="pw" placeholder="비밀번호확인"></td>
+                        <td><input type="password" id="" name="pw2" placeholder="비밀번호확인"></td>
                     </tr>
                     <tr>
                         <td><input type="text" id="" name="nickname" placeholder="닉네임"></td>
@@ -140,13 +141,16 @@ body > main > section > form > div.btn-login > button{
 
                 </div>
                 <div class="btn-login">
-                    <button onClick="">회원가입</button>
+                    <button onClick="signUp()">회원가입</button>
                 </div>
             </form>
 
         </section>
     </main>
-    <!---->
-
+    <script src="asset/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+	
+	
+	</script>
 </body>
 </html>

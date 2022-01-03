@@ -5,124 +5,38 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>마이페이지</title>
 <style>
 
-background-image: url( 'img /배경 /이미지a-3.jpg ') ;
     * {
 	margin: 0;
 	padding: 0px;
 	box-sizing: border-box;
 }
-
-/**/
 header {
 	padding-left: 5%;
-}
-
-body {
-	display: block;
-	align-items: center;
-	overflow-x: hidden;
 }
 
 section {
 	padding-left: 5%;
 	padding-bottom: 5%;
-}
-
-.navber {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.menu>li {
-	display: inline-block;
-	background-color: transparent;
-	list-style: none;
-	text-decoration: none;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-
-.menu>li>a {
-	text-decoration: none;
-	color: black;
-}
-
-table {
-	border: 10px solid;
-	border-collapse: collapse;
-	width: 500px;
-	height: 400px;
-	margin-bottom: 10px;
-	justify-content: space-between; /*(정렬).set1중심축기준_space-between간격*/
-	align-items: center; /*(정렬).set2_교차축의 중앙에 정렬 수직*/
-	margin: 0 auto; /*중앙정렬*/
-	/* font-size: 16px; */
-	/*박스색*/
-	background: mistyrose;
-	color: darkslategray;
-	padding: 50px;
-	border: 10px solid white; /*테두리 적용*/
-}
-
-table td {
-	border: 1px solid;
-}
-
-#nutricard {
-	width: 250px;
-	height: 250px;
-}
-
-#memo {
-	height: fit-content;
-}
-html,body{
-	/*width: 100%;*/
 	height: 100%;
-}
-
-
-body > section > table{
-padding-bottom: 50px;
-}
-    	* {
-	margin: 0;
-	padding: 0px;
 	
 }
-
 body {
+	display: block;
+	align-items: center;
+	overflow-x: hidden;
 	display: flex;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	/* width: 400px; */
-	/*justify-content: space-between; (정렬).set1중심축기준_space-between간격*/
-	/*align-items: center; (정렬).set2_교차축의 중앙에 정렬 수직*/
-	/*margin: 0 auto; 중앙정렬*/
 	background-image: url('asset/img/배경/이미지b-1.png');
 	background-size: cover;
-	
-	
-}
-/****/
-
-/****/
-section {
-	padding-left: 5%;
-	padding-bottom: 5%;
-	/*margin: 0 auto; 중앙정렬*/
-	height: 100%;
-	
 }
 
 table {
@@ -137,11 +51,7 @@ table {
 	
 	/*박스색 간격*/
 	margin: 50px;
-	
-	
-	
 }
-
 table td {
 	border: 5px solid;
 	/*테이블 테두리 글자크기*/
@@ -149,23 +59,19 @@ table td {
 	background: white;
 	align-items: center; /*(정렬).set2_교차축의 중앙에 정렬 수직*/
 	height: 100px;
-	
-	
 }
-
 /*이미지들어가는 곳*/
 #nutricard {
 	width: 250px;
 	height: 250px;
 }
 /*메모사항*/
-#memo {
+.memo {
 	height: fit-content;
 	height: 100px;
 }
 /*날짜 간격*/
 thead>tr>td {
-
 height: 60px;
 background:#81B29A;
 }
@@ -177,121 +83,43 @@ footer {
 	bottom: 0px;
 	height: 60px;
 	width: 100%;
-	/*background:grey; 
-  	color: white; */
 }
 
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
+body>*{
+	font-family: 'NanumSquareR';
+}
+
+button{
+	width:50%;
+	border: 0px solid;
+}
+textarea{
+	width:100%; 
+	height:80%;
+}
+
 </style>
 </head>
 <body>
-	<%@include file="gnb.jsp"%>
-	<%
-		MypageDAO dao = new MypageDAO();
-	%>
-	<%
-		String user_id = "1";
-	%>
-	<%
-		ArrayList<MyPageVO> pageList = dao.GetMypage(user_id);
-									
-	
-	%>
-	<%
-		System.out.println(pageList.size());
-	%>
-	
-	<section>
-		<table>
-			<thead>
-				<tr>
-					<td></td>
-					<td>2022/01/01 <%=uservo.getUser_id() %>
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
-						width="80" height="80"> <!--영양제군 이미지--></td>
-					<td>당시 만족도 정보</td>
-					
-	<section align="center">
-		<table>
-			<thead>
-				<tr>
-					<td>1</td>
-					<td>2022/01/01
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-			</thead>
-			<tbody >
-				<tr>
-					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
-						width="80" height="80"> <!--영양제군 이미지--></td>
-					<td>당시 만족도 정보</td>
-				</tr>
-				<tr>
-					<td id="memo" colspan="2">메모사항</td>
-				</tr>
-			</tbody>
-		</table>
-		<table>
-			<thead>
-				<tr>
-					<td>2</td>
-					<td>2022/01/01
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
-						width="80" height="80"></td>
-					<td>당시 만족도 정보</td>
-				</tr>
-				<tr>
-					<td id="memo" colspan="2">메모사항</td>
-				</tr>
-			</tbody>
-		</table>
-		<!--  -->
-		<table>
-			<thead>
-				<tr>
-					<td>3</td>
-					<td>2022/01/01
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td id=nutricard><img src="asset/img/icon_img/영양제_아이콘 (2).png"
-						width="80" height="80"></td>
-					<td>당시 만족도 정보</td>
-				</tr>
-				<tr>
-					<td id="memo" colspan="2">메모사항</td>
-				</tr>
-			</tbody>
-		</table>
 
-				</tr>
-				<tr>
-					<td id="memo" colspan="2">메모사항</td>
-				</tr>
-			</tbody>
-		</table>
+
+
+	<%@include file="gnb.jsp"%>
+
+	<%
+		//ArrayList<MyPageVO> pageList = (ArrayList<MyPageVO>)session.getAttribute("pageList");
+ 		MyPageVO pagevo = new MyPageVO();
+	%>
+	
+	
+	
+	
+	<section id="tableArea">
+
+	
 
 	</section>
+<<<<<<< HEAD
 
 		<%
 			for (int i = 0; i < pageList.size(); i++) {
@@ -312,37 +140,26 @@ footer {
 					<td   >
 						<%=pageList.get(i).getNutri_class()%>
 					</td>
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 
 
 
-					<td class=><%=pageList.get(i).getMy_class_sat()%></td>
-
-				</tr>
-				<tr>
-					<td class="myupdate" id="memo" colspan="2"><%=pageList.get(i).getPage_memo()%></td>
-				</tr>
-			</tbody>
-		</table>
-		<%
-			}
-		%>
 
 
-		
 
 
-	</section>
 
-	
-	<%@include file="footer.jsp"%>
-	<script src="./asset/js/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+<!--                                                    -->
+	<script src="asset/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-	function deleteMyPage(pageCnt){
-		
-		location.href="DeleteMypage.do?page_seq="+pageCnt;
-		
-	}
 	
+<<<<<<< HEAD
 	function change(data){
 		$(".myupdate").html("<textarea class='myupdate' rows='' cols=''>"+data+"</textarea>"); // <--- 이렇게 태그 만들때 따옴표 주의, 이상입니다. 
 		$("#change1").html("<button id='change1' onClick='update(\""+data+"\")'>수정완료</button>")
@@ -352,8 +169,119 @@ footer {
 		$("#change1").html("<button id ='change1' onClick='change(\""+data+"\")'>수정</button>")
 
 	}
+=======
+	$(document).ready (tableLoad) 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 	
+	var modibutton=true;
+	var memotxt;
+	
+	function tableLoad() {
+		$.ajax({
+			url : "Mypage.do",
+			type : "get",
+			//data : {	
+			//	"id" : 'id'
+			//}, 
+			dataType : 'json',
+			success : function(res){
+				console.log(res)
+				
+				$('#tableArea').html('');
+				
+				for(var i=0;i<res.length;i++){	
+					let table ='';
+					table+='<table id="'+res[i].page_seq +'">'
+					table+='<thead><tr>'
+					table+='<td>'+res[i].page_seq+'</td>'
+					table+='<td> date:'+res[i].reg_date+'</td>'
+					table+='<td><button onclick="'+'modi('+ res[i].page_seq +')'+'" id="button'+res[i].page_seq+'">수정</button>'
+							+'<button onclick="'+'del('+ res[i].page_seq +')'+'">삭제</button></td>'
+					table+='</tr></thead>'
+				
+					table+='<tbody><tr>'
+					table+='<td> seq:'+res[i].nutri_seq+'</td>'
+					table+='<td> class:'+res[i].nutri_class+'</td>'
+					table+='<td> sat:'+res[i].my_class_sat+'</td>'
+					
+					//table+='<td> user:'+res[i].user_id+'</td>'
+					table+='</tr>'
+					table+='<tr>'
+					table+='<td colspan="4" class="memo" id="'+res[i].page_seq +'memo">'+res[i].page_memo+'</td>'
+					table+='</tr>'
+					table+='</tbody></table>'
+					$('#tableArea').append(table)
+				}
+			},
+			error : function(){
+				alert("요청실패")
+			}	
+		});
+		
+	}
+	function modi(n){
+		if(modibutton){
+			memotxt=$('#'+n+'memo').text();
+			tarea='<textarea id="'+ 'modiInput' +'">'+memotxt+'</textarea> <button onclick="modiajax('+n+')">수정확인</button>'
+			$('#'+n+'memo').text('')	
+			$('#'+n+'memo').append(tarea)
+			
+			$('#button'+n).text('취소')
+			modibutton=false;
+		}else{
+			$('#'+n+'memo').html('')
+			$('#'+n+'memo').append(memotxt)
+			modibutton=true;
+			$('#button'+n).text('수정')
+		}
+	}
+	function modiajax(n){
+		$.ajax({
+			url : "UpdateMypage.do",
+			type : "get",
+			data : {	
+				"page_seq" : n,
+				"page_memo" : $('#modiInput').val(),
+			}, 
+			success : function(res){
+				tableLoad();
+			},
+			error : function(){
+				alert("요청실패");
+			}	
+		});
+	}
+	function del(n){
+		var input = confirm('정말 삭제하시겠습니까');
+		if(input){
+			delajax(n);
+			$('#'+n).html('');
+			tableLoad();
+		}else{
+			alert("취소")
+
+		}
+	}
+	function delajax(n) {
+		
+		$.ajax({
+			url : "DeleteMypage.do",
+			type : "get",
+			data : {	
+				"page_seq" : n
+			}, 
+			success : function(res){
+				alert("삭제완료");
+				
+			},
+			error : function(){
+				alert("요청실패");
+			}	
+		});
+		
+	}
 	</script>
+
 
 </body>
 </html>

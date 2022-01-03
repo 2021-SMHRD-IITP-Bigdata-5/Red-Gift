@@ -1,7 +1,7 @@
 package page;
 
 import inter.command;
-import vo.NutriClassesVo;
+import vo.NutriClassesVO;
 
 import java.io.IOException;
 
@@ -30,7 +30,7 @@ public class SetNutriClass extends HttpServlet implements command {
     	
     	
     	MypageDAO dao = new MypageDAO();
-    	NutriClassesVo ncv = new NutriClassesVo(nutri_class, nutri_sat, nutri_pos, nutri_neg, class_photo, choice, rank);
+    	NutriClassesVO ncv = new NutriClassesVO(nutri_class, nutri_sat, nutri_pos, nutri_neg, class_photo, choice, rank);
     	
     	int cnt=0;
     	cnt=dao.SetNutriClass(ncv);

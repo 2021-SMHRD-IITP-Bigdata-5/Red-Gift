@@ -7,8 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import vo.ChoiceVO;
 import vo.MyPageVO;
-import vo.NutriClassesVo;
+import vo.NutriClassesVO;
 
 
 public class MypageDAO {
@@ -20,7 +21,7 @@ public class MypageDAO {
 	MyPageVO mypagevo;
 	ArrayList<MyPageVO> page_list;
 
-	ArrayList<NutriClassesVo> class_list = new ArrayList<NutriClassesVo>();
+	ArrayList<NutriClassesVO> class_list = new ArrayList<NutriClassesVO>();
 	int cnt = 0;
 	boolean check = false;
 	String result = null;
@@ -65,21 +66,61 @@ public class MypageDAO {
 			// TODO: handle exception
 		}
 	}
-	// ---------------------------------------------------------------
-
-	public int SetMypage(MyPageVO mpv) {
-		
-		connect();
+	// --------------------------------------------------------------- 
+	public ArrayList<NutriClassesVO> GetNutri(String choice) {  //통합   사용setMypage/result1/result2/
+		con.connect();
 		try {
-			String sql="insert into TBL_MYPAGES values(?,?,?,?,?,?,?)";
+			String sql  ="SELECT "
+						+ "A.CHOICE, "
+						+ "B.NUTRI_CLASS, "
+						+ "B.class_sat, "
+						+ "B.class_pos, "
+						+ "B.class_neg, "
+						+ "B.class_photo" + 
+						"FROM TBL_NUTRI_CLASSES B" + 
+						"INNER JOIN (SELECT * FROM TBL_NUTRI_CHOICES WHERE CHOICE = ?) A" + 
+						"ON B.NUTRI_CLASS IN (A.CLASS1, A.CLASS2, A.CLASS3)";
+				psmt=con.conn.prepareStatement(sql);
+				psmt.setString(1, choice);
+			rs =psmt.executeQuery();
+			
+			while(rs.next()) {
+				String choicename = rs.getString(1);
+				String nutri_class = rs.getString(2);
+				int class_sat = rs.getInt(3);
+				int class_pog = rs.getInt(4);
+				int class_neg = rs.getInt(5);
+				String class_photo = rs.getString(5);
+				
+				NutriClassesVO ncv = new NutriClassesVO(choicename, nutri_class, class_sat, class_pog, class_neg, class_photo);
+			
+				class_list.add(ncv);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			con.close(con.conn, psmt, rs);
+		}
+
+		return class_list;
+	}
+	// ---------------------------------------------------------------
+	public int SetMypage(String id, String choice) {
+		connect();
+		ArrayList<NutriClassesVO> arr=GetNutri(choice);
+
+		try {
+			String sql="insert into TBL_MYPAGES ("
+					+ "nutri_class,"
+					+ "my_class_sat,"
+					+ "user_id"
+					+ "values(?,?,?)";
 				psmt=conn.prepareStatement(sql);
-				psmt.setInt(1, mpv.getPage_seq());
-				psmt.setInt(2, mpv.getNutri_seq());
-				psmt.setString(3,mpv.getNutri_class());
-				psmt.setString(4,mpv.getMy_class_sat());
-				psmt.setNString(5, mpv.getReg_date());
-				psmt.setNString(6, mpv.getUser_id());
-				psmt.setNString(7, mpv.getPage_memo());		
+				
+				psmt.setNString(1,arr.get(1).getNclass());
+				psmt.setInt(2,arr.get(1).getSat());
+				psmt.setNString(3,id);		
 			cnt=psmt.executeUpdate();
 			
 			con.check(cnt);
@@ -93,7 +134,7 @@ public class MypageDAO {
 		return cnt;
 		
 	}
-
+	// ---------------------------------------------------------------
 	public ArrayList<MyPageVO> GetMypage(String id) {
 		
 		connect();
@@ -116,6 +157,7 @@ public class MypageDAO {
 				String reg_date = rs.getString(5);
 				String user_id = rs.getString(6);
 				String page_memo = rs.getString(7);
+				if(page_memo==null) page_memo="메모가 없습니다";
 
 				mypagevo = new MyPageVO(page_seq, nutri_seq, ntr_class, class_sat, reg_date, user_id, page_memo);
 				page_list.add(mypagevo);
@@ -127,11 +169,10 @@ public class MypageDAO {
 		} finally {
 			close();
 		}
-
 		return page_list;
 
 	}
-
+	// ---------------------------------------------------------------
 	public int DeleteMypage(int page_seq) {
 		connect();
 		try {
@@ -150,14 +191,14 @@ public class MypageDAO {
 		return cnt;
 		
 	}
-	
+	// ---------------------------------------------------------------
 	public int UpdateMypage(int page_seq,String page_memo) {
 		connect();
 		try {
 			String sql="Update tbl_mypages set page_memo=? where page_seq=?";
-			psmt=conn.prepareStatement(sql);
-			psmt.setInt(1, page_seq);
-			psmt.setString(2, page_memo);
+				psmt=conn.prepareStatement(sql);
+				psmt.setString(1, page_memo);
+				psmt.setInt(2, page_seq);
 			cnt=psmt.executeUpdate();
 			
 			if(cnt>0) {
@@ -173,10 +214,10 @@ public class MypageDAO {
 		}
 		
 		return cnt;
-		
 	}
-	
-	public int SetNutriClass(NutriClassesVo ncv) {
+	// ---------------------------------------------------------------
+
+	public int SetNutriClass(NutriClassesVO ncv) {
 		con.connect();
 		try {
 			String sql = "insert into TBL_NUTRI_CLASSES values(?,?,?,?)";
@@ -193,37 +234,69 @@ public class MypageDAO {
 		}
 		return cnt;
 	}
+	// ---------------------------------------------------------------
+	
+	
+	
+	
+	
+	// ---------------------------------------------------------------
+//	public ChoiceVO selectClasses(String choice) {
+//		con.connect();
+//		ChoiceVO selected = new ChoiceVO();
+//		try {
+//			String sql="Select * from TBL_NUTRI_CHOICES where CHOICE=?";
+//				psmt=con.conn.prepareStatement(sql);
+//				psmt.setString(1, choice);
+//			rs =psmt.executeQuery();
+//			
+//			rs.next();
+//			String class1 = rs.getString(2);
+//			String class2 = rs.getString(3);
+//			String class3 = rs.getString(4);
+//			selected= new ChoiceVO(class1,class2,class3);
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			con.close(con.conn, psmt, rs);
+//		}
+//
+//		return selected;
+//	}
+	// ---------------------------------------------------------------
+//	public ArrayList<NutriClassesVO> GetNutriClasses(String nclass) {
+//		con.connect();
+//		try {
+//			
+//			String sql="Select * from TBL_NUTRI_CLASSES where nutri_class=?";
+//			psmt=con.conn.prepareStatement(sql);
+//			psmt.setString(1, nclass);
+//			rs=psmt.executeQuery();
+//			while(rs.next()) {
+//				String db_nclass = rs.getString(1);
+//				int class_sat = rs.getInt(2);
+//				int class_pog = rs.getInt(3);
+//				int class_neg = rs.getInt(4);
+//				String class_photo = rs.getString(5);
+//				
+//				NutriClassesVO ncv = new NutriClassesVO(db_nclass, class_sat, class_pog, class_neg, class_photo);
+//			
+//				class_list.add(ncv);
+//			}
+//			
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			con.close(con.conn, psmt, rs);
+//		}
+//
+//		return class_list;
+//	}
+
+	// ---------------------------------------------------------------
 	
 
-	public ArrayList<NutriClassesVo> GetNutriClasses(String nclass) {
-		con.connect();
-		try {
-			String sql="Select * from TBL_NUTRI_CLASSES where nutri_class=?";
-			psmt=con.conn.prepareStatement(sql);
-			psmt.setString(1, nclass);
-			rs=psmt.executeQuery();
-			while(rs.next()) {
-				String db_nclass = rs.getString(1);
-				int class_sat = rs.getInt(2);
-				int class_pog = rs.getInt(3);
-				int class_neg = rs.getInt(4);
-				String class_photo = rs.getString(5);
-				String choice = rs.getString(6);
-				int rank = rs.getInt(7);
-				
-				NutriClassesVo ncv = new NutriClassesVo(db_nclass, class_sat, class_pog, class_neg, class_photo, choice, rank);
-			
-				class_list.add(ncv);
-			}
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			con.close(con.conn, psmt, rs);
-		}
-
-		return class_list;
-	}
-
-}
+	
+}//클래스끝
