@@ -6,18 +6,19 @@ public class Pagination {
 	//article=record=rows on page
 	//page=list=indices
 	
+	private int pageSize=3;  //-------------------상수
 	
-	private int pageSize=3;
 	private int firstPageNo;
+	private int currentPageNo;  //------------------------사용자입력 디폴트1
 	private int lastPageNo;
 	
-	private int currentPageNo=1;//-------------
 	private int firstArticleIndex;
+	private int articleCountPerPage=5; //---------상수
 	private int lastArticleIndex;
 	
-	private int articleCountPerPage=5;
 	private int totalPageCount;
-	private int totalArticleCount;
+	
+	private int totalArticleCount;  //------------가장먼저DA
 	
 	public Pagination() {
 
@@ -35,69 +36,94 @@ public class Pagination {
 		this.totalPageCount = totalPageCount;
 		this.totalArticleCount = totalArticleCount;
 	}
+	
+	
+	
 	public int getPageSize() {
 		return pageSize;
 	}
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
+	
+	//---------------------------------------------------------------
 	public int getFirstPageNo() {
 		int firstPageNo=1;
-		firstPageNo=((currentPageNo-1)/pageSize)*pageSize+1;
+		firstPageNo=((getCurrentPageNo()-1)/getPageSize())*pageSize+1;
 		return firstPageNo;
-	}
-	public void setFirstPageNo(int firstPageNo) {
-		this.firstPageNo = firstPageNo;
-	}
-	public int getLastPageNo() {
-		int lastPageNo=3;
-		lastPageNo=(int) Math.ceil(currentPageNo/pageSize);
-		return lastPageNo;
-	}
-	public void setLastPageNo(int lastPageNo) {
-		this.lastPageNo = lastPageNo;
 	}
 	public int getCurrentPageNo() {
 		return currentPageNo;
 	}
-	public void setCurrentPageNo(int currentPageNo) {
-		this.currentPageNo = currentPageNo;
+	public int getLastPageNo() {
+		int lastPageNo=3;
+		lastPageNo=getFirstPageNo()+getPageSize()-1;
+		if(lastPageNo>getTotalPageCount()) {
+			lastPageNo = getTotalPageCount();
+		}
+		return lastPageNo;
+	}
+	//----------------------------DA-------------------------------
+	public int getTotalArticleCount() {
+		return totalArticleCount;
 	}
 	public int getFirstArticleIndex() {
 		int firstArticleIndex=1;
-		firstArticleIndex = (currentPageNo - 1)/articleCountPerPage * articleCountPerPage +1;
+		firstArticleIndex = (getCurrentPageNo() - 1)*getArticleCountPerPage();
 		
 		return firstArticleIndex;
 	}
-	public void setFirstArticleIndex(int firstArticleIndex) {
-		this.firstArticleIndex = firstArticleIndex;
-	}
 	public int getLastArticleIndex() {
 		int lastArticleIndex=5;
-		lastArticleIndex = currentPageNo*articleCountPerPage;
+		lastArticleIndex = getCurrentPageNo()*getArticleCountPerPage();
 		
 		return lastArticleIndex;
 	}
-	public void setLastArticleIndex(int lastArticleIndex) {
-		this.lastArticleIndex = lastArticleIndex;
-	}
+	
+	//-----------------------------------------------------------------------
 	public int getArticleCountPerPage() {
+		int articleCountPerpage=5;
 		return articleCountPerPage;
+	}
+	public int getTotalPageCount() {
+		int totalPageCount;
+		totalPageCount=((getTotalArticleCount()-1)/getArticleCountPerPage())+1;
+		
+		return totalPageCount;
+	}
+	
+	//-------------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+//-------------------------------------------------------------------	
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 	public void setArticleCountPerPage(int articleCountPerPage) {
 		this.articleCountPerPage = articleCountPerPage;
 	}
-	public int getTotalPageCount() {
-		int totalPageCount=0;
-		totalPageCount=((totalArticleCount-1)/articleCountPerPage)+1;
-		
-		return totalPageCount;
+	
+	
+	public void setFirstPageNo(int firstPageNo) {
+		this.firstPageNo = firstPageNo;
+	}
+	public void setLastPageNo(int lastPageNo) {
+		this.lastPageNo = lastPageNo;
+	}
+	public void setCurrentPageNo(int currentPageNo) {
+		this.currentPageNo = currentPageNo;
+	}
+	public void setFirstArticleIndex(int firstArticleIndex) {
+		this.firstArticleIndex = firstArticleIndex;
+	}
+	public void setLastArticleIndex(int lastArticleIndex) {
+		this.lastArticleIndex = lastArticleIndex;
 	}
 	public void setTotalPageCount(int totalPageCount) {
 		this.totalPageCount = totalPageCount;
-	}
-	public int getTotalArticleCount() {
-		return totalArticleCount;
 	}
 	public void setTotalArticleCount(int totalArticleCount) {
 		this.totalArticleCount = totalArticleCount;
