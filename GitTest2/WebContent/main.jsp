@@ -1,4 +1,5 @@
 <%@page import="vo.UserVO"%>
+<%@page import="vo.NutriVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -496,7 +497,23 @@
 	    		console.log(s);
 	    		//$('.message:nth-child(2)').remove();
 	    		//$('.resultView').remove();
-	            pageLoad('result1.jsp',s);
+	    		
+	    		 $.ajax({
+				      url: 'GetNutriClass.do',  
+				      type: "post",
+				      data: {
+				      	"choice" : s
+				      },
+				      success: function(res){
+				      
+				      },
+				      error:function(){
+				          alert("실패")
+				      }
+				  })
+	    		
+	    		
+	            pageLoad('result1.jsp',s)
 	            $('#card'+s).css('opacity','0.5');
 			}else{
 				

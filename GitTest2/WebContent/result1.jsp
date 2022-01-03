@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vo.NutriVO"%>
 <%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -18,7 +20,10 @@
 <body>
    <%//test
 	UserVO user = (UserVO)session.getAttribute("uservo");
-	
+    ArrayList<NutriVO> nutriarrr = (ArrayList<NutriVO>)session.getAttribute("nutriarr");
+    System.out.print("result 1 : "+nutriarrr.get(0).getNutri_name());
+   
+   
    	String choice=request.getParameter("choice");
    	
 	Cookie cookie = new Cookie("choice", choice);
@@ -137,7 +142,6 @@
         $('#logIn').css('display','none')
         window.scrollTo(0,document.body.scrollHeight)
     }
-    
    	
     
     $('input[name=id]').on("blur", function (event) {
@@ -194,6 +198,7 @@
     	})
     	return false;
     })
+    
     $('#logInForm').on("submit",function(){
     	let data=$(this).serialize();
     	
@@ -231,8 +236,6 @@
             })
         }
    
-    
-    
     
     $(window).on('scroll.resultView',function(){
 		if(user!=null){
