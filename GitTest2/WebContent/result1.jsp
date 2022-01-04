@@ -117,7 +117,7 @@ click
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
-					<h2 style="color: white; background-color: white;">
+					<h2 style="color: white;">
 click
 					</h2>
 					<br>
@@ -199,9 +199,9 @@ click
 		</div>
 	</section>
 	<section class="Fkflask" id="result2_3">
-	
-	
-	
+		<div>
+		
+		</div>
 	</section>
 	<!-- 
 	<section class="message" id="result2_4">
