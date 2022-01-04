@@ -108,11 +108,7 @@
 	 @SuppressWarnings({"unchecked"})
 	 List<CommunityVO> arr = new ArrayList<>((List<CommunityVO>) request.getAttribute("arr"));
 	 
-	 //자바스크립트 최대한 안써보기
-	 //
-	 //1. 현재페이지를 항상 가운데 두고 계속 변하는 페이지리스트
-	 //2. 다음리스트로 넘어갈때까지 리스트가 변하지 않고 현재페이지가 움직이는 페이지리스트
-	 //1이 쉬워보이는데 2가 보편적인...
+
 	 
 	 %>
 	 
@@ -130,13 +126,16 @@
             </tr>
         </thead>
         <tbody>
-        <% for (CommunityVO i : arr){  %>
+        <% for (CommunityVO i : arr){  
+        
+        	String articleline="<a href='GetArticle.do?articleNo="+i.getArticle_seq()+"'>"+i.getArticle_subject()+"</a>";
+        %>
             <tr>
                 <td class="seqCol">
                     <a href=""><%=i.getArticle_seq()%></a>
                 </td>
                 <td class="subjectCol">
-                    <a href="GetArticle.do?articleNo="<%=i.getArticle_seq()%>><%=i.getArticle_subject()%></a>
+                  	<%=articleline %>
                 </td>
                 <td class="idCol">
                     <a href="#"><%=i.getUser_id()%></a>

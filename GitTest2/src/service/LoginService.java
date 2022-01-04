@@ -25,17 +25,20 @@ public class LoginService implements command{
 	
 		String nextpage=null;
 		UserVO uservo = dao.login(id, pw);
-		System.out.println(uservo.getUser_id());
+		String nick=null;
+		nick=uservo.getUser_nick();
+		
 		
 		HttpSession session = request.getSession();
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if(uservo!=null) {
 			session.setAttribute("uservo", uservo);
-			out.print("<script>");
-			out.print("alert('로그인성공');");
-			out.print("location.href='main.jsp';");
-			out.print("</script>");
+			//out.print("<script>");
+			//out.print("alert('로그인성공');");
+			//out.print("location.href='main.jsp';");
+			//out.print("</script>");
+			out.print(nick);
 		}else {
 			out.print("<script>");
 			out.print("alert('로그인실패');");

@@ -78,7 +78,7 @@
 					<div id="nutriCloud2">
 
             		</div>
-            		<div i d="nutriGraph2">
+            		<div id="nutriGraph2">
 					</div>
 					<div>
 						<canvas  id="myChartOne2" width="150" height="150"></canvas>
@@ -134,13 +134,12 @@
     
 <%}%> 
 
-
 	<section class="message" id="result2_1">
 		<p>
 		님을 위한 BEST제안은 ?
 		</p>
 	</section>
-	
+
 	<section class="classView" id="result2_2">
 	
 		<div>
@@ -378,11 +377,14 @@
     		method:"post",
         	data:data,
         	success:function(res){
-				console.log(res.slice(15, 20))				
-        		if(res.slice(15, 20)=="로그인성공"){
+				console.log(res);
+				//console.log(res.slice(15, 20))				
+        		//if(res.slice(15, 20)=="로그인성공"){
+        		if(res!=null){	
         			$('#sign').hide();
         		$('#suggest').hide();
-        		
+        	
+        		$('#result2_1').html('<p>'+res+'을 위한 베스트제안은?</p>')
         		$('#result2_1').show();
         		$('#result2_2').show();
         		$('#result2_3').show();
@@ -396,12 +398,13 @@
         		    $("#nutriCover3").css({"background":"url("+nutriPhoto2+")"});
         		            		    
         		    
-        		    window.scrollTo(0,document.body.scrollHeight)
-        		
+        		    //window.scrollTo(0,document.body.scrollHeight)
+        			window.scrollTo({top:'2800',behavior:"smooth"})
         		//pageLoad1('result2.jsp')
         		<% user = (UserVO)session.getAttribute("uservo"); 
-        			System.out.println("---result1 loginajax 성공, userssession");
+        		
         		%>
+        		
         		logon();
         		}
         		else{

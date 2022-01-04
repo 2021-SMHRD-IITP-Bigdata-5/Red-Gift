@@ -1,12 +1,10 @@
+<%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<meta charset="UTF-8">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
     
     
     <style>
@@ -102,113 +100,63 @@ body > main > section > form > div.btn-login > button{
     <!---->
     <main>
         <section class="Login-from">
-            <th><h1><label for="id-input-text">회원가입</label></h1></th>
-            <form action="SignUp.do" method="post">
-
+            <th><h1><label for="id-input-text">회원가입완료</label></h1></th>
+<%
+	UserVO user=(UserVO)request.getAttribute("uservo");
+%>
                 <div class="infor">
                 <table>
-                    <!-- <label for="id-input-text" align="">로그인을 하시오</label> -->
                     <tr>
-                        <td><input type="text" id="id" name="id" placeholder="red-gif@email.com"></td>
+                        <td>아이디:<%=user.getUser_id()%></td>
+                       
                     </tr>
-                    <td><font id=idCheck size="2.5"></font></td>
+                    <td></td>
                     <br>
                     <tr>
-                        <td><input type="password" id="pw" name="pw" placeholder="비밀번호입력"></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td><input type="password" id="pw2" name="pw2" placeholder="비밀번호확인"></td>
+                        <td></td>
                     </tr>
                     </table>
                     <table>
                    <tr>
-                   <td><font id=pwCheck size="2.5"></font></td>
+                   <td></td>
                    </tr> 
                     </table>
                     <table>
+                    <tr><%if(user.getUser_nick()!=null){ %>
+                        <td>닉네임:<%=user.getUser_nick()%></td>
+                    </tr><%} %>
+                    <tr><%if(user.getUser_name()!=null){ %>
+                        <td>이름:<%=user.getUser_name()%></td>
+                    </tr><%} %>
+                    <tr><%if(user.getUser_birth()!=null){ %>
+                        <td>생일:<%=user.getUser_birth()%></td>
+                    </tr><%} %>
+                    <tr><%if(user.getUser_sex()!=null){ %>
+                        <td>성별:<%=user.getUser_sex()%></td>
+                    </tr><%} %>
+                    <tr><%if(user.getUser_phone()!=null){ %>
+                        <td>연락처:<%=user.getUser_phone()%></td>
+                    </tr><%} %>
                     <tr>
-                        <td><input type="text" id="" name="nickname" placeholder="닉네임"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="" name="name" placeholder="이름"></td>
-                    </tr>
-                    <tr align="center">
-                        <td style="height: 30px;"><a id="a1"  style="width : 55%; height: 15px;">생일<input type="date" name="birth"></a></td>
-                    </tr>
-                    <tr align="center">
-                        <td><a id="a2">남<input type="radio" name="gender"  style="width : 10%; height: 15px;"></a>
-                        <a id="a2" >여<input type="radio" name="gender" style="width : 10%; height: 15px;"></a></td>
-                    </tr>
-                    <tr>
-                        <td><input id="" name="gnb" value="gnb" type="hidden"></td>
-   
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="" name="phone" placeholder="폰번호"></td>
+                        <td></td>
                     </tr>
                     
                 </table>
 
                 </div>
                 <div class="btn-login">
-                    <button id="sub1" onClick="" disabled="disabled">회원가입</button>
+                    <button id="sub1" onClick="location.href='main.jsp'">메인으로</button>
                 </div>
-            </form>
+         
 
         </section>
     </main>
     <script src="asset/js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-    $(function() {
-		$('#pw').keyup(function() {
-			$('#pwCheck').html('');
-		});
-		$('#pw2').keyup(function() {
-			
-			let pw = $('#pw').val();
-			let pw2 = $('#pw2').val();
-		
-			console.log(typeof(pw));
-			console.log(typeof(pw2));
-			console.log(pw == pw2);
-			
-			if(pw == pw2){
-			
-				$('#pwCheck').html('<tr><td>비밀번호가 일치합니다.</td></tr>');
-				$('#pwCheck').attr('color','#58acfa');
-			}else{
-				$('#pwCheck').html('<tr><td>비밀번호가 일치하지 않습니다.</td></tr>');
-				$('#pwCheck').attr('color','#fa5858');
-			}
-		});	
-		
-		
-	});
-    $('input[name=id]').on("blur", function (event) {
-    	let inputEmail = $('#id').val();
-    	$.ajax({
-			 url : "CheckUserId.do",
-			 method : "post",
-			 data : {
-				 "inputEmail" : inputEmail
-			 },
-			 success : function(res){
-				 console.log(res)
-				 	if( res !='true' ){
-						$('#idCheck').html('<tr><td>이미 사용중인 이메일입니다.</td></tr>');
-						$('#idCheck').attr('color','#fa5858');
-						$('#sub1').attr('disabled',true);
-					}else{	
-						$('#idCheck').html('<tr><td>사용가능한 이메일입니다.</td></tr>');
-						$('#idCheck').attr('color','#58acfa');
-						$('#sub1').attr('disabled',false);
-					}
-			 },
-			 error : function(){
-				 alert('아이디체크요청실패')
-			 }
-    	})
-    })
+ 
 	</script>
 </body>
 </html>

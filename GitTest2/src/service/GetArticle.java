@@ -20,7 +20,7 @@ public class GetArticle implements command{
 		request.setCharacterEncoding("UTF-8");
 		int no=1;
 		no = Integer.parseInt(request.getParameter("articleNo"));
-		
+		System.out.println("articleNo:"+no);
 		BoardDAO dao = new BoardDAO();	
 		request.setAttribute("article", dao.getArticle(no));
 		RequestDispatcher disp = request.getRequestDispatcher("articleRead.jsp");

@@ -150,15 +150,15 @@ public class BoardDAO {
 	}
 //--------------------------------------------------------------------------------	
 public CommunityVO getArticle(int no){
-		
+		String sql;
 		connect();
 		CommunityVO cvo=null;;
 		try { 
 			
-			String sql = "update TBL_COMMUNITY SET VIEW = VIEW + 1 WHERE ARTICLE_SEQ=?";
-				psmt=conn.prepareStatement(sql);
-				psmt.setInt(1, no);
-			cnt=psmt.executeUpdate();
+			//sql = "update TBL_COMMUNITY SET VIEW = VIEW + 1 WHERE ARTICLE_SEQ=?";
+			//	psmt=conn.prepareStatement(sql);
+			//	psmt.setInt(1, no);
+			//cnt=psmt.executeUpdate();
 		
 			
 			

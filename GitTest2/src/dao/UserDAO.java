@@ -99,14 +99,14 @@ public class UserDAO {
 					+ "user_sex,"
 					+ "user_phone"
 					+ ") values(?, ?, ?, ?, ?, ?, ?)";
-			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, user.getUser_id());
-			psmt.setString(2, user.getUser_pw());
-			psmt.setString(3, user.getUser_nick());
-			psmt.setString(4, user.getUser_name());
-			psmt.setString(5, user.getUser_birth());
-			psmt.setString(6, user.getUser_sex());
-			psmt.setString(7, user.getUser_phone());
+				psmt=conn.prepareStatement(sql);
+				psmt.setString(1, user.getUser_id());
+				psmt.setString(2, user.getUser_pw());
+				psmt.setString(3, user.getUser_nick());
+				psmt.setString(4, user.getUser_name());
+				psmt.setString(5, user.getUser_birth());
+				psmt.setString(6, user.getUser_sex());
+				psmt.setString(7, user.getUser_phone());
 			cnt=psmt.executeUpdate();
 			
 			if(user.getUser_nick()==null) {
