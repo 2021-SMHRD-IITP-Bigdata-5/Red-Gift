@@ -78,7 +78,6 @@ nav {
 
 .menu>li>a:hover{
 	font-size: 20px;
-
 }
 .menu>li>a{
 	color: rgba(41, 41, 41, 0.8);
@@ -90,7 +89,6 @@ nav {
 }
 .logo > a > img{
 	margin: 5px 0 0 0;
-	
 }
 </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -170,10 +168,8 @@ function logout(){
 
      if (st > lastScrollTop && st > navbarHeight){
          $('header').removeClass('nav-down').addClass('nav-up');
-     } else {
-         if(st + $(window).height() < $(document).height()) {
+     } else if(st + $(window).height() < $(document).height()) {
              $('header').removeClass('nav-up').addClass('nav-down');
-         }
      }
      lastScrollTop = st;
  }

@@ -93,7 +93,7 @@ public class MypageDAO {
 				    + "B.N_POS, "
 				    + "B.N_PHOTO, "
 				    + "B.N_CLOUD, "
-				    + "B.N_GRAPH"
+				    + "B.N_GRAPH "
 				    + "FROM TBL_NUTRI B "
 				    + "INNER JOIN (SELECT * FROM TBL_NUTRI_CHOICES WHERE CHOICE = ?) A "
 				    + "ON B.N_NAME IN (A.CLASS1, A.CLASS2, A.CLASS3)";

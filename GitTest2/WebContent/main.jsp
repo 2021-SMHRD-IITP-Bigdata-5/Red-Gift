@@ -17,10 +17,7 @@
 @font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
 @font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
 
-
-
-		/*부트스트랩 선택자랑 겹친다*/
-			
+	
 		html,body{
 			width: 100%;
 			height: 100%;
@@ -86,7 +83,6 @@
 		}
         
         section{
-            /*padding: 5% 0% 0%% 0%;*/
             display: flex;
             justify-content: center;
         }
@@ -103,20 +99,17 @@
         	font-size: 40px;
         	
         }
-
-
+        
         .resultView>div>div {
             display: inline-block;
             width: 450px;
             height: 600px;
         }
-        
         .classView>div>div, .itemsView>div>div{
         	display: inline-block;
             width: 1000px;
             height: 600px;
         }
-        
         .resultView>div>div,.classView>div>div {
         	
 			margin: 0 20px 0 20px;
@@ -130,8 +123,7 @@
 			text-align: center;
 			line-height: 1.5;
 			color: hsl(200 50% 20%);
-			
-			
+
 		}
 		.classView>div{
 			margin:0 0 100px 0;
@@ -139,16 +131,13 @@
 		.Fkflask>div{
 			margin:0 0 100px 0;
 		}
-		
     	.nutriCard{
     		overflow:hidden;
     		position:relative;
     	}
-    	
     	.nutriCard:hover{
     		box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
     	}
-    	
     	.cardHead{
     		width:100%;
     		height:500px;
@@ -159,7 +148,6 @@
     		/*background-size:150%;*/
     		background-color:transparent;
     	}
-    	
     	/* 헤드가 아니라 바디가 올라오게 바꿔야함.*/
     	.cardHead_up{
     		width:100%;
@@ -170,15 +158,12 @@
     		box-sizing:boarder-box;
     		-webkit-transition: .2s ease-in-out;
     	}
-    	
    		.cardBody{
    			width:100%;
     		height:100px;
     		line-height:1;
     		/*background-color:transparent;투명한*/
-    		
     	}
-
     	.cardBody::-webkit-scrollbar {
     		display: none;
     	}
@@ -190,15 +175,11 @@
 			width:100%;
 			height:40px;
 			/*background-color:transparent;*/
-			/*background-color:purple;*/
-			
-			/*color:white;*/
 			border-radius:0 0 2ch 2ch;
 			
 			font-family: 'NanumSquareBold';
 			font-size:20px;
 		}
-		
 		.cardTail:hover{
 			font-size:25px;
 			box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
@@ -206,8 +187,7 @@
 		
     	#choiceSection{
     	
-		}   
-		 	
+		}    	
 		.choiceCard_wrapper{
 			overflow-x:scroll;
 			white-space:nowrap;
@@ -216,13 +196,10 @@
 			-webkit-overflow-scrolling: touch;
 			user-select:none;
 			-webkit-user-select:none;
-			
 		}
-		
 		.choiceCard_wrapper::-webkit-scrollbar {
 		    display: none;
-		  }
-
+		}
 		.choiceCard{
 			user-select:none;
 			-webkit-user-select:none;
@@ -245,7 +222,6 @@
 		.choiceCard:hover{
 			box-shadow: 0.6rem 0.6rem 0.6rem hsl(0 0% 0% / 15%);
 		}
-    	
         input{
 	        width:300px;
 	        height:40px;
@@ -291,7 +267,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     
 </head>
 <body> 
@@ -399,7 +375,7 @@
     						//$('section.message').html(result);
     						
     					 	let contents  = '';
-    						
+    							
     					 	contents += "<div><a href='"+res1.link1+"' target='_blank' id='test'>링크1</a></div>";
     						contents += "<div><a href='"+res1.link2+"' target='_blank' id='test'>링크2</a></div>";
     						contents += "<div><a href='"+res1.link3+"' target='_blank' id='test'>링크3</a></div>"; 
@@ -430,49 +406,49 @@
 		//카드 섹션 마우스 드래그 
 			$(document).ready( function(){
 				if( selected==false){
-    			var bMove = false;
-    			var startX = 0;
-    			var scrollLeft = 0;
-    			var slider = document.querySelector(".choiceCard_wrapper");
-				
-    			var wrapper = document.querySelector(".choiceCard_wrapper");
-				var wrapperPosition = wrapper.getBoundingClientRect();
-    			
-    			slider.addEventListener("mousedown", function(e){
-    				bMove = true;
-    				startX = e.pageX - slider.offsetLeft;
-    				scrollLeft = slider.scrollLeft;
-    			});
-
-    			slider.addEventListener("mouseleave", function(){
-    				bMove = false;
-    			});
-
-    			slider.addEventListener("mouseup", function(){
-    				bMove = false;
-    			});
-
-    			slider.addEventListener("mousemove", function(e){
-    				if( bMove )
-    				{
-    					const x = e.pageX - slider.offsetLeft;
-    					const walk = x - startX;
-    					slider.scrollLeft = scrollLeft - walk;
-    				}		
-    			});
-    			
- 				slider.addEventListener("mousemove", function(e){
- 					var cards=document.querySelectorAll(".choiceCard");
- 	 				cards.forEach(function(i){
- 	 					iPosition=i.getBoundingClientRect()
- 	 					if( (iPosition.x +150) <  (wrapperPosition.x ) || ((iPosition.x +150) > (window.innerWidth-100)) ){
- 	 						$('#'+i.id).css('opacity','0')
- 	 					}else{
- 	 						$('#'+i.id).css('opacity','1')
- 	 					}
- 	 					//카드중앙좌표 기준으로 인아웃 함수 통일 -150	
- 	 				})
- 				})
+	    			var bMove = false;
+	    			var startX = 0;
+	    			var scrollLeft = 0;
+	    			var slider = document.querySelector(".choiceCard_wrapper");
+					
+	    			var wrapper = document.querySelector(".choiceCard_wrapper");
+					var wrapperPosition = wrapper.getBoundingClientRect();
+	    			
+	    			slider.addEventListener("mousedown", function(e){
+	    				bMove = true;
+	    				startX = e.pageX - slider.offsetLeft;
+	    				scrollLeft = slider.scrollLeft;
+	    			});
+	
+	    			slider.addEventListener("mouseleave", function(){
+	    				bMove = false;
+	    			});
+	
+	    			slider.addEventListener("mouseup", function(){
+	    				bMove = false;
+	    			});
+	
+	    			slider.addEventListener("mousemove", function(e){
+	    				if( bMove )
+	    				{
+	    					const x = e.pageX - slider.offsetLeft;
+	    					const walk = x - startX;
+	    					slider.scrollLeft = scrollLeft - walk;
+	    				}		
+	    			});
+	    			
+	 				slider.addEventListener("mousemove", function(e){
+	 					var cards=document.querySelectorAll(".choiceCard");
+	 	 				cards.forEach(function(i){
+	 	 					iPosition=i.getBoundingClientRect()
+	 	 					if( (iPosition.x +150) <  (wrapperPosition.x ) || ((iPosition.x +150) > (window.innerWidth-100)) ){
+	 	 						$('#'+i.id).css('opacity','0')
+	 	 					}else{
+	 	 						$('#'+i.id).css('opacity','1')
+	 	 					}
+	 	 					//카드중앙좌표 기준으로 인아웃 함수 통일 -150	
+	 	 				})
+	 				})
 				}	
 		} );
 
@@ -500,7 +476,7 @@
 				    	  	sessionStorage.setItem("nutriCloud"+i,res[i].nutri_cloud);
 				    	  	sessionStorage.setItem("nutriGraph"+i,res[i].nutri_graph);
 				    	  	
-				    	  	
+				    	    s
 				    	  }
 				    	  pageLoad('result1.jsp',s)
                           $('#card'+s).css('opacity','0.5');

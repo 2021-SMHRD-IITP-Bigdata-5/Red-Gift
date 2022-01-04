@@ -41,6 +41,7 @@
         <div>
 
             <div class="nutriCard" onclick="cardUp('#class1')" id="nutriCover3">
+            
             	<div class="cardHead" id="class1">
            			<%=choice%> 
 
@@ -67,11 +68,13 @@
             </div>
        <!--                                -->
             <div class="nutriCard" onclick="cardUp('#class2')" id="nutriCover2" >
+            
             	<div class="cardHead" id="class2">
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
 					<h2 style="color: white;">
+
 					click
 					</h2>
 					<br>
@@ -166,7 +169,21 @@
 	</section>
 	
 	<section class="Fkflask" id="result2_3">
+
+		<div>
+		
+		</div>
+	</section>
+	<!-- 
+	<section class="message" id="result2_4">
 	
+		<p>
+			이거사
+		</p>
+	
+	</section>
+	<section class="itemsView" id="result2_5">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 		<div>
 		
 		
@@ -350,7 +367,7 @@
                     alert("실패")
                 }
             })
-        }
+    }
    
     
     $(window).on('scroll.resultView',function(){
@@ -368,48 +385,44 @@
     	}else{
     		$(a).attr('class','cardHead');
     	}
-    	
-    	
+    		
     }
   		//-------------------------------------------------------------------------
-        let myChartOne = document.getElementById('myChartOne').getContext('2d');
+      let myChartOne = document.getElementById('myChartOne').getContext('2d');
         //차트 오브젝트 생성
-        let barChert = new Chart(myChartOne, {
+      let barChert = new Chart(myChartOne, {
             //차트에 들어갈 타입쓰기
             type : 'doughnut', //bar바, pie파이, line라인, doughnut도넛, polarArea
             data: {
-        labels: ['긍정', '부정'],
-        datasets: [{
-            label: '# of Votes',
-            data: [50, 50],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.4)',
-                'rgba(54, 162, 235, 0.4)',
-                // 'rgba(255, 206, 86, 0.4)',
-                // 'rgba(75, 192, 192, 0.4)',
-                // 'rgba(153, 102, 255, 0.4)',
-                // 'rgba(255, 159, 64, 0.4)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                // 'rgba(255, 206, 86, 1)',
-                // 'rgba(75, 192, 192, 1)',
-                // 'rgba(153, 102, 255, 1)',
-                // 'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth:1     
-        }]
-    },
-    options: {
-    	responsive : false,
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+		        labels: ['긍정', '부정'],
+		        
+		        datasets: [{
+				            label: '# of Votes',
+				            data: [50,50],
+				            backgroundColor: [
+								                'rgba(255, 99, 132, 0.4)',
+								                'rgba(54, 162, 235, 0.4)',
+								                // 'rgba(255, 206, 86, 0.4)',
+								                // 'rgba(75, 192, 192, 0.4)',
+								                // 'rgba(153, 102, 255, 0.4)',
+								                // 'rgba(255, 159, 64, 0.4)'
+								            ],
+				            borderColor: [
+								                'rgba(255, 99, 132, 1)',
+								                'rgba(54, 162, 235, 1)',
+								                // 'rgba(255, 206, 86, 1)',
+								                // 'rgba(75, 192, 192, 1)',
+								                // 'rgba(153, 102, 255, 1)',
+								                // 'rgba(255, 159, 64, 1)'
+								         ],
+					         borderWidth:1     
+				}]
+    		},
+		    options: {
+	    	responsive : false,
+	        scales: { y:{ beginAtZero: true 	} }
+			}
+	});
         //-------------------------------------------------------------------------
         let myChartOne2 = document.getElementById('myChartOne2').getContext('2d');
         //차트 오브젝트 생성
@@ -417,40 +430,35 @@
             //차트에 들어갈 타입쓰기
             type : 'doughnut', //bar바, pie파이, line라인, doughnut도넛, polarArea
             data: {
-        labels: ['긍정', '부정'],
-        datasets: [{
-            label: '# of Votes',
-            data: [50, 50],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.4)',
-                'rgba(54, 162, 235, 0.4)',
-                // 'rgba(255, 206, 86, 0.4)',
-                // 'rgba(75, 192, 192, 0.4)',
-                // 'rgba(153, 102, 255, 0.4)',
-                // 'rgba(255, 159, 64, 0.4)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                // 'rgba(255, 206, 86, 1)',
-                // 'rgba(75, 192, 192, 1)',
-                // 'rgba(153, 102, 255, 1)',
-                // 'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth:1     
-        }]
-    },
-    options: {
-    	responsive : false,
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+	        	labels: ['긍정', '부정'],
+		        datasets: [{
+				            label: '# of Votes',
+				            data: [50, 50],
+				            backgroundColor: [
+							                'rgba(255, 99, 132, 0.4)',
+							                'rgba(54, 162, 235, 0.4)',
+							                // 'rgba(255, 206, 86, 0.4)',
+							                // 'rgba(75, 192, 192, 0.4)',
+							                // 'rgba(153, 102, 255, 0.4)',
+							                // 'rgba(255, 159, 64, 0.4)'
+				            				],
+							borderColor: [
+							                'rgba(255, 99, 132, 1)',
+							                'rgba(54, 162, 235, 1)',
+							                // 'rgba(255, 206, 86, 1)',
+							                // 'rgba(75, 192, 192, 1)',
+							                // 'rgba(153, 102, 255, 1)',
+							                // 'rgba(255, 159, 64, 1)'
+									    ],
+							borderWidth:1     
+				}]
+		    },
+	    	options: {
+		    	responsive : false,
+		        scales:{ y:{ beginAtZero: true } }
+		    }
+		});
         myChartOne2.destroy();
-        
         
         
     </script>
