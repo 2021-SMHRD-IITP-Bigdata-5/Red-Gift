@@ -22,16 +22,17 @@ public class LoginService implements command{
 		String pw = request.getParameter("pw");
 		UserDAO dao = new UserDAO();
 	
-		
+		String nextpage=null;
 		UserVO uservo = dao.login(id, pw);
 		System.out.println(uservo.getUser_id());
 		if(uservo!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("uservo", uservo);
+			nextpage="main.jsp";
 		}
 		
 		
-		return null;
+		return nextpage;
 	}
 
 }

@@ -119,8 +119,6 @@ public class MypageDAO {
 
 		return arr;
 	
-	
-	
 	}
 	
 	// ---------------------------------------------------------------
@@ -130,9 +128,9 @@ public class MypageDAO {
 
 		try {
 			String sql="insert into TBL_MYPAGES ("
-					+ "nutri_class,"
-					+ "my_class_sat,"
-					+ "user_id"
+					+ "nutri_class, "
+					+ "my_class_sat, "
+					+ "user_id)"
 					+ "values(?,?,?)";
 				psmt=conn.prepareStatement(sql);
 				
@@ -140,6 +138,9 @@ public class MypageDAO {
 				psmt.setFloat(2,arr.get(1).getNutri_pos());
 				psmt.setNString(3,id);		
 			cnt=psmt.executeUpdate();
+			
+			
+			if(cnt>0) System.out.println("MypageDAO SetMypage insert success id:"+id);
 			
 			con.check(cnt);
 			
@@ -169,7 +170,7 @@ public class MypageDAO {
 
 			while (rs.next()) {
 				int page_seq = Integer.parseInt(rs.getString(1));
-				int nutri_seq = Integer.parseInt(rs.getString(2));
+
 				String ntr_class = rs.getString(3);
 				String class_sat = rs.getString(4);
 				String reg_date = rs.getString(5);
@@ -177,7 +178,7 @@ public class MypageDAO {
 				String page_memo = rs.getString(7);
 				if(page_memo==null) page_memo="메모가 없습니다";
 
-				mypagevo = new MyPageVO(page_seq, nutri_seq, ntr_class, class_sat, reg_date, user_id, page_memo);
+				mypagevo = new MyPageVO(page_seq, ntr_class, class_sat, reg_date, user_id, page_memo);
 				page_list.add(mypagevo);
 			}
 

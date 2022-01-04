@@ -131,16 +131,29 @@
 		.Fkflask>div{
 			margin:0 0 100px 0;
 		}
+		
+		
+		.nutriCloud3,.nutriCloud1,.nutriCloud2{
+    		width:100%;
+    		height:100%;
+    	}
+		.nutriGraph3,.nutriGraph1,.nutriGraph2{
+    		/*width:100px;
+    		height:100px;*/
+    		justify-content: center;
+    	}
     	.nutriCard{
     		overflow:hidden;
     		position:relative;
+    		background-position: center !important;
+    		background-size: cover !important;
     	}
     	.nutriCard:hover{
     		box-shadow: 1rem 1rem 1rem hsl(0 0% 0% / 15%);
     	}
     	.cardHead{
     		width:100%;
-    		height:500px;
+    		height:600px;
     		border-radius:2ch 2ch 0 0;
     		box-sizing:boarder-box;
     		-webkit-transition: .2s ease-in-out;
@@ -151,30 +164,33 @@
     	/* 헤드가 아니라 바디가 올라오게 바꿔야함.*/
     	.cardHead_up{
     		width:100%;
-    		height:20px;
+    		height:0px;
     		border-radius:2ch 2ch 0 0;
     		background-image: url('asset/img/');
-    		background-size:150%;
+    		background-size:100%;
     		box-sizing:boarder-box;
-    		-webkit-transition: .2s ease-in-out;
+    		-webkit-transition: .5s ease-in-out;
     	}
    		.cardBody{
    			width:100%;
-    		height:100px;
+    		height:100%;
     		line-height:1;
-    		/*background-color:transparent;투명한*/
+    		background-color:white;
+    		overflow-x: hidden;
+    		/*height: fit-content;*/
     	}
     	.cardBody::-webkit-scrollbar {
     		display: none;
     	}
     	/*엄마카드*/
     	.cardTail{
+    		
 			position:absolute;
 			bottom:0;	
 			
 			width:100%;
 			height:40px;
-			/*background-color:transparent;*/
+			background-color:white;
 			border-radius:0 0 2ch 2ch;
 			
 			font-family: 'NanumSquareBold';
@@ -262,6 +278,7 @@
         	opacity:0.6;
     	}
     	
+    	
 
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -322,7 +339,7 @@
 		</div>
 	</section>
 
-    <!-- <%@include file="footer.jsp" %> -->
+
     <!-- ------------------------------------------------------------------------ -->
     <script src="asset/js/jquery-3.6.0.min.js"></script>
     <script>

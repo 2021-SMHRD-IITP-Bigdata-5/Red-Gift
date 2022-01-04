@@ -16,7 +16,16 @@ public class MyPageVO {
 	public MyPageVO() {
 		
 	}
-	
+	public MyPageVO(int page_seq, String nutri_class, String my_class_sat, String reg_date,
+			String user_id, String page_memo) {
+
+		this.page_seq = page_seq;
+		this.nutri_class = nutri_class;
+		this.my_class_sat = my_class_sat;
+		this.reg_date = reg_date;
+		this.user_id = user_id;
+		this.page_memo = page_memo;
+	}
 	public MyPageVO(int page_seq, int nutri_seq, String nutri_class, String my_class_sat, String reg_date,
 			String user_id, String page_memo) {
 		super();

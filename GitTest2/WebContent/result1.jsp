@@ -48,22 +48,23 @@
             	</div>
             	
 				<div class="cardBody">
-					<h2 style="color: white;">
-					click
-					</h2>
-					<br>
-					<br>
-					<br>
+				
+					<div id="nutriCloud3">
+					</div>
+					<div id="nutriGraph3">
+					</div>
 					<div>
 						<canvas  id="myChartOne" width="150" height="150"></canvas>
 					</div>
-					<div id="nutriCloud3">
-					</div>
+					
 					
 				</div>
+				<!-- 
 				<div class="cardTail">
-				
 				</div>
+				
+				 -->
+				
 				
             </div>
        <!--                                -->
@@ -73,22 +74,22 @@
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
-					<h2 style="color: white;">
+	
+					<div id="nutriCloud2">
 
-					click
-					</h2>
-					<br>
-					<br>
-					<br>
+            		</div>
+            		<div id="nutriGraph2">
+					</div>
 					<div>
 						<canvas  id="myChartOne2" width="150" height="150"></canvas>
             		</div>
-            		</div>
-					<div id="nutriCloud2">
-					</div>
+
             	</div>
+            	<!-- 
            		<div class="cardTail">
             	</div>
+            	
+            	 -->
 			</div>
         </div>
     </section>
@@ -151,22 +152,30 @@
             	
             	</div>
 				<div class="cardBody">
-					<h2>
-					<%=choice %>
-					</h2>
-					<p>
-						
-					</p>
+
+					<div id="nutriCloud1">
+
+					</div>
+					<div id="nutriGraph1">
+					</div>
 				</div>
-				<div class="cardTail">
+				<!-- 
+				 <div class="cardTail">
+				 
+				</div>
+				 -->
+				 
 				
-				</div>
+				
             </div>
 		</div>
 	</section>
 	<section class="message">
 	
 	</section>
+	
+
+	
 	
 	<section class="Fkflask" id="result2_3">
 
@@ -183,7 +192,6 @@
 	
 	</section>
 	<section class="itemsView" id="result2_5">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 		<div>
 		
 		
@@ -198,6 +206,22 @@
     <script>
    	<%if(user!=null){%>
     let user = '<%=user.getUser_id()%>';
+    let choice = '<%=choice%>'
+    $.ajax({
+	    url: 'SetMypage.do',  
+	    type: "get",
+	    data: {
+	    	"id" : user,
+	    	"choice" : choice
+	    },
+	    success: function(res1){  
+	        console.log("ajaxToSetMyPage")
+	    },
+	    error:function(){
+	        alert("실패")
+	    }
+	});
+    
     <%}else{%>
     let user = null;
     $('#result2_1').hide();
@@ -205,6 +229,7 @@
 	$('#result2_3').hide();
 	$('#result2_4').hide();
 	$('#result2_5').hide();
+	
     <%}%>
 
     var nutriPhoto0=(String)(sessionStorage.getItem("nutriPhoto0"));
@@ -213,18 +238,58 @@
     $("#nutriCover1").css({"background":"url("+nutriPhoto0+")"}); 
     $("#nutriCover2").css({"background":"url("+nutriPhoto1+")"}); 
     $("#nutriCover3").css({"background":"url("+nutriPhoto2+")"}); 
-    var nutriCloud0=(String)(sessionStorage.getItem("nutriCloud0"));
-    var nutriCloud1=(String)(sessionStorage.getItem("nutriCloud1"));
-    var nutriCloud2=(String)(sessionStorage.getItem("nutriCloud2"));
-    $("#nutriCloud3").css({"background":"url("+nutriCloud0+")"}); 
-    $("#nutriCloud2").css({"background":"url("+nutriCloud1+")"}); 
+    
+    //var nutriCloud0=(String)(sessionStorage.getItem("nutriCloud0"));
+    //var nutriCloud1=(String)(sessionStorage.getItem("nutriCloud1"));
+    //var nutriCloud2=(String)(sessionStorage.getItem("nutriCloud2"));
+    
+    //var nutriGraph0=(String)(sessionStorage.getItem("nutriGraph0"));
+    //var nutriGraph1=(String)(sessionStorage.getItem("nutriGraph1"));
+    //var nutriGraph2=(String)(sessionStorage.getItem("nutriGraph2"));
+    //$("#nutriCloud3").css({"background":"url("+nutriCloud0+")"}); 
+    //$("#nutriCloud2").css({"background":"url("+nutriCloud1+")"}); 
     //$("#nutriCloud1").css({"background":"url("+nutriCloud2+")"}); 
     
-    
-    
-    
-    
-    
+   	let tag_cloudList = ['#nutriCloud3','#nutriCloud2','#nutriCloud1'];
+    let tag_graphList = ['#nutriGraph3','#nutriGraph2','#nutriGraph1'];
+    for ( var i =0 ; i<3 ; i++){
+    	var nutriCloud=(String)(sessionStorage.getItem("nutriCloud"+i));
+    	var nutriGraph=(String)(sessionStorage.getItem("nutriGraph"+i));
+
+    	console.log(nutriCloud);
+    	console.log(nutriGraph);
+    	
+    	
+     	imgurl=$('<img>',
+     			{'src' : nutriCloud,
+        		'width' : '105%' 
+            						});
+        	$(imgurl).appendTo(tag_cloudList[i]);
+    	
+       	imgurl=$('<img>',
+        		{'src' : nutriGraph ,
+           		'width' : '40%'	
+           		});
+           	$(imgurl).appendTo(tag_graphList[i]);
+   }
+
+    	/*
+    	imgurl=$('<img>',{'src' : nutriCloud2 ,
+    		'width' : '105%',   
+    });
+    	$(imgurl).appendTo('#nutriCloud3');
+    	
+    	imgurl=$('<img>',{'src' : nutriGraph2 ,
+    	'width' : '35%', 
+        'display': 'block' 
+   });
+    	$(imgurl).appendTo('#nutriCloud3');
+    	
+     	imgurl=$('<img>',{'src' : nutriGraph1 ,
+    		'width' : '40%',   
+   });
+    	$(imgurl).appendTo('#nutriCloud2');
+    */
     
     
     function sssi(){
@@ -233,7 +298,7 @@
     		'src' : nutriPhoto2
     	});
     	$(iimg).appendTo('#class1');
-
+    }
     function loginform(){
         $('#logIn').css('display','block');
         $('#signUp').css('display','none');
