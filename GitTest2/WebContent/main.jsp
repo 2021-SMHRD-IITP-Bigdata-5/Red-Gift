@@ -103,14 +103,7 @@
         	font-size: 40px;
         	
         }
-        
-        .choice{
-            display:inline-block;
-            border-style: solid 1px;
-            background-color: gray;
-            width: 300px;
-            height: 400px;
-        }
+
 
         .resultView>div>div {
             display: inline-block;
@@ -124,7 +117,7 @@
             height: 600px;
         }
         
-        .resultView>div>div,.classView>div>div,.itemsView>div>div {
+        .resultView>div>div,.classView>div>div {
         	
 			margin: 0 20px 0 20px;
 			border-radius: 2ch;
@@ -137,16 +130,19 @@
 			text-align: center;
 			line-height: 1.5;
 			color: hsl(200 50% 20%);
+			
+			
+		}
+		.classView>div{
+			margin:0 0 100px 0;
+		}
+		.Fkflask>div{
+			margin:0 0 100px 0;
 		}
 		
-		.itemsView{
-			margin-bottom: 50px;
-		}
-
     	.nutriCard{
     		overflow:hidden;
     		position:relative;
-
     	}
     	
     	.nutriCard:hover{
@@ -226,7 +222,7 @@
 		.choiceCard_wrapper::-webkit-scrollbar {
 		    display: none;
 		  }
-		  /*선택카드*/
+
 		.choiceCard{
 			user-select:none;
 			-webkit-user-select:none;
@@ -235,9 +231,7 @@
 			width:300px;
 			height:450px;
 			/*background-color:#f7f7f7;*/
-			
 			box-shadow: 0 1rem 1rem hsl(0 0% 0% / 10%);
-			/*box-shadow: 0 2.5rem 2rem -2rem hsl(150 50% 20% / 20%);*/
 			color: hsl(200 50% 20%);
 			line-height: 1.5;
 			place-items: center;
@@ -247,11 +241,7 @@
 			border: 0px solid hsl(0 0% 85%);
 			-webkit-transition: .2s ease-in-out;
 			position:relative;
-			
-			box-shadow: 1rem 1rem 1rem 1rem hsl(0 0% 0% / 15%);
-			
-			
-		
+		}
 		.choiceCard:hover{
 			box-shadow: 0.6rem 0.6rem 0.6rem hsl(0 0% 0% / 15%);
 		}
@@ -305,10 +295,8 @@
     
 </head>
 <body> 
-
 <a style="display:scroll;position:fixed;bottom:50px;right:10px;" href="#" title="up"><img src="asset/img/upimg.jpg"></a> 
 
-	
 	<%@include file="gnb.jsp"%>
     
         <div id="banner">
@@ -316,8 +304,8 @@
             <br>
             <br>
             <h1 id="bannerButton" onclick="push()">선물할 영양제를<br>찾고 계신가요?</h1>
-            <h2 id="bannerButton2" onclick="push()">시작해 보세요   <img src="asset/img/icon_img/메인-시작해보세요2.png" width="25" height="25"></h2>
-            
+            <h2 id="bannerButton2" onclick="push()">시작해 보세요   
+            <img src="asset/img/icon_img/메인-시작해보세요2.png" width="25" height="25"></h2>
         </div>
     
     <section class="message">
@@ -363,23 +351,7 @@
     <script src="asset/js/jquery-3.6.0.min.js"></script>
     <script>
         
-        var cnt=0;
-        var a='';
-        function change(n){
-            a=a+n;
-            if(cnt==2){
-                console.log(a)
-                pageLoad('result1.jsp',a)
-                a='';
-                cnt=3;
-            }else if(cnt<2){
-            $('#op1').attr('src', option[a+'1']).attr('alt',a+'1')
-            $('#op2').attr('src', option[a+'2']).attr('alt',a+'2')
-            $('#op3').attr('src', option[a+'3']).attr('alt',a+'3')
-            cnt++;
-            }
-        }
-        
+
         function push(){
         	window.scrollTo({top:'900',behavior:"smooth"})
         }
@@ -511,7 +483,7 @@
 	    		//$('.resultView').remove();
 	    			
 	    		 $.ajax({
-				      url: 'GetNutriClass.do',  
+				      url: 'GetNutriService.do',  
 				      type: "get",
 				      data: {
 				      	"choice" : s
@@ -519,16 +491,22 @@
 				      dataType:'json',
 				      success: function(res){
 				    	  for(var i=0;i<res.length;i++){	
-				    	  	console.log(res[i].nutri_name);
-				    	  	console.log(res[i].nutri_photo);
+				    	  	console.log("영양제"+res[i].nutri_name);
+				    	  	console.log("사진"+res[i].nutri_photo);
+				    	  	console.log("클라우드"+res[i].nutri_cloud);
+				    	  	console.log("그래프"+res[i].nutri_graph);
 				    	  	sessionStorage.setItem("nutriName"+i, res[i].nutri_name);
 				    	  	sessionStorage.setItem("nutriPhoto"+i, res[i].nutri_photo);
+				    	  	sessionStorage.setItem("nutriCloud"+i,res[i].nutri_cloud);
+				    	  	sessionStorage.setItem("nutriGraph"+i,res[i].nutri_graph);
+				    	  	
+				    	  	
 				    	  }
 				    	  pageLoad('result1.jsp',s)
                           $('#card'+s).css('opacity','0.5');
 				      },
 				      error:function(){
-				          alert("실패")
+				          alert("cardChoice 실패")
 				      }
 				  })
 

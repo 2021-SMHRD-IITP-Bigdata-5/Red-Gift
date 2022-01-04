@@ -1,16 +1,10 @@
-package page;
-
-import inter.command;
-import vo.NutriClassesVO;
-import vo.NutriVO;
+package service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,14 +12,15 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 
 import dao.MypageDAO;
+import inter.command;
+import vo.NutriVO;
 
+public class GetNutriService implements command{
 
-@WebServlet("/GetNutriClass")
-public class GetNutriClass extends HttpServlet implements command {
-
-	
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException { 
-    	HttpSession session = request.getSession();
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		
     	String choice = request.getParameter("choice");
     	System.out.println("----GetNutriClass getParam choice: "+choice);
     	
@@ -35,7 +30,8 @@ public class GetNutriClass extends HttpServlet implements command {
 		arr=dao.GetNutri(choice);  //MyPageDAO
 		
 		
-		System.out.println("----GetNutriClass arr size: "+arr.size());
+		System.out.println("GetNutriService arr size 3check: "+arr.size());
+		HttpSession session = request.getSession();
 		session.setAttribute("nutriarr",arr);
   
 		
@@ -47,7 +43,9 @@ public class GetNutriClass extends HttpServlet implements command {
 		
 				
 		out.print(json);
-    	return null;
-    }
+	
+		
+		return null;
+	}
 
 }

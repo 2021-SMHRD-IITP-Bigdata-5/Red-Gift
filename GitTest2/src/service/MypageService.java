@@ -22,25 +22,23 @@ public class MypageService implements command {
 			throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
 		
-		System.out.println("마이페이지서비스 진입");
-		
 		HttpSession session = request.getSession();
 		UserVO uservo = (UserVO)session.getAttribute("uservo");
-		
 		String id = uservo.getUser_id();
+		System.out.println("MypageService id: "+id);
 //		String id = request.getParameter("");
 //		
 		//UserDAO dao = new UserDAO();
+		
 		MypageDAO dao = new MypageDAO();
 		Gson gson = new Gson();
 		String json = gson.toJson(dao.GetMypage(id));
 	
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		
 		out.print(json);
 		
-		System.out.println("겟마이페이지id:"+id);
+
 
 		
 		return "myPage.jsp";

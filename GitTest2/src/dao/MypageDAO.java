@@ -81,19 +81,19 @@ public class MypageDAO {
 		try {
 			
 			String nutri="";
-			
 			String[] list1= {"0","MOM","FATHER","GRANDMOM","MARRYED","JUNIOR","SENIOR","PREGD","STUDENT"};
-			//String[] list1= {"0","father","JUNIOR","JUNIOR","MOM","GRANDMOM","MARRYED","PREGED","STUDENT"};
 			int a=Integer.parseInt(choice);
-			for( int i=1; i<9;i++ ) {
-				if(i==a) nutri=list1[i];
-			}
-			System.out.println("nutri"+nutri);
+				for( int i=1; i<9;i++ ) {
+					if(i==a) nutri=list1[i];
+				}
+			System.out.println("MypageDAO GetNutri : nutriType from choice :"+nutri);
 			
 			String sql="SELECT A.CHOICE, "
 				    + "B.N_NAME, "
 				    + "B.N_POS, "
-				    + "B.N_PHOTO "
+				    + "B.N_PHOTO, "
+				    + "B.N_CLOUD, "
+				    + "B.N_GRAPH"
 				    + "FROM TBL_NUTRI B "
 				    + "INNER JOIN (SELECT * FROM TBL_NUTRI_CHOICES WHERE CHOICE = ?) A "
 				    + "ON B.N_NAME IN (A.CLASS1, A.CLASS2, A.CLASS3)";
@@ -104,11 +104,11 @@ public class MypageDAO {
 			while(rs.next()) {
 				String choice_name = rs.getNString(1);
 				String nutri_name = rs.getString(2);
-				float class_pos = Float.parseFloat(rs.getString(3));
+				float nutri_pos = Float.parseFloat(rs.getString(3));
 				String nutri_photo = rs.getString(4);
-				System.out.println("mypageDAO: "+nutri_photo);
-				NutriVO nv = new NutriVO(choice_name, nutri_name, class_pos, nutri_photo);
-			
+				String nutri_cloud = rs.getString(5);
+				String nutri_graph = rs.getString(6);
+				NutriVO nv = new NutriVO(choice_name, nutri_name, nutri_pos, nutri_photo, nutri_cloud, nutri_graph);
 				arr.add(nv);
 			}
 		} catch (SQLException e) {

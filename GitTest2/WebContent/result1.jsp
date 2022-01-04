@@ -15,61 +15,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-	<style>
-		input{
-		        width:300px;
-		        height:40px;
-		        background-color: transparent;
-		        border: none;
-		        font-size:18px;
-	        }
-		#sign{
-			height:200px;
-			margin-bottom: 50px;        
-        }
-        #sign>div>form>div{
-        	display:flex;
-        	justify-content: center;
-	        align-items: center; 
-        }
-		#sign button{
-	        color: white;
-	        border: 0px;
-	        border-radius: 25px;
-	        width:300px; 
-	        font-family: 'NanumSquareR';
-	        font-size: 18px;
-	        font-weight: bold;
-	        margin: 10px 5px 5px 5px;
-	        padding: 10px;
-	        
-	        display: flex;
-	        justify-content: center;
-	        align-items: center; 
-    	} 
-    	#sign .b1{
-        	background-color: crimson;
-        	opacity:0.7;
-    	}
-    	#sign .b2{
-        	background-color: gray;
-        	opacity:0.6;
-    	}
-	</style>
+
 </head>
 <body>
-   <%//test
+   <%
 	UserVO user = (UserVO)session.getAttribute("uservo");
-    //ArrayList<NutriVO> nutriarrr = (ArrayList<NutriVO>)session.getAttribute("nutriarr");
-    //System.out.print("result 1 : "+nutriarrr.get(0).getNutri_name());
-   
-    //String dr= "Style=\"background-image: url('asset/img/nutri/";
-   	//String nutri1url=dr+nutriarrr.get(0).getNutri_name()+".jpg')\"";
-    //String nutri2url=dr+nutriarrr.get(1).getNutri_name()+".jpg')\"";
-    //String nutri3url=dr+nutriarrr.get(2).getNutri_name()+".jpg')\"";
-   
-     
-    
+
    	String choice=request.getParameter("choice");
    	System.out.println("-----result1 head getParam choice: "+choice);
 	Cookie cookie = new Cookie("choice", choice);
@@ -77,6 +28,7 @@
    	if(user!=null) System.out.println("-----result1 head userid : "+user.getUser_id());
    	
 	%>
+	
 	<section class="message">
 	
 		<p>
@@ -84,6 +36,7 @@
 		</p>
 	
 	</section>
+	
     <section class="resultView">
         <div>
 
@@ -95,7 +48,7 @@
             	
 				<div class="cardBody">
 					<h2 style="color: white;">
-click
+					click
 					</h2>
 					<br>
 					<br>
@@ -103,6 +56,9 @@ click
 					<div>
 						<canvas  id="myChartOne" width="150" height="150"></canvas>
 					</div>
+					<div id="nutriCloud3">
+					</div>
+					
 				</div>
 				<div class="cardTail">
 				
@@ -110,15 +66,13 @@ click
 				
             </div>
        <!--                                -->
-
             <div class="nutriCard" onclick="cardUp('#class2')" id="nutriCover2" >
             	<div class="cardHead" id="class2">
-
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
-					<h2 style="color: white; background-color: white;">
-click
+					<h2 style="color: white;">
+					click
 					</h2>
 					<br>
 					<br>
@@ -126,7 +80,9 @@ click
 					<div>
 						<canvas  id="myChartOne2" width="150" height="150"></canvas>
             		</div>
-            		
+            		</div>
+					<div id="nutriCloud2">
+					</div>
             	</div>
            		<div class="cardTail">
             	</div>
@@ -134,7 +90,10 @@ click
         </div>
     </section>
 
+
 <% if(user==null){ %>  
+
+
  	<section class="message" id="suggest">
 	
 		<p>
@@ -142,6 +101,7 @@ click
 		</p>
 	
 	</section>
+	
     <section id="sign">
         <div id="signUp">
             <form action="SignUp.do" method="post" id=signUpForm>
@@ -166,14 +126,17 @@ click
             </form>
         </div>
     </section>	
+    
+    
 <%}%> 
 
-	
+
 	<section class="message" id="result2_1">
 		<p>
 		님을 위한 BEST제안은 ?
 		</p>
 	</section>
+	
 	<section class="classView" id="result2_2">
 		<div>
 
@@ -198,30 +161,20 @@ click
             </div>
 		</div>
 	</section>
+	<section class="message">
+	
+	</section>
+	
 	<section class="Fkflask" id="result2_3">
 	
-	
-	
-	</section>
-	<!-- 
-	<section class="message" id="result2_4">
-	
-		<p>
-			이거사
-		</p>
-	
-	</section>
-	<section class="itemsView" id="result2_5">
 		<div>
-			<div>
-			<%=choice%>
-			아이템비교 영역
-			</div>	
+		
+		
+		
 		</div>
+			
 	</section>
 
-	-->
-	
 
     <!-- ------------------------------------------------------------------------ -->
     <script src="asset/js/jquery-3.6.0.min.js"></script>
@@ -243,29 +196,38 @@ click
     $("#nutriCover1").css({"background":"url("+nutriPhoto0+")"}); 
     $("#nutriCover2").css({"background":"url("+nutriPhoto1+")"}); 
     $("#nutriCover3").css({"background":"url("+nutriPhoto2+")"}); 
-   /*
-
+    var nutriCloud0=(String)(sessionStorage.getItem("nutriCloud0"));
+    var nutriCloud1=(String)(sessionStorage.getItem("nutriCloud1"));
+    var nutriCloud2=(String)(sessionStorage.getItem("nutriCloud2"));
+    $("#nutriCloud3").css({"background":"url("+nutriCloud0+")"}); 
+    $("#nutriCloud2").css({"background":"url("+nutriCloud1+")"}); 
+    //$("#nutriCloud1").css({"background":"url("+nutriCloud2+")"}); 
+    
+    
+    
+    
+    
+    
+    
+    
     function sssi(){
     	var cov
     	iimg=$('<img>',{
     		'src' : nutriPhoto2
     	});
     	$(iimg).appendTo('#class1');
-    }
-    */
-    
+
     function loginform(){
-        $('#logIn').css('display','block')
-        $('#signUp').css('display','none')
-        window.scrollTo(0,document.body.scrollHeight)
+        $('#logIn').css('display','block');
+        $('#signUp').css('display','none');
+        window.scrollTo(0,document.body.scrollHeight);
     }
     function signform(){
-        $('#signUp').css('display','block')
-        $('#logIn').css('display','none')
-        window.scrollTo(0,document.body.scrollHeight)
+        $('#signUp').css('display','block');
+        $('#logIn').css('display','none');
+        window.scrollTo(0,document.body.scrollHeight);
     }
    	
-    
     $('input[name=id]').on("blur", function (event) {
     	let inputEmail = $('#id').val();
     	$.ajax({
@@ -277,11 +239,11 @@ click
 			 success : function(res){
 				 console.log(res)
 				 	if( res !='true' ){
-						$('#id').css('background-color','pink')
-						$('.b1').attr('disabled',true)
+						$('#id').css('background-color','pink');
+						$('.b1').attr('disabled',true);
 					}else{
-						$('#id').css('background-color','white')
-						$('.b1').attr('disabled',false)
+						$('#id').css('background-color','white');
+						$('.b1').attr('disabled',false);
 					}
 			 },
 			 error : function(){
@@ -293,11 +255,11 @@ click
     	let pwA = $('input[name=pw]').val() 
     	let pwB = $('input[name=pw2]').val()
 		if( pwA !=pwB ){
-			$('input[name=pw2]').css('background-color','pink')
-			$('.b1').attr('disabled',true)
+			$('input[name=pw2]').css('background-color','pink');
+			$('.b1').attr('disabled',true);
 		}else{
-			$('input[name=pw2]').css('background-color','white')
-			$('.b1').attr('disabled',false)
+			$('input[name=pw2]').css('background-color','white');
+			$('.b1').attr('disabled',false);
 		}
     })
     
@@ -351,7 +313,7 @@ click
         		
         		//pageLoad1('result2.jsp')
         		<% user = (UserVO)session.getAttribute("uservo"); 
-        		System.out.println("loginajax 성공");
+        			System.out.println("---result1 loginajax 성공, userssession");
         		%>
         		logon();
 //-------------------------------------------------------------------------        		

@@ -214,9 +214,9 @@ public class UserDAO {
 			cnt=psmt.executeUpdate();
 			
 			if(cnt>0) {
-				System.out.println("쿼리문성공");
+				System.out.println("UserDAO Update 회원정보수정성공");
 			}else {
-				System.out.println("쿼리문실패");
+				System.out.println("UserDAO Update 회원정보수정실패");
 			}
 			
 		} catch (SQLException e) {

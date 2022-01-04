@@ -5,6 +5,11 @@ public class NutriVO {
 	private String nutri_name;
 	private float nutri_pos;
 	private String nutri_photo;
+	private String nutri_cloud;
+	private String nutri_graph;
+	
+	
+	
 	public String getChoice() {
 		return choice;
 	}
@@ -29,6 +34,18 @@ public class NutriVO {
 	public void setNutri_photo(String nutri_photo) {
 		this.nutri_photo = nutri_photo;
 	}
+	public String getNutri_cloud() {
+		return nutri_cloud;
+	}
+	public void setNutri_cloud(String nutri_cloud) {
+		this.nutri_cloud = nutri_cloud;
+	}
+	public String getNutri_graph() {
+		return nutri_graph;
+	}
+	public void setNutri_graph(String nutri_graph) {
+		this.nutri_graph = nutri_graph;
+	}
 	public NutriVO(String choice, String nutri_name, float nutri_pos, String nutri_photo) {
 		super();
 		this.choice = choice;
@@ -36,5 +53,16 @@ public class NutriVO {
 		this.nutri_pos = nutri_pos;
 		this.nutri_photo = nutri_photo;
 	}
+	public NutriVO(String choice, String nutri_name, float nutri_pos, String nutri_photo, String nutri_cloud,
+			String nutri_graph) {
+		super();
+		this.choice = choice;
+		this.nutri_name = nutri_name;
+		this.nutri_pos = nutri_pos;
+		this.nutri_photo = nutri_photo;
+		this.nutri_cloud = nutri_cloud;
+		this.nutri_graph = nutri_graph;
+	}
+	
 	
 }

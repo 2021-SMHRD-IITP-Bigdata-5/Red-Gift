@@ -1,7 +1,6 @@
 package front;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import inter.command;
 import page.DeleteMypage;
 import page.GetMypage;
-import page.GetNutriClass;
 import page.SetMypage;
 import page.SetNutriClass;
 import page.UpdateMypage;
@@ -24,6 +22,7 @@ import product.SetNutritions;
 import service.CheckUserIdService;
 import service.DeleteService;
 import service.GetBoard;
+import service.GetNutriService;
 import service.GetArticle;
 import service.LoginService;
 import service.LogoutService;
@@ -57,11 +56,11 @@ public class FrontController extends HttpServlet {
 			nextpage=com.execute(request, response);
 		}
 		if(command.equals("LogIn.do")) {
-			com = new LoginService();
+			com= new LoginService();
 			com.execute(request, response);
 		}
 		if(command.equals("LogInGnb.do")) {
-			com = new LoginService();
+			com= new LoginService();
 			nextpage=com.execute(request, response);
 		}
 		if(command.equals("LogOut.do")) {
@@ -73,7 +72,7 @@ public class FrontController extends HttpServlet {
 			nextpage=com.execute(request, response);
 		}
 		if(command.equals("Delete.do")) {
-			com=new DeleteService();
+			com = new DeleteService();
 			nextpage=com.execute(request, response);
 		}
 		
@@ -99,8 +98,8 @@ public class FrontController extends HttpServlet {
 	//---------------------------------------------	
 		
 		
-		if(command.equals("GetNutriClass.do")) {
-			com= new GetNutriClass();
+		if(command.equals("GetNutriService.do")){
+			com=new GetNutriService();
 			com.execute(request, response);
 		}
 		

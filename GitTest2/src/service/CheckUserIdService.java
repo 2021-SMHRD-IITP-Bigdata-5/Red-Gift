@@ -19,10 +19,12 @@ public class CheckUserIdService implements command{
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("inputEmail");
 		UserDAO dao = new UserDAO();
+		
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();	
 		out.print(dao.CheckUserId(id));
-		System.out.println(dao.CheckUserId(id));
+		System.out.println("CheckUserIdService : " + dao.CheckUserId(id));
+		
 		return null;
 	}
 
