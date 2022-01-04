@@ -125,7 +125,7 @@
                 <input type="password" name="pw" placeholder="password">
                 <div>
                 <button class="b2" type="button" onClick="signform()">아직 계정이 없습니다</button> 
-                <button class="b1" type="submit" onClick="">로그인</button>
+                <button class="b1" type="submit" form="logInForm">로그인</button>
                 </div>
             </form>
         </div>
@@ -367,14 +367,16 @@
     })
     
     $('#logInForm').on("submit",function(){
-    	let data=$(this).serialize();
     	
+    	let data=$(this).serialize();
+    	console.log(data)
     	$.ajax({
     		url : "LogIn.do",
     		method:"post",
         	data:data,
         	success:function(res){
-			alert("로그인 성공")
+				console.log(res.slice(15, 20))				
+        		if(res.slice(15, 20)=="로그인성공"){
         			$('#sign').hide();
         		$('#suggest').hide();
         		
@@ -398,6 +400,11 @@
         			System.out.println("---result1 loginajax 성공, userssession");
         		%>
         		logon();
+        		}
+        		else{
+        			alert("로그인실패");
+        		}
+        		
 //-------------------------------------------------------------------------        		
         		/* //로그인 시 Flask서버로 요청
         		$.ajax({
@@ -414,7 +421,7 @@
 //-------------------------------------------------------------------------				
         	},
         	error:function(){
-        		alert('로그인실패')	
+        		alert('요청실패')	
         	}
     	})
     	return false;
@@ -459,35 +466,39 @@
             //차트에 들어갈 타입쓰기
             type : 'doughnut', //bar바, pie파이, line라인, doughnut도넛, polarArea
             data: {
-		        labels: ['긍정', '부정'],
-		        
-		        datasets: [{
-				            label: '# of Votes',
-				            data: [50,50],
-				            backgroundColor: [
-								                'rgba(255, 99, 132, 0.4)',
-								                'rgba(54, 162, 235, 0.4)',
-								                // 'rgba(255, 206, 86, 0.4)',
-								                // 'rgba(75, 192, 192, 0.4)',
-								                // 'rgba(153, 102, 255, 0.4)',
-								                // 'rgba(255, 159, 64, 0.4)'
-								            ],
-				            borderColor: [
-								                'rgba(255, 99, 132, 1)',
-								                'rgba(54, 162, 235, 1)',
-								                // 'rgba(255, 206, 86, 1)',
-								                // 'rgba(75, 192, 192, 1)',
-								                // 'rgba(153, 102, 255, 1)',
-								                // 'rgba(255, 159, 64, 1)'
-								         ],
-					         borderWidth:1     
-				}]
-    		},
-		    options: {
-	    	responsive : false,
-	        scales: { y:{ beginAtZero: true 	} }
-			}
-	});
+			        labels: ['긍정', '부정'],
+			        datasets: [{
+			            label: '# of Votes',
+			            data: [5,5],
+			            backgroundColor: [
+			                'rgba(255, 99, 132, 0.4)',
+			                'rgba(54, 162, 235, 0.4)',
+			                // 'rgba(255, 206, 86, 0.4)',
+			                // 'rgba(75, 192, 192, 0.4)',
+			                // 'rgba(153, 102, 255, 0.4)',
+			                // 'rgba(255, 159, 64, 0.4)'
+			            ],
+			            borderColor: [
+			                'rgba(255, 99, 132, 1)',
+			                'rgba(54, 162, 235, 1)',
+			                // 'rgba(255, 206, 86, 1)',
+			                // 'rgba(75, 192, 192, 1)',
+			                // 'rgba(153, 102, 255, 1)',
+			                // 'rgba(255, 159, 64, 1)'
+			            ],
+			            borderWidth:1     
+			        }]
+			    },
+			    options: {
+			    	responsive : false,
+			        scales: {
+			            y: {
+			                beginAtZero: true
+			            }
+			        }
+			    }
+			});
+
         //-------------------------------------------------------------------------
         let myChartOne2 = document.getElementById('myChartOne2').getContext('2d');
         //차트 오브젝트 생성
