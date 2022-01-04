@@ -399,7 +399,6 @@
 
  //----------------------------------------------------------------------------------------------------                   
 
-                    let param = '';
                     
                     //flask로 넘기기 위한 약 8종류 데이터 
                     let selectItem = ['감미놀렌산','쏘팔메토','글루코사민','홍삼','밀크씨슬','밀크씨슬','셀레늄','아연'];
@@ -416,17 +415,31 @@
     					url:'http://localhost:9000/',
     					//dataType:'json',
     					data:'param='+param,
+    					dateType:'json',
     					success:function(result){
-    						var res1 = result.replaceAll(",", "<br>");
-    						console.log(res1);
+    						
+    						console.log(result);
+    					
+    						var res1 = result;
     						
     						//크롤링한 데이터는 result에 저장됨
     						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
     						//$('section.message').html(result);
-
-    						$('.Fkflask').html("<a href='#'>"+res1+"</a>");
+    						
+    					 	let contents  = '';
+    						
+    					 	contents += "<div><a href='"+res1.link1+"' target='_blank' id='test'>링크1</a></div>";
+    						contents += "<div><a href='"+res1.link2+"' target='_blank' id='test'>링크2</a></div>";
+    						contents += "<div><a href='"+res1.link3+"' target='_blank' id='test'>링크3</a></div>"; 
+							
+    						$('.Fkflask').html(contents);
+    						
+    						$('#test').bind('click', function test2() {
+								window.open(res1);
+								console.log('클릭');
+							}) 
 	
-    						localStorage.setItem('data',res1);
+    						//localStorage.setItem('data',res1); 
 
     					}
 
