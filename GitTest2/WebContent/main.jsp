@@ -20,7 +20,6 @@
 
 
 		/*부트스트랩 선택자랑 겹친다*/
-			
 		html,body{
 			width: 100%;
 			height: 100%;
@@ -142,7 +141,14 @@
 		.classView>div{
 			margin:0 0 100px 0;
 		}
+		section.Fkflask{
+			flex-direction: column;
+    		align-items: center;
+		}
 		.Fkflask>div{
+			margin:0 0 20px 0;
+		}
+		#d1{
 			margin:0 0 100px 0;
 		}
 		
@@ -434,10 +440,10 @@
     						//$('section.message').html(result);
     						
     					 	let contents  = '';
-    							
-    					 	contents += "<div><a href='"+res1.link1+"' target='_blank' id='test'>링크1</a></div>";
-    						contents += "<div><a href='"+res1.link2+"' target='_blank' id='test'>링크2</a></div>";
-    						contents += "<div><a href='"+res1.link3+"' target='_blank' id='test'>링크3</a></div>"; 
+    					 	
+    					 	contents += "<div ><a href='"+res1.link1+"' target='_blank' id='test'>"+param+" 첫 번째 리뷰</a></div>";
+    						contents += "<div ><a href='"+res1.link2+"' target='_blank' id='test'>"+param+" 두 번째 리뷰</a></div>";
+    						contents += "<div id='d1'><a href='"+res1.link3+"' target='_blank' id='test'>"+param+" 세 번째 리뷰</a></div>"; 
 							
     						$('.Fkflask').html(contents);
     						
