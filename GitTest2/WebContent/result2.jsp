@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 
+
 </head>
 
 <body>
@@ -38,7 +39,9 @@
 	</section>
 	<section class="classView">
 		<div>
+
 			<div class="nutriCard" onclick="cardUp('#class3')" id="nutriCover1">
+
             	<div class="cardHead" id="class3">
             	
             	제안3(최종) 헤드

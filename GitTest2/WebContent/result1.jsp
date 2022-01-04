@@ -47,15 +47,18 @@
 	</section>
     <section class="resultView">
         <div>
+
             <div class="nutriCard" onclick="cardUp('#class1')" id="nutriCover3">
             	<div class="cardHead" id="class1">
            			<%=choice%> 
+
             	</div>
             	
 				<div class="cardBody">
 					<h2 style="color: white;">
-						click
+click
 					</h2>
+					<br>
 					<br>
 					<br>
 					<div>
@@ -68,14 +71,17 @@
 				
             </div>
        <!--                                -->
+
             <div class="nutriCard" onclick="cardUp('#class2')" id="nutriCover2" >
             	<div class="cardHead" id="class2">
+
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
-					<h2 style="color: white;">
-						click
+					<h2 style="color: white; background-color: white;">
+click
 					</h2>
+					<br>
 					<br>
 					<br>
 					<div>
