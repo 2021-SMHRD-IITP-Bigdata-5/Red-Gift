@@ -161,7 +161,7 @@ click
                 <input type="password" name="pw" placeholder="password">
                 <div>
                 <button class="b2" type="button" onClick="signform()">아직 계정이 없습니다</button> 
-                <button class="b1" type="submit" onClick="">로그인</button>
+                <button class="b1" type="submit" form="logInForm">로그인</button>
                 </div>
             </form>
         </div>
@@ -323,14 +323,16 @@ click
     })
     
     $('#logInForm').on("submit",function(){
-    	let data=$(this).serialize();
     	
+    	let data=$(this).serialize();
+    	console.log(data)
     	$.ajax({
     		url : "LogIn.do",
     		method:"post",
         	data:data,
         	success:function(res){
-			alert("로그인 성공")
+				console.log(res.slice(15, 20))				
+        		if(res.slice(15, 20)=="로그인성공"){
         			$('#sign').hide();
         		$('#suggest').hide();
         		
@@ -354,6 +356,11 @@ click
         		System.out.println("loginajax 성공");
         		%>
         		logon();
+        		}
+        		else{
+        			alert("로그인실패");
+        		}
+        		
 //-------------------------------------------------------------------------        		
         		/* //로그인 시 Flask서버로 요청
         		$.ajax({
@@ -370,7 +377,7 @@ click
 //-------------------------------------------------------------------------				
         	},
         	error:function(){
-        		alert('로그인실패')	
+        		alert('요청실패')	
         	}
     	})
     	return false;
@@ -419,7 +426,7 @@ click
         labels: ['긍정', '부정'],
         datasets: [{
             label: '# of Votes',
-            data: [50,50],
+            data: [5,5],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.4)',
                 'rgba(54, 162, 235, 0.4)',
