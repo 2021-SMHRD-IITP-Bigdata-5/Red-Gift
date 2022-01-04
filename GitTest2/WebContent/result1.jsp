@@ -78,7 +78,7 @@
 					<div id="nutriCloud2">
 
             		</div>
-            		<div id="nutriGraph2">
+            		<div i d="nutriGraph2">
 					</div>
 					<div>
 						<canvas  id="myChartOne2" width="150" height="150"></canvas>
@@ -142,14 +142,13 @@
 	</section>
 	
 	<section class="classView" id="result2_2">
+	
 		<div>
 
 			<div class="nutriCard" onclick="cardUp('#class3')" id="nutriCover1">
 
             	<div class="cardHead" id="class3">
-            	
-            	제안3(최종) 헤드
-            	
+ 	
             	</div>
 				<div class="cardBody">
 
@@ -157,7 +156,9 @@
 
 					</div>
 					<div id="nutriGraph1">
+					
 					</div>
+				
 				</div>
 				<!-- 
 				 <div class="cardTail">
@@ -165,11 +166,12 @@
 				</div>
 				 -->
 				 
-				
-				
             </div>
+            
 		</div>
+		
 	</section>
+	
 	<section class="message">
 	
 	</section>
@@ -182,6 +184,7 @@
 		<div>
 		
 		</div>
+		
 	</section>
 	<!-- 
 	<section class="message" id="result2_4">
@@ -369,7 +372,7 @@
     $('#logInForm').on("submit",function(){
     	
     	let data=$(this).serialize();
-    	console.log(data)
+    	//console.log(data)
     	$.ajax({
     		url : "LogIn.do",
     		method:"post",

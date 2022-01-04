@@ -17,13 +17,6 @@
 @font-face{font-family: 'NanumSquareBold'; src:url('asset/font/NanumSquareB.otf')}
 @font-face{font-family: 'NanumSquareExtraBold'; src:url('asset/font/NanumSquareEB.otf')}
 
-<<<<<<< HEAD
-	
-=======
-
-
-		/*부트스트랩 선택자랑 겹친다*/
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
 		html,body{
 			width: 100%;
 			height: 100%;
@@ -156,7 +149,7 @@
     		align-items: center;
 		}
 		.Fkflask>div{
-			margin:0 0 20px 0;
+			margin:0 0 40px 0;
 		}
 		#d1{
 			margin:0 0 100px 0;
@@ -264,13 +257,9 @@
 			border: 0px solid hsl(0 0% 85%);
 			-webkit-transition: .2s ease-in-out;
 			position:relative;
-<<<<<<< HEAD
-=======
+			//box-shadow: 1rem 1rem 1rem 1rem hsl(0 0% 0% / 15%);
 			
-			box-shadow: 1rem 1rem 1rem 1rem hsl(0 0% 0% / 15%);
-			
-			
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/Red-Gift.git
+
 		}
 		.choiceCard:hover{
 			box-shadow: 0.6rem 0.6rem 0.6rem hsl(0 0% 0% / 15%);
@@ -533,7 +522,7 @@
 				    	  	sessionStorage.setItem("nutriCloud"+i,res[i].nutri_cloud);
 				    	  	sessionStorage.setItem("nutriGraph"+i,res[i].nutri_graph);
 				    	  	
-				    	    s
+				    	    
 				    	  }
 				    	  pageLoad('result1.jsp',s)
                           $('#card'+s).css('opacity','0.5');

@@ -112,7 +112,6 @@ public class FrontController extends HttpServlet {
 			com= new SetNutriClass();
 		}
 		
-		
 		if(command.equals("SetNutritions.do")) {
 			com= new SetNutritions();	
 		}
