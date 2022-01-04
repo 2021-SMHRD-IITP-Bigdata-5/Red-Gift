@@ -225,6 +225,7 @@ click
     		method:"post",
     		data:data,
     		success:function(res){
+    			
     			$('#idinput').val("");
     			$('#pwinput').val("");
     			$('#pw2input').val("");
@@ -242,11 +243,12 @@ click
     	let data=$(this).serialize();
     	
     	$.ajax({
-    		url : "LogIn.do",	
+    		url : "LogIn.do",
     		method:"post",
         	data:data,
         	success:function(res){
-        		$('#sign').hide();
+			alert("로그인 성공")
+        			$('#sign').hide();
         		$('#suggest').hide();
         		pageLoad1('result2.jsp')
         		<% user = (UserVO)session.getAttribute("uservo"); 
@@ -269,7 +271,7 @@ click
 //-------------------------------------------------------------------------				
         	},
         	error:function(){
-        		alert('로그인요청실패')	
+        		alert('로그인실패')	
         	}
     	})
     	return false;

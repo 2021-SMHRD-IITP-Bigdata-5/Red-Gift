@@ -121,7 +121,7 @@ body > main > section > form > div.btn-login > button{
                     </table>
                     <table>
                    <tr>
-                   <td><font id=pwCheck size="10px"></font></td>
+                   <td><font id=pwCheck size="2.5"></font></td>
                    </tr> 
                     </table>
                     <table>
@@ -163,12 +163,21 @@ body > main > section > form > div.btn-login > button{
 			$('#pwCheck').html('');
 		});
 		$('#pw2').keyup(function() {
-			if($('#pw').val() == $('#pw2').val()){
-				$('pwCheck').html('<tr><td>비밀번호가 일치합니다.</td></tr>');
-				$('pwCheck').attr('color','#58acfa');
+			
+			let pw = $('#pw').val();
+			let pw2 = $('#pw2').val();
+		
+			console.log(typeof(pw));
+			console.log(typeof(pw2));
+			console.log(pw == pw2);
+			
+			if(pw == pw2){
+			
+				$('#pwCheck').html('<tr><td>비밀번호가 일치합니다.</td></tr>');
+				$('#pwCheck').attr('color','#58acfa');
 			}else{
-				$('pwCheck').html('<tr><td>비밀번호가 일치하지 않습니다.</td></tr>');
-				$('pw2').attr('color','#fa5858');
+				$('#pwCheck').html('<tr><td>비밀번호가 일치하지 않습니다.</td></tr>');
+				$('#pwCheck').attr('color','#fa5858');
 			}
 		});	
 		
