@@ -37,7 +37,6 @@
    	if(user!=null) System.out.println("-----result1 head userid : "+user.getUser_id());
    	
 	%>
-	<button onclick="sssi()">ㅅ시ㅣㅣㄱㄷㄴ</button>
 	<section class="message">
 	
 		<p>
