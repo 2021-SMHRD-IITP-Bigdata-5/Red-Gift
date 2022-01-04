@@ -419,7 +419,7 @@ click
         labels: ['긍정', '부정'],
         datasets: [{
             label: '# of Votes',
-            data: [50, 50],
+            data: [50,50],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.4)',
                 'rgba(54, 162, 235, 0.4)',
