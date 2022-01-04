@@ -107,8 +107,8 @@ $("#nutriCover1").css({"background":"url("+nutriPhoto0+")"});
 		    	"id" : '<%=user.getUser_id()%>',
 		    	"choice" : '<%=choice%>'
 		    },
-		    success: function(res){  
-		        console.log(res)
+		    success: function(res1){  
+		        console.log(res1)
 		    },
 		    error:function(){
 		        alert("실패")

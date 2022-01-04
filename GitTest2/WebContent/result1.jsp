@@ -258,12 +258,12 @@ click
         		$.ajax({
 					url:'http://localhost:9000/',
 					dataType:'json',
-					success:function(result){
-						console.log(result);
+					success:function(res1){
+						console.log(res1);
 						
-						$('.Fkflask').html("<a href='#'>"+result+"</a>");
+						$('.Fkflask').html("<a href='#'>"+res1+"</a>");
 						
-						localStorage.setItem('data',result);
+						localStorage.setItem('data',res1);
 					}
 				});
 //-------------------------------------------------------------------------				

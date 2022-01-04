@@ -423,9 +423,9 @@
     						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
     						//$('section.message').html(result);
 
-    						$('.Fkflask').html("<a href='#'>"+result+"</a>");
+    						$('.Fkflask').html("<a href='#'>"+res1+"</a>");
 	
-    						localStorage.setItem('data',result);
+    						localStorage.setItem('data',res1);
 
     					}
 
