@@ -67,7 +67,8 @@
         #bannerButton2{
         	position:absolute;
         	left:300px;
-        	top:450px;
+        	/*top:450px;*/
+        	top:490px;
         	font-family: 'NanumSquareExtraBold';
         	font-size:16px;
         	cursor:pointer;
@@ -82,6 +83,22 @@
         
 		#bannerButton2:hover{
 			box-shadow: 0.5rem 0.5rem 0.5rem hsl(0 0% 0% / 10%);
+		}
+		#bannerButton3{
+			position:absolute;
+        	left:285px;
+        	top:400px;
+        	font-family: 'NanumSquareExtraBold';
+        	font-size:19px;
+        	cursor:pointer;
+        	-webkit-transition: .2s ease-in-out;
+        	color: rgba(41, 41, 41, 0.6);
+        	padding: 20px;
+        	margin:35px 0 0 0;
+            display:inline-block;
+        	cursor:pointer;
+        	-webkit-transition: .2s ease-in-out;
+            text-align:left;
 		}
         
         section{
@@ -330,6 +347,7 @@
             <br>
             <h1 id="bannerButton" onclick="push()">선물할 영양제를<br>찾고 계신가요?</h1>
             <h2 id="bannerButton2" onclick="push()">시작해 보세요   <img src="asset/img/icon_img/메인-시작해보세요2.png" width="25" height="25"></h2>
+            <p id="bannerButton3">영양제에 관해 처음 접하거나 지식이 없는 구매자를 위하여 긍정,<br> 부정적인 지표를 통하여 영양제를 선택할 수 있게 도와드립니다.</p>
             
         </div>
     
