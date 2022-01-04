@@ -82,16 +82,16 @@ public class FrontController extends HttpServlet {
 			com= new MypageService();
 			com.execute(request, response);
 		}
-		if(command.equals("SetMypage.do")) {
-			com=new SetMypage();
-			com.execute(request, response);
-		}
 		if(command.equals("UpdateMypage.do")) {
 			com= new UpdateMypage();
 			com.execute(request, response);
 		}
 		if(command.equals("DeleteMypage.do")) {
 			com=new DeleteMypage();
+			com.execute(request, response);
+		}
+		if(command.equals("SetMypage.do")) {
+			com=new SetMypage();
 			com.execute(request, response);
 		}
 		

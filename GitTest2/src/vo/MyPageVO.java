@@ -5,7 +5,7 @@ import java.util.Date;
 public class MyPageVO {
 	
 	private int page_seq;
-	private int nutri_seq;
+	private String nutri_seq;
 	private String nutri_class;
 	private String my_class_sat;
 	private String reg_date;
@@ -26,7 +26,7 @@ public class MyPageVO {
 		this.user_id = user_id;
 		this.page_memo = page_memo;
 	}
-	public MyPageVO(int page_seq, int nutri_seq, String nutri_class, String my_class_sat, String reg_date,
+	public MyPageVO(int page_seq, String nutri_seq, String nutri_class, String my_class_sat, String reg_date,
 			String user_id, String page_memo) {
 		super();
 		this.page_seq = page_seq;
@@ -43,10 +43,10 @@ public class MyPageVO {
 	public void setPage_seq(int page_seq) {
 		this.page_seq = page_seq;
 	}
-	public int getNutri_seq() {
+	public String getNutri_seq() {
 		return nutri_seq;
 	}
-	public void setNutri_seq(int nutri_seq) {
+	public void setNutri_seq(String nutri_seq) {
 		this.nutri_seq = nutri_seq;
 	}
 	public String getNutri_class() {

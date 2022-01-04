@@ -11,6 +11,10 @@
 <title>마이페이지</title>
 <style>
 
+#photo>img{
+width:250px;
+}
+
 section {
 	display:flex;
 	align-items: center;
@@ -158,8 +162,8 @@ textarea{
 					table+='</tr></thead>'
 				
 					table+='<tbody><tr>'
-				
-					table+='<td colspan="2"> class:'+res[i].nutri_class+'</td>'
+					table+='<td  id="photo"><img src="'+res[i].nutri_seq+'"></td>'
+					table+='<td> class:'+res[i].nutri_class+'</td>'
 					table+='<td> sat:'+res[i].my_class_sat+'</td>'
 					
 					//table+='<td> user:'+res[i].user_id+'</td>'

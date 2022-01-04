@@ -43,7 +43,7 @@
             <div class="nutriCard" onclick="cardUp('#class1')" id="nutriCover3">
             
             	<div class="cardHead" id="class1">
-           			<%=choice%> 
+           			
 
             	</div>
             	
@@ -71,7 +71,7 @@
             <div class="nutriCard" onclick="cardUp('#class2')" id="nutriCover2" >
             
             	<div class="cardHead" id="class2">
-            		<%=choice%>            	
+            		            	
             	</div>
 				<div class="cardBody">
 	
@@ -206,6 +206,8 @@
     <!-- ------------------------------------------------------------------------ -->
     <script src="asset/js/jquery-3.6.0.min.js"></script>
     <script>
+    
+    let usernickasdfasdf=null;
    	<%if(user!=null){%>
     let user = '<%=user.getUser_id()%>';
     let choice = '<%=choice%>'
@@ -237,7 +239,7 @@
     var nutriPhoto0=(String)(sessionStorage.getItem("nutriPhoto0"));
     var nutriPhoto1=(String)(sessionStorage.getItem("nutriPhoto1"));
     var nutriPhoto2=(String)(sessionStorage.getItem("nutriPhoto2"));
-    $("#nutriCover1").css({"background":"url("+nutriPhoto0+")"}); 
+    $("#nutriCover1").css({"background":"url("+nutriPhoto0+")"});
     $("#nutriCover2").css({"background":"url("+nutriPhoto1+")"}); 
     $("#nutriCover3").css({"background":"url("+nutriPhoto2+")"}); 
     
@@ -252,15 +254,16 @@
     //$("#nutriCloud2").css({"background":"url("+nutriCloud1+")"}); 
     //$("#nutriCloud1").css({"background":"url("+nutriCloud2+")"}); 
     
-   	let tag_cloudList = ['#nutriCloud3','#nutriCloud2','#nutriCloud1'];
+   	let tag_NameList = ['#class3','#class2','#class1']
+    let tag_cloudList = ['#nutriCloud3','#nutriCloud2','#nutriCloud1'];
     let tag_graphList = ['#nutriGraph3','#nutriGraph2','#nutriGraph1'];
     for ( var i =0 ; i<3 ; i++){
     	var nutriCloud=(String)(sessionStorage.getItem("nutriCloud"+i));
     	var nutriGraph=(String)(sessionStorage.getItem("nutriGraph"+i));
-
+    	var nutriName=(String)(sessionStorage.getItem("nutriName"+i));
     	console.log(nutriCloud);
     	console.log(nutriGraph);
-    	
+    	$(tag_NameList[i]).append(nutriName);
     	
      	imgurl=$('<img>',
      			{'src' : nutriCloud,
@@ -383,13 +386,13 @@
         		if(res!=null){	
         			$('#sign').hide();
         		$('#suggest').hide();
-        	
-        		$('#result2_1').html('<p>'+res+'을 위한 베스트제안은?</p>')
         		$('#result2_1').show();
         		$('#result2_2').show();
         		$('#result2_3').show();
         		$('#result2_4').show();
         		$('#result2_5').show();
+        		usernickasdfasdf=res
+        		$('#result2_1').html('<p>'+usernickasdfasdf+'을 위한 베스트제안은?</p>')
         		 	var nutriPhoto0=(String)(sessionStorage.getItem("nutriPhoto0"));
         		    var nutriPhoto1=(String)(sessionStorage.getItem("nutriPhoto1"));
         		    var nutriPhoto2=(String)(sessionStorage.getItem("nutriPhoto2"));

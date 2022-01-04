@@ -1,6 +1,7 @@
 package vo;
 
 public class NutriVO {
+	private float typescore;
 	private String choice;
 	private String nutri_name;
 	private float nutri_pos;
@@ -10,6 +11,12 @@ public class NutriVO {
 	
 	
 	
+	public float getTypescore() {
+		return typescore;
+	}
+	public void setTypescore(float typescore) {
+		this.typescore = typescore;
+	}
 	public String getChoice() {
 		return choice;
 	}
@@ -53,6 +60,17 @@ public class NutriVO {
 		this.nutri_pos = nutri_pos;
 		this.nutri_photo = nutri_photo;
 	}
+	public NutriVO(float typescore, String choice, String nutri_name, float nutri_pos, String nutri_photo, String nutri_cloud,
+			String nutri_graph) {
+		super();
+		this.typescore = typescore;
+		this.choice = choice;
+		this.nutri_name = nutri_name;
+		this.nutri_pos = nutri_pos;
+		this.nutri_photo = nutri_photo;
+		this.nutri_cloud = nutri_cloud;
+		this.nutri_graph = nutri_graph;
+	}
 	public NutriVO(String choice, String nutri_name, float nutri_pos, String nutri_photo, String nutri_cloud,
 			String nutri_graph) {
 		super();
@@ -63,6 +81,5 @@ public class NutriVO {
 		this.nutri_cloud = nutri_cloud;
 		this.nutri_graph = nutri_graph;
 	}
-	
 	
 }

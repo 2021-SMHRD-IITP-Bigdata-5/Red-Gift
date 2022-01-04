@@ -81,24 +81,34 @@ public class MypageDAO {
 		try {
 			
 			String nutri="";
-			String[] list1= {"0","MOM","FATHER","GRANDMOM","MARRYED","JUNIOR","SENIOR","PREGD","STUDENT"};
+			String[] list1= {"0","MOM","FATHER","GRANDMA","MARRYED","JUNIOR","SENIOR","PREGD","STUDENT"};
 			int a=Integer.parseInt(choice);
 				for( int i=1; i<9;i++ ) {
 					if(i==a) nutri=list1[i];
 				}
 			System.out.println("MypageDAO GetNutri : nutriType from choice :"+nutri);
 			
-			String sql="SELECT A.CHOICE, "
-				    + "B.N_NAME, "
-				    + "B.N_POS, "
-				    + "B.N_PHOTO, "
-				    + "B.N_CLOUD, "
-				    + "B.N_GRAPH "
-				    + "FROM TBL_NUTRI B "
-				    + "INNER JOIN (SELECT * FROM TBL_NUTRI_CHOICES WHERE CHOICE = ?) A "
-				    + "ON B.N_NAME IN (A.CLASS1, A.CLASS2, A.CLASS3)";
+			
+			
+//			String sql="SELECT A.CHOICE, "
+//					+ "B.N_"+nutri+", "
+//				    + "B.N_NAME, "
+//				    + "B.N_POS, "
+//				    + "B.N_PHOTO, "
+//				    + "B.N_CLOUD, "
+//				    + "B.N_GRAPH "
+//				    + "FROM TBL_NUTRI B "
+//				    + "INNER JOIN (SELECT * FROM TBL_NUTRI_CHOICES WHERE CHOICE = ?) A "
+//				    + "ON B.N_NAME IN (A.CLASS1, A.CLASS2, A.CLASS3) "
+//				    + "ORDER BY B.N_"+nutri+" ASC";
+//	1:1매칭으로 수정
+			String sql="SELECT "+nutri+", N_NAME, N_POS, N_PHOTO, N_CLOUD, N_GRAPH FROM "
+					+ "(SELECT * FROM TBL_NUTRI ORDER BY "+nutri+" DESC) WHERE ROWNUM<=3";
+			
+			System.out.println(sql);
 				psmt=con.conn.prepareStatement(sql);
-				psmt.setString(1, nutri);
+				//psmt.setString(1, nutri);
+				//psmt.setString(2, nutri);
 			rs =psmt.executeQuery();
 			
 			while(rs.next()) {
@@ -108,8 +118,9 @@ public class MypageDAO {
 				String nutri_photo = rs.getString(4);
 				String nutri_cloud = rs.getString(5);
 				String nutri_graph = rs.getString(6);
-				NutriVO nv = new NutriVO(choice_name, nutri_name, nutri_pos, nutri_photo, nutri_cloud, nutri_graph);
+				NutriVO nv = new NutriVO( choice_name, nutri_name, nutri_pos, nutri_photo, nutri_cloud, nutri_graph);
 				arr.add(nv);
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -130,13 +141,15 @@ public class MypageDAO {
 			String sql="insert into TBL_MYPAGES ("
 					+ "nutri_class, "
 					+ "my_class_sat, "
-					+ "user_id)"
-					+ "values(?,?,?)";
+					+ "user_id, "
+					+ "nutri_seq)"
+					+ "values(?,?,?,?)";
 				psmt=conn.prepareStatement(sql);
 				
-				psmt.setNString(1,arr.get(1).getNutri_name());
-				psmt.setFloat(2,arr.get(1).getNutri_pos());
-				psmt.setNString(3,id);		
+				psmt.setNString(1,arr.get(0).getNutri_name());
+				psmt.setFloat(2,arr.get(0).getNutri_pos());
+				psmt.setNString(3,id);
+				psmt.setNString(4,arr.get(0).getNutri_photo());
 			cnt=psmt.executeUpdate();
 			
 			
@@ -170,7 +183,7 @@ public class MypageDAO {
 
 			while (rs.next()) {
 				int page_seq = Integer.parseInt(rs.getString(1));
-
+				String ntr_photo = rs.getString(2);
 				String ntr_class = rs.getString(3);
 				String class_sat = rs.getString(4);
 				String reg_date = rs.getString(5);
@@ -178,7 +191,7 @@ public class MypageDAO {
 				String page_memo = rs.getString(7);
 				if(page_memo==null) page_memo="메모가 없습니다";
 
-				mypagevo = new MyPageVO(page_seq, ntr_class, class_sat, reg_date, user_id, page_memo);
+				mypagevo = new MyPageVO(page_seq, ntr_photo, ntr_class, class_sat, reg_date, user_id, page_memo);
 				page_list.add(mypagevo);
 			}
 
