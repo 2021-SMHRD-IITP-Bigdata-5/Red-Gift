@@ -296,6 +296,7 @@
         	opacity:0.6;
     	}
     	
+
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -492,8 +493,7 @@
 
 		function cardChoice(s){
 			if(selected==false){
-				selected = true;23
-	    		console.log(s);
+				selected = true;
 	    		//$('.message:nth-child(2)').remove();
 	    		//$('.resultView').remove();
 	    			
@@ -511,18 +511,14 @@
 				    	  	sessionStorage.setItem("nutriName"+i, res[i].nutri_name);
 				    	  	sessionStorage.setItem("nutriPhoto"+i, res[i].nutri_photo);
 				    	  }
+				    	  pageLoad('result1.jsp',s)
+                          $('#card'+s).css('opacity','0.5');
 				      },
 				      error:function(){
 				          alert("실패")
 				      }
 				  })
 
-	    		
-	    		
-	    		
-	            pageLoad('result1.jsp',s)
-
-	            $('#card'+s).css('opacity','0.5');
 			}else{
 				
 				location.reload()
