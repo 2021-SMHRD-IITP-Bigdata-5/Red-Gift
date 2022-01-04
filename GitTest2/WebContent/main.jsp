@@ -251,7 +251,7 @@
 			box-shadow: 1rem 1rem 1rem 1rem hsl(0 0% 0% / 15%);
 			
 			
-		
+		}
 		.choiceCard:hover{
 			box-shadow: 0.6rem 0.6rem 0.6rem hsl(0 0% 0% / 15%);
 		}
