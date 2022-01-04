@@ -139,6 +139,13 @@
 			color: hsl(200 50% 20%);
 		}
 		
+		.classView>div{
+			margin:0 0 100px 0;
+		}
+		.Fkflask>div{
+			margin:0 0 100px 0;
+		}
+		
 		.itemsView{
 			margin-bottom: 50px;
 		}
@@ -427,7 +434,7 @@
     						//$('section.message').html(result);
     						
     					 	let contents  = '';
-    						
+    							
     					 	contents += "<div><a href='"+res1.link1+"' target='_blank' id='test'>링크1</a></div>";
     						contents += "<div><a href='"+res1.link2+"' target='_blank' id='test'>링크2</a></div>";
     						contents += "<div><a href='"+res1.link3+"' target='_blank' id='test'>링크3</a></div>"; 
