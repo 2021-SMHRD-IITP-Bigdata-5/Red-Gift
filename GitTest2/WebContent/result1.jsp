@@ -15,7 +15,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+	<style>
+		input{
+		        width:300px;
+		        height:40px;
+		        background-color: transparent;
+		        border: none;
+		        font-size:18px;
+	        }
+		#sign{
+			height:200px;
+			margin-bottom: 50px;        
+        }
+        #sign>div>form>div{
+        	display:flex;
+        	justify-content: center;
+	        align-items: center; 
+        }
+		#sign button{
+	        color: white;
+	        border: 0px;
+	        border-radius: 25px;
+	        width:300px; 
+	        font-family: 'NanumSquareR';
+	        font-size: 18px;
+	        font-weight: bold;
+	        margin: 10px 5px 5px 5px;
+	        padding: 10px;
+	        
+	        display: flex;
+	        justify-content: center;
+	        align-items: center; 
+    	} 
+    	#sign .b1{
+        	background-color: crimson;
+        	opacity:0.7;
+    	}
+    	#sign .b2{
+        	background-color: gray;
+        	opacity:0.6;
+    	}
+	</style>
 </head>
 <body>
    <%//test
@@ -77,7 +117,7 @@ click
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
-					<h2 style="color: white; background-color: white;">
+					<h2 style="color: white;">
 click
 					</h2>
 					<br>
@@ -121,15 +161,66 @@ click
                 <input type="password" name="pw" placeholder="password">
                 <div>
                 <button class="b2" type="button" onClick="signform()">아직 계정이 없습니다</button> 
-                <button class="b1" type="submit" onClick="">로그인</button>
+                <button class="b1" type="submit" form="logInForm">로그인</button>
                 </div>
             </form>
         </div>
     </section>	
 <%}%> 
-<% //user = (UserVO)session.getAttribute("uservo");
-%>
 
+	
+	<section class="message" id="result2_1">
+		<p>
+		님을 위한 BEST제안은 ?
+		</p>
+	</section>
+	<section class="classView" id="result2_2">
+		<div>
+
+			<div class="nutriCard" onclick="cardUp('#class3')" id="nutriCover1">
+
+            	<div class="cardHead" id="class3">
+            	
+            	제안3(최종) 헤드
+            	
+            	</div>
+				<div class="cardBody">
+					<h2>
+					<%=choice %>
+					</h2>
+					<p>
+						
+					</p>
+				</div>
+				<div class="cardTail">
+				
+				</div>
+            </div>
+		</div>
+	</section>
+	<section class="Fkflask" id="result2_3">
+		<div>
+		
+		</div>
+	</section>
+	<!-- 
+	<section class="message" id="result2_4">
+	
+		<p>
+			이거사
+		</p>
+	
+	</section>
+	<section class="itemsView" id="result2_5">
+		<div>
+			<div>
+			<%=choice%>
+			아이템비교 영역
+			</div>	
+		</div>
+	</section>
+
+	-->
 	
 
     <!-- ------------------------------------------------------------------------ -->
@@ -139,29 +230,21 @@ click
     let user = '<%=user.getUser_id()%>';
     <%}else{%>
     let user = null;
+    $('#result2_1').hide();
+	$('#result2_2').hide();
+	$('#result2_3').hide();
+	$('#result2_4').hide();
+	$('#result2_5').hide();
     <%}%>
 
     var nutriPhoto0=(String)(sessionStorage.getItem("nutriPhoto0"));
     var nutriPhoto1=(String)(sessionStorage.getItem("nutriPhoto1"));
     var nutriPhoto2=(String)(sessionStorage.getItem("nutriPhoto2"));
-    
-    $("#nutriCover3").css({"background":"url("+nutriPhoto2+")"}); 
+    $("#nutriCover1").css({"background":"url("+nutriPhoto0+")"}); 
     $("#nutriCover2").css({"background":"url("+nutriPhoto1+")"}); 
+    $("#nutriCover3").css({"background":"url("+nutriPhoto2+")"}); 
    /*
-   테스트들
-    var nutriPhoto2Dir="/GitTest2/asset/img/nutri/"+nutriPhoto2+".jpg";
-	$("#asdfasdf").eq(index).css("background-image", "url(asset/img/nutri/" + nutricover1 + ".jpg)");
-	$("#asdfasdf").css("background-image", "url(asset/img/nutri/" + nutricover1 + ".jpg)");
-    let nutriurl1 = "url('asset/img/nutri/" + nutricover1 + ".jpg')";
-	let nutriurl = "asset/img/nutri/" + nutricover1 + ".jpg";
-	$("#class1").css({"background":"url('./asset/img/rv1.png')"}); 			
-    	$("#class1").css({"background":"url('./asset/img/rv1.png')"}); 	
-  
-   	let nutricover = "/GitTest2/asset/img/nutri/홍삼.jpg";
-   	이건 됨.
-   	var nnn="n23";
-    var aaa= "/GitTest2/asset/img/nutri/"+nnn+".jpg" 
- 	조합은 안됨. 한글이 %문자로 나옴
+
     function sssi(){
     	var cov
     	iimg=$('<img>',{
@@ -225,6 +308,7 @@ click
     		method:"post",
     		data:data,
     		success:function(res){
+    			
     			$('#idinput').val("");
     			$('#pwinput').val("");
     			$('#pw2input').val("");
@@ -239,22 +323,46 @@ click
     })
     
     $('#logInForm').on("submit",function(){
-    	let data=$(this).serialize();
     	
+    	let data=$(this).serialize();
+    	console.log(data)
     	$.ajax({
-    		url : "LogIn.do",	
+    		url : "LogIn.do",
     		method:"post",
         	data:data,
         	success:function(res){
-        		$('#sign').hide();
+				console.log(res.slice(15, 20))				
+        		if(res.slice(15, 20)=="로그인성공"){
+        			$('#sign').hide();
         		$('#suggest').hide();
-        		pageLoad1('result2.jsp')
+        		
+        		$('#result2_1').show();
+        		$('#result2_2').show();
+        		$('#result2_3').show();
+        		$('#result2_4').show();
+        		$('#result2_5').show();
+        		 	var nutriPhoto0=(String)(sessionStorage.getItem("nutriPhoto0"));
+        		    var nutriPhoto1=(String)(sessionStorage.getItem("nutriPhoto1"));
+        		    var nutriPhoto2=(String)(sessionStorage.getItem("nutriPhoto2"));
+        		    $("#nutriCover1").css({"background":"url("+nutriPhoto0+")"}); 
+        		    $("#nutriCover2").css({"background":"url("+nutriPhoto1+")"}); 
+        		    $("#nutriCover3").css({"background":"url("+nutriPhoto2+")"});
+        		            		    
+        		    
+        		    window.scrollTo(0,document.body.scrollHeight)
+        		
+        		//pageLoad1('result2.jsp')
         		<% user = (UserVO)session.getAttribute("uservo"); 
         		System.out.println("loginajax 성공");
         		%>
         		logon();
+        		}
+        		else{
+        			alert("로그인실패");
+        		}
+        		
 //-------------------------------------------------------------------------        		
-        		//로그인 시 Flask서버로 요청
+        		/* //로그인 시 Flask서버로 요청
         		$.ajax({
 					url:'http://localhost:9000/',
 					dataType:'json',
@@ -265,11 +373,11 @@ click
 						
 						localStorage.setItem('data',res1);
 					}
-				});
+				}); */
 //-------------------------------------------------------------------------				
         	},
         	error:function(){
-        		alert('로그인요청실패')	
+        		alert('요청실패')	
         	}
     	})
     	return false;
@@ -293,7 +401,7 @@ click
     $(window).on('scroll.resultView',function(){
 		if(user!=null){
     		if(Math.round($(document).scrollTop()) == $(document).height() - $(window).height() ){
-   				pageLoad1('result2.jsp',a)
+   				//pageLoad1('result2.jsp',a)
    				$(window).off('scroll.resultView');
     		}
     	}
@@ -318,7 +426,7 @@ click
         labels: ['긍정', '부정'],
         datasets: [{
             label: '# of Votes',
-            data: [50, 50],
+            data: [5,5],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.4)',
                 'rgba(54, 162, 235, 0.4)',

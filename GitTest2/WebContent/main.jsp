@@ -20,7 +20,6 @@
 
 
 		/*부트스트랩 선택자랑 겹친다*/
-			
 		html,body{
 			width: 100%;
 			height: 100%;
@@ -137,6 +136,20 @@
 			text-align: center;
 			line-height: 1.5;
 			color: hsl(200 50% 20%);
+		}
+		
+		.classView>div{
+			margin:0 0 100px 0;
+		}
+		section.Fkflask{
+			flex-direction: column;
+    		align-items: center;
+		}
+		.Fkflask>div{
+			margin:0 0 20px 0;
+		}
+		#d1{
+			margin:0 0 100px 0;
 		}
 		
 		.itemsView{
@@ -296,6 +309,7 @@
         	opacity:0.6;
     	}
     	
+
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -398,7 +412,6 @@
 
  //----------------------------------------------------------------------------------------------------                   
 
-                    let param = '';
                     
                     //flask로 넘기기 위한 약 8종류 데이터 
                     let selectItem = ['감미놀렌산','쏘팔메토','글루코사민','홍삼','밀크씨슬','밀크씨슬','셀레늄','아연'];
@@ -415,17 +428,31 @@
     					url:'http://localhost:9000/',
     					//dataType:'json',
     					data:'param='+param,
+    					dateType:'json',
     					success:function(result){
-    						var res1 = result.replaceAll(",", "<br>");
-    						console.log(res1);
+    						
+    						console.log(result);
+    					
+    						var res1 = result;
     						
     						//크롤링한 데이터는 result에 저장됨
     						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
     						//$('section.message').html(result);
-
-    						$('.Fkflask').html("<a href='#'>"+res1+"</a>");
+    						
+    					 	let contents  = '';
+    					 	
+    					 	contents += "<div ><a href='"+res1.link1+"' target='_blank' id='test'>"+param+" 첫 번째 리뷰</a></div>";
+    						contents += "<div ><a href='"+res1.link2+"' target='_blank' id='test'>"+param+" 두 번째 리뷰</a></div>";
+    						contents += "<div id='d1'><a href='"+res1.link3+"' target='_blank' id='test'>"+param+" 세 번째 리뷰</a></div>"; 
+							
+    						$('.Fkflask').html(contents);
+    						
+    						$('#test').bind('click', function test2() {
+								window.open(res1);
+								console.log('클릭');
+							}) 
 	
-    						localStorage.setItem('data',res1);
+    						//localStorage.setItem('data',res1); 
 
     					}
 
@@ -492,8 +519,7 @@
 
 		function cardChoice(s){
 			if(selected==false){
-				selected = true;23
-	    		console.log(s);
+				selected = true;
 	    		//$('.message:nth-child(2)').remove();
 	    		//$('.resultView').remove();
 	    			
@@ -511,18 +537,14 @@
 				    	  	sessionStorage.setItem("nutriName"+i, res[i].nutri_name);
 				    	  	sessionStorage.setItem("nutriPhoto"+i, res[i].nutri_photo);
 				    	  }
+				    	  pageLoad('result1.jsp',s)
+                          $('#card'+s).css('opacity','0.5');
 				      },
 				      error:function(){
 				          alert("실패")
 				      }
 				  })
 
-	    		
-	    		
-	    		
-	            pageLoad('result1.jsp',s)
-
-	            $('#card'+s).css('opacity','0.5');
 			}else{
 				
 				location.reload()
