@@ -133,10 +133,10 @@
         <% for (CommunityVO i : arr){  %>
             <tr>
                 <td class="seqCol">
-                    <a href="#"><%=i.getArticle_seq()%></a>
+                    <a href=""><%=i.getArticle_seq()%></a>
                 </td>
                 <td class="subjectCol">
-                    <a href="#"><%=i.getArticle_subject()%></a>
+                    <a href="GetArticle.do?articleNo="<%=i.getArticle_seq()%>><%=i.getArticle_subject()%></a>
                 </td>
                 <td class="idCol">
                     <a href="#"><%=i.getUser_id()%></a>

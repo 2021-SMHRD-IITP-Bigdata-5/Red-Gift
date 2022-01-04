@@ -105,9 +105,9 @@ public class MypageDAO {
 				String choice_name = rs.getNString(1);
 				String nutri_name = rs.getString(2);
 				float class_pos = Float.parseFloat(rs.getString(3));
-				String class_photo = rs.getString(4);
-		
-				NutriVO nv = new NutriVO(choice_name, nutri_name, class_pos, class_photo);
+				String nutri_photo = rs.getString(4);
+				System.out.println("mypageDAO: "+nutri_photo);
+				NutriVO nv = new NutriVO(choice_name, nutri_name, class_pos, nutri_photo);
 			
 				arr.add(nv);
 			}

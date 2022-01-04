@@ -304,7 +304,6 @@
 
 	
 	<%@include file="gnb.jsp"%>
-
     
         <div id="banner">
             <br>
@@ -357,59 +356,6 @@
     <!-- ------------------------------------------------------------------------ -->
     <script src="asset/js/jquery-3.6.0.min.js"></script>
     <script>
-        /*
-        let option ={  //이미지 주소 딕셔너리
-        		'1':'asset/img/1231_메인2/1231_메인클릭이미지_가족.jpg',
-        		'2':'asset/img/1231_메인2/1231_메인클릭이미지_회사.jpg',
-        		'3':'asset/img/1231_메인2/1231_메인클릭이미지_학생.jpg',
-        		'11':'asset/img/1231_메인2/1231_메인클릭이미지_엄마.jpg',
-        		'12':'asset/img/1231_메인2/1231_메인클릭이미지_아빠.jpg',
-        		'13':'asset/img/1231_메인2/1231_메인클릭이미지_할머니.jpg',
-        		
-        		'21':'asset/img/1231_메인2/1231_메인클릭이미지_야근.jpg',
-        		'22':'asset/img/1231_메인2/1231_메인클릭이미지_회식.jpg',
-        		'23':'asset/img/1231_메인2/1231_메인클릭이미지_어지럼증.jpg',
-        		
-        		'31':'asset/img/0101-메인이미지/0101-아연.jpg',
-        		'32':'asset/img/0101-메인이미지/0101-알로에.jpg',
-        		'33':'asset/img/0101-메인이미지/0101-비타민B.jpg',
-        		
-        		'111':'asset/img/0101-메인이미지/0101-감미놀렌산.jpg',
-        		'112':'asset/img/0101-메인이미지/0101-클로렐라.jpg',
-        		'113':'asset/img/0101-메인이미지/0101-스피루리나.jpg',
-        		
-        		'121':'asset/img/0101-메인이미지/0101-쏘팔메토.jpg',
-        		'122':'asset/img/0101-메인이미지/0101-홍삼.jpg',
-        		'123':'asset/img/0101-메인이미지/0101-보스웰리아.jpg',
-        		
-        		'131':'asset/img/0101-메인이미지/0101-글루코사민.jpg',
-        		'132':'asset/img/0101-메인이미지/0101-보스웰리아.jpg',
-        		'133':'asset/img/0101-메인이미지/0101-칼슘.jpg',
-        		홍삼,비타민B,프로폴리스 추가해야됨
-        		
-        		'211':'asset/img/0101-메인이미지/0101-밀크씨슬.jpg',
-        		'212':'asset/img/0101-메인이미지/0101-비타민B.jpg',
-        		'213':'asset/img/0101-메인이미지/0101-비타민C.jpg',
-        		
-        		'221':'asset/img/0101-메인이미지/0101-밀크씨슬.jpg',
-        		'222':'asset/img/0101-메인이미지/0101-비타민C.jpg',
-        		'223':'asset/img/0101-메인이미지/0101-로얄젤리.jpg',
-        		
-        		'231':'asset/img/0101-메인이미지/0101-셀레늄.jpg',
-        		'232':'asset/img/0101-메인이미지/0101-철분.jpg',
-        		'233':'asset/img/0101-메인이미지/0101-감마리놀렌산.jpg',
-        		
-        		'311':'',
-        		'312':'',
-        		'313':'',
-        		'321':'',
-        		'322':'',
-        		'323':'',
-        		'331':'',
-        		'332':'',
-        		'333':'',
-        		}
-        */
         
         var cnt=0;
         var a='';
@@ -468,7 +414,7 @@
     						//크롤링한 데이터는 result에 저장됨
     						//result에서 정보를 꺼내와서 웹페이지에 보여줄 정보를 html()안에 넣기 
     						//$('section.message').html(result);
-    						$('section.message').html("<a href='#'>"+result+"</a>");
+    						$('.Fkflask').html("<a href='#'>"+result+"</a>");
 	
     						localStorage.setItem('data',result);
     					}
@@ -538,23 +484,32 @@
 	    		console.log(s);
 	    		//$('.message:nth-child(2)').remove();
 	    		//$('.resultView').remove();
-	    		
+	    			
 	    		 $.ajax({
 				      url: 'GetNutriClass.do',  
-				      type: "post",
+				      type: "get",
 				      data: {
 				      	"choice" : s
 				      },
+				      dataType:'json',
 				      success: function(res){
-				      
+				    	  for(var i=0;i<res.length;i++){	
+				    	  	console.log(res[i].nutri_name);
+				    	  	console.log(res[i].nutri_photo);
+				    	  	sessionStorage.setItem("nutriName"+i, res[i].nutri_name);
+				    	  	sessionStorage.setItem("nutriPhoto"+i, res[i].nutri_photo);
+				    	  }
 				      },
 				      error:function(){
 				          alert("실패")
 				      }
 				  })
+
+	    		
 	    		
 	    		
 	            pageLoad('result1.jsp',s)
+
 	            $('#card'+s).css('opacity','0.5');
 			}else{
 				

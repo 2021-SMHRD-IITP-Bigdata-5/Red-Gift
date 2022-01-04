@@ -20,20 +20,24 @@
 <body>
    <%//test
 	UserVO user = (UserVO)session.getAttribute("uservo");
-    ArrayList<NutriVO> nutriarrr = (ArrayList<NutriVO>)session.getAttribute("nutriarr");
-    System.out.print("result 1 : "+nutriarrr.get(0).getNutri_name());
+    //ArrayList<NutriVO> nutriarrr = (ArrayList<NutriVO>)session.getAttribute("nutriarr");
+    //System.out.print("result 1 : "+nutriarrr.get(0).getNutri_name());
    
+    //String dr= "Style=\"background-image: url('asset/img/nutri/";
+   	//String nutri1url=dr+nutriarrr.get(0).getNutri_name()+".jpg')\"";
+    //String nutri2url=dr+nutriarrr.get(1).getNutri_name()+".jpg')\"";
+    //String nutri3url=dr+nutriarrr.get(2).getNutri_name()+".jpg')\"";
    
+     
+    
    	String choice=request.getParameter("choice");
-   	
+   	System.out.println("-----result1 head getParam choice: "+choice);
 	Cookie cookie = new Cookie("choice", choice);
    	response.addCookie(cookie);   	
-    
-   	System.out.println("result1.jsp 선택카드"+choice);
-   	if(user!=null) System.out.println("result.jsp 유저아이디"+user.getUser_id());
+   	if(user!=null) System.out.println("-----result1 head userid : "+user.getUser_id());
    	
 	%>
-	
+	<button onclick="sssi()">ㅅ시ㅣㅣㄱㄷㄴ</button>
 	<section class="message">
 	
 		<p>
@@ -43,12 +47,12 @@
 	</section>
     <section class="resultView">
         <div>
-            <div class="nutriCard" onclick="cardUp('#class1')">
-            	<div class="cardHead" id="class1"><img id="" src="asset/img/0103-추천이미지/n03.jpg" alt="1" width="450px" height="600px" z-index="1";>
-           			<%=choice%>
+            <div class="nutriCard" onclick="cardUp('#class1')" id="nutriCover3">
+            	<div class="cardHead" id="class1">
+           			<%=choice%> 
             	</div>
             	
-				<div class="cardBody"  style="background-color: white; z-index:'2';">
+				<div class="cardBody">
 					<h2 style="color: white;">
 						click
 					</h2>
@@ -64,8 +68,8 @@
 				
             </div>
        <!--                                -->
-            <div class="nutriCard" onclick="cardUp('#class2')">
-            	<div class="cardHead" id="class2"><img id="" src="asset/img/0103-추천이미지/n31.jpg" alt="1" width="450px" height="600px" z-index="1";>
+            <div class="nutriCard" onclick="cardUp('#class2')" id="nutriCover2" >
+            	<div class="cardHead" id="class2">
             		<%=choice%>            	
             	</div>
 				<div class="cardBody">
@@ -131,6 +135,36 @@
     <%}else{%>
     let user = null;
     <%}%>
+
+    var nutriPhoto0=(String)(sessionStorage.getItem("nutriPhoto0"));
+    var nutriPhoto1=(String)(sessionStorage.getItem("nutriPhoto1"));
+    var nutriPhoto2=(String)(sessionStorage.getItem("nutriPhoto2"));
+    
+    $("#nutriCover3").css({"background":"url("+nutriPhoto2+")"}); 
+    $("#nutriCover2").css({"background":"url("+nutriPhoto1+")"}); 
+   /*
+   테스트들
+    var nutriPhoto2Dir="/GitTest2/asset/img/nutri/"+nutriPhoto2+".jpg";
+	$("#asdfasdf").eq(index).css("background-image", "url(asset/img/nutri/" + nutricover1 + ".jpg)");
+	$("#asdfasdf").css("background-image", "url(asset/img/nutri/" + nutricover1 + ".jpg)");
+    let nutriurl1 = "url('asset/img/nutri/" + nutricover1 + ".jpg')";
+	let nutriurl = "asset/img/nutri/" + nutricover1 + ".jpg";
+	$("#class1").css({"background":"url('./asset/img/rv1.png')"}); 			
+    	$("#class1").css({"background":"url('./asset/img/rv1.png')"}); 	
+  
+   	let nutricover = "/GitTest2/asset/img/nutri/홍삼.jpg";
+   	이건 됨.
+   	var nnn="n23";
+    var aaa= "/GitTest2/asset/img/nutri/"+nnn+".jpg" 
+ 	조합은 안됨. 한글이 %문자로 나옴
+    function sssi(){
+    	var cov
+    	iimg=$('<img>',{
+    		'src' : nutriPhoto2
+    	});
+    	$(iimg).appendTo('#class1');
+    }
+    */
     
     function loginform(){
         $('#logIn').css('display','block')
@@ -222,7 +256,7 @@
 					success:function(result){
 						console.log(result);
 						
-						$('section.message').html("<a href='#'>"+result+"</a>");
+						$('.Fkflask').html("<a href='#'>"+result+"</a>");
 						
 						localStorage.setItem('data',result);
 					}

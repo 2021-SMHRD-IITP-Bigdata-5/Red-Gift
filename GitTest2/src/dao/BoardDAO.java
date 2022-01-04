@@ -22,8 +22,7 @@ public class BoardDAO {
 	String result = null;
 
 	ArrayList<UserVO> userlist = new ArrayList<UserVO>();
-//--------------------------------------------------------------------------------	
-	
+//--------------------------------------------------------------------------------		
 	public void connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -52,8 +51,6 @@ public class BoardDAO {
 		}
 	}
 //--------------------------------------------------------------------------------	
-	
-	
 	public int insertArticle(CommunityVO vo) {
 		connect();
 		
@@ -89,10 +86,8 @@ public class BoardDAO {
 			close();
 			
 		}
-		
-		
+
 		return cnt;
-		
 	}
 //--------------------------------------------------------------------------------	
 	public ArrayList<CommunityVO> articleList(int topRow, int bottomRow ){
@@ -124,7 +119,6 @@ public class BoardDAO {
 			}
 		} catch (Exception e){
 			
-			
 		} finally {
 			
 			close();
@@ -155,8 +149,45 @@ public class BoardDAO {
 		return count;
 	}
 //--------------------------------------------------------------------------------	
-	
-	
+public CommunityVO getArticle(int no){
+		
+		connect();
+		CommunityVO cvo=null;;
+		try { 
+			
+			String sql = "update TBL_COMMUNITY SET VIEW = VIEW + 1 WHERE ARTICLE_SEQ=?";
+				psmt=conn.prepareStatement(sql);
+				psmt.setInt(1, no);
+			cnt=psmt.executeUpdate();
+		
+			
+			
+			sql = "select * "
+						+ "from TBL_COMMUNITY where article_seq=?";
+				psmt=conn.prepareStatement(sql);
+				psmt.setInt(1, no);
+			rs =psmt.executeQuery();
+
+			rs.next();
+				int article_seq=rs.getInt(1);
+				String article_subject=rs.getNString(2);
+				String article_content=rs.getNString(3);
+				String reg_date=rs.getNString(4);
+				String user_id=rs.getNString(5);
+				String Article_file1=rs.getNString(6);
+				String Article_file2=rs.getNString(7);
+				String Article_file3=rs.getNString(8);
+				cvo = new CommunityVO(article_seq,article_subject,article_content,
+						reg_date,user_id,Article_file1,Article_file2,Article_file3);		
+			
+		} catch (Exception e){	
+			
+		} finally {	
+			close();	
+		}
+		return cvo;
+	}
+//--------------------------------------------------------------------------------	
 	
 	
 	

@@ -1,3 +1,4 @@
+<%@page import="vo.CommunityVO"%>
 <%@page import="dao.BoardDAO"%>
 <%@page import="vo.Pagination"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -68,19 +69,21 @@
 <%@include file="gnb.jsp" %>
 
 	<section id="tableArea">
-
-
+	<% CommunityVO vo = new CommunityVO(); 
+		UserVO user = (UserVO)session.getAttribute("uservo");
+		String userId=user.getUser_id();
+	%>
 	<table>
 		
 	<tr>
-	<td class="sub">제목</td><td></td>
+	<td class="sub"><%=vo.getArticle_subject() %></td><td></td>
 	</tr>
 	<tr>
-	<td colspan="2"></td>
+	<td colspan="2"><%=vo.getUser_id()%><%=vo.getReg_date()%></td>
 	
 	</tr>
 	<tr>
-	<td class="sub" id="contents">내용</td><td></td>
+	<td class="sub" id="contents"><%=vo.getArticle_content() %></td><td></td>
 	</tr>
 	<tr>
 	<td></td>
@@ -95,8 +98,10 @@
 	</table>
 	<div>
 	<button onclick="#">목록</button>
+	<%if(vo.getUser_id().equals(user)) {%>
 	<button onclick="#">수정</button>
 	<button onclick="#">삭제</button>
+	<%} %>
 	
 	</div>
 

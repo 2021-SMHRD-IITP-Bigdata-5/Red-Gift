@@ -38,7 +38,7 @@
 	</section>
 	<section class="classView">
 		<div>
-			<div class="nutriCard" onclick="cardUp('#class3')">
+			<div class="nutriCard" onclick="cardUp('#class3')" id="nutriCover1">
             	<div class="cardHead" id="class3">
             	
             	제안3(최종) 헤드
@@ -57,6 +57,13 @@
 				</div>
             </div>
 		</div>
+	</section>
+	<section class="Fkflask">
+	
+		<p>
+		<%=user.getUser_nick()%>님을 위한 BEST제안은 ?
+		</p>
+	
 	</section>
 	<section class="message">
 	
@@ -78,11 +85,16 @@
 </body>
 <script src="asset/js/jquery-3.6.0.min.js"></script>
 <script>
-
+	
+var nutriPhoto0=(String)(sessionStorage.getItem("nutriPhoto0"));
+console.log(nutriPhoto0);
+$("#nutriCover1").css({"background":"url("+nutriPhoto0+")"}); 
+	
+	
 	$(function(){
 		
 		let data = localStorage.getItem('data');
-		$('section.message').html("<a href='#'>"+data+"</a>");
+		$('.Fkflask').html("<a href='#'>"+data+"</a>");
 		
 		s
 		$.ajax({
