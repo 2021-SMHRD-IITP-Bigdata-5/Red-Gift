@@ -13,7 +13,6 @@ import inter.command;
 import page.DeleteMypage;
 import page.GetMypage;
 import page.SetMypage;
-import page.SetNutriClass;
 import page.UpdateMypage;
 import product.GetIngredients;
 import product.GetNutritions;
@@ -108,9 +107,7 @@ public class FrontController extends HttpServlet {
 		
 		
 		
-		if(command.equals("SetNutriClass.do")) {
-			com= new SetNutriClass();
-		}
+	
 		
 		if(command.equals("SetNutritions.do")) {
 			com= new SetNutritions();	
