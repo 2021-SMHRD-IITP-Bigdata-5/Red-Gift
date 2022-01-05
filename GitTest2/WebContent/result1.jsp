@@ -171,12 +171,12 @@
 		
 	</section>
 	
-	<section class="message">
+	<!-- <section class="message">
 	
 	</section>
 	
 
-	
+	 -->
 	
 	<section class="Fkflask" id="result2_3">
 
